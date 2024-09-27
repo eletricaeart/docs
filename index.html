@@ -2129,7 +2129,7 @@ signature sig-name {
    </style>
    </head>
    <body>
-      <!-- <appbar></appbar> -->
+      <appbar></appbar>
       <!-- <drawer></drawer> -->
       <home-page>
          <view id="invoice_html">
@@ -2690,6 +2690,13 @@ const
 
 function AppBar( props ) {
    $$( "appbar" ).forEach( a => {
+      const 
+         logoURI = "https://rawcdn.githack.com/eletricaeart/app/6e75f2fa11d56872a7e284e03c20bd865925ff2c/src/images/EA/globo-de-plasma-300.png?raw=true"
+         ,
+         logo = `<logo-icon>
+                  <img src="${ logoURI }" alt="ea" />
+               </logo-icon>`
+      ;
       return( a.outerHTML = `
          <appbar>
             <content>
@@ -2704,9 +2711,7 @@ function AppBar( props ) {
                </appbar-menu-left>
                <appbar-logo>
                   <ea-logo>
-                     <logo-icon>
-                        <img src="./ea.jpg" alt="ea" />
-                     </logo-icon>
+
                      <logo-title>
                         <content>
                            <tt>ELETRICA</tt>
