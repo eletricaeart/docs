@@ -11,18 +11,17 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <!-- == [ fontawesome ]
       == == == == == == == == == -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-      <script src="https://esm.sh/@fortawesome/fontawesome-free"></script>
+      <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+      <script src="https://esm.sh/@fortawesome/fontawesome-free"></script> -->
       <!-- == [ StyleSheets ] 
       == == == == == == == == == -->
       <link rel="stylesheet" href="../assets/globals.css">
-      <link rel="stylesheet" href="../Assets/styles/globals.css">
-      <link rel="stylesheet" href="../Assets/fonts/fonts.css">
       <!-- == [ Scripts ] 
       == == == == == == == == == -->
-      <!-- == [ includes ]
+      <!-- == [ includes ] 
       == == == == == == == == == -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+      <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script> -->
+      <script src="../assets/libs/html2pdf/0.9.2.js"></script>
    </head>
    <body>
       <!-- <appbar></appbar> -->
@@ -341,6 +340,15 @@ const
    }
 ;
 
+function FormatNumber( link ) {
+   let data = link;
+   data = data.replaceAll( /\(/gi, "" );
+   data = data.replaceAll( /\)/gi, "" );
+   data = data.replaceAll( /\-/gi, "" );
+   data = data.replaceAll( /\ /gi, "" );
+   return data;
+}
+
 HTMLElement.prototype.$ = function( v ) {
    return( this.querySelectorAll( v ) );
 }
@@ -348,6 +356,12 @@ HTMLElement.prototype.$ = function( v ) {
 HTMLElement.prototype.attribute = function( v ) {
    return( 
       this.getAttribute( v )
+   );
+}
+
+String.prototype.data = function( v ) {
+   return(
+      JSON.parse( this )
    );
 }
 
@@ -398,8 +412,6 @@ window.addEventListener( "load", ev => {
       ratio.style.aspectRatio = ratio.getAttribute( "ratio" );
    } );
 
-   $( "body" ).innerHTML += `<section id="se">se</section>`;
-   $( "body" ).$( "#se" )[0].innerText += "oi";
    if( $$( "body" ) instanceof NodeList ) {
       _(
          "NodeList"
@@ -409,148 +421,6 @@ window.addEventListener( "load", ev => {
 } );
       </script>
       
-      <script global>
-
-
-'use strict';
-/* [ properties ]
-=================================== */
-let 
-   inputs = []
-   ,
-   intent = {}
-   ,
-   users = []
-   ,
-   customers = []
-   ,
-   services = []
-   ,
-   receipts = []
-   ,
-   budgets = []
-;
-
-let 
-   EraseLS = v => {
-      localStorage.removeItem( "ea.users" );
-      _( "\n\nea.users: \n", JSON.parse( localStorage.getItem( "ea.users" ) ) );
-   }
-   ,
-   ShowUsers = () => _( "\n\nusers: \n", users )
-   ,
-   ShowLS = () => _( "\n\nea.users: \n", JSON.parse( localStorage.getItem( "ea.users" ) ) )
-;
-
-
-/* -------------------------------- */
-
-/* == [ global functions ]
-== == == == == == == == == */
-function FormatNumber( link ) {
-   let data = link;
-   data = data.replaceAll( /\(/gi, "" );
-   data = data.replaceAll( /\)/gi, "" );
-   data = data.replaceAll( /\-/gi, "" );
-   data = data.replaceAll( /\ /gi, "" );
-   return data;
-}
-
-function UpdateDB( DBName, LSName, data ) {
-   let 
-      newData = {}
-      ,
-      st = DBName
-   ;
-
-   if( localStorage.getItem( LSName ) ) {
-      DBName = JSON.parse( localStorage.getItem( LSName ) );
-      newData = DBName;
-   }
-   if( data ) {
-      DBName.push( data );
-      localStorage.setItem( LSName, JSON.stringify( DBName ) );
-      newData = DBName;
-   }
-
-   _( `\n== == == == == == == == ==\ndb.${ st }: ` );
-   table( JSON.parse( localStorage.getItem( LSName ) ) );
-   return( DBName );
-}
-
-// UpdateDB( { DBName: budgets, LSName: "ea.budgets", data: { budgetID: 2, budgetName: "Orçamento 2" } } );
-
-function Observer() {
-   let 
-      url = window.location.href
-      ,
-      data = { 
-         actualPage: url
-      }
-   ;
-   
-   if( $( "#backBtn" ) ) {
-      if( url.includes( "home" ) ) {
-         backBtn.style.display = "none";
-      } else {
-         backBtn.style.display = "flex";
-      }
-   }
-
-   if( localStorage.getItem( "ea.intent" ) ) {
-      data.backPage = JSON.parse( localStorage.getItem( "ea.intent" ) ).actualPage;
-   } else {
-      data.backPage = "";
-   }
-
-   localStorage.setItem( "ea.intent", JSON.stringify( {
-      backPage: data.backPage,
-      actualPage: data.actualPage
-   } ) );
-
-   _( "intent: \n", JSON.parse( localStorage.getItem( "ea.intent" ) ) );
-}
-
-
-
-
-/* == [ events ] 
-== == == == == == == == == */
-window.addEventListener( "load", ev => {
-   _( "global.js\n\n" );
-   _( `Observer(): \n${ window.location.href }` );
-   // DrawerExe();
-   // BackBtnExe();
-
-   Observer();
-   users = UpdateDB( "users", "ea.users" );
-   customers = UpdateDB( "customers", "ea.customers" );
-   budgets = UpdateDB( "budgets", "ea.budgets" );
-   receipts = UpdateDB( "receipts", "ea.receipts" );
-   services = UpdateDB( "services", "ea.services" );
-
-   $$( "[customerlink]" ).forEach( nl => {
-      nl.addEventListener( "click", () => {
-         localStorage.setItem(
-            "ea.load",
-            JSON.stringify( nl.getAttribute( "cust_id" ) )
-         );
-         window.open( "./customer.html", "_self" );
-      } );
-   } );
-
-
-   /* == [ tile[link] ]
-   == == == == == == == == == */
-   $$( "tile[link]" ).forEach( link => {
-      link.addEventListener( "click", () => {
-         window.open( link.getAttribute( "link" ), "_self" );
-      } )
-   } );
-   
-
-} );
-      </script>
       
       <script GetInvoiceFile>
 
@@ -651,227 +521,6 @@ function AppBar( props ) {
 }
 
 AppBar();
-      </script>
-      
-      <script Drawer>
-
-
-function Drawer( props ) {
-   let 
-      template = ""
-      ,
-      profile = {
-         user: "Rafael Ângelo Sammarco",
-         phone: "(13) 9 9148 - 6078",
-         pic: "./ea.jpg"
-      }
-      ,
-      items = [
-         {
-            name: "Home",
-            icon: "../Assets/imgs/icons/contacts.svg",
-            link: "./home.html",
-         },
-         {
-            name: "Clientes",
-            icon: "../Assets/imgs/icons/contacts.svg",
-            link: "./customers.html",
-         },
-         {
-            name: "Orçamentos",
-            icon: "../Assets/imgs/icons/contacts.svg",
-            link: "./budgets.html",
-         },
-         {
-            name: "Recibos",
-            icon: "../Assets/imgs/icons/contacts.svg",
-            link: "./receipts.html",
-         },
-         {
-            name: "Serviços",
-            icon: "../Assets/imgs/icons/contacts.svg",
-            link: "./services.html",
-         },
-         {
-            name: "Criar Orçamento",
-            icon: "../Assets/imgs/icons/invoice.svg",
-            link: "./print-page.html",
-         },
-         {
-            name: "Suporte",
-            icon: "../Assets/imgs/icons/contacts.svg",
-            link: "./support.html",
-         },
-      ]
-   ;
-
-   template = `
-      <drawer id="drawer" closed>
-         <drawer-inside>
-            <header>
-               <user-profile>
-                  <user-pic content>
-                     <picture>
-                        <img src="${ profile.pic }" alt="user pic">
-                     </picture>
-                  </user-pic>
-                  <user-info>
-                     <content>
-                        <user-name>${ profile.user }</user-name>
-                        <user-phone>${ profile.phone }</user-phone>
-                     </content>
-                  </user-info>
-               </user-profile>
-            </header>
-            <content>
-               <main-menu section>`
-   ;
-   items.forEach( item => { template += `
-         <menu-item>
-            <icon>
-               <img src="${ item.icon }" alt="">
-            </icon>
-            <t>
-               <a href="${ item.link }">${ item.name }</a>
-            </t>
-         </menu-item>
-   ` } );
-   template += `         
-               </main-menu>
-            </content>
-            <footer>
-               <p>Logout</p>
-            </footer>
-         </drawer-inside>
-         <drawer-outside id="drawerOutside"></drawer-outside>
-      </drawer>
-   `;
-
-   if( $( "drawer" ) ) {
-      return( $( "drawer" ).outerHTML = template );
-   }
-   // return( $( "drawer" ).outerHTML = template );
-}
-
-// Drawer();
-/* 
-addEventListener( "load", () => {
-   openDrawer.addEventListener( "click", () => {
-      if( drawer.getAttribute( "opened" ) ) {
-         drawer.setAttribute( "closed", "" );
-         drawer.removeAttribute( "opened" );
-      } else {
-         drawer.setAttribute( "opened", "" );
-         drawer.removeAttribute( "closed" );
-      }
-   } );
-   drawerOutside.addEventListener( "click", () => {
-      drawer.removeAttribute( "opened" );
-      drawer.setAttribute( "closed", "" );
-   } );
-
-   backBtn.addEventListener( "click", () => {
-      history.back();
-      
-   } );
-   
-} ); */
-
-addEventListener( "load", () => {
-   if( $( "#openDrawer" ) ) {
-      openDrawer.addEventListener( "click", () => {
-         if( drawer.getAttribute( "opened" ) ) {
-            drawer.setAttribute( "closed", "" );
-            drawer.removeAttribute( "opened" );
-         } else {
-            drawer.setAttribute( "opened", "" );
-            drawer.removeAttribute( "closed" );
-         }
-      } );
-      drawerOutside.addEventListener( "click", () => {
-         drawer.removeAttribute( "opened" );
-         drawer.setAttribute( "closed", "" );
-      } );
-
-      backBtn.addEventListener( "click", () => {
-         history.back();
-      } );
-   }
-} );
-      </script>
-      
-      <script NavBar>
-
-
-function NavBar( 
-   props = { 
-      item1: { 
-         name: "A" 
-      }
-      ,
-      item2: { 
-         name: "B" 
-      }
-      ,
-      item3: { 
-         name: "C" 
-      }
-      ,
-      item4: { 
-         name: "D" 
-      }
-      ,
-   } 
-) {
-   $$( "navbar" ).forEach( tag => {
-      return( tag.outerHTML = `
-         <navbar>
-            <style>
-            </style>
-            <nav-item>
-               <ico>
-                  <i class="fa-solid fa-users"></i>
-                  <t>Item</t>
-               </ico>
-            </nav-item>
-            <nav-item>
-               <ico>
-                  <i class="fa-solid fa-users"></i>
-                  <t>Item</t>
-               </ico>
-            </nav-item>
-            <nav-item>
-               <ico>
-                  <i class="fa-solid fa-users"></i>
-                  <t>Item</t>
-               </ico>
-            </nav-item>
-            <nav-item>
-               <ico>
-                  <i class="fa-solid fa-users"></i>
-                  <t>Item</t>
-               </ico>
-            </nav-item>
-            <nav-item>
-               <ico>
-                  <i class="fa-solid fa-users"></i>
-                  <t>Item</t>
-               </ico>
-            </nav-item>
-         </navbar>
-      ` );
-   } );
-}
-
-NavBar();
-
-/*
-
-<nav-item>${ props.item1.name }</nav-item>
-<nav-item>${ props.item2.name }</nav-item>
-<nav-item>${ props.item3.name }</nav-item>
-<nav-item>${ props.item4.name }</nav-item>
-*/
       </script>
       
       <script EA-Card>
@@ -990,146 +639,6 @@ let
    
    EACard();
 
-   /* 
-   
-   <strong>
-      Fone: ( 13 ) 99768-5853 <br />
-      Whatsapp: ( 13 ) 99768-5853 <br />
-      E-mail: eletrica.art.ltda@gmail.com <br />
-   </strong> 
-   */
-      </script>
-      
-      <script NavLink>
-
-
-function NavLink( props ) {
-   const 
-      navlinkStyle = `
-         <style>
-         p[navlink] {
-            background: #fc0fc0;
-         }
-         p[navlink] > a {
-            text-decoration: none;
-            color: #905;
-         }
-         </style>
-      `
-      /* ,
-      navlinkTag = `
-         <p>
-            <a href"${ props.to }"
-               target="${ props.target }" >
-               ${ props }
-            </a>
-         </p>
-      ` */
-   ;
-
-   $$( "navlink" ).forEach( nvl => {
-      const 
-         names = [ ...nvl.getAttributeNames() ]
-         ,
-         values = []
-      ;
-
-      names.forEach( n => {
-         values.push( [ n, nvl.getAttribute( n ) ] );
-      } );
-
-      props = Object.fromEntries( values );
-      props.children = nvl.innerText;
-
-      _( "el.getAttributeNames(): ", props );
-
-      return( nvl.outerHTML = `
-         <p navlink>
-            ${ navlinkStyle }
-            <a href="${ props.to }"
-               target="${ props.target }" >
-               ${ props.children }
-            </a>
-         </p>
-      ` );
-   } );
-}
-      </script>
-      
-      <script Button>
-
-
-function Button( props  ) {
-   const 
-      buttonStyle = `
-         <style>
-            button[ btn="${ props.tag }" ] {
-               margin: ${ props.margin || "0" };
-               padding: ${ props.tagpadding || "0" };
-               background: ${ props.bg || "#27f" };
-               border: ${ props.border || "transparent" };
-               border-radius: ${ props.radius || ".55em" };
-               color: ${ props.color || "#fff" };
-               text-transform: uppercase;
-               font-weight: bold;
-               font-size: ${ props.size || "1em" };
-            }
-            button[ btn="${ props.tag }" ] > content {
-               padding: ${ props.padding || "1.125em 2em" };
-            }
-         </style>
-      `
-   ;
-   
-   $$( `button[btn="${ props.tag }"` ).forEach( item => {
-      /* item.addEventListener( "click", () => {
-         _( "btn clicked" );
-      } ); */
-      /* return( item.outerHTML = `
-         <button btn="${ props.tag }">
-            ${ buttonStyle }
-            <content>
-               ${ item.innerText || "send" }
-            </content>   
-         </button>   
-      ` ); */
-      return( 
-         ( item.outerHTML = `
-            <button btn="${ props.tag }">
-               ${ buttonStyle }
-               <content>
-                  ${ item.innerText || "send" }
-               </content>   
-            </button>   
-         ` ) 
-         + 
-         (
-            $( `button[btn="${ props.tag }"` ).setAttribute( 
-               "id"
-               , 
-               !item.getAttribute( "id" ) ? 
-                  `btn_${ props.tag }` 
-                  : 
-                  item.getAttribute( "id" )
-            )
-         )
-         +
-         (
-            $( `button[btn="${ props.tag }"` ).addEventListener(
-               "click", () => {
-                  !props.callback ?
-                     _( `callback for \n<button btn="${ item.getAttribute( 'btn' ) }"> \nisn'n defined` )
-                     : 
-                     props.callback();
-               }
-            )
-         )
-      );
-   } );
-}
-      </script>
-      
-      <script html2pdf>
       </script>
       
       <script>
@@ -1149,12 +658,8 @@ function Button( props  ) {
          =================================== */
          window.addEventListener( "load", () => {
 
-            Drawer();
-            NavLink();
 
             btn_createPDF.addEventListener( "click", () => {
-               /* document.querySelector( "#invoice_html" ).style.padding = "40px";
-               setTimeout( () => { */ // put margin in invoice
 
                   const invoice = this.document.querySelector( "#invoice_html" );
                   console.log( $( "#invoice_html" ) );

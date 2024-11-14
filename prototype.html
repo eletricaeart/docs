@@ -1,0 +1,47 @@
+
+
+<view>view</view>
+<view>oi</view>
+<script>
+   "use strict";
+   const 
+      _ = ( ...a ) => console.log( ...a )
+      ,
+      $ = v => document.querySelectorAll( v )
+      ,
+      $$ = v => document.querySelector( v )
+   ;
+
+   NodeList.prototype._ = function() {
+      return document.querySelector( this[0].nodeName );
+      // return this[0];
+   }
+
+   NodeList.prototype.snap = async function( props ) {
+      try {
+         const 
+            list = await [ ...this ]
+         ;
+         return list;
+      } catch( err ) {
+         _( "snap() err => ", err );
+      }
+   }
+
+   // if( $$( "body" ) instanceof NodeList ) {
+   //    _(
+   //       "NodeList"
+   //    );
+   // }
+
+   $( "view" ).forEach( v => {
+      $( "body" )._().innerHTML += v.innerText;
+   } );
+
+   $( "view" ).snap().then( r => {
+      _( "list: ", r )
+   } );
+
+   $( "body" )._().style.background = "#24171f";
+      // ${ $( "vew" ).forEach( v => $( "body" ).innerText += v.innerText ) }
+</script>
