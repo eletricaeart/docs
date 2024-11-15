@@ -13,7 +13,7 @@
 
 /* == [ defaults ]
 == == == == == == == == == */
-@import url( "./globals/defalts.css" );
+/* @import url( "./globals/defalts.css" ); */
 *,
 *::before,
 *::after {
@@ -834,7 +834,8 @@ content, [content] {
 }
 
 card, [card] {
-   background: var( --card, #f5f5f5 );
+   /* background: var( --card, #f5f5f5 ); */
+   background: #7773;
 }
 card-content {
    padding: 1em;
@@ -2076,7 +2077,7 @@ servico {
    margin: 18px 0;
 }
 section > content {
-   font-size: .8em !important;
+   /* font-size: .8em !important; */
 }
 #tbody_budget content p {
    margin: 5px 0;
@@ -2112,6 +2113,9 @@ t1 {
    /* page-break-before: always;  */
    page-break-after: always;
    /* page-break-inside: avoid; */
+
+   display: block;
+   clear: both;
 }
 .avoid, avoid {
    page-break-inside: avoid !important;
@@ -2124,4 +2128,35 @@ after {
    display: block;
    height: 40px;
    background: #0000;
+}
+
+
+/*  */
+home-page {
+   background: #fff;
+}
+
+section {
+   padding: 0;
+   background: #00559c;
+   background: #00aebe;
+   background: #e5e5e5;
+   border-top-left-radius: 2em;
+   border-top-right-radius: 2em;
+   overflow: hidden;
+}
+
+section > header {
+   background: #fff0;
+   /* color: #fff; */
+   font-size: 1.3em;
+   padding: 1.3em 1.5em;
+}
+
+section > content {
+   /* background: #e5e5e5; */
+   background: #fff;
+   border-top-left-radius: 2em;
+   border-top-right-radius: 2em;
+   overflow: hidden;
 }

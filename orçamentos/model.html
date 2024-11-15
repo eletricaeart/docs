@@ -5,14 +5,12 @@
    <head>
       <title>Elétrica & Art</title>
    
-      <link rel="icon" href="src/pix/logo.svg" type="svg+xml">
+      <!-- <link rel="icon" href="src/pix/logo.svg" type="svg+xml"> -->
       <meta charset="UTF-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <!-- == [ fontawesome ]
       == == == == == == == == == -->
-      <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-      <script src="https://esm.sh/@fortawesome/fontawesome-free"></script> -->
       <!-- == [ StyleSheets ] 
       == == == == == == == == == -->
       <link rel="stylesheet" href="../assets/globals.css">
@@ -20,12 +18,14 @@
       == == == == == == == == == -->
       <!-- == [ includes ] 
       == == == == == == == == == -->
-      <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script> -->
-      <script src="../assets/libs/html2pdf/0.9.2.js"></script>
+      <script src="../assets/libs/html2pdf/0.9.2.js" src-remote="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+      <script clb src="../assets/scripts/clb.js" defer></script>
+      <!-- <script GetInvoiceFile src="../assets/scripts/GetInvoiceFile.js" defer></script> -->
+      <!-- <script AppBar src="../assets/widgets/ui/AppBar.js" defer></script> -->
+      <script EACard src="../assets/widgets/ui/EACard.js" defer></script>
+      <script DownloadPDF src="../assets//scripts/DownloadPDF.js" defer></script>
    </head>
    <body>
-      <!-- <appbar></appbar> -->
-      <!-- <drawer></drawer> -->
 <!-- 
 class="page-break"
 <break></break>
@@ -91,30 +91,32 @@ Telefone:
                <header>
                   <ttl>1. Escopo dos Serviços</ttl>
                </header>
-               <p pdh="">
-                  <t6>1.1. Preparação para Pintura</t6><br>
-                  Limpeza e preparação das superfícies das paredes e tetos para garantir a aderência da tinta. 
-                  <br>
-                  Inclui raspagem das partes soltas no teto e, se necessário, nas paredes da sala, além de lixamento leve e remoção de poeira.
-               </p>
-               
-               <p pdh="">
-                  <t6>1.2. Aplicação de Selador Acrílico</t6><br>
-                  Aplicação de selador acrílico diretamente sobre o reboco no hall de escadaria e demais áreas preparadas, para garantir a uniformidade e durabilidade da pintura.
-               </p>
-               
-               <p pdh="">
-                  <t6>1.3. Pintura Completa do Andar Inferior</t6><br>
-                  Aplicação de duas demãos de tinta acrílica de alta qualidade em
-                  <ul pv="">
-                     <li>Hall de escadaria</li>
-                     <li>Sala</li>
-                     <li>Quarto</li>
-                     <p>
-                        A pintura será realizada diretamente sobre as superfícies preparadas com o selador acrílico, assegurando um acabamento uniforme.
-                     </p>
-                  </ul>
-               </p>
+               <content>
+                  <p pdh="">
+                     <t6>1.1. Preparação para Pintura</t6><br>
+                     Limpeza e preparação das superfícies das paredes e tetos para garantir a aderência da tinta. 
+                     <br>
+                     Inclui raspagem das partes soltas no teto e, se necessário, nas paredes da sala, além de lixamento leve e remoção de poeira.
+                  </p>
+                  
+                  <p pdh="">
+                     <t6>1.2. Aplicação de Selador Acrílico</t6><br>
+                     Aplicação de selador acrílico diretamente sobre o reboco no hall de escadaria e demais áreas preparadas, para garantir a uniformidade e durabilidade da pintura.
+                  </p>
+                  
+                  <p pdh="">
+                     <t6>1.3. Pintura Completa do Andar Inferior</t6><br>
+                     Aplicação de duas demãos de tinta acrílica de alta qualidade em
+                     <ul pv="">
+                        <li>Hall de escadaria</li>
+                        <li>Sala</li>
+                        <li>Quarto</li>
+                        <p>
+                           A pintura será realizada diretamente sobre as superfícies preparadas com o selador acrílico, assegurando um acabamento uniforme.
+                        </p>
+                     </ul>
+                  </p>
+               </content>
                
             </section>
 
@@ -125,25 +127,27 @@ Telefone:
                <header>
                   <ttl>2. Materiais a serem Utilizados</ttl>
                </header>
-               <p pdh="">
-                  <ul pv="">
-                     <li>
-                        <mk>Selador acrílico para preparação do reboco;</mk>
-                     </li>
-                     <li>
-                        <mk>Tinta acrílica na cor e acabamento escolhidos em conjunto com a cliente;</mk>
-                     </li>
-                     <li>
-                        <mk>Lixas e materiais de preparação necessários;</mk>
-                     </li>
-                     <li>
-                        <mk>Fitas e lonas de proteção para cobrir e proteger piso e móveis.</mk>
-                     </li>
-                  </ul>
-                  <tag class="avoid"><strong>Nota: </strong> 
-                     Os materiais necessários para a pintura não estão incluídos no valor da mão de obra e serão adquiridos separadamente, com uma cotação detalhada em loja de materiais de construção de preferência da cliente.
-                  </tag>
-               </p>
+               <content>
+                  <p pdh="">
+                     <ul pv="">
+                        <li>
+                           <mk>Selador acrílico para preparação do reboco;</mk>
+                        </li>
+                        <li>
+                           <mk>Tinta acrílica na cor e acabamento escolhidos em conjunto com a cliente;</mk>
+                        </li>
+                        <li>
+                           <mk>Lixas e materiais de preparação necessários;</mk>
+                        </li>
+                        <li>
+                           <mk>Fitas e lonas de proteção para cobrir e proteger piso e móveis.</mk>
+                        </li>
+                     </ul>
+                     <tag class="avoid"><strong>Nota: </strong> 
+                        Os materiais necessários para a pintura não estão incluídos no valor da mão de obra e serão adquiridos separadamente, com uma cotação detalhada em loja de materiais de construção de preferência da cliente.
+                     </tag>
+                  </p>
+               </content>
             </section>
 
 
@@ -151,36 +155,40 @@ Telefone:
                <header>
                   <ttl>3. Cronograma de Execução</ttl>
                </header>
-               <p pdh="">
-                  <ul pv="">
-                     <li>
-                        <p>Aplicação do Selador Acrílico: 1 dia útil;</p>
-                     </li>
-                     <li>
-                        <p>Pintura Completa das Áreas: 4 dias úteis;</p>
-                     </li>
-                  </ul>
-               </p>
-               <br><br>
-               <tagc>Total estimado de execução: <strong>5 dias corridos.</strong></tagc>
+               <content>
+                  <p pdh="">
+                     <ul pv="">
+                        <li>
+                           <p>Aplicação do Selador Acrílico: 1 dia útil;</p>
+                        </li>
+                        <li>
+                           <p>Pintura Completa das Áreas: 4 dias úteis;</p>
+                        </li>
+                     </ul>
+                  </p>
+                  <br><br>
+                  <tagc>Total estimado de execução: <strong>5 dias corridos.</strong></tagc>
+               </content>
             </section>
 
             <section>
                <header>
                   <ttl>4. Investimento</ttl>
                </header>
-               <p pdh="">
-                  <t6>4.1. Mão de Obra</t6>
-                  <br>
-                  Para a execução completa dos serviços de pintura conforme descrito: <strong>R$ 1.000,00</strong>
-                  <br></br>                
-                  
-               </p>
-               <p pdh="">
-                  <t6>4.2. Materiais</t6>
-                  <br>
-                  A aquisição dos materiais será por conta da cliente, conforme especificado anteriormente.
-               </p>
+               <content>
+                  <p pdh="">
+                     <t6>4.1. Mão de Obra</t6>
+                     <br>
+                     Para a execução completa dos serviços de pintura conforme descrito: <strong>R$ 1.000,00</strong>
+                     <br></br>                
+                     
+                  </p>
+                  <p pdh="">
+                     <t6>4.2. Materiais</t6>
+                     <br>
+                     A aquisição dos materiais será por conta da cliente, conforme especificado anteriormente.
+                  </p>
+               </content>
             </section>
 
             <page-break></page-break>
@@ -190,31 +198,37 @@ Telefone:
                <header>
                   <ttl>5. Garantia</ttl>
                </header>
-               <p pdh="">
-                  Garantia de 3 meses para os serviços realizados, exceto em casos de danos externos, mau uso ou infiltrações que possam comprometer o acabamento.
-               </p>
+               <content>
+                  <p pdh="">
+                     Garantia de 3 meses para os serviços realizados, exceto em casos de danos externos, mau uso ou infiltrações que possam comprometer o acabamento.
+                  </p>
+               </content>
             </section>
 
             <section>
                <header>
                   <ttl>6. Condições de Pagamento</ttl>
                </header>
-               <p pdh="">
-                  Entrada de 50% no momento da assinatura do contrato;
-                  <br></br>
-                  Saldo de 50% ao término da execução e entrega do serviço.
-               </p>   
+               <content>
+                  <p pdh="">
+                     Entrada de 50% no momento da assinatura do contrato;
+                     <br></br>
+                     Saldo de 50% ao término da execução e entrega do serviço.
+                  </p>   
+               </content>
             </section>
             
             <section class="avoid">
                <header>
                   <ttl>7. Observações Gerais</ttl>
                </header>
-               <p pdh="">
-                  O orçamento poderá sofrer ajustes caso sejam identificadas necessidades adicionais durante a execução do serviço.
-                  <br></br>
-                  Horários de trabalho serão combinados para garantir o mínimo de transtorno para os moradores e adequação às regras locais.
-               </p>
+               <content>
+                  <p pdh="">
+                     O orçamento poderá sofrer ajustes caso sejam identificadas necessidades adicionais durante a execução do serviço.
+                     <br></br>
+                     Horários de trabalho serão combinados para garantir o mínimo de transtorno para os moradores e adequação às regras locais.
+                  </p>
+               </content>
             </section>
 
             
@@ -222,13 +236,15 @@ Telefone:
                <header>
                   <ttl></ttl>
                </header>
-               <p pdh="">
-                  <tagb>
-                     <mk>
-                        Agradecemos a oportunidade de apresentar esta proposta e estamos à disposição para quaisquer esclarecimentos adicionais.
-                     </mk>
-                  </tagb>
-               </p>
+               <content>
+                  <p pdh="">
+                     <tagb>
+                        <mk>
+                           Agradecemos a oportunidade de apresentar esta proposta e estamos à disposição para quaisquer esclarecimentos adicionais.
+                        </mk>
+                     </tagb>
+                  </p>
+               </content>
             </section>
 
             <section>
@@ -243,12 +259,12 @@ Telefone:
 
             
             <signatures section>
-               <section>
+               <!-- <section>
                   <p pdh>
                      
-<!-- Declaro estar ciente e de acordo com o presente orçamento: -->
+Declaro estar ciente e de acordo com o presente orçamento:
                   </p>
-               </section>
+               </section> -->
                <row>
                   <signature section>
                      <content>
@@ -291,422 +307,10 @@ Telefone:
       <footer>
          <content>
             <label>
-                <input type="button" id="btn_createPDF" value="Baixar em pdf"> 
-               <!-- <view id="btn_createPDF" style="display: block; width: 100%; height: 56px; padding: 16px; background: #0000;"></view> -->
+               <input type="button" id="btn_createPDF" value="Baixar em pdf"> 
             </label>
          </content>
       </footer>
-      
-      <!--navbar></navbar-->
-      
-      
-      <script clb>
-
-
-"use strict";
-/* == [ properties ]
-== == == == == == == == == */
-const 
-   _ = ( ...v ) => console.log( ...v )
-   ,
-   table = v => console.table( v )
-   ,
-   $ = v => document.querySelector( v )
-   ,
-   $$ = v => document.querySelectorAll( v )
-   ,
-   toBrl = v => v.toLocaleString( "pt-br", { "style": "currency", "currency": "BRL" } )
-   ,
-   brlToInt = v => {
-      return(
-         parseInt( v.replace( "R$", "" ).replaceAll( ".", "" ).replace( ",00", "" ) )
-      );
-   } 
-   ,
-   brlToFloat = v => {
-      return(
-         parseFloat( v.replace( "R$", "" ).replaceAll( ".", "" ).replace( ",", "." ) )
-      );
-   } 
-   ,
-   fix = v => v.toFixed( 2 )
-   ,
-   add0 = v => {
-      if( v < 10 ) {
-         return( `0${ v }` );
-      } else {
-         return( v );
-      }
-   }
-;
-
-function FormatNumber( link ) {
-   let data = link;
-   data = data.replaceAll( /\(/gi, "" );
-   data = data.replaceAll( /\)/gi, "" );
-   data = data.replaceAll( /\-/gi, "" );
-   data = data.replaceAll( /\ /gi, "" );
-   return data;
-}
-
-HTMLElement.prototype.$ = function( v ) {
-   return( this.querySelectorAll( v ) );
-}
-
-HTMLElement.prototype.attribute = function( v ) {
-   return( 
-      this.getAttribute( v )
-   );
-}
-
-String.prototype.data = function( v ) {
-   return(
-      JSON.parse( this )
-   );
-}
-
-HTMLElement.prototype.$attribute = function( v ) {
-   return( 
-      this.getAttribute( v )
-   );
-}
-// _( "HTMLElement: ", submit_calcular.$a( "type" ) );
-
-/* -------------------------------- */
-
-
-
-/* == [ events ]
-== == == == == == == == == */
-window.addEventListener( "load", ev => {
-	
-   /* == [ navlink ] 
-   == == == == == == == == == */
-   $$( "navlink" ).forEach( nl => {  
-      _( "oi" );
-      nl.outerHTML = `
-         <p>
-            <a href="${ nl.getAttribute( "to" ) }"
-               target="_blank" >
-               ${ nl.innerText }
-            </a>
-         </p>
-      `;
-   } );
-   
-   /* == [ padding ] 
-   == == == == == == == == == */
-   $$( "[pd]" ).forEach( p => {
-      p.style.padding = p.getAttribute( "pd" );
-   } );
-   
-   /* == [ gap ] 
-   == == == == == == == == == */
-   $$( "[gap]" ).forEach( g => {
-      g.style.gap = g.getAttribute( "gap" );
-   } );
-   
-   /* == [ aspect ratio ] 
-   == == == == == == == == == */
-   $$( "[ratio]" ).forEach( ratio => {
-      ratio.style.aspectRatio = ratio.getAttribute( "ratio" );
-   } );
-
-   if( $$( "body" ) instanceof NodeList ) {
-      _(
-         "NodeList"
-      );
-   }
-
-} );
-      </script>
-      
-      
-      <script GetInvoiceFile>
-
-
-const 
-   GetInvoiceFile = ( props) => {
-      const 
-         // invoice = this.document.querySelector( "#invoice" )
-         invoice = $( props.tagID )
-      ;
-      // console.log( invoice );
-      // _( $( "props.tagID: \n", props.tagID ) );
-      //_( $( "invoice: \n", invoice ) );
-      _( window );
-      var data = {
-         // margin: 1,
-         margin: 0,
-         filename: "orçamento.pdf",
-         // filename: props.fileName,
-         image: { type: "png", quality: 100 },
-         autoPaging: 'text',
-         x: 0,
-         y: 0,
-         html2canvas: { 
-            width: 792,
-            height: 1120,
-            windowWidth: 792,
-            windowHeight: 1120,
-            dpi: 300,
-            letterRendering: true,
-            useCORS: true,
-            // allowTaint: true,
-            imageTimeout: 15000,
-            scale: 1
-         },
-         jsPDF: { 
-            // unit: "in", "pt", "mm", "cm", "m", "in" or "px".
-            unit: "pt", 
-            // format: "letter", a0 - a10, b0 - b10, c0 - c10, dl, letter, government-letter, 
-            // legal, junior-legal, ledger, tabloid, [595.28, 841.89]
-            format: "a4", 
-            orientation: "portrait",
-            precision: 1,
-         }
-      };
-      html2pdf().set( {
-         pagebreak: { mode: 'avoid-all', before: props.pageBreak }
-      } ); 
-      html2pdf().from( invoice ).set( data ).save();
-   }
-;
-      </script>
-      
-      <script AppBar>
-
-
-function AppBar( props ) {
-   $$( "appbar" ).forEach( a => {
-      return( a.outerHTML = `
-         <appbar>
-            <content>
-               <appbar-menu-left>
-                  <content>
-                     <back-btn id="backBtn">
-                        <bar id="backBtn_topBar"></bar>
-                        <bar id="backBtn_centerBar"></bar>
-                        <bar id="backBtn_bottomBar"></bar>
-                     </back-btn>
-                  </content>
-               </appbar-menu-left>
-               <appbar-logo>
-                  <ea-logo>
-                     <logo-icon>
-                        <img src="./ea.jpg" alt="ea" />
-                     </logo-icon>
-                     <logo-title>
-                        <content>
-                           <tt>ELETRICA</tt>
-                           <tt>&</tt>
-                           <tt>ART</tt>
-                        </content>
-                     </logo-title>
-                  </ea-logo>
-               </appbar-logo>
-               <appbar-menu-right>
-                  <content id="">
-                     <trigram id="openDrawer">
-                        <bar id="topBar_left"></bar>
-                        <bar id="centerBar_left"></bar>
-                        <bar id="bottomBar_left"></bar>
-                     </trigram>
-                  </content>
-               </appbar-menu-right>
-            </content>
-         </appbar>      
-      `);
-   } );
-}
-
-AppBar();
-      </script>
-      
-      <script EA-Card>
-
-
-let 
-   eaCardStyle = `
-      <style>
-         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Poppins:wght@500;700;800;900&display=swap');
-            
-         [section="dual"] {
-            display: flex;
-            flex-direction: row;
-         }
-         [section="dual"] > * {
-            flex: 1;
-         }
-         
-         ea-card {
-            background: var( --card-lv1 );
-            background: var( --ea-card, #19497b );
-            color: var( --appbar-title );
-            /* width: 100%;
-            padding: 2vw;
-            padding: 1vw;
-            aspect-ratio: 5 / 2.3;
-            aspect-ratio: 3.8 / 1;
-            overflow: hidden;
-            font-size: 2vw; */
-            font-size: 2.5vw;
-   
-            display: grid !important;
-            grid-template-columns: .35fr .65fr;
-            width: 100%;
-            /* height: 36.3vw; */
-            aspect-ratio: 3.8/1;
-            padding: 1vw;
-            inset: 0;
-            color: #f5f5f5;
-            filter: var( --appbar-filter-shadow );
-         }
-         ea-card * {
-            font-family: "poppins" !important;
-         }
-         ea-card ea-logo {
-            display: flex;
-            height: 100%;
-            aspect-ratio: 1;
-         }
-         ea-logo > content {
-            align-items: center;
-         }
-         ea-card ea-logo img {
-            width: 100%;
-            aspect-ratio: 1;
-            border-radius: 100vw;
-            border: var( --card-lv3 ) solid .48em;
-         }
-   
-         ea-card > description {
-            display: flex;
-            width: 100%;
-            /*aspect-ratio: 1.78 / 1;*/
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            font-size: 2.25vw;
-            /* text-wrap: nowrap; */
-         } 
-         ea-card > description h1 {
-            margin: 0;
-            padding-bottom: 0.5em;
-         }
-         ea-card > description t {
-            display: block;
-         }
-      </style>
-   `
-   ,
-   eaCardTemplate = `
-      <ea-card section="dual">
-         ${ eaCardStyle }
-         <ea-logo>
-            <content>
-               <img 
-                  src="https://rawcdn.githack.com/eletricaeart/app/6e75f2fa11d56872a7e284e03c20bd865925ff2c/src/images/EA/globo-de-plasma-300.png?raw=true" 
-                  alt="ea-logo" 
-               />
-            </content>
-         </ea-logo>
-         <description section >
-            <h1>ELÉTRICA & ART</h1>
-            <t5>
-               CNPJ 32.858.892/0001-52 - IM 67358/0001
-            </t5>
-            <t>
-               Rua José Alves Maciel, 40 - Aviação <br />
-               Praia Grande - São Paulo - SP - Cep 11702-440
-            </t>
-            <t>
-               <strong>Fone </strong> ( 13 ) 99768-5853 <br />
-               <strong>Whatsapp </strong> ( 13 ) 99768-5853 <br />
-               <strong>E-mail </strong> rafa.julia.forever@gmail.com <br />
-            </t>
-         </description>
-      </ea-card>`
-   ;
-   
-   function EACard( props ) {
-      $$( "ea-card" ).forEach( tag => {
-         return(
-            tag.outerHTML = eaCardTemplate
-         );
-      } );
-   }
-   
-   EACard();
-
-      </script>
-      
-      <script>
-         'use strict';
-         /* [ properties ]
-         =================================== */
-         const 
-            ea = {
-               // logoURI: "https://raw.githubusercontent.com/Ceo-js/ea/2e6fdd74866a50968095c8c6942156d1e93e1c34/ea.jpg"
-               logoURI: "https://rawcdn.githack.com/eletricaeart/app/6e75f2fa11d56872a7e284e03c20bd865925ff2c/src/images/EA/globo-de-plasma-300.png?raw=true"
-            }
-         ;
-         /* -------------------------------- */
-         
-         
-         /* [ events ] 
-         =================================== */
-         window.addEventListener( "load", () => {
-
-
-            btn_createPDF.addEventListener( "click", () => {
-
-                  const invoice = this.document.querySelector( "#invoice_html" );
-                  console.log( $( "#invoice_html" ) );
-                  console.log( window );
-                  var data = {
-                     margin: [ 10, 10, 10, 0 ],
-                     filename: "Orçamento-Nilsely-2024-12-10.pdf",
-                     // image: { type: "png", quality: 101 },
-                     image: { type: "jpg", quality: 101 },
-                     autoPaging: 'text',
-                     // autoPaging: 'css',
-                     DisablePdfCompression: 1,
-                     x: 0,
-                     y: 0,
-                     html2canvas: { 
-                        width: 792,
-                        // height: 1120,
-                        windowWidth: 792,
-                        windowHeight: 1120,
-
-                        dpi: 192,
-                        letterRendering: true,
-                        useCORS: true,
-                        // allowTaint: true,
-                        imageTimeout: 15000,
-                        // scale: 4
-                        scale: 2
-                     },
-                     jsPDF: { 
-                        // unit: "in", "pt", "mm", "cm", "m", "in" or "px".
-                        unit: "pt", 
-                        // format: "letter", a0 - a10, b0 - b10, c0 - c10, dl, letter, government-letter, 
-                        // legal, junior-legal, ledger, tabloid, [595.28, 841.89]
-                        format: "a4", 
-                        orientation: "portrait",
-                        precision: 1,
-                     }
-                  };
-                  html2pdf().set( {
-                     // pagebreak: { mode: "avoid-all", before: "#break-page" }
-                     pagebreak: { mode: "avoid-all", after: "#break-page" }
-                  } ); 
-                  html2pdf().from( invoice ).set( data ).save();
-
-            } );
-         } );
-      </script>
       
    </body>
 </html>
