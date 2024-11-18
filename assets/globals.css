@@ -2136,27 +2136,41 @@ home-page {
    background: #fff;
 }
 
-section {
+
+article {
    padding: 0;
    background: #00559c;
    background: #00aebe;
    background: #e5e5e5;
-   /* border-top-left-radius: 2em;
-   border-top-right-radius: 2em; */
+   /* border-top-left-radius: 2em; */
+   /* border-top-right-radius: 2em; */
    overflow: hidden;
-}
-
-section > header {
+} article > header {
    background: #fff0;
-   /* color: #fff; */
    font-size: 1.3em;
    padding: 1.3em 1.5em;
-}
-
-section > content {
-   /* background: #e5e5e5; */
+} article > header > ttl {
+   font-weight: bold;
+} article > content {
    background: #fff;
-   border-top-left-radius: 2em;
-   border-top-right-radius: 2em;
+   border-top-left-radius: 1.2em;
+   border-top-right-radius: 1.2em;
    overflow: hidden;
 }
+
+
+
+section {
+   padding: 0;
+} section > header {
+   background: #fff0;
+   /* font-size: 1.3em; */
+   padding: 1em .5em;
+} section > content {
+   /* background: #fff; */
+   padding: .5em .5em;
+   /* border-top-left-radius: 1.2em;
+   border-top-right-radius: 1.2em; */
+   /* overflow: hidden; */
+}
+

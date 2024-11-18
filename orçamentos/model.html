@@ -37,27 +37,6 @@
             align-items: center;
             justify-content: center;
          }
-
-         article {
-            padding: 0;
-            background: #00559c;
-            background: #00aebe;
-            background: #e5e5e5;
-            /* border-top-left-radius: 2em; */
-            /* border-top-right-radius: 2em; */
-            overflow: hidden;
-         } article > header {
-            background: #fff0;
-            font-size: 1.3em;
-            padding: 1.3em 1.5em;
-         } article > header > ttl {
-            font-weight: bold;
-         } article > content {
-            background: #fff;
-            border-top-left-radius: 2em;
-            border-top-right-radius: 2em;
-            overflow: hidden;
-         }
       </style>
    </head>
    <body>
@@ -73,7 +52,14 @@ class="page-break"
                PROPOSTA DE ORÇAMENTO – SERVIÇO DE PINTURA RESIDENCIAL
             </titulo>
 
-            <article title="Título"><p>oi</p></article>
+            <article label="Título">
+               <p>oi</p>
+               <section label="sub-titulo">
+                  <p>gsdg h sdihi siosd</p>
+                  <p>gsdg h sdihi siosd</p>
+                  <p>gsdg h sdihi siosd</p>
+               </section>
+            </article>
             
             <content>
             <card>
@@ -126,11 +112,9 @@ Telefone:
             </card>
             </content>
 
-            <section>
-               <header>
-                  <ttl>1. Escopo dos Serviços</ttl>
-               </header>
-               <content>
+            <article label="1. Escopo dos Serviços">
+               <section label="1.1. Preparação para Pintura">
+                  <p>bfu fod ofhsod f</p>
                   <p pdh="">
                      <t6>1.1. Preparação para Pintura</t6><br>
                      Limpeza e preparação das superfícies das paredes e tetos para garantir a aderência da tinta. 
@@ -155,9 +139,9 @@ Telefone:
                         </p>
                      </ul>
                   </p>
-               </content>
+               </section>
                
-            </section>
+            </article>
 
             <page-break></page-break>
             <after></after>
@@ -354,6 +338,10 @@ Declaro estar ciente e de acordo com o presente orçamento:
       <script>
          "use-strict";
          addEventListener( "load", () => {
+
+            /**
+             * article 
+             * */
             $( 'article', 1 ).forEach( ( article, i ) => {
                let 
                   children = article.innerHTML 
@@ -361,8 +349,27 @@ Declaro estar ciente e de acordo com o presente orçamento:
                article.innerHTML = `
                   <header>
                      <ttl>
-                        ${ article.getAttribute( 'title' ) }
+                        ${ article.getAttribute( 'label' ) }
                      </ttl>
+                  </header>
+                  <content>
+                     ${ children }
+                  </content>
+               `;
+            } );
+
+            /**
+             * section 
+             * */
+            $( 'section', 1 ).forEach( ( section, i ) => {
+               let 
+                  children = section.innerHTML 
+               ;
+               section.innerHTML = `
+                  <header>
+                     <t6>
+                        ${ section.getAttribute( 'label' ) }
+                     </t6>
                   </header>
                   <content>
                      ${ children }
