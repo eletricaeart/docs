@@ -25,20 +25,6 @@
       <script EACard src="../assets/widgets/ui/EACard.js" defer></script>
       <script DownloadPDF src="../assets//scripts/DownloadPDF.js" defer></script>
       <style>
-         titulo {
-            display: flex;
-            padding: .5em;
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 1em;
-            /* background: #00aebe; */
-            background: #00aeb0;
-            /* color: #19497b; */
-            color: #003b6b;
-            text-align: center;
-            align-items: center;
-            justify-content: center;
-         }
       </style>
    </head>
    <body>
@@ -50,47 +36,63 @@ class="page-break"
          <view id="invoice_html">
             <ea-card section="dual"></ea-card>
 
-            <titulo>
-               PROPOSTA DE ORÇAMENTO – SERVIÇO DE PINTURA RESIDENCIAL
-            </titulo>
+            <doc-title subtitle="PROPOSTA DE ORÇAMENTO">
+               SERVIÇO DE PINTURA RESIDENCIAL
+            </doc-title>
+            
+            <cliente>
+               <style>
+                  cliente {
+                     display: flex;
+                     /* background: #ccc; */
+                     padding-top: 1em;
+                  } cliente > ui {
+                     display: flex;
+                     flex-direction: column;
+                     background: #fff;
+                     width: 100%;
+                  }
+                  cliente > ui > header {
+                     display: flex;
+                     flex-direction: column;
+                     /* background: #0075BD50; */
+                  } cliente > ui > header > ui {
+                     padding: .5em;
+                     width: 80%;
+                     display: flex;
+                     flex-direction: column;
+                     /* background: #000; */
+                     margin: 0 auto;
+                     text-align: center;
+                     border-top: #0505 2px dotted;
+                     border-bottom: #0505 2px dotted;
+                  }
 
-            <article label="1 Título">
-               <section label="1.1sub-titulo">
-                  <p>gsdg h sdihi siosd</p>
-                  <p>gsdg h sdihi siosd</p>
-                  <p>gsdg h sdihi siosd</p>
-               </section>
-               <section label="1.2 sub-titulo">
-                  <p>gsdg h sdihi siosd</p>
-                  <p>gsdg h sdihi siosd</p>
-                  <p>gsdg h sdihi siosd</p>
-               </section>
-               <section label="1.3 sub-titulo">
-                  <p>gsdg h sdihi siosd</p>
-                  <p>gsdg h sdihi siosd</p>
-                  <p>gsdg h sdihi siosd</p>
-               </section>
-            </article>
-            
-            <article label="2 Título">
-               <section label="2.1sub-titulo">
-                  <p>gsdg h sdihi siosd</p>
-                  <p>gsdg h sdihi siosd</p>
-                  <p>gsdg h sdihi siosd</p>
-               </section>
-               <section label="2.2 sub-titulo">
-                  <p>gsdg h sdihi siosd</p>
-                  <p>gsdg h sdihi siosd</p>
-                  <p>gsdg h sdihi siosd</p>
-               </section>
-               <section label="2.3 sub-titulo">
-                  <p>gsdg h sdihi siosd</p>
-                  <p>gsdg h sdihi siosd</p>
-                  <p>gsdg h sdihi siosd</p>
-               </section>
-            </article>
-            
-            
+                  card > ui {
+                     padding: 1em;
+                  }
+               </style>
+               <ui>
+                  <header>
+                     <ui>
+                        Cliente 
+                     </ui>
+                  </header>
+                  <content>
+                     <card>
+                        <ui>
+                           <t>
+                              <b>Nome </b> Nilsely
+                           </t>
+                           <t>
+                              <b>Endereço </b>
+                              Avenida Wilson de Oliveira, n°2100, Bairro Melvi, Praia Grande, SP
+                           </t>
+                        </ui>
+                     </card>
+                  </content>
+               </ui>
+            </cliente>
             
             <content>
             <card>
@@ -370,6 +372,27 @@ Declaro estar ciente e de acordo com o presente orçamento:
       <script>
          "use-strict";
          addEventListener( "load", () => {
+
+            /**
+             * doc-title 
+             * */
+            $( 'doc-title', 1 ).forEach( ( title, i ) => {
+               let 
+                  data = title.getAttribute( 'subtitle' ) ? `
+                     <t style='font-weight: 700; color: #00559c'>
+                        ${ title.getAttribute( 'subtitle' ) }
+                     </t>
+                  ` : null
+               ;
+
+               return( title.innerHTML = `
+                  ${ data && data }
+                  <t style='font-weight: 700; color: #003b6b\'>
+                     ${ title.innerHTML }
+                  </t>
+               ` );
+               
+            } );
 
             /**
              * article 

@@ -2138,6 +2138,22 @@ home-page {
    display: flex;
 }
 
+doc-title {
+   display: flex;
+   flex-direction: column;
+   padding: .5em;
+   font-weight: 700;
+   text-transform: uppercase;
+   font-size: 1em;
+   /* background: #00aebe; */
+   background: #00aeb0;
+   /* color: #19497b; */
+   color: #003b6b;
+   text-align: center;
+   align-items: center;
+   justify-content: center;
+}
+
 card {
    background: #bdcfea;
 }
