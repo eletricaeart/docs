@@ -31,8 +31,10 @@
             font-weight: 700;
             text-transform: uppercase;
             font-size: 1em;
-            background: #00aebe;
-            color: #19497b;
+            /* background: #00aebe; */
+            background: #009ee6;
+            /* color: #19497b; */
+            color: #003b6b;
             text-align: center;
             align-items: center;
             justify-content: center;
@@ -377,14 +379,16 @@ Declaro estar ciente e de acordo com o presente orçamento:
                   children = article.innerHTML 
                ;
                article.innerHTML = `
-                  <header>
-                     <ttl>
-                        ${ article.getAttribute( 'label' ) }
-                     </ttl>
-                  </header>
-                  <content>
-                     ${ children }
-                  </content>
+                  <ui>
+                     <header>
+                        <ttl>
+                           ${ article.getAttribute( 'label' ) }
+                        </ttl>
+                     </header>
+                     <content>
+                        ${ children }
+                     </content>
+                  </ui>
                `;
             } );
 
@@ -396,14 +400,16 @@ Declaro estar ciente e de acordo com o presente orçamento:
                   children = section.innerHTML 
                ;
                section.innerHTML = `
-                  <header>
-                     <t6>
-                        ${ section.getAttribute( 'label' ) }
-                     </t6>
-                  </header>
-                  <content>
-                     ${ children }
-                  </content>
+                  <ui>
+                     <header>
+                        <t6>
+                           ${ section.getAttribute( 'label' ) }
+                        </t6>
+                     </header>
+                     <content>
+                        ${ children }
+                     </content>
+                  </ui>
                `;
             } );
          } );
