@@ -8,7 +8,13 @@ const
    ,
    table = v => console.table( v )
    ,
-   $ = v => document.querySelector( v )
+   $ = ( v, i ) => {
+      if( !i ) {
+         return document.querySelector( v );
+      } else {
+         return document.querySelectorAll( v );
+      }
+   }
    ,
    $$ = v => document.querySelectorAll( v )
    ,

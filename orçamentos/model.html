@@ -24,6 +24,36 @@
       <!-- <script AppBar src="../assets/widgets/ui/AppBar.js" defer></script> -->
       <script EACard src="../assets/widgets/ui/EACard.js" defer></script>
       <script DownloadPDF src="../assets//scripts/DownloadPDF.js" defer></script>
+      <style>
+         titulo {
+            display: flex;
+            padding: .5em;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 1em;
+            background: #00aebe;
+            color: #19497b;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+         }
+
+         article {
+            padding: 0;
+            background: #00559c;
+            background: #00aebe;
+            background: #e5e5e5;
+            border-top-left-radius: 2em;
+            border-top-right-radius: 2em;
+            overflow: hidden;
+         } article > header {
+            background: #fff0;
+            font-size: 1.3em;
+            padding: 1.3em 1.5em;
+         } article > header > ttl {
+            font-weight: bold;
+         }
+      </style>
    </head>
    <body>
 <!-- 
@@ -34,7 +64,11 @@ class="page-break"
          <view id="invoice_html">
             <ea-card section="dual"></ea-card>
 
-            <flag>PROPOSTA DE ORÇAMENTO – SERVIÇO DE PINTURA RESIDENCIAL</flag>
+            <titulo>
+               PROPOSTA DE ORÇAMENTO – SERVIÇO DE PINTURA RESIDENCIAL
+            </titulo>
+
+            <article title="Título"><p>oi</p></article>
             
             <content>
             <card>
@@ -311,6 +345,33 @@ Declaro estar ciente e de acordo com o presente orçamento:
             </label>
          </content>
       </footer>
+
+      <script>
+         "use-strict";
+         addEventListener( "load", () => {
+            $( 'article', 1 ).forEach( ( article, i ) => {
+               let 
+                  children = article.innerHTML 
+               ;
+               article.innerHTML = `
+                  <header>
+                     <ttl>
+                        ${ article.getAttribute( 'title' ) }
+                     </ttl>
+                  </header>
+                  <content>
+                     ${ children }
+                  </content>
+               `;
+            } );
+         } );
+      </script>
       
    </body>
 </html>
+
+
+<!-- 
+https://lensgo.ai/login
+https://ssstik.io
+ -->
