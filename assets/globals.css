@@ -2133,7 +2133,7 @@ after {
 
 /*  */
 home-page {
-   background: #e5e5e5;
+   background: #fff;
 } home-page > view {
    display: flex;
 }
