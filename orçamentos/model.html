@@ -40,117 +40,18 @@ class="page-break"
                SERVIÇO DE PINTURA RESIDENCIAL
             </doc-title>
             
-            <cliente>
-               <style>
-                  cliente {
-                     display: flex;
-                     /* background: #ccc; */
-                     padding-top: 1em;
-                  } cliente > ui {
-                     display: flex;
-                     flex-direction: column;
-                     background: #fff;
-                     width: 100%;
-                  }
-                  cliente > ui > header {
-                     display: flex;
-                     flex-direction: column;
-                     /* background: #0075BD50; */
-                  } cliente > ui > header > ui {
-                     padding: .5em;
-                     width: 80%;
-                     display: flex;
-                     flex-direction: column;
-                     /* background: #000; */
-                     margin: 0 auto;
-                     text-align: center;
-                     border-top: #0505 2px dotted;
-                     border-bottom: #0505 2px dotted;
-                  }
-
-                  card > ui {
-                     padding: 1em;
-                  }
-               </style>
-               <ui>
-                  <header>
-                     <ui>
-                        Cliente 
-                     </ui>
-                  </header>
-                  <content>
-                     <card>
-                        <ui>
-                           <t>
-                              <b>Nome </b> Nilsely
-                           </t>
-                           <t>
-                              <b>Endereço </b>
-                              Avenida Wilson de Oliveira, n°2100, Bairro Melvi, Praia Grande, SP
-                           </t>
-                        </ui>
-                     </card>
-                  </content>
-               </ui>
+            <cliente
+               nome="Nilsely"
+               endereço="Avenida Wilson de Oliveira, n°2100, Bairro Melvi, Praia Grande, SP"
+            >
             </cliente>
-            
-            <content>
-            <card>
-               <header content>
-                  <item>
-                     
-                  <mk>Cliente: </mk>Nilsely
-                     
-                  </item>
-               </header>
-               <content>
-                  <item>
-                     <mk>
-                        
-Endereço do serviço: 
-                     </mk>
-                     Avenida Wilson de Oliveira, n°2100, Bairro Melvi, Praia Grande, SP
-                  </item>
-                  <!-- <item>
-                     <mk>
-                        
-CNPJ: 
-                     </mk>
-                     57.658.172/0001-74
-                  </item> -->
-                  <br>
-                  <hr><br>
-                  <item>
-                     <mk>
-                        
-Responsável Técnico: 
-                     </mk>
-Rafael Sammarco Elétrica&Art
-                  </item>
-                  <item>
-                     <mk>
-                        
-CNPJ/CPF: 
-                     </mk>
-32.858.892/0001-52
-                  </item>
-                  <item>
-                     <mk>
-                        
-Telefone: 
-                     </mk>
-(13)99768-5853
-                  </item>
-               </content>
-            </card>
-            </content>
 
             <article label="1. Escopo dos Serviços">
                <section label="1.1. Preparação para Pintura">
-                  <p>bfu fod ofhsod f</p>
                   <p>
                      Limpeza e preparação das superfícies das paredes e tetos para garantir a aderência da tinta. 
-                     <br>
+                  </p>
+                  <p>
                      Inclui raspagem das partes soltas no teto e, se necessário, nas paredes da sala, além de lixamento leve e remoção de poeira.
                   </p>
                </section>
@@ -161,201 +62,118 @@ Telefone:
                   </p>
                </section>
                   
-                  <section label="1.3. Pintura Completa do Andar Inferior">
-                     <p>
-                        Aplicação de duas demãos de tinta acrílica de alta qualidade em
-                     </p>
-                     <ul pv="">
-                        <li>Hall de escadaria</li>
-                        <li>Sala</li>
-                        <li>Quarto</li>
-                        <p>
-                           A pintura será realizada diretamente sobre as superfícies preparadas com o selador acrílico, assegurando um acabamento uniforme.
-                        </p>
-                     </ul>
-                  </section>
+               <section label="1.3. Pintura Completa do Andar Inferior">
+                  <p>
+                     Aplicação de duas demãos de tinta acrílica de alta qualidade em
+                  </p>
+                  <ul>
+                     <li>Hall de escadaria</li>
+                     <li>Sala</li>
+                     <li>Quarto</li>
+                  </ul>
+                  <p>
+                     A pintura será realizada diretamente sobre as superfícies preparadas com o selador acrílico, assegurando um acabamento uniforme.
+                  </p>
+               </section>
                
             </article>
 
             <page-break></page-break>
             <after></after>
 
-            <section>
-               <header>
-                  <ttl>2. Materiais a serem Utilizados</ttl>
-               </header>
-               <content>
-                  <p pdh="">
-                     <ul pv="">
-                        <li>
-                           <mk>Selador acrílico para preparação do reboco;</mk>
-                        </li>
-                        <li>
-                           <mk>Tinta acrílica na cor e acabamento escolhidos em conjunto com a cliente;</mk>
-                        </li>
-                        <li>
-                           <mk>Lixas e materiais de preparação necessários;</mk>
-                        </li>
-                        <li>
-                           <mk>Fitas e lonas de proteção para cobrir e proteger piso e móveis.</mk>
-                        </li>
-                     </ul>
-                     <tag class="avoid"><strong>Nota: </strong> 
-                        Os materiais necessários para a pintura não estão incluídos no valor da mão de obra e serão adquiridos separadamente, com uma cotação detalhada em loja de materiais de construção de preferência da cliente.
-                     </tag>
-                  </p>
-               </content>
-            </section>
+            <article label="2. Materiais a serem Utilizados">
+               <ul>
+                  <li>
+                     <mk>Selador acrílico para preparação do reboco;</mk>
+                  </li>
+                  <li>
+                     <mk>Tinta acrílica na cor e acabamento escolhidos em conjunto com a cliente;</mk>
+                  </li>
+                  <li>
+                     <mk>Lixas e materiais de preparação necessários;</mk>
+                  </li>
+                  <li>
+                     <mk>Fitas e lonas de proteção para cobrir e proteger piso e móveis.</mk>
+                  </li>
+               </ul>
+               <tag class="avoid"><strong>Nota: </strong> 
+                  Os materiais necessários para a pintura não estão incluídos no valor da mão de obra e serão adquiridos separadamente, com uma cotação detalhada em loja de materiais de construção de preferência da cliente.
+               </tag>
+            </article>
 
 
-            <section>
-               <header>
-                  <ttl>3. Cronograma de Execução</ttl>
-               </header>
-               <content>
-                  <p pdh="">
-                     <ul pv="">
-                        <li>
-                           <p>Aplicação do Selador Acrílico: 1 dia útil;</p>
-                        </li>
-                        <li>
-                           <p>Pintura Completa das Áreas: 4 dias úteis;</p>
-                        </li>
-                     </ul>
-                  </p>
-                  <br><br>
-                  <tagc>Total estimado de execução: <strong>5 dias corridos.</strong></tagc>
-               </content>
-            </section>
+            <article label="3. Cronograma de Execução">
+               <ul>
+                  <li>
+                     <p>Aplicação do Selador Acrílico: 1 dia útil;</p>
+                  </li>
+                  <li>
+                     <p>Pintura Completa das Áreas: 4 dias úteis;</p>
+                  </li>
+               </ul>
+               <tagc>Total estimado de execução: <strong>5 dias corridos.</strong></tagc>
+            </article>
 
-            <section>
-               <header>
-                  <ttl>4. Investimento</ttl>
-               </header>
-               <content>
-                  <p pdh="">
-                     <t6>4.1. Mão de Obra</t6>
-                     <br>
+            <article label="4. Investimento">
+               <section label="4.1. Mão de Obra">
+                  <p>
                      Para a execução completa dos serviços de pintura conforme descrito: <strong>R$ 1.000,00</strong>
-                     <br></br>                
-                     
                   </p>
-                  <p pdh="">
-                     <t6>4.2. Materiais</t6>
-                     <br>
+               </section>
+               <section label="4.2. Materiais">
+                  <p>
                      A aquisição dos materiais será por conta da cliente, conforme especificado anteriormente.
                   </p>
-               </content>
-            </section>
+               </section>
+            </article>
 
             <page-break></page-break>
             <after></after>
             
-            <section>
-               <header>
-                  <ttl>5. Garantia</ttl>
-               </header>
-               <content>
-                  <p pdh="">
-                     Garantia de 3 meses para os serviços realizados, exceto em casos de danos externos, mau uso ou infiltrações que possam comprometer o acabamento.
+            <article label="5. Garantia">
+               <p>
+                  Garantia de 3 meses para os serviços realizados, exceto em casos de danos externos, mau uso ou infiltrações que possam comprometer o acabamento.
+               </p>
+            </article>
+
+            <article label="6. Condições de Pagamento">
+                  <p>
+                     Entrada de 50% no momento da assinatura do contrato;
+                  </p>
+                  <p>
+                     Saldo de 50% ao término da execução e entrega do serviço.
                   </p>
                </content>
-            </section>
-
-            <section>
-               <header>
-                  <ttl>6. Condições de Pagamento</ttl>
-               </header>
-               <content>
-                  <p pdh="">
-                     Entrada de 50% no momento da assinatura do contrato;
-                     <br></br>
-                     Saldo de 50% ao término da execução e entrega do serviço.
-                  </p>   
-               </content>
-            </section>
+            </article>
             
-            <section class="avoid">
-               <header>
-                  <ttl>7. Observações Gerais</ttl>
-               </header>
-               <content>
-                  <p pdh="">
+            <article label="7. Observações Gerais" class="avoid">
+                  <p>
                      O orçamento poderá sofrer ajustes caso sejam identificadas necessidades adicionais durante a execução do serviço.
-                     <br></br>
+                  </p>
+                  <p>
                      Horários de trabalho serão combinados para garantir o mínimo de transtorno para os moradores e adequação às regras locais.
                   </p>
                </content>
-            </section>
+            </article>
 
             
-            <section class="avoid">
-               <header>
-                  <ttl></ttl>
-               </header>
-               <content>
-                  <p pdh="">
-                     <tagb>
-                        <mk>
-                           Agradecemos a oportunidade de apresentar esta proposta e estamos à disposição para quaisquer esclarecimentos adicionais.
-                        </mk>
-                     </tagb>
-                  </p>
-               </content>
-            </section>
+            <article class="avoid">
+               <tagb>
+                  <mk>
+                     Agradecemos a oportunidade de apresentar esta proposta e estamos à disposição para quaisquer esclarecimentos adicionais.
+                  </mk>
+               </tagb>
+            </article>
 
-            <section>
-               <header>
-                  <ttl>
-                     
-            8. ASSINATURA E APROVAÇÃO
-                  </ttl>
-               </header>
-            </section>
+            <article label="8. ASSINATURA E APROVAÇÃO">
+            </article>
 
 
             
-            <signatures section>
-               <!-- <section>
-                  <p pdh>
-                     
-Declaro estar ciente e de acordo com o presente orçamento:
-                  </p>
-               </section> -->
-               <row>
-                  <signature section>
-                     <content>
-
-                        <!-- <sig-name>Assinatura do Responsável Técnico</sig-name> -->
-                        <sig-name>Rafael - Elétrica&Art</sig-name>
-                        
-                        <!-- Elétrica&Art  -->
-                        <!--Rafael - Elétrica&Art-->
-                     </content>
-                  </signature>
-                  <signature section>
-                     <content>
-                        <sig-name>Assinatura do Cliente</sig-name> 
-
-                     </content>
-                  </signature>
-               </row>
-               <!-- <content>
-                  <p style="text-align: center;">TESTEMUNHAS</p>
-               </content>
-               <row>
-                  <signature section>
-                     <content>
-                        <sig-name>CPF</sig-name>
-                     </content>
-                  </signature>
-                  <signature section>
-                     <content>
-                        <sig-name>CPF</sig-name>
-                     </content>
-                  </signature>
-               </row> -->
-
+            <signatures
+               signer
+               cliente
+            >
             </signatures>
          </view>
 
@@ -368,79 +186,6 @@ Declaro estar ciente e de acordo com o presente orçamento:
             </label>
          </content>
       </footer>
-
-      <script>
-         "use-strict";
-         addEventListener( "load", () => {
-
-            /**
-             * doc-title 
-             * */
-            $( 'doc-title', 1 ).forEach( ( title, i ) => {
-               let 
-                  data = title.getAttribute( 'subtitle' ) ? `
-                     <t style='font-weight: 700; color: #00559c'>
-                        ${ title.getAttribute( 'subtitle' ) }
-                     </t>
-                  ` : null
-               ;
-
-               return( title.innerHTML = `
-                  ${ data && data }
-                  <t style='font-weight: 700; color: #003b6b\'>
-                     ${ title.innerHTML }
-                  </t>
-               ` );
-               
-            } );
-
-            /**
-             * article 
-             * */
-            $( 'article', 1 ).forEach( ( article, i ) => {
-               let 
-                  children = article.innerHTML 
-               ;
-               if( article.getAttribute( "label" ) ) {
-                  article.innerHTML = `
-                     <ui>
-                        <header>
-                           <ttl>
-                              ${ article.getAttribute( 'label' ) }
-                           </ttl>
-                        </header>
-                        <content>
-                           ${ children }
-                        </content>
-                     </ui>
-                  `;
-               }
-            } );
-
-            /**
-             * section 
-             * */
-            $( 'section', 1 ).forEach( ( section, i ) => {
-               let 
-                  children = section.innerHTML 
-               ;
-               if( section.getAttribute( "label" ) ) {
-                  section.innerHTML = `
-                     <ui>
-                        <header>
-                           <t6>
-                              ${ section.getAttribute( 'label' ) }
-                           </t6>
-                        </header>
-                        <content>
-                           ${ children }
-                        </content>
-                     </ui>
-                  `;
-               }
-            } );
-         } );
-      </script>
       
    </body>
 </html>

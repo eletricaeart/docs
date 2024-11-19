@@ -114,6 +114,8 @@ p, t, txt, li {
    font-weight: normal;
 }
 
+p, li { margin: .5em 0; }
+
 h1, h2, h3, h4, h5, h6,
 p, t, txt, tt, st {
    overflow-wrap: break-word;
@@ -132,7 +134,7 @@ ct1, ct2, ct3, ct4, ct5, ct6 {
    text-align: center;
 }
 
-p { margin: 1em 0; }
+p { margin: .5em 0; }
 
 
 h1 {
@@ -2161,32 +2163,26 @@ card {
 article {
    padding: 0;
    padding: 1em;
-   /* background: #00559c; */
-   /* background: #00aebe; */
-   /* background: #e5e5e5; */
    overflow: hidden;
 } article > ui {
    display: flex;
    flex-direction: column;
    background: #e5e5e5;
-   /* background: #009ee6; */
-   /* border-top-right-radius: 1em;
-   border-top-left-radius: 1em;
-   border-radius: 1em; */
+   background: #009ee6;
+   background: #00559c;
    overflow: hidden;
 }
 article > ui > header {
    background: #fff0;
-   /* color: #56c6fa; */
    color: #00559C;
+   color: #56c6fa;
    font-size: 1.3em;
    padding: 1.3em;
-} article > ui > header > ttl {
+} article > ui > header > * {
    font-weight: bold;
+   font-size: 1em;
 } article > ui > content {
    background: #fff;
-   /* border-top-left-radius: 1.2em;
-   border-top-right-radius: 1.2em; */
    overflow: hidden;
 }
 
@@ -2200,14 +2196,47 @@ section {
 }
 section > ui > header {
    background: #fff0;
-   /* font-size: 1.3em; */
    padding: 1em .5em;
    border-bottom: #7773 1px solid;
 } section > ui > content {
-   /* background: #fff; */
    padding: .5em .5em;
-   /* border-top-left-radius: 1.2em;
-   border-top-right-radius: 1.2em; */
-   /* overflow: hidden; */
 }
 
+
+
+
+cliente {
+   display: flex;
+   padding-top: 1em;
+} cliente > ui {
+   display: flex;
+   flex-direction: column;
+   background: #fff;
+   width: 100%;
+}
+cliente > ui > header {
+   display: flex;
+   flex-direction: column;
+} cliente > ui > header > ui {
+   padding: .5em;
+   width: 80%;
+   display: flex;
+   flex-direction: column;
+   margin: 0 auto;
+   text-align: center;
+   border-top: #0505 2px dotted;
+   border-bottom: #0505 2px dotted;
+}
+
+card > ui {
+   padding: 1em;
+   background: #fff;
+}
+
+
+signatures {
+   display: flex !important;
+   flex-direction: row !important;
+   padding: 1.5em !important;
+   gap: 2em !important;
+}
