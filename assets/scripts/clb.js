@@ -68,7 +68,7 @@ String.prototype.data = function( v ) {
    );
 }
 
-HTMLElement.prototype.$attribute = function( v ) {
+HTMLElement.prototype.attribute = function( v ) {
    return( 
       this.getAttribute( v )
    );
@@ -128,8 +128,10 @@ window.addEventListener( "load", ev => {
     * */
    $( 'doc-title', 1 ).forEach( ( title, i ) => {
       let 
+      // <t style='font-weight: 700; color: #00559c'>
+      // <t style='font-weight: 700; color: var( --sv-beija-flor )'>
          data = title.getAttribute( 'subtitle' ) ? `
-            <t style='font-weight: 700; color: #00559c'>
+            <t style='font-weight: 700; color: var( --sv-azul-bebe )'>
                ${ title.getAttribute( 'subtitle' ) }
             </t>
          ` : null

@@ -43,6 +43,15 @@
    -webkit-font-smoothing: antialiased;
    -moz-osx-font-smoothing: grayscale;
 
+   /* cinza */
+   --sv-calopsita: rgb( 219 218 215 );
+   --sv-cromio: rgb( 209 208 202 );
+   /* azul */
+   --sv-azul-bebe: rgb( 183 213 229 );
+   --sv-marine: rgb( 125 136 187 );
+   --sv-beija-flor: rgb( 61 88 132 );
+   --sv-sodalita: rgb( 86 108 155 );
+   --sv-sombra-azul: rgb( 21 74 143 );
 
 }
 
@@ -2149,6 +2158,7 @@ doc-title {
    font-size: 1em;
    /* background: #00aebe; */
    background: #00aeb0;
+   background: var( --sv-marine );
    /* color: #19497b; */
    color: #003b6b;
    text-align: center;
@@ -2167,15 +2177,18 @@ article {
 } article > ui {
    display: flex;
    flex-direction: column;
+   padding: 0;
    background: #e5e5e5;
    background: #009ee6;
    background: #00559c;
+   background: var( --sv-sombra-azul );
    overflow: hidden;
 }
 article > ui > header {
    background: #fff0;
    color: #00559C;
    color: #56c6fa;
+   color: var( --sv-azul-bebe );
    font-size: 1.3em;
    padding: 1.3em;
 } article > ui > header > * {
@@ -2193,6 +2206,7 @@ section {
 } section > ui {
    display: flex;
    flex-direction: column;
+   padding: 0;
 }
 section > ui > header {
    background: #fff0;
@@ -2217,6 +2231,9 @@ cliente {
 cliente > ui > header {
    display: flex;
    flex-direction: column;
+   width: 100%;
+   text-align: center;
+   color: var( --sv-sodalita );
 } cliente > ui > header > ui {
    padding: .5em;
    width: 80%;
@@ -2226,6 +2243,9 @@ cliente > ui > header {
    text-align: center;
    border-top: #0505 2px dotted;
    border-bottom: #0505 2px dotted;
+}
+cliente t {
+   color: #555;
 }
 
 card > ui {
