@@ -1,7 +1,7 @@
 
 
 function AppBar( props ) {
-   $$( "appbar" ).forEach( a => {
+   $( "appbar", 1 ).forEach( a => {
       return( a.outerHTML = `
          <appbar>
             <content>

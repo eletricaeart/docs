@@ -2182,6 +2182,9 @@ article {
    background: #009ee6;
    background: #00559c;
    background: var( --sv-sombra-azul );
+   background: var( --sv-sodalita );
+   border-radius: 12px;
+   /* background-image: url( "../assets/bgs/bg4.png" ); */
    overflow: hidden;
 }
 article > ui > header {
@@ -2191,9 +2194,17 @@ article > ui > header {
    color: var( --sv-azul-bebe );
    font-size: 1.3em;
    padding: 1.3em;
+   padding: .5em;
 } article > ui > header > * {
+   border-radius: 12px;
+   display: flex;
+   height: 46px;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
    font-weight: bold;
    font-size: 1em;
+   background: var( --sv-sombra-azul );
 } article > ui > content {
    background: #fff;
    overflow: hidden;

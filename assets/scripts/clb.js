@@ -8,15 +8,13 @@ const
    ,
    table = v => console.table( v )
    ,
-   $ = ( v, i ) => {
-      if( !i ) {
-         return document.querySelector( v );
+   $ = ( element, isAllNodes ) => {
+      if( !isAllNodes ) {
+         return document.querySelector( element );
       } else {
-         return document.querySelectorAll( v );
+         return document.querySelectorAll( element );
       }
    }
-   ,
-   $$ = v => document.querySelectorAll( v )
    ,
    toBrl = v => v.toLocaleString( "pt-br", { "style": "currency", "currency": "BRL" } )
    ,
@@ -85,7 +83,7 @@ window.addEventListener( "load", ev => {
 	
    /* == [ navlink ] 
    == == == == == == == == == */
-   $$( "navlink" ).forEach( nl => {  
+   $( "navlink", 1 ).forEach( nl => {  
       _( "oi" );
       nl.outerHTML = `
          <p>
@@ -99,23 +97,23 @@ window.addEventListener( "load", ev => {
    
    /* == [ padding ] 
    == == == == == == == == == */
-   $$( "[pd]" ).forEach( p => {
+   $( "[pd]", 1 ).forEach( p => {
       p.style.padding = p.getAttribute( "pd" );
    } );
    
    /* == [ gap ] 
    == == == == == == == == == */
-   $$( "[gap]" ).forEach( g => {
+   $( "[gap]", 1 ).forEach( g => {
       g.style.gap = g.getAttribute( "gap" );
    } );
    
    /* == [ aspect ratio ] 
    == == == == == == == == == */
-   $$( "[ratio]" ).forEach( ratio => {
+   $( "[ratio]", 1 ).forEach( ratio => {
       ratio.style.aspectRatio = ratio.getAttribute( "ratio" );
    } );
 
-   if( $$( "body" ) instanceof NodeList ) {
+   if( $( "body", 1 ) instanceof NodeList ) {
       _(
          "NodeList"
       );
