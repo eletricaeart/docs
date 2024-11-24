@@ -156,7 +156,9 @@ window.addEventListener( "load", ev => {
             <ui>
                <header>
                   <ui>
-                     ${ article.getAttribute( 'label' ) }
+                     <t>
+                        ${ article.getAttribute( 'label' ) }
+                     </t>
                   </ui>
                </header>
                <content>
