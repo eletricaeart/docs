@@ -149,15 +149,15 @@ let
                Praia Grande - São Paulo - SP - Cep 11702-440
             </t>
             <t>
-               <t link="tel:+5513997685853">
+               <a link="tel:+5513997685853">
                   <strong>Fone </strong> ( 13 ) 99768-5853 <br />
-               </t>
-               <t link="https://wa.me/5513997685853">
+               </a>
+               <a link="https://wa.me/5513997685853">
                   <strong>Whatsapp </strong> ( 13 ) 99768-5853 <br />
-               </t>
-               <t link="mailto:rafa.julia.forever@gmail.com">
+               </a>
+               <a link="mailto:rafa.julia.forever@gmail.com">
                   <strong>E-mail </strong> rafa.julia.forever@gmail.com <br />
-               </t>
+               </a>
             </t>
          </description>
       </ea-card>`
