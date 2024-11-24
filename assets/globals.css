@@ -2192,20 +2192,24 @@ article > ui > header {
    color: #00559C;
    color: #56c6fa;
    color: var( --sv-azul-bebe );
-   font-size: 1.3em;
-   padding: 1.3em;
+   /* font-size: 1.3em; */
    padding: .5em;
 } article > ui > header > * {
-   border-radius: 12px;
    display: flex;
    width: 100%;
    height: 46px;
+   border-radius: 12px;
    flex-direction: column;
+   text-align: center;
    align-items: center;
    justify-content: center;
-   font-weight: bold;
+   font-weight: 700;
    font-size: 1em;
    background: var( --sv-sombra-azul );
+   flex-direction: column;
+   /* padding: .5em; */
+
+
 } article > ui > content {
    background: #fff;
    overflow: hidden;
