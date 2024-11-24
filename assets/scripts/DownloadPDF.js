@@ -43,7 +43,7 @@ window.addEventListener( "load", () => {
                dpi: 192,
                letterRendering: true,
                
-               // useCORS: false,
+               useCORS: false,
                // useCORS: true,
                // allowTaint: true,
                // allowTaint: false,
