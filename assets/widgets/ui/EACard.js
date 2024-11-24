@@ -42,7 +42,7 @@ let
          
          ea-card {
             background: var( --card-lv1 );
-            background: var( --ea-card, #19497b );
+            background: var( --sv-sombra-azul );
             color: var( --appbar-title );
             /* width: 100%;
             padding: 2vw;
@@ -123,8 +123,8 @@ let
    testStyle = `
       <style>
          ea-card[section="dual"] {
-            background-image: url( "${ bgs.bg4 }" );
             background-size: cover;/*
+            background-image: url( "${ bgs.bg4 }" );
             background-color: #0009;
             background-blend-mode: color;*/
          }

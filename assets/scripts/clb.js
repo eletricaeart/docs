@@ -156,7 +156,7 @@ window.addEventListener( "load", ev => {
             <ui>
                <header>
                   <ui>
-                     <t style="font-weight: 700;">
+                     <t style="font-weight: 700; text-transform: uppercase;">
                         ${ article.getAttribute( 'label' ) }
                      </t>
                   </ui>

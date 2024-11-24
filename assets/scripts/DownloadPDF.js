@@ -24,7 +24,7 @@ window.addEventListener( "load", () => {
          console.log( window );
          var data = {
             margin: [ 10, 10, 10, 0 ],
-            filename: "Orçamento-Nilsely-2024-12-10.pdf",
+            filename: `${ document.title }.pdf`,
             // image: { type: "png", quality: 101 },
             image: { type: "jpg", quality: 101 },
             autoPaging: 'text',
