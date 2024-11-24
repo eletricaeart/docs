@@ -94,6 +94,12 @@ window.addEventListener( "load", ev => {
          </p>
       `;
    } );
+
+   $( '[link]', 1 ).forEach( link => {
+      link.addEventListener( "click", () => {
+         window.open( link.getAttribute( 'link' ), "_blank" );
+      } );
+   } );
    
    /* == [ padding ] 
    == == == == == == == == == */

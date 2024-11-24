@@ -14,18 +14,6 @@ let
       3: "../assets/bgs/bg3.jpg",
       4: "../assets/bgs/bg4.jpg",
       bg4: "../assets/bgs/bg4.png",
-      41: "../assets/bgs/bg41.jpg",
-      51: "../assets/bgs/bg4-1.jpg",
-      15: "../assets/bgs/15.jpg",
-      151: "../assets/bgs/151.jpg",
-      1512: "../assets/bgs/1512.jpg",
-      1513: "../assets/bgs/1513.jpg",
-      152: "../assets/bgs/152.jpg",
-      1522: "../assets/bgs/1522.jpg",
-      1523: "../assets/bgs/1523.jpg",
-      81: "../assets/bgs/81.jpg",
-      811: "../assets/bgs/811.jpg",
-      812: "../assets/bgs/812.jpg",
    }
    ,
    eaCardStyle = `
@@ -123,9 +111,9 @@ let
    testStyle = `
       <style>
          ea-card[section="dual"] {
-            background-size: cover;/*
             background-image: url( "${ bgs.bg4 }" );
             background-color: #0009;
+            background-size: cover;/*
             background-blend-mode: color;*/
          }
 
@@ -161,9 +149,15 @@ let
                Praia Grande - São Paulo - SP - Cep 11702-440
             </t>
             <t>
-               <strong>Fone </strong> ( 13 ) 99768-5853 <br />
-               <strong>Whatsapp </strong> ( 13 ) 99768-5853 <br />
-               <strong>E-mail </strong> rafa.julia.forever@gmail.com <br />
+               <t link="tel:+5513997685853">
+                  <strong>Fone </strong> ( 13 ) 99768-5853 <br />
+               </t>
+               <t link="https://wa.me/5513997685853">
+                  <strong>Whatsapp </strong> ( 13 ) 99768-5853 <br />
+               </t>
+               <t link="mailto:rafa.julia.forever@gmail.com">
+                  <strong>E-mail </strong> rafa.julia.forever@gmail.com <br />
+               </t>
             </t>
          </description>
       </ea-card>`

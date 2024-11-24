@@ -25,9 +25,8 @@ window.addEventListener( "load", () => {
          var data = {
             margin: [ 10, 10, 10, 0 ],
             filename: `${ document.title }.pdf`,
-            // image: { type: "png", quality: 101 },
             // image: { type: "jpg", quality: 101 },
-            image: { type: "jpeg", quality: .95 },
+            image: { type: "jpeg", quality: .90 },
             enableLinks: true,
             autoPaging: 'text',
             // autoPaging: 'css',
@@ -61,6 +60,13 @@ window.addEventListener( "load", () => {
                orientation: "portrait",
                precision: 1,
                compress: true,
+               encryption: {
+                  userPassword: "787900",
+                  ownerPassword: "7879",
+                  userPermissions: [
+                     "print"
+                  ]
+               },
             }
          };
          html2pdf().set( {
