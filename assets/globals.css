@@ -2193,6 +2193,7 @@ article > ui > header {
    color: #56c6fa;
    color: var( --sv-azul-bebe );
    /* font-size: 1.3em; */
+   width: 100%;
    padding: .5em;
 } article > ui > header > * {
    display: flex;
