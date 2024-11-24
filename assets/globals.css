@@ -2250,13 +2250,16 @@ cliente > ui > header {
    width: 100%;
    text-align: center;
    color: var( --sv-sodalita );
+   padding: 0 2em;
 } cliente > ui > header > ui {
    padding: .5em;
-   width: 80%;
+   width: 100%;
    display: flex;
    flex-direction: column;
    margin: 0 auto;
    text-align: center;
+   align-items: center;
+   justify-content: center;
    border-top: #0505 2px dotted;
    border-bottom: #0505 2px dotted;
 }
