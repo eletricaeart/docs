@@ -150,6 +150,29 @@ window.addEventListener( "load", ev => {
       
    } );
 
+
+
+   /**
+    * laudo 
+    * */
+   $( 'titulo', 1 ).forEach( ( title, i ) => {
+      let 
+         data = title.getAttribute( 'subtitle' ) ? `
+            <t2 style='font-weight: 700; color: var( --sv-azul-bebe )'>
+               ${ title.getAttribute( 'subtitle' ) }
+            </t2>
+         ` : null
+      ;
+
+      return( title.innerHTML = `
+         ${ data && data }
+         <t3 style='font-weight: 700; color: #003b6b\'>
+            ${ title.innerHTML }
+         </t3>
+      ` );
+      
+   } );
+
    /**
     * article 
     * */
@@ -179,6 +202,54 @@ window.addEventListener( "load", ev => {
     * section 
     * */
    $( 'section', 1 ).forEach( ( section, i ) => {
+      let 
+         children = section.innerHTML 
+      ;
+      if( section.getAttribute( "label" ) ) {
+         section.innerHTML = `
+            <ui>
+               <header>
+                  <t6>
+                     ${ section.getAttribute( 'label' ) }
+                  </t6>
+               </header>
+               <content>
+                  ${ children }
+               </content>
+            </ui>
+         `;
+      }
+   } );
+
+   /**
+    * article laudo
+    * */
+   $( 'article[laudo]', 1 ).forEach( ( article, i ) => {
+      let 
+         children = article.innerHTML 
+      ;
+      if( article.getAttribute( "label" ) ) {
+         article.innerHTML = `
+            <ui>
+               <header>
+                  <ui>
+                     <t style="font-weight: 700; text-transform: uppercase;">
+                        ${ article.getAttribute( 'label' ) }
+                     </t>
+                  </ui>
+               </header>
+               <content>
+                  ${ children }
+               </content>
+            </ui>
+         `;
+      }
+   } );
+
+   /**
+    * section laudo
+    * */
+   $( 'section[laudo]', 1 ).forEach( ( section, i ) => {
       let 
          children = section.innerHTML 
       ;

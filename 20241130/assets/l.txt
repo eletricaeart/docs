@@ -1,0 +1,91 @@
+LAUDO TÉCNICO DE INSTALAÇÕES ELÉTRICAS
+
+Cliente: Rosana
+Endereço: Rua Uirapuru, nº 30, apartamento 41, Bairro Tupi, Praia Grande/SP
+
+INTRODUÇÃO
+Este laudo técnico refere-se à análise detalhada do sistema elétrico do imóvel citado, com o objetivo de identificar falhas e propor adequações conforme as normas técnicas vigentes, em especial a NBR 5410:2004 – Instalações Elétricas de Baixa Tensão.
+
+DIAGNÓSTICO TÉCNICO
+
+1. Fiação Comprometida:
+
+Foram constatados cabos rígidos antigos com desgaste avançado, comprometendo a eficiência e a segurança da instalação elétrica.
+
+Devido ao tempo de uso e às condições de isolamento dos condutores, há aumento no risco de falhas elétricas.
+
+
+
+2. Rede Desbalanceada:
+
+O sistema apresenta distribuição desigual de cargas, o que pode ocasionar sobrecarga em determinados circuitos e diminuição da eficiência energética.
+
+
+
+3. Bitola de Cabos Inadequada:
+
+A bitola dos condutores está incompatível com as correntes previstas nos circuitos, em desacordo com as especificações técnicas da norma. Esse problema pode causar superaquecimento, perda de energia e risco de incêndios.
+
+
+
+4. Dimensionamento de Circuitos:
+
+Os circuitos elétricos foram projetados de forma inadequada, resultando em subdimensionamento ou superdimensionamento, comprometendo a segurança e funcionalidade.
+
+
+
+5. Quadro de Distribuição Desatualizado:
+
+O quadro de distribuição utiliza chave seccionadora ultrapassada, sem dispositivos de proteção como disjuntores modernos e diferencial residual (DR). Este quadro não atende aos requisitos de segurança e eficiência das normas atuais.
+
+
+
+6. Emendas de Condutores:
+
+As emendas apresentaram má isolação, oxidação e desgaste, fatores que elevam o risco de curto-circuito e mau funcionamento.
+
+
+
+7. Instalações de Chuveiros:
+
+O cabeamento e os disjuntores destinados aos chuveiros não possuem capacidade adequada, aumentando os riscos de sobrecarga e aquecimento excessivo.
+
+
+
+8. Tomadas e Interruptores:
+
+Apesar de serem modelos recentes, as conexões utilizam cabos rígidos, que estão sujeitos a sobrecargas e falhas devido às condições atuais da instalação.
+
+
+
+
+CONCLUSÃO
+A análise técnica revelou que as instalações elétricas do imóvel não atendem às exigências de segurança, eficiência e confiabilidade definidas pela ABNT NBR 5410. O sistema atual apresenta elevado risco de falhas, curto-circuitos e incêndios, sendo imprescindível uma reforma completa para adequação às normas vigentes.
+
+RECOMENDAÇÕES TÉCNICAS
+
+1. Substituição total da fiação por cabos flexíveis de bitolas compatíveis com cada circuito.
+
+
+2. Rebalanceamento das cargas no quadro de distribuição.
+
+
+3. Redimensionamento e reestruturação dos circuitos, assegurando proteção adequada e eficiência.
+
+
+4. Instalação de um quadro de distribuição atualizado, equipado com disjuntores termomagnéticos e dispositivos diferenciais residuais (DR).
+
+
+5. Revisão e substituição de todas as emendas com a aplicação de conectores apropriados.
+
+
+6. Adequação do cabeamento e disjuntores para atender os chuveiros conforme as demandas de corrente.
+
+
+7. Substituição de cabos rígidos por flexíveis em conexões de tomadas e interruptores.
+
+
+
+RESPONSÁVEL TÉCNICO:
+Elétrica&Art – Serviços de Elétrica, Pintura e Gesso
+Data: 30/11/2024
