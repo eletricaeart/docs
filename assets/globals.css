@@ -146,41 +146,36 @@ ct1, ct2, ct3, ct4, ct5, ct6 {
 p { margin: .5em 0; }
 
 
-h1 {
-   font-size: 2em; margin: 0.67em 0; 
+h1, tt, t1, ct1 {
+   font-size: 2em; 
+   margin: 0.67em 0; 
 }
 
-h2 {
-   font-size: 1.5em; margin: 0.83em 0;
+h2, stt, t2, ct2 {
+   font-size: 1.5em; 
+   margin: 0.83em 0;
 }
 
-h3 {
-   font-size: 1.4em; margin: 1em 0;
+h3, t3, ct3 {
+   font-size: 1.17em; 
+   margin: 1em 0;
 }
 
-h4 {
-   font-size: 1.25em; margin: 1.33em 0;
+h4, t4, ct4 {
+   font-size: 1em; 
+   margin: 1.33em 0;
 }
 
-h5 {
-   font-size: 1.15em; margin: 1.67em 0;
+h5, t5, ct5 {
+   font-size: .83em; 
+   margin: 1.67em 0;
 }
 
-h6 {
-   font-size: 1em; margin: 2.33em 0;
+h6, t6, ct6 {
+   font-size: .67em; 
+   margin: 2.33em 0;
 }
 
-t1, t2, t3, t4, t5, t6, 
-tt, 
-st, st6,  
-ct1, ct2, ct3, ct4, ct5, ct6 { margin: 0; }
-
-tt, t1, ct1 { font-size: 2em; }
-t2, ct2 { font-size: 1.5em; }
-st, t3, ct3 { font-size: 1.4em; }
-t4, ct4 { font-size: 1.25em; }
-t5, ct5 { font-size: 1.15em; }
-t6, ct6, st6 { font-size: 1em; }
 
 ul, ol {
    margin: 1em 0;
