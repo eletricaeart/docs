@@ -52,25 +52,25 @@ function FormatNumber( link ) {
 
 HTMLElement.prototype.$ = function( v ) {
    return( this.querySelectorAll( v ) );
-}
+};
 
 HTMLElement.prototype.attribute = function( v ) {
    return( 
       this.getAttribute( v )
    );
-}
+};
 
 String.prototype.data = function( v ) {
    return(
       JSON.parse( this )
    );
-}
+};
 
 HTMLElement.prototype.attribute = function( v ) {
    return( 
       this.getAttribute( v )
    );
-}
+};
 // _( "HTMLElement: ", submit_calcular.$a( "type" ) );
 
 /* -------------------------------- */
@@ -95,10 +95,28 @@ window.addEventListener( "load", ev => {
       `;
    } );
 
-   $( '[link]', 1 ).forEach( link => {
+   $( "[link]", 1 ).forEach( link => {
       link.addEventListener( "click", () => {
-         window.open( link.getAttribute( 'link' ), "_blank" );
+         window.open( link.getAttribute( "link" ), "_blank" );
       } );
+   } );
+   
+   /* == [ bg ] 
+   == == == == == == == == == */
+   $( "[bg]", 1 ).forEach( p => {
+      p.style.background = p.getAttribute( "bg" );
+   } );
+   
+   /* == [ color ] 
+   == == == == == == == == == */
+   $( "[color]", 1 ).forEach( p => {
+      p.style.color = p.getAttribute( "color" );
+   } );
+   
+   /* == [ margin ] 
+   == == == == == == == == == */
+   $( "[m]", 1 ).forEach( p => {
+      p.style.margin = p.getAttribute( "m" );
    } );
    
    /* == [ padding ] 
@@ -130,13 +148,13 @@ window.addEventListener( "load", ev => {
    /**
     * doc-title 
     * */
-   $( 'doc-title', 1 ).forEach( ( title, i ) => {
+   $( "doc-title", 1 ).forEach( ( title, i ) => {
       let 
       // <t style='font-weight: 700; color: #00559c'>
       // <t style='font-weight: 700; color: var( --sv-beija-flor )'>
-         data = title.getAttribute( 'subtitle' ) ? `
+         data = title.getAttribute( "subtitle" ) ? `
             <t style='font-weight: 700; color: var( --sv-azul-bebe )'>
-               ${ title.getAttribute( 'subtitle' ) }
+               ${ title.getAttribute( "subtitle" ) }
             </t>
          ` : null
       ;
@@ -155,11 +173,11 @@ window.addEventListener( "load", ev => {
    /**
     * laudo 
     * */
-   $( 'titulo', 1 ).forEach( ( title, i ) => {
+   $( "titulo", 1 ).forEach( ( title, i ) => {
       let 
-         data = title.getAttribute( 'subtitle' ) ? `
+         data = title.getAttribute( "subtitle" ) ? `
             <t2 style='font-weight: 700; color: var( --sv-azul-bebe )'>
-               ${ title.getAttribute( 'subtitle' ) }
+               ${ title.getAttribute( "subtitle" ) }
             </t2>
          ` : null
       ;
@@ -176,7 +194,7 @@ window.addEventListener( "load", ev => {
    /**
     * article 
     * */
-   $( 'article', 1 ).forEach( ( article, i ) => {
+   $( "article", 1 ).forEach( ( article, i ) => {
       let 
          children = article.innerHTML 
       ;
@@ -186,7 +204,7 @@ window.addEventListener( "load", ev => {
                <header>
                   <ui>
                      <t style="font-weight: 700; text-transform: uppercase;">
-                        ${ article.getAttribute( 'label' ) }
+                        ${ article.getAttribute( "label" ) }
                      </t>
                   </ui>
                </header>
@@ -201,7 +219,7 @@ window.addEventListener( "load", ev => {
    /**
     * section 
     * */
-   $( 'section', 1 ).forEach( ( section, i ) => {
+   $( "section", 1 ).forEach( ( section, i ) => {
       let 
          children = section.innerHTML 
       ;
@@ -210,7 +228,7 @@ window.addEventListener( "load", ev => {
             <ui>
                <header>
                   <t6>
-                     ${ section.getAttribute( 'label' ) }
+                     ${ section.getAttribute( "label" ) }
                   </t6>
                </header>
                <content>
@@ -224,7 +242,7 @@ window.addEventListener( "load", ev => {
    /**
     * article laudo
     * */
-   $( 'article[laudo]', 1 ).forEach( ( article, i ) => {
+   $( "article[laudo]", 1 ).forEach( ( article, i ) => {
       let 
          children = article.innerHTML 
       ;
@@ -234,7 +252,7 @@ window.addEventListener( "load", ev => {
                <header>
                   <ui>
                      <t style="font-weight: 700; text-transform: uppercase;">
-                        ${ article.getAttribute( 'label' ) }
+                        ${ article.getAttribute( "label" ) }
                      </t>
                   </ui>
                </header>
@@ -249,7 +267,7 @@ window.addEventListener( "load", ev => {
    /**
     * section laudo
     * */
-   $( 'section[laudo]', 1 ).forEach( ( section, i ) => {
+   $( "section[laudo]", 1 ).forEach( ( section, i ) => {
       let 
          children = section.innerHTML 
       ;
@@ -258,7 +276,7 @@ window.addEventListener( "load", ev => {
             <ui>
                <header>
                   <t6>
-                     ${ section.getAttribute( 'label' ) }
+                     ${ section.getAttribute( "label" ) }
                   </t6>
                </header>
                <content>
@@ -273,19 +291,19 @@ window.addEventListener( "load", ev => {
    /**
     * cliente 
     * */
-   $( 'cliente', 1 ).forEach( ( cliente, i ) => {
+   $( "cliente", 1 ).forEach( ( cliente, i ) => {
       let 
          children = cliente.innerHTML 
          ,
          nome = `
             <t>
-               <b>Nome </b> ${ cliente.getAttribute( 'nome' ) }
+               <b>Nome </b> ${ cliente.getAttribute( "nome" ) }
             </t>` || null
          ,
          endereço = `
             <t>
                <b>Endereço </b>
-               ${ cliente.getAttribute( 'endereço' )  }
+               ${ cliente.getAttribute( "endereço" )  }
             </t>` || null
       ;
       cliente.innerHTML = `
@@ -312,7 +330,7 @@ window.addEventListener( "load", ev => {
    /**
     * assinaturas 
     * */
-   $( 'signatures', 1 ).forEach( ( signatures, i ) => {
+   $( "signatures", 1 ).forEach( ( signatures, i ) => {
       let 
          children = signatures.innerHTML
       ;

@@ -1,0 +1,153 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+   <head>
+      <title>Elétrica & Art-Orçamento_Dani-16-01-2025</title>
+   
+      <!-- <link rel="icon" href="src/pix/logo.svg" type="svg+xml"> -->
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- == [ fontawesome ]
+      == == == == == == == == == -->
+      <!-- == [ StyleSheets ] 
+      == == == == == == == == == -->
+      <!-- <link rel="stylesheet" href="../assets/globals.css"> -->
+      <link rel="stylesheet" href="../assets/theme/globals.css">
+      <!-- == [ libs ] 
+      == == == == == == == == == -->
+      <script src="../assets/libs/html2pdf/0.9.2.js" src-remote="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+      <script clb src="../assets/scripts/clb.js" defer></script>
+      <!-- == [ Scripts ] 
+      == == == == == == == == == -->
+      <script EACard src="../assets/widgets/ui/EACard.js" defer></script>
+      <script DownloadPDF src="../assets//scripts/DownloadPDF.js" defer></script>
+   </head>
+   <body>
+      <home-page>
+         <view id="invoice_html">
+            <ea-card section="dual"></ea-card>
+
+            <doc-title subtitle="PROPOSTA DE ORÇAMENTO">
+               SERVIÇO DE PINTURA EXTERNA
+            </doc-title>
+            
+            <cliente
+               nome="Dani"
+               endereço="Avenida Castelo Branco, nº 12370, Bairro Caiçara, Praia Grande, SP"
+            >
+            </cliente>
+
+            <article label="1. Escopo dos Serviços">
+               <section label="1.1 Circuito de Iluminação no Forro de Gesso da Sacada">
+                  <kard bg="#e5e5e5" m="0 0 1em 0">
+                     <header bg="#156" color="#fff" pd="1em">Cabear Circuito de Iluminação</header>
+                     <ul>
+                        <li>
+                           <p>Instalação de fiação para perfil de LED.</p>
+                        </li>
+                        <li>
+                           <p>Instalação de fiação para 8 spots de iluminação.</p>
+                        </li>
+                     </ul>
+                  </kard>
+                  <kard bg="#e5e5e5">
+                     <header bg="#156" color="#fff" pd="1em">Instalação de Iluminação</header>
+                     <ul>
+                        <li>
+                           <p>Fixação e instalação do perfil de LED.</p>
+                        </li>
+                        <li>
+                           <p>Instalação e conexão de 8 spots no circuito previamente cabiado.</p>
+                        </li>
+                     </ul>
+                  </kard>
+               </section>
+               
+            </article>
+
+
+            <article label="2. Materiais e Equipamentos">
+               <ul>
+                  <li>
+                     <mk>Os materiais necessários para a execução do serviço (perfil de LED, spots, cabos, conectores, etc.) serão fornecidos pelo contratante.</mk>
+                  </li>
+                  <li>
+                     <mk>Ferramentas e equipamentos de instalação fornecidos pela empresa.</mk>
+                  </li>
+               </ul>
+            </article>
+            
+            <page-break></page-break>
+            <after></after>
+
+            <article label="3. Cronograma de Execução">
+               <tagc>Prazo estimado para execução: <strong>1 dia útil.</strong></tagc>
+            </article>
+
+            <article label="4. Investimento">
+               <!-- <section label=""> -->
+                  <p>
+                     Valor Total: <strong>R$ 300,00</strong>
+                  </p>
+                  <p>O valor inclui somente a mão de obra para a realização dos serviços descritos.</p>
+               <!-- </section> -->
+            </article>
+
+            
+            <article label="5. Garantia">
+               <p>Garantia de 3 meses para os serviços realizados, exceto em casos de mau uso, alterações posteriores ou intervenções externas que comprometam o funcionamento do sistema de iluminação.</p>
+            </article>
+
+            <article label="6. Condições de Pagamento">
+               <p>Pagamento integral ao término do serviço.</p>
+               <!-- </content> -->
+            </article>
+            
+            <article label="7. Observações Gerais" class="avoid">
+               <p>O orçamento considera exclusivamente os serviços descritos acima.</p>
+               <p>Quaisquer alterações no escopo ou necessidades adicionais deverão ser previamente comunicadas e poderão implicar ajustes no valor.</p>
+               <p>Horários de trabalho serão acordados previamente para conveniência da cliente.</p>
+            </article>
+            
+            <page-break></page-break>
+            <after></after>
+            
+            <article class="avoid">
+               <tagb>
+                  <mk>Agradecemos a oportunidade de apresentar esta proposta e estamos à disposição para quaisquer esclarecimentos.</mk>
+               </tagb>
+            </article>
+
+
+            <article label="8. ASSINATURA E APROVAÇÃO">
+            </article>
+
+
+            
+            <signatures
+               signer
+               cliente
+            >
+            </signatures>
+         </view>
+
+      </home-page>
+
+      <footer>
+         <content>
+            <label>
+               <input type="button" id="btn_createPDF" value="Baixar em pdf"> 
+            </label>
+         </content>
+      </footer>
+      
+   </body>
+</html>
+
+
+<!-- 
+https://lensgo.ai/login
+https://ssstik.io
+ -->
