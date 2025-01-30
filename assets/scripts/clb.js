@@ -328,6 +328,54 @@ window.addEventListener( "load", ev => {
 
 
    /**
+    * condominio 
+    * */
+   $( "condominio", 1 ).forEach( ( condominio, i ) => {
+      let 
+         children = condominio.innerHTML 
+         ,
+         nome = `
+            <t>
+               <b>Condomínio </b> 
+               <ul>
+                  <b>Nome: </b> ${ condominio.getAttribute( "nome" ) } <br>
+                  <b>CNPJ: </b> ${ condominio.getAttribute( "cnpj" ) } <br>
+                  <b>Endereço </b> ${ condominio.getAttribute( "endereço" )  }
+               </ul>
+            </t>` || null
+         ,
+         endereço = `
+            <t>
+               <b>Endereço </b>
+               ${ condominio.getAttribute( "endereço" )  }
+            </t>` || null
+         ,
+         responsavel = `
+            <t>
+               <b>Responsável </b> ${ condominio.getAttribute( "responsavel" ) }
+            </t>` || null
+      ;
+      condominio.innerHTML = `
+         <ui>
+            <header>
+               <ui>
+               </ui>
+            </header>
+            <content>
+               <card>
+                  <ui>
+                     ${ nome && nome }
+                     ${ responsavel && responsavel }
+                     ${ children && children }
+                  </ui>
+               </card>
+            </content>
+         </ui>
+      `;
+   } );
+
+
+   /**
     * assinaturas 
     * */
    $( "signatures", 1 ).forEach( ( signatures, i ) => {
