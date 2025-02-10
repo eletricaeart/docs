@@ -1,25 +1,21 @@
+PROPOSTA DE ORÇAMENTO – SERVIÇO DE PINTURA IMPERMEABILIZANTE
 
-
-PROPOSTA DE ORÇAMENTO – SERVIÇO DE ELÉTRICA
-
-Cliente: Flávio
-Endereço do Serviço: Avenida Governador Mário Covas, nº 2900, Apartamento 101, Edifício Magnólia, Praia Grande, SP
+Cliente: Valdeci
+Endereço: Rua Dr. Esmeraldo Tarquínio Campos Filho, nº 480, Bairro Ribeirópolis, Praia Grande
 
 
 ---
 
 1. Escopo dos Serviços
 
-1.1 Circuitos para Ar-Condicionado:
+1.1 Lavagem do Muro
 
-Cabear Três Circuitos:
-Instalação da fiação elétrica para três circuitos dedicados a equipamentos de ar-condicionado, partindo do quadro de força até a área técnica.
+Remoção de limo e sujeiras impregnadas utilizando lavadora de alta pressão (WAP).
 
-Instalar Disjuntores:
-Instalação de três disjuntores (um para cada circuito), garantindo a proteção adequada para os equipamentos.
 
-Adequação do Quadro de Força:
-Organização e adequação do quadro de força para melhor funcionalidade e segurança.
+1.2 Aplicação de Tinta Borracha Líquida
+
+Aplicação de 2 demãos de tinta borracha líquida no muro externo para tratamento da superfície, pintura e impermeabilização.
 
 
 
@@ -27,9 +23,11 @@ Organização e adequação do quadro de força para melhor funcionalidade e seg
 
 2. Materiais e Equipamentos
 
-Os materiais necessários para a execução do serviço (fios, disjuntores, eletrodutos, entre outros) serão fornecidos pelo cliente.
+O aluguel da lavadora de alta pressão (WAP) está incluído no orçamento.
 
-As ferramentas e equipamentos de instalação serão fornecidos pela Elétrica&Art.
+A Elétrica&Art fornecerá a mão de obra e os equipamentos necessários para a execução do serviço.
+
+Os materiais (tinta borracha líquida, rolos, pincéis, entre outros) serão fornecidos pelo contratante.
 
 
 
@@ -37,7 +35,7 @@ As ferramentas e equipamentos de instalação serão fornecidos pela Elétrica&A
 
 3. Cronograma de Execução
 
-Prazo estimado para execução: Até 2 dias úteis.
+Tempo estimado para conclusão: aproximadamente 3 a 4 dias, dependendo das condições climáticas.
 
 
 
@@ -45,7 +43,13 @@ Prazo estimado para execução: Até 2 dias úteis.
 
 4. Investimento
 
-Valor Total da Mão de Obra: R$ 1.200,00
+Aluguel da WAP: R$ 350,00
+
+Lavagem do muro: R$ 500,00
+
+Pintura impermeabilizante: R$ 3.200,00
+
+Valor total da mão de obra: R$ 4.050,00
 
 
 
@@ -53,7 +57,7 @@ Valor Total da Mão de Obra: R$ 1.200,00
 
 5. Garantia
 
-Garantia de 3 meses para os serviços realizados, exceto em casos de mau uso, alterações posteriores ou intervenções externas que comprometam a instalação elétrica.
+3 meses de garantia sobre os serviços executados, exceto em casos de mau uso, infiltrações estruturais ou intervenções externas que comprometam a impermeabilização.
 
 
 
@@ -63,7 +67,7 @@ Garantia de 3 meses para os serviços realizados, exceto em casos de mau uso, al
 
 50% de entrada no início do serviço.
 
-50% na entrega do trabalho.
+50% na conclusão do trabalho.
 
 
 
@@ -71,11 +75,11 @@ Garantia de 3 meses para os serviços realizados, exceto em casos de mau uso, al
 
 7. Observações Gerais
 
-Este orçamento considera exclusivamente os serviços descritos acima.
+Este orçamento considera exclusivamente os serviços descritos.
 
-Quaisquer alterações no escopo ou necessidades adicionais deverão ser previamente comunicadas e poderão implicar ajustes no valor.
+Alterações no escopo deverão ser previamente informadas e poderão implicar em ajustes no valor final.
 
-Horários de trabalho serão acordados previamente para conveniência do cliente.
+O cronograma será acordado previamente para melhor conveniência do cliente.
 
 
 
