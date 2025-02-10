@@ -1,21 +1,23 @@
-PROPOSTA DE ORÇAMENTO – SERVIÇO DE PINTURA IMPERMEABILIZANTE
+PROPOSTA DE ORÇAMENTO – SERVIÇOS DE CORTE NA SANCA E INSTALAÇÃO DE CIRCUITO PARA AR-CONDICIONADO
 
-Cliente: Valdeci
-Endereço: Rua Dr. Esmeraldo Tarquínio Campos Filho, nº 480, Bairro Ribeirópolis, Praia Grande
+Cliente: Amorim
+Endereço: Rua Nabuco Correa, nº 350, Apartamento 42, Praia Grande
 
 
 ---
 
 1. Escopo dos Serviços
 
-1.1 Lavagem do Muro
+1.1 Corte na Sanca e Acabamento de Pintura
 
-Remoção de limo e sujeiras impregnadas utilizando lavadora de alta pressão (WAP).
+Execução de corte na sanca para encaixe do ar-condicionado.
+
+Acabamento de pintura após o corte para garantir um bom acabamento estético.
 
 
-1.2 Aplicação de Tinta Borracha Líquida
+1.2 Cabeamento para o Circuito do Ar-Condicionado
 
-Aplicação de 2 demãos de tinta borracha líquida no muro externo para tratamento da superfície, pintura e impermeabilização.
+Instalação de cabeamento elétrico partindo do quadro de distribuição até a área técnica na sacada, onde o aparelho de ar-condicionado será instalado posteriormente.
 
 
 
@@ -23,11 +25,9 @@ Aplicação de 2 demãos de tinta borracha líquida no muro externo para tratame
 
 2. Materiais e Equipamentos
 
-O aluguel da lavadora de alta pressão (WAP) está incluído no orçamento.
+A Elétrica&Art fornecerá a mão de obra e as ferramentas necessárias para a execução do serviço.
 
-A Elétrica&Art fornecerá a mão de obra e os equipamentos necessários para a execução do serviço.
-
-Os materiais (tinta borracha líquida, rolos, pincéis, entre outros) serão fornecidos pelo contratante.
+Os materiais (cabos, eletrodutos, tintas, etc.) serão fornecidos pelo contratante.
 
 
 
@@ -35,7 +35,7 @@ Os materiais (tinta borracha líquida, rolos, pincéis, entre outros) serão for
 
 3. Cronograma de Execução
 
-Tempo estimado para conclusão: aproximadamente 3 a 4 dias, dependendo das condições climáticas.
+Tempo estimado para conclusão: até 3 dias, podendo variar conforme as condições do local.
 
 
 
@@ -43,13 +43,7 @@ Tempo estimado para conclusão: aproximadamente 3 a 4 dias, dependendo das condi
 
 4. Investimento
 
-Aluguel da WAP: R$ 350,00
-
-Lavagem do muro: R$ 500,00
-
-Pintura impermeabilizante: R$ 3.200,00
-
-Valor total da mão de obra: R$ 4.050,00
+Valor total da mão de obra: R$ 1.200,00
 
 
 
@@ -57,7 +51,7 @@ Valor total da mão de obra: R$ 4.050,00
 
 5. Garantia
 
-3 meses de garantia sobre os serviços executados, exceto em casos de mau uso, infiltrações estruturais ou intervenções externas que comprometam a impermeabilização.
+3 meses de garantia sobre os serviços executados, exceto em casos de mau uso, modificações posteriores ou intervenções externas que comprometam a instalação.
 
 
 
