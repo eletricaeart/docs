@@ -1,0 +1,138 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+   <head>
+      <title>Elétrica & Art-Orçamento_</title>
+   
+      <!-- <link rel="icon" href="src/pix/logo.svg" type="svg+xml"> -->
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- == [ fontawesome ]
+      == == == == == == == == == -->
+      <!-- == [ StyleSheets ] 
+      == == == == == == == == == -->
+      <!-- <link rel="stylesheet" href="../assets/globals.css"> -->
+      <link rel="stylesheet" href="../assets/theme/globals.css">
+      <!-- == [ libs ] 
+      == == == == == == == == == -->
+      <script src="../assets/libs/html2pdf/0.9.2.js" src-remote="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+      <script clb src="../assets/scripts/clb.js" defer></script>
+      <!-- == [ Scripts ] 
+      == == == == == == == == == -->
+      <script EACard src="../assets/widgets/ui/EACard.js" defer></script>
+      <script DownloadPDF src="../assets//scripts/DownloadPDF.js" defer></script>
+   </head>
+   <body>
+      <home-page>
+         <view id="invoice_html">
+            <ea-card section="dual"></ea-card>
+
+            <doc-title subtitle="PROPOSTA DE ORÇAMENTO">
+               SERVIÇO DE PINTURA EXTERNA
+            </doc-title>
+            
+            <cliente
+               nome=""
+               endereço=""
+            >
+            </cliente>
+
+            <article label="">
+               <section label="">
+               </section>
+               
+               <page-break></page-break>
+               <after></after>
+
+               <section label="">
+               </section>
+               <section label="">
+               </section>
+            </article>
+
+<!-- 
+            <page-break></page-break>
+            <after></after> -->
+
+
+            <article label="2. Materiais e Equipamentos">
+               <ul>
+                  <li>
+                     <mk>Todo o material elétrico e iluminação será fornecido pela cliente.</mk>
+                  </li>
+               </ul>
+            </article>
+
+
+
+            <article label="3. Cronograma de Execução">
+               <tagc>Prazo estimado para conclusão: <strong>até 3 dias úteis.</strong></tagc>
+            </article>
+
+            <article label="4. Investimento">
+               <section label="4.1. Mão de Obra e Materiais">
+                  <p>
+                     Mão de Obra: <strong>R$ .</strong>
+                  </p>
+               </section>
+            </article>
+
+            
+            <article label="5. Garantia">
+               <p>Garantia de 3 meses para os serviços realizados, exceto em casos de mau uso ou intervenções externas.</p>
+            </article>
+            
+            <page-break></page-break>
+            <after></after>
+
+            <article label="6. Condições de Pagamento">
+               <p>Entrada de 50% no início dos serviços.</p>
+               <p>Saldo de 50% ao término e entrega do serviço.</p>
+               <!-- </content> -->
+            </article>
+            
+            <article label="7. Observações Gerais" class="avoid">
+               <p>O orçamento poderá ser revisado caso sejam identificadas necessidades adicionais durante a execução do serviço.</p>
+               <p>Horários de trabalho serão combinados previamente para maior conveniência da cliente.</p>
+            </article>
+
+            
+            <article class="avoid">
+               <tagb>
+                  <mk>Agradecemos a oportunidade de apresentar esta proposta e estamos à disposição para quaisquer esclarecimentos adicionais.</mk>
+               </tagb>
+            </article>
+
+
+            <article label="8. ASSINATURA E APROVAÇÃO">
+            </article>
+
+
+            
+            <signatures
+               signer
+               cliente
+            >
+            </signatures>
+         </view>
+
+      </home-page>
+
+      <footer>
+         <content>
+            <label>
+               <input type="button" id="btn_createPDF" value="Baixar em pdf"> 
+            </label>
+         </content>
+      </footer>
+      
+   </body>
+</html>
+
+
+<!-- 
+https://lensgo.ai/login
+https://ssstik.io
+ -->
