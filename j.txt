@@ -1,50 +1,54 @@
-PROPOSTA DE ORÇAMENTO – REFORMA ELÉTRICA
+PROPOSTA DE ORÇAMENTO – INFRAESTRUTURA ELÉTRICA
 
-Cliente: Karol de Fábia
-Endereço: Rua Pedro Álvares Cabral, nº 754, Bairro Aviação, Praia Grande
+Cliente: Carlos Carmo Endereço: Rua José de Alencar, Nº 406
 
 
 ---
 
 1. Escopo dos Serviços
 
-1.1 Remoção da Instalação Elétrica Antiga
-
-Remoção de todo o cabeamento antigo existente na residência.
-
-Remoção de todas as tomadas, interruptores, ventiladores de teto e chuveiros para execução do trabalho.
-
-Remoção do quadro de força antigo.
 
 
-1.2 Instalação da Nova Rede Elétrica
+1.1 Infraestrutura e Instalação Elétrica
 
-Chumbar e instalar o novo quadro de força.
+Instalação de infraestrutura elétrica completa da residência, incluindo eletrodutos, caixas de passagem e suportes conforme projeto.
 
-Cabeamento completo da residência com circuitos individualizados para:
+Lançamento e organização de todo o cabeamento elétrico.
 
-Tomadas
+Instalação de quadros de distribuição, disjuntores e dispositivos de proteção.
 
-Iluminação
+Montagem e fixação de tomadas, interruptores e pontos de conexão.
 
-Chuveiro
+Instalação completa da iluminação interna e externa conforme projeto.
 
-Ar-condicionado
+Testes e medições para garantir a segurança e eficiência do sistema.
 
 
-Montagem do quadro com dimensionamento e balanceamento da rede.
+1.2 Circuitos e Distribuição Elétrica
 
-Instalação de todas as tomadas, interruptores, ventiladores de teto e chuveiros existentes.
+Instalação e distribuição de circuitos de iluminação em pontos especificados no projeto, garantindo iluminação adequada para cada ambiente.
 
+Configuração de circuitos exclusivos para áreas de maior demanda, como cozinha e lavanderia, para evitar sobrecargas.
+
+Distribuição de circuitos independentes para tomadas gerais, tomadas de força e equipamentos específicos.
+
+Instalação de tomadas conforme especificações do projeto, respeitando padrões de segurança e funcionalidade.
+
+Instalação de dispositivos DR (Diferencial Residual) e DPS (Dispositivo de Proteção contra Surtos) para maior segurança do sistema.
+
+
+Observação: Este orçamento não inclui a instalação elétrica da piscina e sistemas de automação.
 
 
 ---
 
 2. Materiais e Equipamentos
 
-A Elétrica&Art fornecerá a mão de obra e as ferramentas necessárias para a execução do serviço.
 
-Os materiais (cabos, disjuntores, quadro de força, eletrodutos, tomadas, interruptores, etc.) serão fornecidos pelo contratante.
+
+Todos os materiais elétricos (fios, disjuntores, luminárias, quadros, eletrodutos, etc.) serão fornecidos pelo cliente.
+
+Ferramentas e equipamentos necessários para a execução do serviço serão fornecidos pela Elétrica&Art.
 
 
 
@@ -52,7 +56,9 @@ Os materiais (cabos, disjuntores, quadro de força, eletrodutos, tomadas, interr
 
 3. Cronograma de Execução
 
-Tempo estimado para conclusão: aproximadamente 3 a 5 dias, devido ao cabeamento ser passado por cima da laje, o que pode impactar na agilidade da execução.
+
+
+Prazo estimado para conclusão: 60 dias, sujeito a ajustes conforme o andamento da obra.
 
 
 
@@ -60,7 +66,9 @@ Tempo estimado para conclusão: aproximadamente 3 a 5 dias, devido ao cabeamento
 
 4. Investimento
 
-Valor total da mão de obra: R$ 2.500,00
+
+
+Valor total da mão de obra: R$ 15.000,00 (sugestão de valor baseada na complexidade e prazo da obra).
 
 
 
@@ -68,7 +76,9 @@ Valor total da mão de obra: R$ 2.500,00
 
 5. Garantia
 
-3 meses de garantia sobre os serviços executados, exceto em casos de mau uso, sobrecarga elétrica ou intervenções externas que comprometam a instalação.
+
+
+6 meses de garantia sobre a instalação elétrica, exceto em casos de mau uso, alterações posteriores ou intervenções externas que comprometam a integridade do serviço.
 
 
 
@@ -76,9 +86,11 @@ Valor total da mão de obra: R$ 2.500,00
 
 6. Condições de Pagamento
 
-50% de entrada no início do serviço.
 
-50% na conclusão do trabalho.
+
+30% de entrada no início do serviço.
+
+Saldo restante parcelado em 3 vezes, com pagamentos programados conforme o cronograma da obra.
 
 
 
@@ -86,11 +98,13 @@ Valor total da mão de obra: R$ 2.500,00
 
 7. Observações Gerais
 
+
+
 Este orçamento considera exclusivamente os serviços descritos.
 
-Alterações no escopo deverão ser previamente informadas e poderão implicar em ajustes no valor final.
+Possíveis alterações no escopo devem ser informadas previamente e poderão implicar ajustes no valor final.
 
-O cronograma será acordado previamente para melhor conveniência do cliente.
+O cronograma de execução será acordado previamente para melhor conveniência do cliente.
 
 
 
@@ -100,6 +114,6 @@ Agradecemos a oportunidade de apresentar esta proposta e estamos à disposição
 
 Elétrica&Art
 CNPJ: 32.858.892/0001-52
-Endereço: Rua José Alves Maciel, nº 40, Bairro Aviação, Praia Grande, SP
+Endereço: Rua José Alves Maciel, Nº 40, Bairro Aviação, Praia Grande, SP
 Telefone: (13) 99768-5853
 E-mail: eletrica.art.ltda@gmail.com
