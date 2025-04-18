@@ -1,0 +1,152 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+   <head>
+      <title>Elétrica & Art-Orçamento_Andre-18-04-2025</title>
+   
+      <!-- <link rel="icon" href="src/pix/logo.svg" type="svg+xml"> -->
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- == [ fontawesome ]
+      == == == == == == == == == -->
+      <!-- == [ StyleSheets ] 
+      == == == == == == == == == -->
+      <!-- <link rel="stylesheet" href="../assets/globals.css"> -->
+      <link rel="stylesheet" href="../assets/theme/globals.css">
+      <!-- == [ libs ] 
+      == == == == == == == == == -->
+      <script src="../assets/libs/html2pdf/0.9.2.js" src-remote="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+      <script clb src="../assets/scripts/clb.js" defer></script>
+      <!-- == [ Scripts ] 
+      == == == == == == == == == -->
+      <script EACard src="../assets/widgets/ui/EACard.js" defer></script>
+      <script DownloadPDF src="../assets//scripts/DownloadPDF.js" defer></script>
+   </head>
+   <body>
+      <home-page>
+         <view id="invoice_html">
+            <ea-card section="dual"></ea-card>
+
+            <doc-title subtitle="PROPOSTA DE ORÇAMENTO">
+               SERVIÇOS DE ELÉTRICA E PINTURA
+            </doc-title>
+            
+            <cliente
+               nome="André"
+               endereço="Avenida Presidente Kennedy, Nº 6545"
+            >
+            </cliente>
+
+            <article label="1. Escopo dos Serviços">
+               <section label="1.1 Elétrica">
+                  <p>
+                     <mk>Lançamento de cabeamento para os seguintes circuitos:</mk>
+                     <ul>
+                        <li>Circuito de iluminação para rasgo iluminado</li>
+                        <li>Circuito de iluminação para plafon central</li>
+                        <li>Circuito de iluminação para spots</li>
+                        <li>Circuito exclusivo para ar-condicionado</li>
+                     </ul>
+                  </p>
+                  <p>
+                     <mk>Instalação dos seguintes itens:</mk>
+                     <ul>
+                        <li>Fita de LED no rasgo iluminado</li>
+                        <li>Plafon central</li>
+                        <li>Spots de iluminação</li>
+                     </ul>
+                  </p>
+               </section>
+            
+               <page-break></page-break>
+               <after></after>
+
+               <section label="1.2 Pintura e Acabamento">
+                  <p>Aplicação de selador acrílico no forro e na parede de drywall</p>
+                  <p>Aplicação de massa corrida no forro e na parede de drywall</p>
+                  <p>Lixamento com máquina de lixa para uniformização</p>
+                  <p>Lixamento manual detalhado com auxílio de lâmpada para verificação de imperfeições</p>
+                  <p>Pintura com acabamento fino em todos os forros e paredes de drywall</p>
+               </section>
+               <section label="">
+               </section>
+            </article>
+
+            <article label="2. Materiais">
+               <ul>
+                  <li>
+                     <mk>Todos os materiais (fios, luminárias, spots, fita de LED, massa corrida, tinta, entre outros) serão fornecidos pelo cliente.</mk>
+                  </li>
+                  <li>
+                     <mk>As ferramentas e equipamentos necessários para a execução dos serviços serão fornecidos pela Elétrica&Art.</mk>
+                  </li>
+               </ul>
+            </article>
+
+            <article label="3. Investimento">
+               <section>
+                  <p>
+                     Valor total da mão de obra: <strong>R$ 3.100,00.</strong>
+                  </p>
+                  <p>Forma de pagamento: 50% na assinatura do contrato e 50% na conclusão dos serviços</p>
+               </section>
+            </article>
+
+            <article label="4. Prazo de Execução">
+               <p>Prazo estimado para conclusão: <mk>5 dias úteis</mk></p>
+               <tagc>(O prazo poderá ser ajustado conforme o andamento da obra e disponibilidade de acesso ao local.)</tagc>
+            </article>
+
+            
+            <article label="5. Garantia">
+               <p>Garantia de 3 meses para os serviços prestados, exceto em casos de mau uso, modificações posteriores ou intervenções externas que comprometam a instalação.</p>
+            </article>
+            
+            <page-break></page-break>
+            <after></after>
+
+            <article label="6. Observações Gerais" class="avoid">
+               <p>Esta proposta contempla exclusivamente os serviços descritos.</p>
+               <p>Quaisquer alterações no escopo deverão ser comunicadas previamente e poderão implicar em ajuste de valores e prazos.</p>
+            </article>
+
+            
+            <article class="avoid">
+               <tagb>
+                  <mk>Agradecemos a oportunidade de apresentar esta proposta e estamos à disposição para quaisquer esclarecimentos.</mk>
+               </tagb>
+            </article>
+
+
+            <article label="8. ASSINATURA E APROVAÇÃO">
+            </article>
+
+
+            
+            <signatures
+               signer
+               cliente
+            >
+            </signatures>
+         </view>
+
+      </home-page>
+
+      <footer>
+         <content>
+            <label>
+               <input type="button" id="btn_createPDF" value="Baixar em pdf"> 
+            </label>
+         </content>
+      </footer>
+      
+   </body>
+</html>
+
+
+<!-- 
+https://lensgo.ai/login
+https://ssstik.io
+ -->
