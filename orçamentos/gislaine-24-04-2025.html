@@ -1,0 +1,209 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+   <head>
+      <title>Elétrica & Art-Orçamento_Gislaine</title>
+   
+      <!-- <link rel="icon" href="src/pix/logo.svg" type="svg+xml"> -->
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- == [ fontawesome ]
+      == == == == == == == == == -->
+      <!-- == [ StyleSheets ] 
+      == == == == == == == == == -->
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background-color: #f4f4f4; /* Optional: Light background */
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #333;
+            color: white;
+        }
+        tbody tr:nth-child(even) {
+            background-color: #e0e0e0; /* Optional: Alternating row color */
+        }
+    </style>
+
+      <!-- <link rel="stylesheet" href="../assets/globals.css"> -->
+      <link rel="stylesheet" href="../assets/theme/globals.css">
+      <!-- == [ libs ] 
+      == == == == == == == == == -->
+      <script src="../assets/libs/html2pdf/0.9.2.js" src-remote="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+      <script clb src="../assets/scripts/clb.js" defer></script>
+      <!-- == [ Scripts ] 
+      == == == == == == == == == -->
+      <script EACard src="../assets/widgets/ui/EACard.js" defer></script>
+      <script DownloadPDF src="../assets//scripts/DownloadPDF.js" defer></script>
+   </head>
+   <body>
+      <home-page>
+         <view id="invoice_html">
+            <ea-card section="dual"></ea-card>
+
+            <doc-title subtitle="PROPOSTA DE ORÇAMENTO">
+               SERVIÇOS DE ELÉTRICA, PINTURA E GESSO
+            </doc-title>
+            
+            <cliente
+               nome="Gislaine"
+               endereço="Rua Gaspar Viana, nº 140 – Praia Grande – SP"
+            >
+            </cliente>
+
+            <article label="1. Escopo dos Serviços">
+               <section label="1.1 Elétrica">
+                  <mk>Lançamento de cabeamento para os seguintes circuitos:</mk>
+                  <ul>
+                     <li>Circuito para perfil de LED</li>
+                     <li>Circuito para spots de iluminação</li>
+                     <li>Circuito para pendente</li>
+                  </ul>
+                  <mk>Instalação dos seguintes itens:</mk>
+                  <ul>
+                     <li>Perfil de LED</li>
+                     <li>Spots de iluminação</li>
+                     <li>Luminária pendente</li>
+                  </ul>
+               </section>
+
+               <section label="1.2 Pintura e Acabamento">
+                  <ul>
+                     <li>Aplicação de massa corrida no forro de gesso</li>
+                     <li>Aplicação de massa corrida nas paredes da sala</li>
+                     <li>Lixamento com máquina para uniformização</li>
+                     <li>Lixamento manual detalhado com auxílio de lâmpada</li>
+                     <li>Pintura com acabamento fino no forro e nas paredes</li>
+                  </ul>
+               </section>
+               
+               <page-break></page-break>
+               <after></after>
+
+
+               <section label="1.3 Gesso">
+                  <mk>Serviços de gesso drywall conforme especificado:</mk>
+                  <p>
+    <table>
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Quantidade / Medida</th>
+                <th>Valor (R$)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Forro</td>
+                <td>15,25 m²</td>
+                <td>1.600,00</td>
+            </tr>
+            <tr>
+                <td>Cortineiro</td>
+                <td>1 unidade</td>
+                <td>300,00</td>
+            </tr>
+        </tbody>
+    </table>
+
+                  </p>  
+                  <p>
+                  <mk>Subtotal Gesso: R$ 1.900,00</mk> (incluso material e mão de obra)</mk>
+                  </p>
+               </section>
+            </article>
+
+<!-- 
+            <page-break></page-break>
+            <after></after> -->
+
+
+            <article label="2. Materiais">
+               <ul>
+                  <li>
+                     <mk>Materiais de elétrica e pintura: fornecidos pelo cliente</mk>
+                  </li>
+                  <li>
+                     <mk>Materiais de gesso: incluídos no orçamento</mk>
+                  </li>
+               </ul>
+               <tagc>Todas as ferramentas e equipamentos necessários serão fornecidos pela Elétrica&Art.<tagc>
+            </article>
+
+            <article label="3. Investimento">
+               <section label="4.1. Mão de Obra e Materiais">
+                  <p>
+                     Valor total do serviço: <strong>R$ 4.450,00.</strong>
+                  </p>
+                  <p>
+                     <mk>Forma de pagamento:</mk>
+                     <ul>
+                        <li>50% na assinatura do contrato</li>
+                        <li>50% na conclusão dos serviços</li>
+                     </ul>
+                  </p>  
+               </section>
+            </article>
+
+            <article label="4. Prazo de Execução">
+               <mk>Prazo estimado para execução: </mk>
+               <p>5 a 10 dias úteis, sujeito a ajustes conforme o andamento da obra e disponibilidade de acesso ao local.</p>
+            </article>
+
+            
+            <article label="5. Garantia">
+               <p>Garantia de 3 meses para todos os serviços executados, exceto em casos de mau uso, alterações posteriores ou interferências externas.</p>
+            </article>
+           
+            <article label="6. Observações Gerais" class="avoid">
+               <p>Esta proposta contempla exclusivamente os serviços descritos.</p>
+               <p>Alterações no escopo deverão ser comunicadas com antecedência e poderão implicar em ajustes de valores e prazos.</p>
+            </article>
+
+            
+            <article class="avoid">
+               <tagb>
+                  <mk>Agradecemos a oportunidade de apresentar esta proposta e estamos à disposição para quaisquer esclarecimentos adicionais.</mk>
+               </tagb>
+            </article>
+
+
+            <article label="8. ASSINATURA E APROVAÇÃO">
+            </article>
+
+
+            
+            <signatures
+               signer
+               cliente
+            >
+            </signatures>
+         </view>
+
+      </home-page>
+
+      <footer>
+         <content>
+            <label>
+               <input type="button" id="btn_createPDF" value="Baixar em pdf"> 
+            </label>
+         </content>
+      </footer>
+      
+   </body>
+</html>
+
+
+<!-- 
+https://lensgo.ai/login
+https://ssstik.io
+ -->
