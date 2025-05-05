@@ -107,18 +107,18 @@
            const img = new Image();
            img.onload = function() {
                // As coordenadas (x, y) e as dimensões (largura, altura) podem precisar de ajuste
-               pdf.addImage(img, 'PNG', 10, 10, 190, 40); // Ajuste esses valores conforme necessário
+               pdf.addImage(img, 'PNG', 10, 10, 190, 60); // Ajuste esses valores conforme necessário
 
                // Conteúdo do orçamento (começando um pouco mais abaixo para não sobrepor o cabeçalho)
                pdf.setFontSize(18);
-               pdf.text('Orçamento de Serviço', 20, 60);
+               pdf.text('Orçamento de Serviço', 20, 80);
 
                pdf.setFontSize(12);
-               pdf.text(`Data: ${dataCriacao}`, 20, 70);
-               pdf.text(`Cliente: ${cliente}`, 20, 80);
-               pdf.text(`Serviços:`, 20, 90);
+               pdf.text(`Data: ${dataCriacao}`, 20, 90);
+               pdf.text(`Cliente: ${cliente}`, 20, 100);
+               pdf.text(`Serviços:`, 20, 110);
 
-               const servicosLinhas = pdf.splitTextToSize(servicos, 170);
+               const servicosLinhas = pdf.splitTextToSize(servicos, 190);
                let yPos = 95;
                servicosLinhas.forEach(linha => {
                    pdf.text(linha, 25, yPos);
