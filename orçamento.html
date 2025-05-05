@@ -109,17 +109,17 @@
                // As coordenadas (x, y) e as dimensões (largura, altura) podem precisar de ajuste
                pdf.addImage(img, 'PNG', 10, 10, 190, 60); // Ajuste esses valores conforme necessário
 
-               // Conteúdo do orçamento (começando um pouco mais abaixo para não sobrepor o cabeçalho)
+              // Conteúdo do orçamento (começando mais abaixo para não sobrepor o cabeçalho)
                pdf.setFontSize(18);
-               pdf.text('Orçamento de Serviço', 20, 80);
+               pdf.text('Orçamento de Serviço', 20, 80); // Ajustei a posição Y
 
                pdf.setFontSize(12);
-               pdf.text(`Data: ${dataCriacao}`, 20, 90);
-               pdf.text(`Cliente: ${cliente}`, 20, 100);
-               pdf.text(`Serviços:`, 20, 110);
+               pdf.text(`Data: ${dataCriacao}`, 20, 90); // Ajustei a posição Y
+               pdf.text(`Cliente: ${cliente}`, 20, 100); // Ajustei a posição Y
+               pdf.text(`Serviços:`, 20, 110); // Ajustei a posição Y
 
-               const servicosLinhas = pdf.splitTextToSize(servicos, 190);
-               let yPos = 95;
+               const servicosLinhas = pdf.splitTextToSize(servicos, 170);
+               let yPos = 115; // Ajustei a posição Y inicial
                servicosLinhas.forEach(linha => {
                    pdf.text(linha, 25, yPos);
                    yPos += 5;
