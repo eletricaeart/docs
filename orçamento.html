@@ -1,0 +1,141 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novo Orçamento</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Novo Orçamento</h1>
+    <form id="orcamento-form">
+        <div class="form-group">
+            <label for="cliente">Nome do Cliente:</label>
+            <input type="text" id="cliente" name="cliente" required>
+        </div>
+
+        <div class="form-group">
+            <label for="servicos">Serviços:</label>
+            <textarea id="servicos" name="servicos" rows="4" placeholder="Lista dos serviços a serem realizados (ex: Instalação elétrica na sala, pintura do quarto, forro de drywall no banheiro)" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="valor">Valor Total (R$):</label>
+            <input type="number" id="valor" name="valor" min="0" step="0.01" required>
+        </div>
+
+        <div class="form-group">
+            <label for="forma-pagamento">Forma de Pagamento:</label>
+            <select id="forma-pagamento" name="forma-pagamento">
+                <option value="dinheiro">Dinheiro</option>
+                <option value="pix">Pix</option>
+                <option value="cartao-credito">Cartão de Crédito</option>
+                <option value="cartao-debito">Cartão de Débito</option>
+                <option value="boleto">Boleto</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="garantia">Garantia do Serviço:</label>
+            <input type="text" id="garantia" name="garantia" placeholder="Tempo de garantia e condições (ex: 3 meses contra defeitos de instalação)">
+        </div>
+
+        <button type="button" onclick="salvarOrcamento()">Salvar Orçamento</button>
+    </form>
+
+    <script>
+        function salvarOrcamento() {
+            const cliente = document.getElementById('cliente').value;
+            const servicos = document.getElementById('servicos').value;
+            const valor = document.getElementById('valor').value;
+            const formaPagamento = document.getElementById('forma-pagamento').value;
+            const garantia = document.getElementById('garantia').value;
+            const dataCriacao = new Date().toLocaleDateString();
+
+            const novoOrcamento = {
+                cliente: cliente,
+                servicos: servicos,
+                valor: valor,
+                formaPagamento: formaPagamento,
+                garantia: garantia,
+                dataCriacao: dataCriacao,
+            };
+
+            console.log("Dados do Orçamento para PDF:", novoOrcamento);
+            // Gerando o PDF
+            const { jsPDF } = window.jspdf;
+           const pdf = new jsPDF();
+
+           // Adicionando o cabeçalho na primeira página
+           const img = new Image();
+           img.onload = function() {
+               // As coordenadas (x, y) e as dimensões (largura, altura) podem precisar de ajuste
+               pdf.addImage(img, 'PNG', 10, 10, 190, 40); // Ajuste esses valores conforme necessário
+
+               // Conteúdo do orçamento (começando um pouco mais abaixo para não sobrepor o cabeçalho)
+               pdf.setFontSize(18);
+               pdf.text('Orçamento de Serviço', 20, 60);
+
+               pdf.setFontSize(12);
+               pdf.text(`Data: ${dataCriacao}`, 20, 70);
+               pdf.text(`Cliente: ${cliente}`, 20, 80);
+               pdf.text(`Serviços:`, 20, 90);
+
+               const servicosLinhas = pdf.splitTextToSize(servicos, 170);
+               let yPos = 95;
+               servicosLinhas.forEach(linha => {
+                   pdf.text(linha, 25, yPos);
+                   yPos += 5;
+               });
+
+               pdf.text(`Valor Total: R$ ${valor}`, 20, yPos + 10);
+               pdf.text(`Forma de Pagamento: ${formaPagamento}`, 20, yPos + 20);
+               pdf.text(`Garantia: ${garantia || 'Não especificada'}`, 20, yPos + 30);
+
+               // Salvando o PDF
+               const nomeArquivo = `orcamento_${cliente.replace(/\s+/g, '_').toLowerCase()}.pdf`;
+               pdf.save(nomeArquivo);
+               alert("Orçamento salvo (simulação) e PDF gerado com cabeçalho!");
+           };
+           img.src = 'URL_DA_SUA_IMAGEM'; // Substitua pelo caminho da sua imagem
+        }
+    </script>
+</body>
+</html>
