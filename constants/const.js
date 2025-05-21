@@ -7,4 +7,5 @@ const
       branco: "fase",
       preto: "distribuição / fase",
    }
+   
 ;
