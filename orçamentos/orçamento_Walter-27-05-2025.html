@@ -1,0 +1,203 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+   <head>
+      <title>Elétrica & Art-Orçamento_Walter-27-05-2025</title>
+   
+      <!-- <link rel="icon" href="src/pix/logo.svg" type="svg+xml"> -->
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- == [ fontawesome ]
+      == == == == == == == == == -->
+      <!-- == [ StyleSheets ] 
+      == == == == == == == == == -->
+      <!-- <link rel="stylesheet" href="../assets/globals.css"> -->
+      <link rel="stylesheet" href="../assets/theme/globals.css">
+      <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+      <!-- == [ libs ] 
+      == == == == == == == == == -->
+      <script src="../assets/libs/html2pdf/0.9.2.js" src-remote="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+      <script clb src="../assets/scripts/clb2.js" defer></script>
+      <!-- == [ Scripts ] 
+      == == == == == == == == == -->
+      <script EACard src="../assets/widgets/ui/EACard.js" defer></script>
+      <script DownloadPDF src="../assets//scripts/DownloadPDF.js" defer></script>
+   </head>
+   <body>
+      <home-page>
+         <view id="invoice_html">
+            <ea-card section="dual"></ea-card>
+
+            <doc-title 
+               subtitle="PROPOSTA DE ORÇAMENTO"
+               emissao="27/05/2025"
+               validade="15 dias"
+            >
+               SERVIÇO DE PINTURA RESIDENCIAL
+            </doc-title>
+            
+            <cliente
+               nome="Walter"
+               endereço="Rua Mario de Andrade, nº 300 – Apartamento 62"
+            >
+            </cliente>
+
+            <article label="1. ESCOPO DO SERVIÇO">
+               <section>
+                  <h4>Serviço de pintura residencial com foco em repintura geral e pequenos reparos. A execução contemplará</h4>
+                  <strong>Cozinha:</strong>
+                  <ul>
+                     <li>repintura do teto</li>
+                  </ul>
+                  <strong>Sala:</strong>
+                  <ul>
+                     <li>repintura completa de paredes e teto</li>
+                  </ul>
+                  <strong>Hall de entrada:</strong>
+                  <ul>
+                     <li>repintura completa de paredes e teto</li>
+                  </ul>
+                  <strong>Dois quartos:</strong>
+                  <ul>
+                     <li>repintura integral de paredes e tetos</li>
+                  </ul>
+                  <strong>Cinco portas:</strong>
+                  <ul>
+                     <li>lixamento leve e repintura de ambas as faces</li>
+                  </ul>
+                  <strong>Pequenos reparos:</strong>
+                  <ul>
+                     <li>aplicação pontual de massa corrida em paredes e tetos, onde houver necessidade, para correção de imperfeições antes da pintura</li>
+                  </ul>
+                  
+                  <page-break></page-break>
+                  <after></after>
+
+                  <tagc>O serviço será realizado com acabamento fino, garantindo uniformidade, estética e durabilidade da pintura em todos os ambientes tratados.</tagc>
+               </section>
+               
+
+            </article>
+
+
+
+
+            <article label="2. Materiais">
+               <section>
+                  <p>
+                     <b>Materiais (tintas, massa corrida, selador, lixas, etc.): </b>  fornecidos pelo cliente
+                  </p>
+                  <p>
+                     <strong>Ferramentas e equipamentos (máquina de lixa, rolos, pincéis, iluminação para acabamento, etc.):</strong> fornecidos pela equipe da Elétrica&Art
+                  </p>
+               </section>
+            </article>
+
+            <article label="3. Investimento">
+               <section>
+                  <table>
+                     <thead>
+                        <tr>
+                           <th>Item</th>
+                           <th>Valor (R$)</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>Pintura residencial (mão de obra)</td>
+                           <td>R$ 2.300,00</td>
+                        </tr>
+                        
+                        <tr><td></td><td></td></tr>
+                        <tr></tr>
+                     </tbody>
+                     <tfoot style="background: #4563; color: #333;">
+                        <tr>
+                           <td>Valor Total Geral:</td>
+                           <td style="font-size: 1.3em; font-weight: 700; color: #154a8f;">R$ 2.300,00</td>
+                        </tr>
+                     </tfoot>
+                  </table>  
+
+                  <p>
+                     <strong>Forma de Pagamento:</strong><br><br>
+                     50% na assinatura do contrato <br>
+                     50% na conclusão dos serviços
+                  </p>
+               </section>
+            </article>
+
+            
+            <article label="4. Prazo de Execução">
+               <p>Prazo estimado para execução total dos serviços: <strong>até 10 dias úteis</strong>, podendo ser ajustado conforme andamento da obra e liberação de acesso ao imóvel.</p>
+            </article>
+
+            <article label="5. Garantia">
+               <p>Garantia de 3 meses para os serviços realizados, válida contra falhas de aplicação como descascamento, manchas ou cobertura irregular, exceto em casos de mau uso ou intervenções posteriores.</p>
+            </article>
+            
+                  <page-break></page-break>
+                  <after></after>
+
+            <article label="6. Observações Finais" class="avoid">
+               <p>Esta proposta contempla exclusivamente os serviços descritos acima</p>
+               <p>Qualquer modificação no escopo, alteração de cômodos ou acréscimo de novas demandas deverá ser previamente acordada, podendo implicar em ajustes de valores e prazos</p>
+            </article>
+
+            
+            <article class="avoid">       
+               <tagb>
+                  <mk>Agradecemos a oportunidade de apresentar esta proposta e estamos à disposição para quaisquer esclarecimentos adicionais.</mk>
+               </tagb>
+            </article>
+
+
+            <article label="7. Assinatura e Aprovação">
+            </article>
+
+
+            
+            <signatures
+               signer
+               cliente
+            >
+            </signatures>
+         </view>
+
+      </home-page>
+
+      <footer>
+         <content>
+            <label>
+               <input type="button" id="btn_createPDF" value="Baixar em pdf"> 
+            </label>
+         </content>
+      </footer>
+      
+   </body>
+</html>
+
+
+<!-- 
+https://lensgo.ai/login
+https://ssstik.io
+
