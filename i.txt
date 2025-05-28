@@ -1,83 +1,42 @@
 
 
-PROPOSTA DE ORÇAMENTO – SERVIÇOS DE GESSO, PINTURA E ELÉTRICA
+PROPOSTA DE ORÇAMENTO – SERVIÇO DE PINTURA RESIDENCIAL
 
-Cliente: Mariete
-Endereço da Obra: Rua Martim Afonso de Souza, nº 436 – Apartamento 205
-Data de Emissão: 19/05/2025
+Cliente: Walter
+Endereço da Obra: Rua Mario de Andrade, nº 300 – Apartamento 62
+Data de Emissão: 27/05/2025
 Validade da Proposta: 15 dias
 
 
 ---
 
-1. ESCOPO DOS SERVIÇOS
+1. ESCOPO DO SERVIÇO
+
+Serviço de pintura residencial com foco em repintura geral e pequenos reparos. A execução contemplará:
+
+Cozinha: repintura do teto
+
+Sala: repintura completa de paredes e teto
+
+Hall de entrada: repintura completa de paredes e teto
+
+Dois quartos: repintura integral de paredes e tetos
+
+Cinco portas: lixamento leve e repintura de ambas as faces
+
+Pequenos reparos: aplicação pontual de massa corrida em paredes e tetos, onde houver necessidade, para correção de imperfeições antes da pintura
 
 
----
-
-1.1 SERVIÇOS DE GESSO DRYWALL
-
-Execução de forro de gesso acartonado (drywall) com acabamento em tabica de 3 cm, conforme medições dos ambientes:
-
-Ambiente	Dimensões (m)	Área (m²)	Valor (R$)
-
-Cozinha	3,15 x 2,00	6,30	R$ 661,00
-Sala	3,15 x 2,60	8,19	R$ 859,00
-Hall	1,14 x 0,95	1,08	R$ 113,00
-Quarto	4,76 x 2,50	11,90	R$ 1.249,00
-
-
-Subtotal Gesso (material + mão de obra): R$ 2.882,00
-
-
----
-
-1.2 PINTURA E ACABAMENTO (Somente Mão de Obra)
-
-Aplicação de massa corrida em todos os forros de gesso
-
-Lixamento com máquina para nivelamento
-
-Lixamento manual detalhado com auxílio de lâmpada para acabamento fino
-
-Pintura com acabamento fino exclusiva nos forros
-
-
-
----
-
-1.3 INSTALAÇÃO ELÉTRICA (Somente Mão de Obra)
-
-Lançamento de cabeamento para circuitos de iluminação:
-
-Sala: perfil de LED + spots
-
-Cozinha: perfil de LED
-
-Banheiro: perfil de LED + spots
-
-Quarto: perfil de LED + spots
-
-Área de Serviço: plafon de sobrepor
-
-Hall: plafon central
-
-
-Corte em parede para conduítes
-
-Instalação completa de todas as luminárias
-
+O serviço será realizado com acabamento fino, garantindo uniformidade, estética e durabilidade da pintura em todos os ambientes tratados.
 
 
 ---
 
 2. MATERIAIS
 
-Gesso: material e mão de obra incluídos
+Materiais (tintas, massa corrida, selador, lixas, etc.): fornecidos pelo cliente
 
-Pintura e elétrica: materiais fornecidos pelo cliente
-
-Ferramentas: responsabilidade da equipe executora
+Ferramentas e equipamentos (máquina de lixa, rolos, pincéis, iluminação para acabamento, etc.): fornecidos pela equipe da Elétrica&Art
 
 
 
@@ -87,11 +46,8 @@ Ferramentas: responsabilidade da equipe executora
 
 Item	Valor (R$)
 
-Gesso (material + mão de obra)	2.882,00
-Pintura e Elétrica (mão de obra)	2.300,00
+Pintura residencial (mão de obra)	R$ 2.300,00
 
-
-Valor Total Geral: R$ 5.182,00
 
 Forma de Pagamento:
 
@@ -105,23 +61,23 @@ Forma de Pagamento:
 
 4. PRAZO DE EXECUÇÃO
 
-Prazo estimado para entrega dos serviços: até 10 dias úteis, podendo variar conforme o andamento da obra e acesso ao local.
+Prazo estimado para execução total dos serviços: até 10 dias úteis, podendo ser ajustado conforme andamento da obra e liberação de acesso ao imóvel.
 
 
 ---
 
 5. GARANTIA
 
-Garantia de 3 meses para os serviços executados, exceto em casos de mau uso, modificações posteriores ou interferência de terceiros.
+Garantia de 3 meses para os serviços realizados, válida contra falhas de aplicação como descascamento, manchas ou cobertura irregular, exceto em casos de mau uso ou intervenções posteriores.
 
 
 ---
 
 6. OBSERVAÇÕES FINAIS
 
-A proposta contempla somente os serviços descritos acima.
+Esta proposta contempla exclusivamente os serviços descritos acima
 
-Qualquer modificação no escopo deve ser acordada previamente, com possível reajuste de valores e prazos.
+Qualquer modificação no escopo, alteração de cômodos ou acréscimo de novas demandas deverá ser previamente acordada, podendo implicar em ajustes de valores e prazos
 
 
 
