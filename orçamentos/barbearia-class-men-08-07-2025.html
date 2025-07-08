@@ -1,0 +1,165 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+   <head>
+      <title>Elétrica & Art-Orçamento_barbearia-class-men-08-07-2025</title>
+   
+      <!-- <link rel="icon" href="src/pix/logo.svg" type="svg+xml"> -->
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- == [ fontawesome ]
+      == == == == == == == == == -->
+      <!-- == [ StyleSheets ] 
+      == == == == == == == == == -->
+      <!-- <link rel="stylesheet" href="../assets/globals.css"> -->
+      <link rel="stylesheet" href="../assets/theme/globals.css">
+      <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+      <!-- == [ libs ] 
+      == == == == == == == == == -->
+      <script src="../assets/libs/html2pdf/0.9.2.js" src-remote="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+      <script clb src="../assets/scripts/clb2.js" defer></script>
+      <!-- == [ Scripts ] 
+      == == == == == == == == == -->
+      <script EACard src="../assets/widgets/ui/EACard.js" defer></script>
+      <script DownloadPDF src="../assets//scripts/DownloadPDF.js" defer></script>
+   </head>
+   <body>
+      <home-page>
+         <view id="invoice_html">
+            <ea-card section="dual"></ea-card>
+
+            <doc-title 
+               subtitle="PROPOSTA DE ORÇAMENTO"
+               emissao="08/07/2025"
+               validade="15 dias"
+            >
+               SERVIÇOS DE PINTURA E ACABAMENTO
+            </doc-title>
+            
+            <cliente
+               nome="Barbearia Class Men"
+               endereço="Av: Dr. José Singer"
+            >
+            </cliente>
+
+            <article label="1. Escopo dos Serviços">
+               <section label="1.1 Pintura e Acabamento">
+                  <p>
+                     <ul>
+                        <li>Aplicação de massa corrida nas paredes internas para nivelamento e eliminação do grafiato existente, deixando a superfície completamente lisa e com acabamento fino, conforme padrão visual do projeto.</li>
+                        <li>Aplicação de massa corrida no forro de gesso construído.</li>
+                        <li>Aplicação de massa corrida na parede de gesso acartonado construída.</li>
+                        <li>Aplicação de massa corrida nas paredes e forro do banheiro.</li>
+                        <li>Aplicação de massa corrida no hall de acesso ao banheiro.</li>
+                        <li>Lixamento com máquina lixadeira para nivelamento uniforme das superfícies.</li>
+                        <li>Lixamento manual detalhado com auxílio de lâmpada para correção de imperfeições e acabamento fino.</li>
+                        <li>Pintura de acabamento fino nas paredes e forros de gesso, com aplicação prévia de selador onde necessário.</li>
+                        <li>Aplicação de massa com efeito cimento queimado em pontos específicos das paredes, conforme detalhamento do projeto executivo.</li>
+                     </ul>
+                  </p>
+
+               </section>
+               
+               <page-break></page-break>
+               <after></after>
+
+            </article>
+
+<!-- 
+            <page-break></page-break>
+            <after></after> -->
+
+
+            <article label="2. Materiais">
+               <p>Todos os materiais (massa corrida, tintas, lixas, selador, material para efeito cimento queimado etc.) deverão ser fornecidos pelo cliente.</p>
+               <p>Todas as ferramentas e equipamentos necessários à execução dos serviços serão de responsabilidade da equipe executora.</p>
+            </article>
+
+            <article label="3. Investimento">
+               <section>
+                  <p>Valor total da mão de obra: <strong>R$ 4.800,00 (quatro mil e oitocentos reais)</strong></p>
+
+                  <p>
+                     <b>Forma de Pagamento:</b><br><br>
+                     50% no início dos serviços <br>
+                     50% na entrega e aprovação final
+                  </p>
+               </section>
+            </article>
+
+            
+            <article label="4. Prazo de Execução">
+               <p>Prazo estimado para execução: <b>até 15 dias corridos</b>
+               </p>
+               <tagc>(Sujeito a ajustes conforme o andamento da obra e liberação dos ambientes para trabalho)</tagc>
+            </article>
+
+            <article label="5. Garantia">
+               <p>Garantia de 3 meses para todos os serviços executados, exceto em casos de mau uso, alterações posteriores ou interferências externas.</p>
+            </article>
+            
+            <page-break></page-break>
+            <after></after>
+
+            <article label="6. Observações Finais" class="avoid">
+               <p>Esta proposta contempla exclusivamente os serviços descritos neste documento.</p>
+               <p>Alterações no escopo deverão ser informadas com antecedência e poderão implicar em revisão de valores e prazos.</p>
+            </article>
+
+            
+            <article class="avoid">
+               <tagb>
+                  <mk>Agradecemos a oportunidade de apresentar esta proposta e estamos à disposição para quaisquer esclarecimentos adicionais.</mk>
+               </tagb>
+            </article>
+
+
+            <article label="7. Assinatura e Aprovação">
+            </article>
+
+
+            
+            <signatures
+               signer
+               cliente
+            >
+            </signatures>
+         </view>
+
+      </home-page>
+
+      <footer>
+         <content>
+            <label>
+               <input type="button" id="btn_createPDF" value="Baixar em pdf"> 
+            </label>
+         </content>
+      </footer>
+      
+   </body>
+</html>
+
+
+<!-- 
+https://lensgo.ai/login
+https://ssstik.io
+--->
