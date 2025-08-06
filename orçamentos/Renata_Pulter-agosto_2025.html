@@ -1,0 +1,176 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+   <head>
+      <title>Elétrica & Art-Orçamento_Renata_Pulter-agosto_2025</title>
+   
+      <!-- <link rel="icon" href="src/pix/logo.svg" type="svg+xml"> -->
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- == [ fontawesome ]
+      == == == == == == == == == -->
+      <!-- == [ StyleSheets ] 
+      == == == == == == == == == -->
+      <!-- <link rel="stylesheet" href="../assets/globals.css"> -->
+      <link rel="stylesheet" href="../assets/theme/globals.css">
+      <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+      <!-- == [ libs ] 
+      == == == == == == == == == -->
+      <script src="../assets/libs/html2pdf/0.9.2.js" src-remote="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+      <script clb src="../assets/scripts/clb2.js" defer></script>
+      <!-- == [ Scripts ] 
+      == == == == == == == == == -->
+      <script EACard src="../assets/widgets/ui/EACard.js" defer></script>
+      <script DownloadPDF src="../assets//scripts/DownloadPDF.js" defer></script>
+   </head>
+   <body>
+      <home-page>
+         <view id="invoice_html">
+            <ea-card section="dual"></ea-card>
+
+            <doc-title 
+               subtitle="PROPOSTA DE ORÇAMENTO"
+               emissao="08/08/2025"
+               validade="15 dias"
+            >
+               SERVIÇOS DE GESSO, PINTURA E ELÉTRICA
+            </doc-title>
+            
+            <cliente
+               nome="Renata Pulter"
+               endereço="Rua Peru, nº 769 – Apartamento 22"
+            >
+            </cliente>
+
+            <article label="1. Escopo dos Serviços">
+               <section label="1.1 Serviço de elétrica residencial">
+                  <h4>Serviço completo de revisão e execução elétrica residencial, incluindo:</h4>
+                  <ul>
+                     <li>Remoção de todo o cabeamento elétrico existente no apartamento.</li>
+                  </ul>
+                  <h4>Lançamento de novos cabos para todos os circuitos:</h4>
+                  <ul>
+                     <li>Tomadas</li>
+                     <li>Iluminação</li>
+                     <li>Chuveiro</li>
+                     <li>Ar-condicionado</li>
+                  </ul>
+                  <p>Montagem completa do novo quadro de distribuição, com balanceamento adequado das fases e reorganização da rede.</p>
+                  <p>Remoção e reinstalação de todas as tomadas e interruptores existentes.</p>
+                  <p>Instalação de todas as luminárias e ventiladores de teto já existentes.</p>
+
+               <page-break></page-break>
+               <after></after>
+                  <tagb>
+                     <h3>Observação Importante</h3>
+                     <p>Caso o cliente opte por adquirir ventiladores de teto novos para substituição dos existentes, o serviço de montagem e instalação dos novos aparelhos não está incluído neste orçamento e será cobrado à parte.</p>
+                  </tagb>
+                  <br>
+                  <tagc>
+                     <h3>Nota Técnica</h3>
+                     <p>A infraestrutura elétrica atual do imóvel é antiga, composta por eletrodutos de ferro galvanizado com diâmetro inferior ao recomendado para suportar todos os novos circuitos independentes. Diante disso, há duas possíveis soluções, caso o cabeamento completo não seja possível pela estrutura existente:</p>
+                     <ol>
+                        <li>Unificação dos circuitos de iluminação e tomadas, com os devidos ajustes técnicos.</li>
+                        <li>Reavaliação e elaboração de um novo orçamento para a criação de infraestrutura elétrica compatível, garantindo a independência e segurança dos circuitos conforme a norma técnica.</li>
+                     </ol>
+                  </tagc>
+                 </section>
+               
+            </article>
+
+<!-- 
+            <page-break></page-break>
+            <after></after> -->
+
+
+            <article label="2. Materiais">
+               <section>
+                  <p>Todos os materiais elétricos (fios, disjuntores, tomadas, interruptores, luminárias, eletrodutos, etc.) serão fornecidos pelo cliente.</p>
+                  <p>Todas as ferramentas e equipamentos necessários para a execução dos serviços serão fornecidos pela equipe Elétrica&Art.</p>
+               </section>
+            </article>
+
+            <article label="3. Investimento">
+               <section>
+                  <p>Valor total da mão de obra: R$ 2.500,00 (dois mil e quinhentos reais)</p>
+                  <p>
+                     <b>Forma de Pagamento:</b><br><br>
+                     50% no ato da assinatura do contrato <br>
+                     50% na conclusão dos serviços
+                  </p>
+               </section>
+            </article>
+
+            
+            <article label="4. Prazo de Execução">
+               <p>Prazo estimado para execução total dos serviços: <b>até 5 dias úteis</b>, podendo ser ajustado conforme o andamento da obra e as condições da infraestrutura existente.</p>
+            </article>
+
+               <page-break></page-break>
+               <after></after>
+            <article label="5. Garantia">
+               <p>Garantia de 3 meses sobre os serviços prestados, válida contra falhas de instalação elétrica, desde que não haja mau uso, alterações posteriores ou intervenções externas.</p>
+            </article>
+            
+            <article label="6. Observações Finais" class="avoid">
+               <p>Esta proposta contempla exclusivamente os serviços descritos acima.</p>
+               <p>Quaisquer modificações no escopo, acréscimo de demandas ou necessidade de alteração na infraestrutura elétrica deverão ser previamente discutidas e poderão acarretar ajustes no valor e no prazo de execução.</p>
+            </article>
+
+            
+            <article class="avoid">
+               <tagb>
+                  <mk>Agradecemos a oportunidade de apresentar esta proposta e estamos à disposição para quaisquer esclarecimentos adicionais.</mk>
+               </tagb>
+            </article>
+
+
+            <article label="7. Assinatura e Aprovação">
+            </article>
+
+
+            
+            <signatures
+               signer
+               cliente
+            >
+            </signatures>
+         </view>
+
+      </home-page>
+
+      <footer>
+         <content>
+            <label>
+               <input type="button" id="btn_createPDF" value="Baixar em pdf"> 
+            </label>
+         </content>
+      </footer>
+      
+   </body>
+</html>
+
+
+<!-- 
+https://lensgo.ai/login
+https://ssstik.io -->
+
