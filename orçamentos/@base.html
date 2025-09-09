@@ -1,0 +1,115 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>Elétrica & Art-Orçamento_Rafael-09-09-2025</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/theme/globals.css">
+    <style>
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+      }
+
+      th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+
+      th { background-color: #f2f2f2; }
+    </style>
+    <script src="../assets/libs/html2pdf/0.9.2.js" src-remote="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+    <script clb src="../assets/scripts/clb2.js" defer></script>
+    <script EACard src="../assets/widgets/ui/EACard.js" defer></script>
+    <script DownloadPDF src="../assets//scripts/DownloadPDF.js" defer></script>
+  </head>
+  <body>
+    <home-page>
+      <view id="invoice_html">
+        <ea-card section="dual"></ea-card>
+
+        <doc-title 
+          subtitle="PROPOSTA DE ORÇAMENTO"
+          emissao="00/00/2025"
+          validade="15 dias"
+        >
+          SERVIÇOS DE PINTURA E ELÉTRICA
+        </doc-title>
+    
+        <cliente
+          nome=""
+          endereço=""
+        >
+        </cliente>
+
+        <article label="1. Escopo dos Serviços">
+          <section label="Serviços de pintura e elétrica, contemplando">
+            <tagb>
+              <p><strong>Observação</strong></p>
+              <p>Este orçamento contempla exclusivamente a mão de obra. Todos os materiais de pintura e elétrica deverão ser fornecidos pelo cliente.</p>
+            </tagb>
+          </section>     
+          <page-break></page-break><after></after>
+
+        </article>
+
+        <article label="2. Materiais">
+          <p>Fornecidos pelo cliente: tintas, massa corrida, lixas, pincéis, rolos, materiais de elétrica (ventiladores, plafons, luminária, cabos, conexões, suportes, etc.).</p> 
+          <p>Fornecidos pela equipe Elétrica&Art: ferramentas e equipamentos necessários para execução dos serviços.</p>
+        </article>
+
+        <article label="3. Investimento">
+          <section>
+            <p>Valor total da mão de obra: <strong>R$ 1.750,00 (um mil setecentos e cinquenta reais)</strong></p>
+            <p>
+              <strong>Forma de Pagamento:</strong><br><br>
+              50% de entrada na assinatura da proposta. <br>
+              50% na entrega e conclusão dos serviços.
+            </p>
+          </section>
+        </article>
+    
+        <article label="4. Prazo de Execução">
+          <p>Prazo estimado para execução: <strong>até 3 dias úteis</strong>, (Sujeito a ajustes conforme o andamento da obra e disponibilidade de materiais).</p>
+        </article>
+
+        <article label="5. Garantia">
+          <p>Garantia de 3 meses sobre os serviços prestados, válida contra falhas de execução, desde que não haja mau uso, alterações posteriores ou interferências externas.</p>
+        </article>
+        <page-break></page-break><after></after>
+
+        <article label="6. Observações Finais" class="avoid">
+          <p>Esta proposta contempla exclusivamente os serviços descritos acima.</p>
+          <p>Qualquer modificação no escopo deverá ser previamente acordada e poderá implicar em ajustes de valores e prazos.</p>
+        </article>
+    
+        <article class="avoid">
+          <tagb>
+            <mk>Agradecemos a oportunidade de apresentar esta proposta e estamos à disposição para quaisquer esclarecimentos adicionais.</mk>
+          </tagb>
+        </article>
+
+        <article label="7. Assinatura e Aprovação">
+        </article>
+            
+        <signatures signer cliente ></signatures>
+
+      </view>
+    </home-page>
+
+    <footer>
+      <content>
+        <label>
+          <input type="button" id="btn_createPDF" value="Baixar em pdf"> 
+        </label>
+      </content>
+    </footer>
+      
+  </body>
+</html>
+
