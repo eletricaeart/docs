@@ -23,18 +23,35 @@
             <button data-command="underline"><u>U</u></button>
             <button data-command="insertOrderedList">OL</button>
             <button data-command="insertUnorderedList">UL</button>
-            <button data-command="justifyLeft">Left</button>
-            <button data-command="justifyCenter">Center</button>
-            <button data-command="justifyRight">Right</button>
+            <button data-command="justifyLeft"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-text-left" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M2 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
+</svg></button>
+            <button data-command="justifyCenter"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-text-center" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M4 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
+</svg></button>
+            <button data-command="justifyRight"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-text-right" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-4-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm4-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-4-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
+</svg></button>
             <button data-command="createLink">Link</button>
             <label for="foreColor">Color</label>
             <input type="color" data-command="foreColor" id="foreColor">
             <label for="backColor">BG Color</label>
             <input type="color" data-command="backColor" id="backColor">
-            <button data-command="insertImage">Image</button>
+            <button data-command="insertImageFromUrl">Image URL</button>
+            <button data-command="uploadImage">Upload Image</button>
             <input type="file" id="imageUpload" accept="image/*" style="display: none;">
         </div>
         <div id="editor" class="editor" contenteditable="true"></div>
+    </div>
+
+    <div id="linkModal" class="modal">
+        <div class="modal-content">
+            <h3>Insert Link</h3>
+            <input type="text" id="linkTextInput" placeholder="Link Text">
+            <input type="text" id="linkUrlInput" placeholder="Link URL">
+            <button id="saveLinkBtn">Save</button>
+            <button id="cancelLinkBtn">Cancel</button>
+        </div>
     </div>
 
     <h2>Generated HTML</h2>

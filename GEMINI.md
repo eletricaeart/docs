@@ -8,6 +8,46 @@ The project is a web-based system for creating and managing budgets for "Elétri
 
 ## Development Log
 
+### 2025-09-12 (Update 8)
+
+*   **Split Image Insertion Functionality:**
+    *   The "Insert Image" button has been split into two distinct buttons: "Image URL" and "Upload Image".
+    *   "Image URL" prompts the user for a web address.
+    *   "Upload Image" opens a file dialog for local image selection.
+    *   Updated `rich-text-editor.html` and `rich-text-editor.js` to reflect this change.
+
+### 2025-09-12 (Update 7)
+
+*   **Restored Link Functionality to Rich Text Editor:**
+    *   Brought back the link button, modal, and all associated CSS and JavaScript.
+    *   The functionality is based on the implementation from "Update 5".
+    *   Updated `rich-text-editor.html`, `rich-text-editor.css`, and `rich-text-editor.js`.
+*   **Updated Navigation:**
+    *   In `index.html`, changed the "Testar Editor" link to "Editor" and pointed it to `rich-text-editor.html`.
+
+### 2025-09-12 (Update 6)
+
+*   **Removed Link Functionality from Rich Text Editor:**
+    *   Removed the link button, modal, and all associated CSS and JavaScript due to persistent issues.
+    *   Updated `rich-text-editor.html`, `rich-text-editor.css`, and `rich-text-editor.js`.
+
+### 2025-09-12 (Update 5)
+
+*   **Rich Text Editor Link Insertion Fix:**
+    *   Fixed a bug where the link button was creating a link instantly with "null" values.
+    *   Refactored the JavaScript to have a single event listener for the toolbar.
+    *   The link button now correctly opens the modal for URL and text input.
+    *   Simplified the link creation logic to use `insertHTML` for better reliability.
+    *   Updated `rich-text-editor.html` and `rich-text-editor.js`.
+
+### 2025-09-12 (Update 4)
+
+*   **Rich Text Editor Link Insertion:**
+    *   Changed the link insertion functionality to use a modal.
+    *   When the "Link" button is clicked, a modal appears with two inputs: one for the link text and one for the URL.
+    *   The selected text in the editor is used to pre-fill the "Link Text" input.
+    *   Updated `rich-text-editor.html`, `rich-text-editor.css`, and `rich-text-editor.js`.
+
 ### 2025-09-12 (Update 3)
 
 *   **Image Insertion in Rich Text Editor:**

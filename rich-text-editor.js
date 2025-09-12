@@ -3,6 +3,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const htmlOutput = document.getElementById('html-output');
     const toolbar = document.querySelector('.toolbar');
     const imageUpload = document.getElementById('imageUpload');
+    const linkModal = document.getElementById('linkModal');
+    const saveLinkBtn = document.getElementById('saveLinkBtn');
+    const cancelLinkBtn = document.getElementById('cancelLinkBtn');
+    const linkTextInput = document.getElementById('linkTextInput');
+    const linkUrlInput = document.getElementById('linkUrlInput');
+    let savedSelection;
 
     // Generic command execution
     const execCmd = (command, value = null) => {
@@ -11,7 +17,28 @@ document.addEventListener('DOMContentLoaded', () => {
         updateHtmlOutput();
     };
 
-    // Event listener for buttons
+    // Function to save the current selection
+    const saveSelection = () => {
+        if (window.getSelection) {
+            const sel = window.getSelection();
+            if (sel.getRangeAt && sel.rangeCount) {
+                savedSelection = sel.getRangeAt(0);
+            }
+        }
+    };
+
+    // Function to restore the saved selection
+    const restoreSelection = () => {
+        if (savedSelection) {
+            if (window.getSelection) {
+                const sel = window.getSelection();
+                sel.removeAllRanges();
+                sel.addRange(savedSelection);
+            }
+        }
+    };
+
+    // Event listener for toolbar buttons
     toolbar.addEventListener('click', (e) => {
         const target = e.target.closest('button');
         if (!target || !target.dataset.command) return;
@@ -19,17 +46,19 @@ document.addEventListener('DOMContentLoaded', () => {
         const command = target.dataset.command;
 
         if (command === 'createLink') {
-            const url = prompt('Enter the link URL:');
+            saveSelection();
+            const selectedText = savedSelection ? savedSelection.toString() : '';
+            linkTextInput.value = selectedText;
+            linkUrlInput.value = '';
+            linkModal.style.display = 'block';
+            linkUrlInput.focus();
+        } else if (command === 'insertImageFromUrl') {
+            const url = prompt('Enter image URL:');
             if (url) {
-                execCmd(command, url);
+                execCmd('insertImage', url);
             }
-        } else if (command === 'insertImage') {
-            const url = prompt('Enter image URL or leave blank to upload:');
-            if (url) {
-                execCmd(command, url);
-            } else if (url !== null) { // User left it blank and clicked OK
-                imageUpload.click();
-            }
+        } else if (command === 'uploadImage') {
+            imageUpload.click();
         } else {
             execCmd(command);
         }
@@ -60,8 +89,27 @@ document.addEventListener('DOMContentLoaded', () => {
                 execCmd('insertImage', e.target.result);
             };
             reader.readAsDataURL(file);
-            // Reset file input
             imageUpload.value = null;
+        }
+    });
+
+    // Hide link modal
+    cancelLinkBtn.addEventListener('click', () => {
+        linkModal.style.display = 'none';
+    });
+
+    // Save link
+    saveLinkBtn.addEventListener('click', () => {
+        const text = linkTextInput.value;
+        const url = linkUrlInput.value;
+        linkModal.style.display = 'none';
+
+        if (url) {
+            restoreSelection();
+            editor.focus();
+            const linkText = text.trim() || url;
+            const linkHTML = `<a href="${url}" target="_blank">${linkText}</a>`;
+            execCmd('insertHTML', linkHTML);
         }
     });
 
