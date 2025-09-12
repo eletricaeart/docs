@@ -8,6 +8,39 @@ The project is a web-based system for creating and managing budgets for "Elétri
 
 ## Development Log
 
+### 2025-09-12 (Update 3)
+
+*   **Image Insertion in Rich Text Editor:**
+    *   Implemented functionality to insert images into the editor.
+    *   Users can now insert an image by providing a URL or by uploading a file from their computer.
+    *   Uploaded images are embedded as Base64 Data URLs.
+    *   Updated `rich-text-editor.html`, `teste-editor.html`, and `rich-text-editor.js`.
+
+### 2025-09-12 (Update 2)
+
+*   **Editor Test Page:**
+    *   Created a new page `teste-editor.html` to host the rich text editor for testing purposes.
+    *   Added a link to the new test page in the navigation bar of `index.html`.
+
+### 2025-09-12 (Update 1)
+
+*   **Rich Text Editor Enhancements:**
+    *   Added several new features to the rich text editor:
+        *   Headings (H1, H2, H3) via a dropdown.
+        *   Ordered and unordered lists.
+        *   Text alignment (left, center, right).
+        *   Text and background color pickers.
+        *   A button to insert hyperlinks.
+    *   Updated the HTML, CSS, and JavaScript files accordingly.
+
+### 2025-09-12 (Initial)
+
+*   **Rich Text Editor Component:**
+    *   Created a WYSIWYG rich text editor component using a `contenteditable` div.
+    *   The component includes a toolbar with buttons for bold, italic, and underline.
+    *   The generated HTML is displayed below the editor.
+    *   Created `rich-text-editor.html`, `rich-text-editor.css`, and `rich-text-editor.js`.
+
 ### 2025-09-11 (Update 3)
 
 *   **CRUD features for `novo-orçamento.html`:**

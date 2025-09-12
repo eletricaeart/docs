@@ -1,0 +1,60 @@
+body {
+    font-family: sans-serif;
+    padding: 20px;
+}
+
+.editor-container {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.toolbar {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.toolbar button,
+.toolbar select {
+    margin-right: 5px;
+    margin-bottom: 5px; /* Added for wrapping */
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.toolbar input[type="color"] {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    border: 1px solid #ccc;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.toolbar label {
+    margin-left: 10px;
+    margin-right: 5px;
+}
+
+.toolbar button:hover {
+    background-color: #eee;
+}
+
+.editor {
+    min-height: 200px;
+    padding: 10px;
+    outline: none;
+}
+
+#html-output {
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    padding: 10px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}

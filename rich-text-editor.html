@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rich Text Editor</title>
+    <link rel="stylesheet" href="rich-text-editor.css">
+</head>
+<body>
+
+    <h1>Rich Text Editor</h1>
+
+    <div class="editor-container">
+        <div class="toolbar">
+            <select data-command="formatBlock">
+                <option value="p">Paragraph</option>
+                <option value="h1">Heading 1</option>
+                <option value="h2">Heading 2</option>
+                <option value="h3">Heading 3</option>
+            </select>
+            <button data-command="bold"><b>B</b></button>
+            <button data-command="italic"><i>I</i></button>
+            <button data-command="underline"><u>U</u></button>
+            <button data-command="insertOrderedList">OL</button>
+            <button data-command="insertUnorderedList">UL</button>
+            <button data-command="justifyLeft">Left</button>
+            <button data-command="justifyCenter">Center</button>
+            <button data-command="justifyRight">Right</button>
+            <button data-command="createLink">Link</button>
+            <label for="foreColor">Color</label>
+            <input type="color" data-command="foreColor" id="foreColor">
+            <label for="backColor">BG Color</label>
+            <input type="color" data-command="backColor" id="backColor">
+            <button data-command="insertImage">Image</button>
+            <input type="file" id="imageUpload" accept="image/*" style="display: none;">
+        </div>
+        <div id="editor" class="editor" contenteditable="true"></div>
+    </div>
+
+    <h2>Generated HTML</h2>
+    <pre id="html-output"></pre>
+
+    <script src="rich-text-editor.js"></script>
+
+</body>
+</html>
