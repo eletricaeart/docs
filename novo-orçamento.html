@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novo Orçamento</title>
+    <link rel="stylesheet" href="assets/theme/globals.css">
+</head>
+<body>
+    <main>
+        <sheet>
+            <h1>Novo Orçamento</h1>
+            <form id="form-novo-orcamento">
+                <label for="nome">Nome do Cliente:</label>
+                <input type="text" id="nome" name="nome" required>
+
+                <label for="endereco">Endereço do Cliente:</label>
+                <input type="text" id="endereco" name="endereco" required>
+
+                <label for="emissao">Data de Emissão:</label>
+                <input type="date" id="emissao" name="emissao" required>
+
+                <button type="submit">Gerar Orçamento</button>
+            </form>
+
+            <div id="resultado" style="display: none; margin-top: 20px;">
+                <h2>Orçamento Gerado</h2>
+                <p>Copie o nome do arquivo e o conteúdo abaixo e peça para eu criar o arquivo.</p>
+                
+                <label for="nome-arquivo">Nome do Arquivo:</label>
+                <input type="text" id="nome-arquivo" readonly style="width: 100%; margin-bottom: 10px;">
+
+                <label for="conteudo-arquivo">Conteúdo do Arquivo:</label>
+                <textarea id="conteudo-arquivo" rows="20" style="width: 100%;"></textarea>
+            </div>
+        </sheet>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set the emission date to today
+            const today = new Date();
+            const yyyy = today.getFullYear();
+            const mm = String(today.getMonth() + 1).padStart(2, '0');
+            const dd = String(today.getDate()).padStart(2, '0');
+            document.getElementById('emissao').value = `${yyyy}-${mm}-${dd}`;
+
+            const form = document.getElementById('form-novo-orcamento');
+            form.addEventListener('submit', async function(event) {
+                event.preventDefault();
+
+                const nome = document.getElementById('nome').value;
+                const endereco = document.getElementById('endereco').value;
+                const emissao = document.getElementById('emissao').value;
+
+                try {
+                    const response = await fetch('orçamentos/@base.html');
+                    if (!response.ok) {
+                        throw new Error('Não foi possível carregar o modelo de orçamento.');
+                    }
+                    let template = await response.text();
+
+                    // Perform replacements
+                    template = template.replace(/<title>.*<\/title>/, `<title>Elétrica & Art-Orçamento_${nome.replace(/\s+/g, '_')}-${emissao}</title>`);
+                    template = template.replace(/emissao="00\/00\/2025"/, `emissao="${emissao.split('-').reverse().join('/')}"`);
+                    template = template.replace(/nome=""/, `nome="${nome}"`);
+                    template = template.replace(/endereço=""/, `endereço="${endereco}"`);
+
+                    const fileName = `orçamentos/${nome.toLowerCase().replace(/\s+/g, '-')}-${emissao}.html`;
+
+                    document.getElementById('nome-arquivo').value = fileName;
+                    document.getElementById('conteudo-arquivo').value = template;
+                    document.getElementById('resultado').style.display = 'block';
+
+                } catch (error) {
+                    console.error('Erro:', error);
+                    alert('Ocorreu um erro ao gerar o orçamento.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
