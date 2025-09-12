@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -6,79 +5,220 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Novo Orçamento</title>
     <link rel="stylesheet" href="assets/theme/globals.css">
+    <style>
+        body { font-family: sans-serif; margin: 0; background-color: #f4f4f9; }
+        main { max-width: 900px; margin: 20px auto; padding: 20px; background-color: #fff; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        form { display: flex; flex-direction: column; gap: 15px; margin-bottom: 30px; }
+        form input, form textarea, form button { padding: 10px; border-radius: 5px; border: 1px solid #ccc; font-size: 1rem; }
+        form button { background-color: #007bff; color: white; cursor: pointer; border: none; }
+        #lista-orcamentos ul { list-style-type: none; padding: 0; }
+        #lista-orcamentos li { padding: 12px; border-bottom: 1px solid #ddd; display: flex; justify-content: space-between; align-items: center; }
+        .actions { display: flex; gap: 10px; }
+        .actions button { background: none; border: none; cursor: pointer; font-size: 1.2rem; padding: 5px; }
+        .preview-btn { background-color: #28a745; color: white; padding: 5px 10px; border-radius: 4px; font-size: 0.9rem; }
+        #preview-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); display: none; justify-content: center; align-items: center; z-index: 1000; }
+        #preview-content { background: white; width: 80%; max-width: 800px; height: 90%; overflow-y: auto; padding: 20px; border-radius: 8px; position: relative; }
+        #close-preview { position: absolute; top: 10px; right: 15px; font-size: 24px; cursor: pointer; }
+    </style>
 </head>
 <body>
     <main>
         <sheet>
-            <h1>Novo Orçamento</h1>
+            <h1 id="form-title">Novo Orçamento</h1>
             <form id="form-novo-orcamento">
-                <label for="nome">Nome do Cliente:</label>
-                <input type="text" id="nome" name="nome" required>
-
-                <label for="endereco">Endereço do Cliente:</label>
-                <input type="text" id="endereco" name="endereco" required>
-
-                <label for="emissao">Data de Emissão:</label>
-                <input type="date" id="emissao" name="emissao" required>
-
-                <button type="submit">Gerar Orçamento</button>
+                <input type="hidden" id="orcamento-id">
+                <input type="text" id="cliente-nome" placeholder="Nome do Cliente" required>
+                <input type="text" id="cliente-endereco" placeholder="Endereço do Cliente" required>
+                <input type="date" id="emissao-data" required>
+                <textarea id="escopo-servicos" placeholder="Escopo dos Serviços (um item por linha)" rows="5" required></textarea>
+                <input type="text" id="valor-total" placeholder="Valor Total (e.g., R$ 1.750,00)" required>
+                <input type="text" id="prazo-execucao" placeholder="Prazo de Execução (e.g., até 3 dias úteis)" required>
+                <button type="submit">Salvar Orçamento</button>
             </form>
 
-            <div id="resultado" style="display: none; margin-top: 20px;">
-                <h2>Orçamento Gerado</h2>
-                <p>Copie o nome do arquivo e o conteúdo abaixo e peça para eu criar o arquivo.</p>
-                
-                <label for="nome-arquivo">Nome do Arquivo:</label>
-                <input type="text" id="nome-arquivo" readonly style="width: 100%; margin-bottom: 10px;">
-
-                <label for="conteudo-arquivo">Conteúdo do Arquivo:</label>
-                <textarea id="conteudo-arquivo" rows="20" style="width: 100%;"></textarea>
+            <div id="lista-orcamentos">
+                <h2>Orçamentos Salvos</h2>
+                <ul id="orcamentos-list"></ul>
             </div>
         </sheet>
     </main>
 
+    <div id="preview-container">
+        <div id="preview-content">
+            <span id="close-preview">&times;</span>
+            <div id="orcamento-preview-body"></div>
+        </div>
+    </div>
+
     <script>
+        const dbName = 'EaOrcamentosDB';
+
         document.addEventListener('DOMContentLoaded', function() {
-            // Set the emission date to today
-            const today = new Date();
-            const yyyy = today.getFullYear();
-            const mm = String(today.getMonth() + 1).padStart(2, '0');
-            const dd = String(today.getDate()).padStart(2, '0');
-            document.getElementById('emissao').value = `${yyyy}-${mm}-${dd}`;
+            resetForm();
+            loadBudgetsAndRenderList();
 
             const form = document.getElementById('form-novo-orcamento');
-            form.addEventListener('submit', async function(event) {
+            form.addEventListener('submit', function(event) {
                 event.preventDefault();
+                handleFormSubmit();
+            });
 
-                const nome = document.getElementById('nome').value;
-                const endereco = document.getElementById('endereco').value;
-                const emissao = document.getElementById('emissao').value;
-
-                try {
-                    const response = await fetch('orçamentos/@base.html');
-                    if (!response.ok) {
-                        throw new Error('Não foi possível carregar o modelo de orçamento.');
-                    }
-                    let template = await response.text();
-
-                    // Perform replacements
-                    template = template.replace(/<title>.*<\/title>/, `<title>Elétrica & Art-Orçamento_${nome.replace(/\s+/g, '_')}-${emissao}</title>`);
-                    template = template.replace(/emissao="00\/00\/2025"/, `emissao="${emissao.split('-').reverse().join('/')}"`);
-                    template = template.replace(/nome=""/, `nome="${nome}"`);
-                    template = template.replace(/endereço=""/, `endereço="${endereco}"`);
-
-                    const fileName = `orçamentos/${nome.toLowerCase().replace(/\s+/g, '-')}-${emissao}.html`;
-
-                    document.getElementById('nome-arquivo').value = fileName;
-                    document.getElementById('conteudo-arquivo').value = template;
-                    document.getElementById('resultado').style.display = 'block';
-
-                } catch (error) {
-                    console.error('Erro:', error);
-                    alert('Ocorreu um erro ao gerar o orçamento.');
-                }
+            document.getElementById('close-preview').addEventListener('click', () => {
+                document.getElementById('preview-container').style.display = 'none';
             });
         });
+
+        function getBudgets() {
+            const data = localStorage.getItem(dbName);
+            return data ? JSON.parse(data) : [];
+        }
+
+        function saveBudgetsToStorage(orcamentos) {
+            localStorage.setItem(dbName, JSON.stringify(orcamentos));
+        }
+
+        function loadBudgetsAndRenderList() {
+            const orcamentos = getBudgets();
+            const listEl = document.getElementById('orcamentos-list');
+            listEl.innerHTML = '';
+
+            orcamentos.forEach(orcamento => {
+                const li = document.createElement('li');
+                const text = document.createElement('span');
+                text.textContent = `${orcamento.cliente.nome} - ${new Date(orcamento.emissao).toLocaleDateString()}`;
+                li.appendChild(text);
+
+                const actionsDiv = document.createElement('div');
+                actionsDiv.className = 'actions';
+
+                const previewBtn = document.createElement('button');
+                previewBtn.textContent = 'Pré-visualizar';
+                previewBtn.className = 'preview-btn';
+                previewBtn.onclick = () => showPreview(orcamento.id);
+                actionsDiv.appendChild(previewBtn);
+
+                const editBtn = document.createElement('button');
+                editBtn.innerHTML = '&#9998;'; // Pencil icon
+                editBtn.title = 'Editar';
+                editBtn.onclick = () => editBudget(orcamento.id);
+                actionsDiv.appendChild(editBtn);
+
+                const deleteBtn = document.createElement('button');
+                deleteBtn.innerHTML = '&#128465;'; // Trash can icon
+                deleteBtn.title = 'Deletar';
+                deleteBtn.onclick = () => deleteBudget(orcamento.id);
+                actionsDiv.appendChild(deleteBtn);
+
+                li.appendChild(actionsDiv);
+                listEl.appendChild(li);
+            });
+        }
+
+        function handleFormSubmit() {
+            const orcamentos = getBudgets();
+            const id = document.getElementById('orcamento-id').value;
+
+            const budgetData = {
+                emissao: new Date(document.getElementById('emissao-data').value).toISOString(),
+                cliente: {
+                    nome: document.getElementById('cliente-nome').value,
+                    endereco: document.getElementById('cliente-endereco').value,
+                },
+                escopo: document.getElementById('escopo-servicos').value,
+                investimento: {
+                    valor: document.getElementById('valor-total').value,
+                    formaPagamento: '50% de entrada na assinatura da proposta. <br>50% na entrega e conclusão dos serviços.'
+                },
+                prazo: document.getElementById('prazo-execucao').value,
+            };
+
+            if (id) { // Editing existing budget
+                const index = orcamentos.findIndex(o => o.id === id);
+                orcamentos[index] = { ...orcamentos[index], ...budgetData };
+                alert('Orçamento atualizado com sucesso!');
+            } else { // Creating new budget
+                budgetData.id = `orc_${new Date().getTime()}`;
+                orcamentos.push(budgetData);
+                alert('Orçamento salvo com sucesso!');
+            }
+
+            saveBudgetsToStorage(orcamentos);
+            loadBudgetsAndRenderList();
+            resetForm();
+        }
+
+        function editBudget(id) {
+            const orcamentos = getBudgets();
+            const orcamento = orcamentos.find(o => o.id === id);
+            if (!orcamento) return;
+
+            document.getElementById('orcamento-id').value = orcamento.id;
+            document.getElementById('cliente-nome').value = orcamento.cliente.nome;
+            document.getElementById('cliente-endereco').value = orcamento.cliente.endereco;
+            document.getElementById('emissao-data').value = orcamento.emissao.split('T')[0];
+            document.getElementById('escopo-servicos').value = orcamento.escopo;
+            document.getElementById('valor-total').value = orcamento.investimento.valor;
+            document.getElementById('prazo-execucao').value = orcamento.prazo;
+
+            document.getElementById('form-title').textContent = 'Editando Orçamento';
+            window.scrollTo(0, 0);
+        }
+
+        function deleteBudget(id) {
+            if (!confirm('Tem certeza que deseja excluir este orçamento?')) return;
+
+            let orcamentos = getBudgets();
+            orcamentos = orcamentos.filter(o => o.id !== id);
+            saveBudgetsToStorage(orcamentos);
+            loadBudgetsAndRenderList();
+            alert('Orçamento excluído com sucesso!');
+        }
+
+        function resetForm() {
+            document.getElementById('form-novo-orcamento').reset();
+            document.getElementById('orcamento-id').value = '';
+            document.getElementById('emissao-data').valueAsDate = new Date();
+            document.getElementById('form-title').textContent = 'Novo Orçamento';
+        }
+
+        async function showPreview(id) {
+            const orcamentos = getBudgets();
+            const orcamento = orcamentos.find(o => o.id === id);
+            if (!orcamento) {
+                alert('Orçamento não encontrado!');
+                return;
+            }
+
+            try {
+                const response = await fetch('orçamentos/@base.html');
+                if (!response.ok) throw new Error('Não foi possível carregar o modelo de orçamento.');
+                
+                let template = await response.text();
+
+                // Perform replacements
+                const emissaoDate = new Date(orcamento.emissao).toLocaleDateString('pt-BR');
+                template = template.replace(/<title>.*<\/title>/, `<title>Orçamento - ${orcamento.cliente.nome}<\/title>`);
+                template = template.replace(/emissao="00\/00\/2025"/, `emissao="${emissaoDate}"`);
+                template = template.replace(/nome=""/, `nome="${orcamento.cliente.nome}"`);
+                template = template.replace(/endereço=""/, `endereço="${orcamento.cliente.endereco}"`);
+                
+                const escopoHtml = `<p>${orcamento.escopo.replace(/\n/g, '<\/p><p>')}<\/p>`;
+                template = template.replace(/<section label="Serviços de pintura e elétrica, contemplando">[^<]*<tagb>/, `<section label="Serviços de pintura e elétrica, contemplando">${escopoHtml}<tagb>`);
+
+                template = template.replace(/<strong>R\$ 1\.750,00 \(um mil setecentos e cinquenta reais\)<\/strong>/, `<strong>${orcamento.investimento.valor}<\/strong>`);
+                template = template.replace(/<strong>até 3 dias úteis<\/strong>/, `<strong>${orcamento.prazo}<\/strong>`);
+
+                const bodyContentMatch = template.match(/<body[^>]*>([\s\S]*)<\/body>/);
+                const previewHtml = bodyContentMatch ? bodyContentMatch[1] : 'Erro ao extrair conteúdo.';
+
+                document.getElementById('orcamento-preview-body').innerHTML = previewHtml;
+                document.getElementById('preview-container').style.display = 'flex';
+
+            } catch (error) {
+                console.error('Erro na pré-visualização:', error);
+                alert('Ocorreu um erro ao gerar a pré-visualização.');
+            }
+        }
     </script>
 </body>
 </html>

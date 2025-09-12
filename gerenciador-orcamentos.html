@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Orçamentos - Elétrica & Art</title>
+    <link rel="stylesheet" href="assets/theme/globals.css">
+    <style>
+        body { font-family: sans-serif; margin: 0; background-color: #f4f4f9; }
+        .container { max-width: 1200px; margin: 20px auto; padding: 20px; background-color: #fff; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h1, h2 { color: #333; }
+        .grid-container { display: grid; grid-template-columns: 350px 1fr; gap: 30px; }
+        #lista-orcamentos ul { list-style-type: none; padding: 0; }
+        #lista-orcamentos li { padding: 10px; border-bottom: 1px solid #ddd; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        #lista-orcamentos li:hover { background-color: #f0f0f0; }
+        #lista-orcamentos li.active { background-color: #e0e7ff; font-weight: bold; }
+        #form-orcamento, #view-orcamento { border-left: 1px solid #eee; padding-left: 30px; }
+        form { display: flex; flex-direction: column; gap: 15px; }
+        form input, form textarea, form button { padding: 10px; border-radius: 5px; border: 1px solid #ccc; }
+        form button { background-color: #007bff; color: white; cursor: pointer; border: none; }
+        form button:hover { background-color: #0056b3; }
+        .delete-btn { background: #dc3545; color: white; border: none; padding: 5px 8px; border-radius: 4px; cursor: pointer; }
+        #view-orcamento { display: none; }
+        #orcamento-display { border: 1px solid #ddd; padding: 20px; border-radius: 8px; background: #fafafa; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Gerenciador de Orçamentos</h1>
+        <div class="grid-container">
+            <div id="lista-orcamentos">
+                <h2>Meus Orçamentos</h2>
+                <ul id="orcamentos-list"></ul>
+                <button onclick="showCreateForm()">+ Novo Orçamento</button>
+            </div>
+
+            <div id="form-orcamento">
+                <h2>Criar Novo Orçamento</h2>
+                <form id="budget-form">
+                    <input type="hidden" id="orcamento-id">
+                    <input type="text" id="cliente-nome" placeholder="Nome do Cliente" required>
+                    <input type="text" id="cliente-endereco" placeholder="Endereço" required>
+                    <input type="date" id="emissao-data" required>
+                    <textarea id="escopo-servicos" placeholder="Escopo dos Serviços" rows="5" required></textarea>
+                    <input type="text" id="valor-total" placeholder="Valor Total (e.g., R$ 1.750,00)" required>
+                    <input type="text" id="prazo-execucao" placeholder="Prazo de Execução (e.g., até 3 dias úteis)" required>
+                    <button type="submit">Salvar Orçamento</button>
+                </form>
+            </div>
+
+            <div id="view-orcamento">
+                <h2 id="view-title">Detalhes do Orçamento</h2>
+                <div id="orcamento-display">
+                    <!-- O conteúdo do orçamento será injetado aqui -->
+                </div>
+                <br>
+                <button onclick="printBudget()">Imprimir / Salvar PDF</button>
+                <button onclick="editSelectedBudget()">Editar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const dbName = 'EaOrcamentosDB';
+        let orcamentos = [];
+
+        // Elementos do DOM
+        const listEl = document.getElementById('orcamentos-list');
+        const formEl = document.getElementById('budget-form');
+        const formView = document.getElementById('form-orcamento');
+        const budgetView = document.getElementById('view-orcamento');
+        const displayEl = document.getElementById('orcamento-display');
+
+        // Inputs do formulário
+        const orcamentoIdInput = document.getElementById('orcamento-id');
+        const clienteNomeInput = document.getElementById('cliente-nome');
+        const clienteEnderecoInput = document.getElementById('cliente-endereco');
+        const emissaoDataInput = document.getElementById('emissao-data');
+        const escopoServicosInput = document.getElementById('escopo-servicos');
+        const valorTotalInput = document.getElementById('valor-total');
+        const prazoExecucaoInput = document.getElementById('prazo-execucao');
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadBudgets();
+            emissaoDataInput.valueAsDate = new Date();
+        });
+
+        function loadBudgets() {
+            const data = localStorage.getItem(dbName);
+            orcamentos = data ? JSON.parse(data) : [];
+            renderList();
+        }
+
+        function saveBudgets() {
+            localStorage.setItem(dbName, JSON.stringify(orcamentos));
+        }
+
+        function renderList() {
+            listEl.innerHTML = '';
+            orcamentos.forEach(orcamento => {
+                const li = document.createElement('li');
+                li.textContent = `${orcamento.cliente.nome} - ${new Date(orcamento.emissao).toLocaleDateString()}`;
+                li.dataset.id = orcamento.id;
+                li.onclick = () => viewBudget(orcamento.id);
+
+                const deleteBtn = document.createElement('button');
+                deleteBtn.textContent = 'X';
+                deleteBtn.className = 'delete-btn';
+                deleteBtn.onclick = (e) => {
+                    e.stopPropagation();
+                    deleteBudget(orcamento.id);
+                };
+                
+                li.appendChild(deleteBtn);
+                listEl.appendChild(li);
+            });
+        }
+
+        function showCreateForm() {
+            formEl.reset();
+            emissaoDataInput.valueAsDate = new Date();
+            orcamentoIdInput.value = '';
+            budgetView.style.display = 'none';
+            formView.style.display = 'block';
+            document.querySelector('#form-orcamento h2').textContent = 'Criar Novo Orçamento';
+        }
+
+        function viewBudget(id) {
+            const orcamento = orcamentos.find(o => o.id === id);
+            if (!orcamento) return;
+
+            // Marcar item ativo na lista
+            document.querySelectorAll('#orcamentos-list li').forEach(li => {
+                li.classList.toggle('active', li.dataset.id === id);
+            });
+
+            document.getElementById('view-title').textContent = `Orçamento: ${orcamento.cliente.nome}`;
+            displayEl.innerHTML = generateBudgetHTML(orcamento);
+            formView.style.display = 'none';
+            budgetView.style.display = 'block';
+            budgetView.dataset.currentId = id;
+        }
+        
+        function editSelectedBudget() {
+            const id = budgetView.dataset.currentId;
+            const orcamento = orcamentos.find(o => o.id === id);
+            if (!orcamento) return;
+
+            orcamentoIdInput.value = orcamento.id;
+            clienteNomeInput.value = orcamento.cliente.nome;
+            clienteEnderecoInput.value = orcamento.cliente.endereco;
+            emissaoDataInput.value = orcamento.emissao.split('T')[0];
+            escopoServicosInput.value = orcamento.escopo;
+            valorTotalInput.value = orcamento.investimento.valor;
+            prazoExecucaoInput.value = orcamento.prazo;
+
+            budgetView.style.display = 'none';
+            formView.style.display = 'block';
+            document.querySelector('#form-orcamento h2').textContent = 'Editar Orçamento';
+        }
+
+        formEl.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const id = orcamentoIdInput.value;
+            const budgetData = {
+                id: id || `orc_${new Date().getTime()}`,
+                emissao: new Date(emissaoDataInput.value).toISOString(),
+                cliente: {
+                    nome: clienteNomeInput.value,
+                    endereco: clienteEnderecoInput.value,
+                },
+                escopo: escopoServicosInput.value,
+                investimento: {
+                    valor: valorTotalInput.value,
+                    formaPagamento: '50% de entrada na assinatura da proposta. <br>50% na entrega e conclusão dos serviços.'
+                },
+                prazo: prazoExecucaoInput.value,
+            };
+
+            if (id) { // Editando
+                const index = orcamentos.findIndex(o => o.id === id);
+                orcamentos[index] = budgetData;
+            } else { // Criando
+                orcamentos.push(budgetData);
+            }
+
+            saveBudgets();
+            renderList();
+            formEl.reset();
+            emissaoDataInput.valueAsDate = new Date();
+            viewBudget(budgetData.id);
+        });
+
+        function deleteBudget(id) {
+            if (!confirm('Tem certeza que deseja excluir este orçamento?')) return;
+            orcamentos = orcamentos.filter(o => o.id !== id);
+            saveBudgets();
+            renderList();
+            
+            if (budgetView.dataset.currentId === id) {
+                budgetView.style.display = 'none';
+                showCreateForm();
+            }
+        }
+
+        function printBudget() {
+            const id = budgetView.dataset.currentId;
+            const orcamento = orcamentos.find(o => o.id === id);
+            if (!orcamento) return;
+
+            const printWindow = window.open('', '_blank');
+            printWindow.document.write(`<html><head><title>Orçamento - ${orcamento.cliente.nome}</title><link rel="stylesheet" href="assets/theme/globals.css"><style>body{margin:20px;} table{width:100%;border-collapse:collapse;margin-bottom:20px;} th,td{border:1px solid #ddd;padding:8px;} th{background-color:#f2f2f2;}</style></head><body>`);
+            printWindow.document.write(generateBudgetHTML(orcamento));
+            printWindow.document.write('</body></html>');
+            printWindow.document.close();
+            printWindow.focus();
+            setTimeout(() => { printWindow.print(); }, 500);
+        }
+
+        function generateBudgetHTML(orcamento) {
+            return `
+                <h3>PROPOSTA DE ORÇAMENTO - SERVIÇOS DE PINTURA E ELÉTRICA</h3>
+                <p><strong>Emissão:</strong> ${new Date(orcamento.emissao).toLocaleDateString()} | <strong>Validade:</strong> 15 dias</p>
+                <hr>
+                <h4>Cliente</h4>
+                <p><strong>Nome:</strong> ${orcamento.cliente.nome}</p>
+                <p><strong>Endereço:</strong> ${orcamento.cliente.endereco}</p>
+                <hr>
+                <h4>1. Escopo dos Serviços</h4>
+                <p>${orcamento.escopo.replace(/\n/g, '<br>')}</p>
+                <blockquote>Este orçamento contempla exclusivamente a mão de obra. Todos os materiais deverão ser fornecidos pelo cliente.</blockquote>
+                <hr>
+                <h4>2. Investimento</h4>
+                <p><strong>Valor total da mão de obra:</strong> ${orcamento.investimento.valor}</p>
+                <p><strong>Forma de Pagamento:</strong><br>${orcamento.investimento.formaPagamento}</p>
+                <hr>
+                <h4>3. Prazo de Execução</h4>
+                <p>${orcamento.prazo}</p>
+                <hr>
+                <h4>4. Garantia</h4>
+                <p>Garantia de 3 meses sobre os serviços prestados, válida contra falhas de execução.</p>
+            `;
+        }
+
+    </script>
+</body>
+</html>
