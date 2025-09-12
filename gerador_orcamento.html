@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Orçamentos</title>
+    <link rel="stylesheet" href="./assets/theme/globals.css">
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #003b6b;
+            text-align: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        fieldset {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 15px;
+        }
+        legend {
+            padding: 0 10px;
+            font-weight: bold;
+            color: #00559c;
+        }
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+        input[type="text"],
+        input[type="date"],
+        input[type="number"],
+        textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        button {
+            padding: 12px 20px;
+            background-color: #00559c;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #003b6b;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Gerador de Orçamentos</h1>
+        <form id="orcamento-form">
+            
+            <fieldset>
+                <legend>Cabeçalho do Documento</legend>
+                <div>
+                    <label for="doc-title">Título Principal do Orçamento</label>
+                    <input type="text" id="doc-title" value="SERVIÇOS DE PINTURA E ELÉTRICA" required>
+                </div>
+                <div>
+                    <label for="doc-subtitle">Subtítulo</label>
+                    <input type="text" id="doc-subtitle" value="PROPOSTA DE ORÇAMENTO" required>
+                </div>
+                <div>
+                    <label for="doc-emissao">Data de Emissão</label>
+                    <input type="date" id="doc-emissao" required>
+                </div>
+                <div>
+                    <label for="doc-validade">Validade da Proposta</label>
+                    <input type="text" id="doc-validade" value="15 dias" required>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Dados do Cliente</legend>
+                <div>
+                    <label for="cliente-nome">Nome do Cliente</label>
+                    <input type="text" id="cliente-nome" placeholder="Ex: João da Silva" required>
+                </div>
+                <div>
+                    <label for="cliente-endereco">Endereço</label>
+                    <input type="text" id="cliente-endereco" placeholder="Ex: Rua das Flores, 123, São Paulo-SP" required>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Corpo do Orçamento</legend>
+                <div>
+                    <label for="escopo-servicos">1. Escopo dos Serviços</label>
+                    <textarea id="escopo-servicos">
+<section label="Serviços de pintura e elétrica, contemplando">
+  <tagb>
+    <p><strong>Observação</strong></p>
+    <p>Este orçamento contempla exclusivamente a mão de obra. Todos os materiais de pintura e elétrica deverão ser fornecidos pelo cliente.</p>
+  </tagb>
+</section>     
+<page-break></page-break><after></after>
+                    </textarea>
+                </div>
+                <div>
+                    <label for="materiais">2. Materiais</label>
+                    <textarea id="materiais">
+<p>Fornecidos pelo cliente: tintas, massa corrida, lixas, pincéis, rolos, materiais de elétrica (ventiladores, plafons, luminária, cabos, conexões, suportes, etc.).</p> 
+<p>Fornecidos pela equipe Elétrica&Art: ferramentas e equipamentos necessários para execução dos serviços.</p>
+                    </textarea>
+                </div>
+                <div>
+                    <label for="investimento">3. Investimento</label>
+                    <textarea id="investimento">
+<section>
+  <p>Valor total da mão de obra: <strong>R$ 1.750,00 (um mil setecentos e cinquenta reais)</strong></p>
+  <p>
+    <strong>Forma de Pagamento:</strong><br><br>
+    50% de entrada na assinatura da proposta. <br>
+    50% na entrega e conclusão dos serviços.
+  </p>
+</section>
+                    </textarea>
+                </div>
+                <div>
+                    <label for="prazo">4. Prazo de Execução</label>
+                    <textarea id="prazo">
+<p>Prazo estimado para execução: <strong>até 3 dias úteis</strong>, (Sujeito a ajustes conforme o andamento da obra e disponibilidade de materiais).</p>
+                    </textarea>
+                </div>
+                <div>
+                    <label for="garantia">5. Garantia</label>
+                    <textarea id="garantia">
+<p>Garantia de 3 meses sobre os serviços prestados, válida contra falhas de execução, desde que não haja mau uso, alterações posteriores ou interferências externas.</p>
+                    </textarea>
+                </div>
+                 <div>
+                    <label for="observacoes">6. Observações Finais</label>
+                    <textarea id="observacoes">
+<p>Esta proposta contempla exclusivamente os serviços descritos acima.</p>
+<p>Qualquer modificação no escopo deverá ser previamente acordada e poderá implicar em ajustes de valores e prazos.</p>
+                    </textarea>
+                </div>
+            </fieldset>
+
+            <button type="button" id="generate-btn">Gerar e Baixar Orçamento</button>
+        </form>
+    </div>
+
+    <script>
+        // Preenche a data de emissão com a data de hoje
+        document.addEventListener('DOMContentLoaded', () => {
+            const today = new Date();
+            const yyyy = today.getFullYear();
+            const mm = String(today.getMonth() + 1).padStart(2, '0');
+            const dd = String(today.getDate()).padStart(2, '0');
+            document.getElementById('doc-emissao').value = `${yyyy}-${mm}-${dd}`;
+        });
+
+        document.getElementById('generate-btn').addEventListener('click', async () => {
+            try {
+                // 1. Fetch o template
+                const response = await fetch('orçamentos/@base.html');
+                if (!response.ok) {
+                    throw new Error(`Não foi possível carregar o template: ${response.statusText}`);
+                }
+                let template = await response.text();
+
+                // 2. Coletar dados do formulário
+                const docTitle = document.getElementById('doc-title').value;
+                const docSubtitle = document.getElementById('doc-subtitle').value;
+                const docEmissaoInput = document.getElementById('doc-emissao').value;
+                const docValidade = document.getElementById('doc-validade').value;
+                const clienteNome = document.getElementById('cliente-nome').value;
+                const clienteEndereco = document.getElementById('cliente-endereco').value;
+                
+                const escopoServicos = document.getElementById('escopo-servicos').value;
+                const materiais = document.getElementById('materiais').value;
+                const investimento = document.getElementById('investimento').value;
+                const prazo = document.getElementById('prazo').value;
+                const garantia = document.getElementById('garantia').value;
+                const observacoes = document.getElementById('observacoes').value;
+
+                if (!clienteNome) {
+                    alert('O nome do cliente é obrigatório para gerar o arquivo.');
+                    return;
+                }
+
+                // Formata a data para dd/mm/aaaa
+                const [year, month, day] = docEmissaoInput.split('-');
+                const docEmissao = `${day}/${month}/${year}`;
+
+                // 3. Gerar nome do arquivo
+                const safeClienteNome = clienteNome.trim().toLowerCase().replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-');
+                const fileName = `${safeClienteNome}-${day}-${month}-${year}.html`;
+                
+                // 4. Popular o template
+                template = template.replace(
+                    /<title>.*<\/title>/,
+                    `<title>Elétrica & Art-Orçamento_${clienteNome.trim()}-${docEmissao}</title>`
+                );
+                
+                template = template.replace(
+                    /subtitle=".*?"/,
+                    `subtitle="${docSubtitle}"`
+                );
+
+                template = template.replace(
+                    /emissao=".*?"/,
+                    `emissao="${docEmissao}"`
+                );
+
+                template = template.replace(
+                    /validade=".*?"/,
+                    `validade="${docValidade}"`
+                );
+                
+                template = template.replace(
+                    />\s*SERVIÇOS DE PINTURA E ELÉTRICA\s*</,
+                    `>${docTitle}<`
+                );
+
+                template = template.replace(
+                    /<cliente\s*nome=""\s*endereço=""\s*>/,
+                    `<cliente nome="${clienteNome}" endereço="${clienteEndereco}">`
+                );
+
+                // Substitui os articles inteiros
+                template = template.replace(
+                    /<article label="1. Escopo dos Serviços">[\s\S]*?<\/article>/,
+                    `<article label="1. Escopo dos Serviços">${escopoServicos}</article>`
+                );
+                
+                template = template.replace(
+                    /<article label="2. Materiais">[\s\S]*?<\/article>/,
+                    `<article label="2. Materiais">${materiais}</article>`
+                );
+
+                template = template.replace(
+                    /<article label="3. Investimento">[\s\S]*?<\/article>/,
+                    `<article label="3. Investimento">${investimento}</article>`
+                );
+
+                template = template.replace(
+                    /<article label="4. Prazo de Execução">[\s\S]*?<\/article>/,
+                    `<article label="4. Prazo de Execução">${prazo}</article>`
+                );
+
+                template = template.replace(
+                    /<article label="5. Garantia">[\s\S]*?<\/article>/,
+                    `<article label="5. Garantia">${garantia}</article>`
+                );
+                
+                template = template.replace(
+                    /<article label="6. Observações Finais" class="avoid">[\s\S]*?<\/article>/,
+                    `<article label="6. Observações Finais" class="avoid">${observacoes}</article>`
+                );
+
+
+                // 5. Criar Blob e acionar download
+                const blob = new Blob([template], { type: 'text/html' });
+                const a = document.createElement('a');
+                a.href = URL.createObjectURL(blob);
+                a.download = fileName;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(a.href);
+                
+                alert(`Orçamento "${fileName}" gerado com sucesso e pronto para download!`);
+
+            } catch (error) {
+                console.error('Erro ao gerar o orçamento:', error);
+                alert(`Ocorreu um erro: ${error.message}`);
+            }
+        });
+    </script>
+
+</body>
+</html>
