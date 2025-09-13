@@ -1,0 +1,158 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: #333;
+    overflow: hidden;
+    padding: 10px 20px;
+}
+
+.navbar a {
+    color: white;
+    padding: 14px 20px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2, h3 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.client-section,
+.service-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+input[type="text"],
+input[type="number"],
+textarea {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 60px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+button#updateServiceBtn {
+    background-color: #008CBA;
+}
+
+button#updateServiceBtn:hover {
+    background-color: #007B9E;
+}
+
+button#cancelEditBtn {
+    background-color: #f44336;
+}
+
+button#cancelEditBtn:hover {
+    background-color: #da190b;
+}
+
+button#saveAllDataBtn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #333;
+    margin-top: 30px;
+}
+
+button#saveAllDataBtn:hover {
+    background-color: #555;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th,
+table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+table th {
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table tr:hover {
+    background-color: #ddd;
+}
+
+table td button {
+    padding: 5px 10px;
+    font-size: 14px;
+    margin-right: 5px;
+}
+
+table td button.edit-btn {
+    background-color: #ffc107;
+    color: #333;
+}
+
+table td button.edit-btn:hover {
+    background-color: #e0a800;
+}
+
+table td button.delete-btn {
+    background-color: #dc3545;
+}
+
+table td button.delete-btn:hover {
+    background-color: #c82333;
+}

@@ -72,6 +72,47 @@
       #results-container a:hover {
         background-color: #f1f1f1;
       }
+      .dropdown {
+        float: left;
+        overflow: hidden;
+      }
+      .dropdown .dropbtn {
+        font-size: 16px;
+        border: none;
+        outline: none;
+        color: white;
+        padding: 14px 20px;
+        background-color: inherit;
+        font-family: inherit;
+        margin: 0;
+        cursor: pointer;
+      }
+      .navbar a:hover, .dropdown:hover .dropbtn {
+        background-color: #ddd;
+        color: black;
+      }
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+      }
+      .dropdown-content a {
+        float: none;
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+      }
+      .dropdown-content a:hover {
+        background-color: #ddd;
+      }
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
     </style>
   </head>
   <body>
@@ -81,6 +122,13 @@
       <a href="novo-orçamento.html">Novo Orçamento</a>
       <a href="gerenciador-orcamentos.html">Gerenciador</a>
       <a href="rich-text-editor.html">Editor</a>
+      <a href="./pages/budget.html">budget</a>
+      <div class="dropdown">
+        <button class="dropbtn">WIP Pages</button>
+        <div class="dropdown-content">
+          <a href="pages/wip/cadastro.html">Cadastro (WIP)</a>
+        </div>
+      </div>
       <a href="#contato">Contato</a>
     </nav>
 

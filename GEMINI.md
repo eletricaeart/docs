@@ -8,6 +8,18 @@ The project is a web-based system for creating and managing budgets for "Elétri
 
 ## Development Log
 
+### 2025-09-12 (Update 9)
+
+*   **New WIP Registration Page:**
+    *   Created a new registration page (`pages/wip/cadastro.html`) for client and service data.
+    *   Includes client name/address input and service details (name, description, quantity, unit value, total value).
+    *   Provides functionality to add, edit, and delete services dynamically.
+    *   Data is persisted using `localStorage`.
+    *   Associated CSS (`pages/wip/cadastro.css`) and JavaScript (`pages/wip/cadastro.js`) files were created.
+*   **Updated Navigation with WIP Pages Menu:**
+    *   Added a new "WIP Pages" dropdown menu to `index.html`'s navigation bar.
+    *   This menu contains a link to the new `pages/wip/cadastro.html`.
+
 ### 2025-09-12 (Update 8)
 
 *   **Split Image Insertion Functionality:**
