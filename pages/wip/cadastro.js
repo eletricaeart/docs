@@ -15,7 +15,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const servicesTableBody = document.querySelector('#servicesTable tbody');
     const saveAllDataBtn = document.getElementById('saveAllDataBtn');
 
-    let services = [];
+    let currentServices = []; // Services for the current budget being created/edited
+
+    // Ensure the simulatedDB is loaded
+    // This assumes db.js is loaded before cadastro.js in the HTML
+    const db = window.simulatedDB;
 
     // Load data from localStorage on page load
     const loadData = () => {
@@ -25,16 +29,59 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (savedClientName) clientNameInput.value = savedClientName;
         if (savedClientAddress) clientAddressInput.value = savedClientAddress;
-        if (savedServices) services = JSON.parse(savedServices);
+        if (savedServices) {
+            currentServices = JSON.parse(savedServices);
+        } else {
+            currentServices = []; // Ensure it's empty if nothing in localStorage
+        }
 
         renderServices();
     };
 
-    // Save data to localStorage
-    const saveData = () => {
-        localStorage.setItem('cadastroClientName', clientNameInput.value);
-        localStorage.setItem('cadastroClientAddress', clientAddressInput.value);
-        localStorage.setItem('cadastroServices', JSON.stringify(services));
+    // Save data to simulated database AND localStorage
+    const saveDataToDB = () => {
+        const clientName = clientNameInput.value.trim();
+        const clientAddress = clientAddressInput.value.trim();
+
+        if (!clientName || currentServices.length === 0) {
+            alert('Por favor, preencha o nome do cliente e adicione pelo menos um serviço.');
+            return;
+        }
+
+        // 1. Save/Get User ID (Simulated DB)
+        const userId = db.saveUser({
+            name: clientName,
+            address: clientAddress
+        });
+
+        // 2. Save Budget (Simulated DB)
+        const budgetTotalValue = currentServices.reduce((sum, service) => sum + parseFloat(service.totalValue), 0);
+        const budgetId = db.saveBudget({
+            userId: userId,
+            date: new Date().toISOString().split('T')[0], // Current date
+            totalValue: budgetTotalValue.toFixed(2)
+        });
+
+        // 3. Save Services linked to Budget (Simulated DB)
+        currentServices.forEach(service => {
+            db.saveService({
+                budgetId: budgetId,
+                name: service.name,
+                description: service.description,
+                quantity: service.quantity,
+                unitPrice: service.unitPrice,
+                totalValue: service.totalValue
+            });
+        });
+
+        // 4. Save to localStorage
+        localStorage.setItem('cadastroClientName', clientName);
+        localStorage.setItem('cadastroClientAddress', clientAddress);
+        localStorage.setItem('cadastroServices', JSON.stringify(currentServices));
+
+
+        alert('Orçamento salvo com sucesso no banco de dados simulado e no armazenamento local!');
+        loadData(); // Clear form for new entry and load any existing local storage data
     };
 
     // Calculate total value for a service
@@ -47,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Render services table
     const renderServices = () => {
         servicesTableBody.innerHTML = ''; // Clear existing rows
-        services.forEach((service, index) => {
+        currentServices.forEach((service, index) => {
             const row = servicesTableBody.insertRow();
             row.insertCell(0).textContent = service.name;
             row.insertCell(1).textContent = service.description;
@@ -83,6 +130,12 @@ document.addEventListener('DOMContentLoaded', () => {
         cancelEditBtn.style.display = 'none';
     };
 
+    // Clear client form
+    const clearClientForm = () => {
+        clientNameInput.value = '';
+        clientAddressInput.value = '';
+    };
+
     // Add service
     addServiceBtn.addEventListener('click', () => {
         const newService = {
@@ -92,15 +145,14 @@ document.addEventListener('DOMContentLoaded', () => {
             unitPrice: serviceUnitPriceInput.value,
             totalValue: serviceTotalValueInput.value
         };
-        services.push(newService);
+        currentServices.push(newService);
         clearServiceForm();
         renderServices();
-        saveData();
     });
 
     // Edit service
     const editService = (index) => {
-        const serviceToEdit = services[index];
+        const serviceToEdit = currentServices[index];
         serviceNameInput.value = serviceToEdit.name;
         serviceDescriptionInput.value = serviceToEdit.description;
         serviceQuantityInput.value = serviceToEdit.quantity;
@@ -116,8 +168,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Update service
     updateServiceBtn.addEventListener('click', () => {
         const index = parseInt(serviceIndexInput.value);
-        if (!isNaN(index) && index >= 0 && index < services.length) {
-            services[index] = {
+        if (!isNaN(index) && index >= 0 && index < currentServices.length) {
+            currentServices[index] = {
                 name: serviceNameInput.value,
                 description: serviceDescriptionInput.value,
                 quantity: serviceQuantityInput.value,
@@ -126,7 +178,6 @@ document.addEventListener('DOMContentLoaded', () => {
             };
             clearServiceForm();
             renderServices();
-            saveData();
         }
     });
 
@@ -138,9 +189,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Delete service
     const deleteService = (index) => {
         if (confirm('Tem certeza que deseja deletar este serviço?')) {
-            services.splice(index, 1);
+            currentServices.splice(index, 1);
             renderServices();
-            saveData();
         }
     };
 
@@ -149,7 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
     serviceUnitPriceInput.addEventListener('input', calculateServiceTotal);
 
     // Save all data (client info and services) when the dedicated button is clicked
-    saveAllDataBtn.addEventListener('click', saveData);
+    saveAllDataBtn.addEventListener('click', saveDataToDB);
 
     // Initial load
     loadData();

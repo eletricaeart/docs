@@ -8,6 +8,14 @@ The project is a web-based system for creating and managing budgets for "Elétri
 
 ## Development Log
 
+### 2025-09-12 (Update 10)
+
+*   **Simulated MySQL Database for Cadastro Page:**
+    *   Replaced `localStorage` with a simulated in-memory MySQL database (`assets/scripts/db.js`) for storing client and service data from the Cadastro page.
+    *   Implemented relational data structure: `User` (client) with `id`, `Budget` (orcamento) with `id` linked to `User`, and `Service` with `id` linked to `Budget`.
+    *   The "Save All Data" button now triggers a simulated API call to save data as a new budget entry, including client and associated services.
+    *   Updated `pages/wip/cadastro.html` to include `db.js` and `pages/wip/cadastro.js` to use the simulated database.
+
 ### 2025-09-12 (Update 9)
 
 *   **New WIP Registration Page:**
