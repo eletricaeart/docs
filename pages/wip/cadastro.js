@@ -2,6 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const clientNameInput = document.getElementById('clientName');
     const clientAddressInput = document.getElementById('clientAddress');
     const issueDateInput = document.getElementById('issueDate');
+    const dueDateInput = document.getElementById('dueDate');
+    const warrantyValidityInput = document.getElementById('warrantyValidity');
 
     const serviceNameInput = document.getElementById('serviceName');
     const serviceDescriptionInput = document.getElementById('serviceDescription');
@@ -22,6 +24,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // This assumes db.js is loaded before cadastro.js in the HTML
     const db = window.simulatedDB;
 
+    // Helper function to format date to YYYY-MM-DD
+    const formatDate = (date) => {
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        return `${year}-${month}-${day}`;
+    };
+
     // Load data from localStorage on page load
     const loadData = () => {
         // When the page loads, we want to start with a clean form for a new budget entry.
@@ -34,20 +44,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Set issue date to current date
         const today = new Date();
-        const year = today.getFullYear();
-        const month = String(today.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed
-        const day = String(today.getDate()).padStart(2, '0');
-        issueDateInput.value = `${year}-${month}-${day}`;
+        issueDateInput.value = formatDate(today);
+
+        // Set due date to 30 days from today
+        const dueDate = new Date();
+        dueDate.setDate(today.getDate() + 30);
+        dueDateInput.value = formatDate(dueDate);
+
+        // Set warranty/validity to 15 days from issue date
+        // This will be updated if issueDate changes
+        const warrantyDate = new Date(issueDateInput.value);
+        warrantyDate.setDate(warrantyDate.getDate() + 15);
+        warrantyValidityInput.value = formatDate(warrantyDate);
     };
+
+    // Update warranty/validity when issue date changes
+    issueDateInput.addEventListener('change', () => {
+        const issueDate = new Date(issueDateInput.value);
+        const warrantyDate = new Date(issueDate);
+        warrantyDate.setDate(warrantyDate.getDate() + 15);
+        warrantyValidityInput.value = formatDate(warrantyDate);
+    });
 
     // Save data to simulated database
     const saveDataToDB = () => {
         const clientName = clientNameInput.value.trim();
         const clientAddress = clientAddressInput.value.trim();
         const issueDate = issueDateInput.value;
+        const dueDate = dueDateInput.value;
+        const warrantyValidity = warrantyValidityInput.value;
 
-        if (!clientName || currentServices.length === 0 || !issueDate) {
-            alert('Por favor, preencha o nome do cliente, a data de emissão e adicione pelo menos um serviço.');
+        if (!clientName || currentServices.length === 0 || !issueDate || !dueDate || !warrantyValidity) {
+            alert('Por favor, preencha todos os dados do cliente, as datas e adicione pelo menos um serviço.');
             return;
         }
 
@@ -61,7 +89,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const budgetTotalValue = currentServices.reduce((sum, service) => sum + parseFloat(service.totalValue), 0);
         const budgetId = db.saveBudget({
             userId: userId,
-            issueDate: issueDate, // Add issue date to budget
+            issueDate: issueDate,
+            dueDate: dueDate, // Add due date to budget
+            warrantyValidity: warrantyValidity, // Add warranty validity to budget
             totalValue: budgetTotalValue.toFixed(2)
         });
 
@@ -138,7 +168,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const clearClientForm = () => {
         clientNameInput.value = '';
         clientAddressInput.value = '';
-        issueDateInput.value = ''; // Clear issue date
+        issueDateInput.value = '';
+        dueDateInput.value = ''; // Clear due date
+        warrantyValidityInput.value = ''; // Clear warranty validity
     };
 
     // Add service

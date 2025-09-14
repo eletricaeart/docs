@@ -8,6 +8,15 @@ The project is a web-based system for creating and managing budgets for "Elétri
 
 ## Development Log
 
+### 2025-09-12 (Update 15)
+
+*   **Added Due Date and Warranty/Validity to Budget:**
+    *   Added input fields for "Data de Vencimento" (Due Date) and "Validade da Garantia" (Warranty/Validity) to `pages/wip/cadastro.html`.
+    *   Due Date defaults to 30 days from the current date.
+    *   Warranty/Validity defaults to 15 days after the Issue Date and updates dynamically if the Issue Date changes.
+    *   These dates are captured and saved as part of the budget object in `assets/scripts/db.js`.
+    *   Updated `pages/wip/cadastro.js` to handle these new input fields and their default calculations.
+
 ### 2025-09-12 (Update 14)
 
 *   **Updated Service ID Generation:**
