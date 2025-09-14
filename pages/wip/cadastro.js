@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const issueDateInput = document.getElementById('issueDate');
     const dueDateInput = document.getElementById('dueDate');
     const warrantyValidityInput = document.getElementById('warrantyValidity');
+    const scopeEditor = document.getElementById('scopeEditor'); // Reference to the rich text editor
 
     const serviceNameInput = document.getElementById('serviceName');
     const serviceDescriptionInput = document.getElementById('serviceDescription');
@@ -51,11 +52,11 @@ document.addEventListener('DOMContentLoaded', () => {
         dueDate.setDate(today.getDate() + 30);
         dueDateInput.value = formatDate(dueDate);
 
-        // Set warranty/validity to 15 days from issue date
-        // This will be updated if issueDate changes
-        const warrantyDate = new Date(issueDateInput.value);
-        warrantyDate.setDate(warrantyDate.getDate() + 15);
-        warrantyValidityInput.value = formatDate(warrantyDate);
+        // Set warranty/validity to default text
+        warrantyValidityInput.value = '6 meses';
+
+        // Set initial content for scope editor (can be empty or a default text)
+        scopeEditor.innerHTML = '';
     };
 
     // Update warranty/validity when issue date changes
@@ -63,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const issueDate = new Date(issueDateInput.value);
         const warrantyDate = new Date(issueDate);
         warrantyDate.setDate(warrantyDate.getDate() + 15);
-        warrantyValidityInput.value = formatDate(warrantyDate);
+        // warrantyValidityInput.value = formatDate(warrantyDate); // No longer needed as it's text
     });
 
     // Save data to simulated database
@@ -73,9 +74,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const issueDate = issueDateInput.value;
         const dueDate = dueDateInput.value;
         const warrantyValidity = warrantyValidityInput.value;
+        const scopeOfServices = scopeEditor.innerHTML; // Get content from rich text editor
 
-        if (!clientName || currentServices.length === 0 || !issueDate || !dueDate || !warrantyValidity) {
-            alert('Por favor, preencha todos os dados do cliente, as datas e adicione pelo menos um serviço.');
+        if (!clientName || currentServices.length === 0 || !issueDate || !dueDate || !warrantyValidity || !scopeOfServices.trim()) {
+            alert('Por favor, preencha todos os dados do cliente, as datas, o escopo dos serviços e adicione pelo menos um serviço.');
             return;
         }
 
@@ -90,8 +92,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const budgetId = db.saveBudget({
             userId: userId,
             issueDate: issueDate,
-            dueDate: dueDate, // Add due date to budget
-            warrantyValidity: warrantyValidity, // Add warranty validity to budget
+            dueDate: dueDate,
+            warrantyValidity: warrantyValidity,
+            scopeOfServices: scopeOfServices, // Add scope of services to budget
             totalValue: budgetTotalValue.toFixed(2)
         });
 
@@ -169,8 +172,9 @@ document.addEventListener('DOMContentLoaded', () => {
         clientNameInput.value = '';
         clientAddressInput.value = '';
         issueDateInput.value = '';
-        dueDateInput.value = ''; // Clear due date
-        warrantyValidityInput.value = ''; // Clear warranty validity
+        dueDateInput.value = '';
+        warrantyValidityInput.value = ''; // Clear warranty validity as text
+        scopeEditor.innerHTML = ''; // Clear scope editor content
     };
 
     // Add service

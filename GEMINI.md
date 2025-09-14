@@ -8,6 +8,15 @@ The project is a web-based system for creating and managing budgets for "Elétri
 
 ## Development Log
 
+### 2025-09-12 (Update 16)
+
+*   **Updated Warranty Input and Added Scope of Services:**
+    *   Changed the "Validade da Garantia" (Warranty/Validity) input in `pages/wip/cadastro.html` from a date to a text field, defaulting to "6 meses".
+    *   Added a new section for "Escopo dos serviços" (Scope of Services) in `pages/wip/cadastro.html`.
+    *   This section now includes a rich text editor, using a simplified version of the existing `rich-text-editor.html`'s toolbar and functionality, managed by `pages/wip/cadastro-rte.js`.
+    *   The content of the "Escopo dos serviços" editor is captured and saved as part of the budget object.
+    *   Updated `pages/wip/cadastro.js` to handle these changes.
+
 ### 2025-09-12 (Update 15)
 
 *   **Added Due Date and Warranty/Validity to Budget:**

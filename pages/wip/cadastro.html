@@ -30,7 +30,44 @@
             <input type="date" id="dueDate">
 
             <label for="warrantyValidity">Validade da Garantia:</label>
-            <input type="date" id="warrantyValidity">
+            <input type="text" id="warrantyValidity">
+        </div>
+
+        <div class="scope-section">
+            <h2>Escopo dos Serviços</h2>
+            <div class="editor-container">
+                <div class="toolbar" id="scopeToolbar">
+                    <select data-command="formatBlock">
+                        <option value="p">Paragraph</option>
+                        <option value="h1">Heading 1</option>
+                        <option value="h2">Heading 2</option>
+                        <option value="h3">Heading 3</option>
+                    </select>
+                    <button data-command="bold"><b>B</b></button>
+                    <button data-command="italic"><i>I</i></button>
+                    <button data-command="underline"><u>U</u></button>
+                    <button data-command="insertOrderedList">OL</button>
+                    <button data-command="insertUnorderedList">UL</button>
+                    <button data-command="justifyLeft"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-text-left" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M2 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
+</svg></button>
+                    <button data-command="justifyCenter"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-text-center" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M4 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
+</svg></button>
+                    <button data-command="justifyRight"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-text-right" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-4-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm4-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-4-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
+</svg></button>
+                    <button data-command="createLink">Link</button>
+                    <label for="foreColor">Color</label>
+                    <input type="color" data-command="foreColor" id="foreColor">
+                    <label for="backColor">BG Color</label>
+                    <input type="color" data-command="backColor" id="backColor">
+                    <button data-command="insertImageFromUrl">Image URL</button>
+                    <button data-command="uploadImage">Upload Image</button>
+                    <input type="file" id="imageUpload" accept="image/*" style="display: none;">
+                </div>
+                <div id="scopeEditor" class="editor" contenteditable="true"></div>
+            </div>
         </div>
 
         <div class="service-section">
@@ -80,5 +117,6 @@
 
     <script src="../../assets/scripts/db.js"></script>
     <script src="cadastro.js"></script>
+    <script src="cadastro-rte.js"></script>
 </body>
 </html>
