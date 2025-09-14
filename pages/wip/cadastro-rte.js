@@ -1,16 +1,18 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const editor = document.getElementById('scopeEditor');
-    const toolbar = document.getElementById('scopeToolbar');
-    const imageUpload = document.getElementById('imageUpload'); // This ID is shared, might need to be unique if multiple RTEs
+// pages/wip/cadastro-rte.js
+function initRichTextEditor(sectionElement, titleModal, titleInput, saveTitleBtn, cancelTitleBtn, mainSectionNumber, sectionNumber) {
+    const editorElement = sectionElement.querySelector('.editor');
+    const toolbarElement = sectionElement.querySelector('.toolbar');
+    const addTitleButton = toolbarElement.querySelector('#addTitleBtn');
+    const sectionDisplayTitle = sectionElement.querySelector('.section-display-title'); // Get the p tag
 
     // Generic command execution
     const execCmd = (command, value = null) => {
         document.execCommand(command, false, value);
-        editor.focus();
+        editorElement.focus();
     };
 
     // Event listener for toolbar buttons
-    toolbar.addEventListener('click', (e) => {
+    toolbarElement.addEventListener('click', (e) => {
         const target = e.target.closest('button');
         if (!target || !target.dataset.command) return;
 
@@ -27,14 +29,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 execCmd('insertImage', url);
             }
         } else if (command === 'uploadImage') {
-            imageUpload.click();
-        } else {
+            const imageUpload = document.getElementById('imageUpload');
+            if (imageUpload) {
+                imageUpload.click();
+            }
+        }
+        else {
             execCmd(command);
         }
     });
 
-    // Event listener for select (headings)
-    toolbar.addEventListener('change', (e) => {
+    // Event listener for select (headings) - REMOVED from HTML, but keeping logic for other selects
+    toolbarElement.addEventListener('change', (e) => {
         const target = e.target.closest('select');
         if (target && target.dataset.command === 'formatBlock') {
             execCmd(target.dataset.command, target.value);
@@ -42,26 +48,65 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Event listener for color inputs
-    toolbar.addEventListener('input', (e) => {
+    toolbarElement.addEventListener('input', (e) => {
         const target = e.target.closest('input[type="color"]');
         if (target && target.dataset.command) {
             execCmd(target.dataset.command, target.value);
         }
     });
 
-    // Event listener for image upload
-    imageUpload.addEventListener('change', () => {
-        const file = imageUpload.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = (e) => {
-                execCmd('insertImage', e.target.result);
-            };
-            reader.readAsDataURL(file);
-            imageUpload.value = null;
+    // Event listener for image upload (assuming it's a single global input)
+    const globalImageUpload = document.getElementById('imageUpload');
+    if (globalImageUpload) {
+        globalImageUpload.addEventListener('change', () => {
+            const file = globalImageUpload.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    execCmd('insertImage', e.target.result);
+                };
+                reader.readAsDataURL(file);
+                globalImageUpload.value = null;
+            }
+        });
+    }
+
+    // Add Title Button Logic
+    if (addTitleButton) {
+        addTitleButton.addEventListener('click', () => {
+            // Check if a label already exists for this section
+            if (sectionElement.hasAttribute('label') && sectionElement.getAttribute('label').trim() !== '') {
+                alert('Já existe um título para esta seção.');
+                return;
+            }
+            titleModal.style.display = 'block';
+            titleInput.value = ''; // Clear previous input
+            titleInput.focus();
+        });
+    }
+
+    saveTitleBtn.addEventListener('click', () => {
+        const titleText = titleInput.value.trim();
+        if (titleText) {
+            // Set the label attribute on the section element for clb2.js
+            sectionElement.setAttribute('label', titleText);
+
+            // Display the title in the p tag with X.Y format
+            if (sectionDisplayTitle) {
+                sectionDisplayTitle.textContent = `${mainSectionNumber}.${sectionNumber} ${titleText}`;
+            }
+
+            if (addTitleButton) {
+                addTitleButton.disabled = true; // Disable button after title is added
+            }
         }
+        titleModal.style.display = 'none';
+    });
+
+    cancelTitleBtn.addEventListener('click', () => {
+        titleModal.style.display = 'none';
     });
 
     // Initial focus
-    editor.focus();
-});
+    editorElement.focus();
+}

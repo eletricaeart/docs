@@ -4,7 +4,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const issueDateInput = document.getElementById('issueDate');
     const dueDateInput = document.getElementById('dueDate');
     const warrantyValidityInput = document.getElementById('warrantyValidity');
-    const scopeEditor = document.getElementById('scopeEditor'); // Reference to the rich text editor
+
+    const scopeEditorsContainer = document.getElementById('scopeEditorsContainer');
+    const addNewSectionBtn = document.getElementById('addNewSectionBtn');
+
+    const titleModal = document.getElementById('titleModal');
+    const titleInput = document.getElementById('titleInput');
+    const saveTitleBtn = document.getElementById('saveTitleBtn');
+    const cancelTitleBtn = document.getElementById('cancelTitleBtn');
 
     const serviceNameInput = document.getElementById('serviceName');
     const serviceDescriptionInput = document.getElementById('serviceDescription');
@@ -20,9 +27,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const saveAllDataBtn = document.getElementById('saveAllDataBtn');
 
     let currentServices = []; // Services for the current budget being created/edited
+    let editorSectionCounter = 1; // To generate unique IDs for editor sections
+    const mainSectionNumber = 1; // 'X' in X.Y format for scope of services
 
     // Ensure the simulatedDB is loaded
-    // This assumes db.js is loaded before cadastro.js in the HTML
     const db = window.simulatedDB;
 
     // Helper function to format date to YYYY-MM-DD
@@ -33,14 +41,17 @@ document.addEventListener('DOMContentLoaded', () => {
         return `${year}-${month}-${day}`;
     };
 
+    // Function to initialize a single rich text editor section
+    const initializeEditorSection = (sectionElement, sectionNumber) => {
+        // Pass the sectionElement directly, and initRichTextEditor will find its children
+        initRichTextEditor(sectionElement, titleModal, titleInput, saveTitleBtn, cancelTitleBtn, mainSectionNumber, sectionNumber);
+    };
+
     // Load data from localStorage on page load
     const loadData = () => {
-        // When the page loads, we want to start with a clean form for a new budget entry.
-        // The actual loading of persisted data (users, budgets, services) is handled by db.js
-        // when it initializes from localStorage.
-        clearClientForm();
+        clearClientForm(); // This will also re-initialize the editor sections
         clearServiceForm();
-        currentServices = []; // Ensure currentServices is empty for a new entry
+        currentServices = [];
         renderServices();
 
         // Set issue date to current date
@@ -53,19 +64,62 @@ document.addEventListener('DOMContentLoaded', () => {
         dueDateInput.value = formatDate(dueDate);
 
         // Set warranty/validity to default text
-        warrantyValidityInput.value = '6 meses';
+        warrantyValidityInput.value = 6; // Default to 6 months
 
-        // Set initial content for scope editor (can be empty or a default text)
-        scopeEditor.innerHTML = '';
+        // Initialize the first editor section
+        const initialEditorSection = scopeEditorsContainer.querySelector('.editor-section');
+        if (initialEditorSection) {
+            initializeEditorSection(initialEditorSection, 1); // Pass section number 1
+            // Clear initial content
+            initialEditorSection.querySelector('.editor').innerHTML = '';
+            // Re-enable addTitleBtn if it was disabled from a previous session
+            const addTitleBtn = initialEditorSection.querySelector('#addTitleBtn');
+            if (addTitleBtn) addTitleBtn.disabled = false;
+        }
     };
 
-    // Update warranty/validity when issue date changes
-    issueDateInput.addEventListener('change', () => {
-        const issueDate = new Date(issueDateInput.value);
-        const warrantyDate = new Date(issueDate);
-        warrantyDate.setDate(warrantyDate.getDate() + 15);
-        // warrantyValidityInput.value = formatDate(warrantyDate); // No longer needed as it's text
+    // Add new section button logic
+    addNewSectionBtn.addEventListener('click', () => {
+        editorSectionCounter++; // Increment counter for unique ID
+        const newSectionId = `editor${editorSectionCounter}`;
+
+        const newSection = document.createElement('section');
+        newSection.classList.add('editor-section');
+        newSection.setAttribute('data-editor-id', newSectionId); // Set unique ID
+
+        newSection.innerHTML = `
+            <p class="section-display-title"></p> <!-- Added blank p tag -->
+            <div class="toolbar">
+                <button id="addTitleBtn_${newSectionId}">Add Title</button>
+                <button data-command="bold"><b>B</b></button>
+                <button data-command="italic"><i>I</i></button>
+                <button data-command="underline"><u>U</u></button>
+                <button data-command="insertOrderedList">OL</button>
+                <button data-command="insertUnorderedList">UL</button>
+                <button data-command="justifyLeft"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-text-left" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M2 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
+</svg></button>
+                <button data-command="justifyCenter"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-text-center" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M4 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
+</svg></button>
+                <button data-command="justifyRight"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-text-right" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-4-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm4-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-4-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
+</svg></button>
+                <button data-command="createLink">Link</button>
+                <label for="foreColor">Color</label>
+                <input type="color" data-command="foreColor" id="foreColor">
+                <label for="backColor">BG Color</label>
+                <input type="color" data-command="backColor" id="backColor">
+                <button data-command="insertImageFromUrl">Image URL</button>
+                <button data-command="uploadImage">Upload Image</button>
+                <input type="file" id="imageUpload" accept="image/*" style="display: none;">
+            </div>
+            <div class="editor" contenteditable="true"></div>
+        `;
+        scopeEditorsContainer.appendChild(newSection);
+        initializeEditorSection(newSection, editorSectionCounter);
     });
+
 
     // Save data to simulated database
     const saveDataToDB = () => {
@@ -74,9 +128,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const issueDate = issueDateInput.value;
         const dueDate = dueDateInput.value;
         const warrantyValidity = warrantyValidityInput.value;
-        const scopeOfServices = scopeEditor.innerHTML; // Get content from rich text editor
 
-        if (!clientName || currentServices.length === 0 || !issueDate || !dueDate || !warrantyValidity || !scopeOfServices.trim()) {
+        // Get content from all editor sections
+        const scopeOfServices = Array.from(scopeEditorsContainer.querySelectorAll('.editor-section')).map(section => {
+            const title = section.getAttribute('label') || ''; // Get title from label attribute
+            const content = section.querySelector('.editor').innerHTML; // Get content from editor div
+            return { title: title, content: content };
+        });
+
+        if (!clientName || currentServices.length === 0 || !issueDate || !dueDate || !warrantyValidity || scopeOfServices.every(s => s.content.trim() === '' && s.title.trim() === '')) {
             alert('Por favor, preencha todos os dados do cliente, as datas, o escopo dos serviços e adicione pelo menos um serviço.');
             return;
         }
@@ -94,7 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
             issueDate: issueDate,
             dueDate: dueDate,
             warrantyValidity: warrantyValidity,
-            scopeOfServices: scopeOfServices, // Add scope of services to budget
+            scopeOfServices: scopeOfServices, // Save as an array of objects
             totalValue: budgetTotalValue.toFixed(2)
         });
 
@@ -173,8 +233,40 @@ document.addEventListener('DOMContentLoaded', () => {
         clientAddressInput.value = '';
         issueDateInput.value = '';
         dueDateInput.value = '';
-        warrantyValidityInput.value = ''; // Clear warranty validity as text
-        scopeEditor.innerHTML = ''; // Clear scope editor content
+        warrantyValidityInput.value = 6; // Reset to default 6
+        // Clear all editor sections and re-initialize the first one
+        scopeEditorsContainer.innerHTML = `
+            <section class="editor-section" data-editor-id="editor1">
+                <p class="section-display-title"></p> <!-- Added blank p tag -->
+                <div class="toolbar">
+                    <button id="addTitleBtn_editor1">Add Title</button>
+                    <button data-command="bold"><b>B</b></button>
+                    <button data-command="italic"><i>I</i></button>
+                    <button data-command="underline"><u>U</u></button>
+                    <button data-command="insertOrderedList">OL</button>
+                    <button data-command="insertUnorderedList">UL</button>
+                    <button data-command="justifyLeft"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-text-left" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M2 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
+</svg></button>
+                    <button data-command="justifyCenter"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-text-center" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M4 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
+</svg></button>
+                    <button data-command="justifyRight"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-text-right" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-4-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm4-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-4-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
+</svg></button>
+                    <button data-command="createLink">Link</button>
+                    <label for="foreColor">Color</label>
+                    <input type="color" data-command="foreColor" id="foreColor">
+                    <label for="backColor">BG Color</label>
+                    <input type="color" data-command="backColor" id="backColor">
+                    <button data-command="insertImageFromUrl">Image URL</button>
+                    <button data-command="uploadImage">Upload Image</button>
+                    <input type="file" id="imageUpload" accept="image/*" style="display: none;">
+                </div>
+                <div class="editor" contenteditable="true"></div>
+            </section>
+        `;
+        initializeEditorSection(scopeEditorsContainer.querySelector('.editor-section'), 1); // Pass section number 1
     };
 
     // Add service

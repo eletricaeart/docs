@@ -156,3 +156,62 @@ table td button.delete-btn {
 table td button.delete-btn:hover {
     background-color: #c82333;
 }
+
+.scope-section .editor-container {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.scope-section .toolbar {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.scope-section .editor {
+    min-height: 150px; /* Slightly smaller than main editor */
+    padding: 10px;
+    outline: none;
+}
+
+.scope-section .toolbar button,
+.scope-section .toolbar select {
+    margin-right: 5px;
+    margin-bottom: 5px;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.scope-section .toolbar input[type="color"] {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    border: 1px solid #ccc;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.scope-section .toolbar label {
+    margin-left: 10px;
+    margin-right: 5px;
+}
+
+.scope-section .toolbar button:hover {
+    background-color: #eee;
+}
+
+.scope-section .toolbar button svg {
+    vertical-align: middle;
+}
+
+.editor-section {
+    border: 1px solid #ddd;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    overflow: hidden; /* To contain floats */
+}

@@ -8,6 +8,39 @@ The project is a web-based system for creating and managing budgets for "Elétri
 
 ## Development Log
 
+### 2025-09-12 (Update 19)
+
+*   **Updated Warranty Input:**
+    *   Changed the "Validade da Garantia" (Warranty/Validity) input in `pages/wip/cadastro.html` to `type="number"`.
+    *   The default value is now `6` (representing months).
+    *   Updated `pages/wip/cadastro.js` to handle this change in default value and clearing.
+*   **Enhanced Scope of Services Title Display:**
+    *   Added a blank `<p class="section-display-title"></p>` tag above the toolbar within each rich text editor section in `pages/wip/cadastro.html`.
+    *   When a title is entered via the modal, it is now displayed in this `<p>` tag, prefixed with a section number in the format `X.Y` (e.g., "1.1 Pintura"), where `X` is `1` (for the main scope section) and `Y` is the section's sequential number.
+    *   Updated `pages/wip/cadastro.js` and `pages/wip/cadastro-rte.js` to implement this dynamic title display and numbering.
+
+### 2025-09-12 (Update 18)
+
+*   **Updated Warranty Input:**
+    *   Changed the "Validade da Garantia" (Warranty/Validity) input in `pages/wip/cadastro.html` to `type="number"`.
+    *   The default value is now `6` (representing months).
+    *   Updated `pages/wip/cadastro.js` to handle this change in default value and clearing.
+*   **Enhanced Scope of Services Title Display:**
+    *   Added a blank `<p class="section-display-title"></p>` tag above the toolbar within each rich text editor section in `pages/wip/cadastro.html`.
+    *   When a title is entered via the modal, it is now displayed in this `<p>` tag, prefixed with a section number in the format `X.Y` (e.g., "1.1 Pintura"), where `X` is `1` (for the main scope section) and `Y` is the section's sequential number.
+    *   Updated `pages/wip/cadastro.js` and `pages/wip/cadastro-rte.js` to implement this dynamic title display and numbering.
+
+### 2025-09-12 (Update 17)
+
+*   **Rich Text Editor Enhancements for Scope of Services:**
+    *   The "Escopo dos serviços" rich text editor now supports multiple sections, each wrapped in a `<section>` tag.
+    *   The title for each section is no longer an `<h2>` tag inside the content, but is set as the `label` attribute of the `<section>` tag.
+    *   The dropdown for Paragraph/Headings has been replaced with a single "Add Title" button.
+    *   Clicking "Add Title" opens a modal for title input. The entered title is set as the `label` attribute of the current section, and the button is then disabled for that section.
+    *   A new "Adicionar Nova Seção" (Add New Section) button allows users to create additional rich text editor sections, each with its own toolbar and title functionality.
+    *   Updated `pages/wip/cadastro.html` and `pages/wip/cadastro-rte.js` to implement these features.
+    *   Updated `pages/wip/cadastro.js` to correctly initialize and manage multiple editor sections, and to retrieve their content and labels for saving.
+
 ### 2025-09-12 (Update 16)
 
 *   **Updated Warranty Input and Added Scope of Services:**
