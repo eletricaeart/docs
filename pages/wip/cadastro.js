@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const clientNameInput = document.getElementById('clientName');
     const clientAddressInput = document.getElementById('clientAddress');
+    const issueDateInput = document.getElementById('issueDate');
 
     const serviceNameInput = document.getElementById('serviceName');
     const serviceDescriptionInput = document.getElementById('serviceDescription');
@@ -23,28 +24,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Load data from localStorage on page load
     const loadData = () => {
-        const savedClientName = localStorage.getItem('cadastroClientName');
-        const savedClientAddress = localStorage.getItem('cadastroClientAddress');
-        const savedServices = localStorage.getItem('cadastroServices');
-
-        if (savedClientName) clientNameInput.value = savedClientName;
-        if (savedClientAddress) clientAddressInput.value = savedClientAddress;
-        if (savedServices) {
-            currentServices = JSON.parse(savedServices);
-        } else {
-            currentServices = []; // Ensure it's empty if nothing in localStorage
-        }
-
+        // When the page loads, we want to start with a clean form for a new budget entry.
+        // The actual loading of persisted data (users, budgets, services) is handled by db.js
+        // when it initializes from localStorage.
+        clearClientForm();
+        clearServiceForm();
+        currentServices = []; // Ensure currentServices is empty for a new entry
         renderServices();
+
+        // Set issue date to current date
+        const today = new Date();
+        const year = today.getFullYear();
+        const month = String(today.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed
+        const day = String(today.getDate()).padStart(2, '0');
+        issueDateInput.value = `${year}-${month}-${day}`;
     };
 
-    // Save data to simulated database AND localStorage
+    // Save data to simulated database
     const saveDataToDB = () => {
         const clientName = clientNameInput.value.trim();
         const clientAddress = clientAddressInput.value.trim();
+        const issueDate = issueDateInput.value;
 
-        if (!clientName || currentServices.length === 0) {
-            alert('Por favor, preencha o nome do cliente e adicione pelo menos um serviço.');
+        if (!clientName || currentServices.length === 0 || !issueDate) {
+            alert('Por favor, preencha o nome do cliente, a data de emissão e adicione pelo menos um serviço.');
             return;
         }
 
@@ -54,15 +57,15 @@ document.addEventListener('DOMContentLoaded', () => {
             address: clientAddress
         });
 
-        // 2. Save Budget (Simulated DB)
+        // 2. Save Budget
         const budgetTotalValue = currentServices.reduce((sum, service) => sum + parseFloat(service.totalValue), 0);
         const budgetId = db.saveBudget({
             userId: userId,
-            date: new Date().toISOString().split('T')[0], // Current date
+            issueDate: issueDate, // Add issue date to budget
             totalValue: budgetTotalValue.toFixed(2)
         });
 
-        // 3. Save Services linked to Budget (Simulated DB)
+        // 3. Save Services linked to Budget
         currentServices.forEach(service => {
             db.saveService({
                 budgetId: budgetId,
@@ -74,14 +77,15 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // 4. Save to localStorage
-        localStorage.setItem('cadastroClientName', clientName);
-        localStorage.setItem('cadastroClientAddress', clientAddress);
-        localStorage.setItem('cadastroServices', JSON.stringify(currentServices));
-
-
         alert('Orçamento salvo com sucesso no banco de dados simulado e no armazenamento local!');
-        loadData(); // Clear form for new entry and load any existing local storage data
+        loadData(); // Clear form for new entry
+
+        // For debugging: log all data in the simulated DB
+        console.log('Simulated DB State:', {
+            users: db.getAllUsers(),
+            budgets: db.getAllBudgets(),
+            services: db.getAllServices()
+        });
     };
 
     // Calculate total value for a service
@@ -134,6 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const clearClientForm = () => {
         clientNameInput.value = '';
         clientAddressInput.value = '';
+        issueDateInput.value = ''; // Clear issue date
     };
 
     // Add service

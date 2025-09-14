@@ -8,6 +8,40 @@ The project is a web-based system for creating and managing budgets for "Elétri
 
 ## Development Log
 
+### 2025-09-12 (Update 14)
+
+*   **Updated Service ID Generation:**
+    *   Modified the `serviceId` generation in `assets/scripts/db.js` to follow the format: `s:random1-random2-random3`.
+    *   Removed the `nextServiceId` counter as it's no longer needed for sequential IDs.
+    *   Updated `_saveToLocalStorage` and `_loadFromLocalStorage` functions in `db.js` to reflect the removal of `nextServiceId`.
+*   **Added Issue Date to Budget:**
+    *   Added an editable input field for "Data de Emissão" (Issue Date) to `pages/wip/cadastro.html`.
+    *   This input is pre-filled with the current date when the page loads.
+    *   The issue date is captured and saved as part of the budget object in `assets/scripts/db.js`.
+    *   Updated `pages/wip/cadastro.js` to handle the new input field.
+
+### 2025-09-12 (Update 13)
+
+*   **Updated Client ID Generation:**
+    *   Modified the `userId` generation in `assets/scripts/db.js` to follow the format: `MM:random/YYYY`.
+    *   Removed the `nextUserId` counter as it's no longer needed for sequential IDs.
+    *   Updated `_saveToLocalStorage` and `_loadFromLocalStorage` functions in `db.js` to reflect the removal of `nextUserId`.
+
+### 2025-09-12 (Update 12)
+
+*   **Updated Budget ID Generation:**
+    *   Modified the `budgetId` generation in `assets/scripts/db.js` to follow the format: `E&A-o:random1-random2/YYYY`.
+    *   Removed the `nextBudgetId` counter as it's no longer needed for sequential IDs.
+    *   Updated `_saveToLocalStorage` and `_loadFromLocalStorage` functions in `db.js` to reflect the removal of `nextBudgetId`.
+
+### 2025-09-12 (Update 11)
+
+*   **LocalStorage Synchronization for Simulated Database:**
+    *   Implemented full synchronization between the simulated MySQL database (`assets/scripts/db.js`) and `localStorage`.
+    *   The entire state of the simulated database (users, budgets, services, and their respective `nextId` counters) is now saved to `localStorage` whenever data is modified.
+    *   The simulated database loads its state from `localStorage` upon initialization, ensuring data persistence across browser sessions.
+    *   `pages/wip/cadastro.js` was updated to remove direct `localStorage` calls, relying solely on `db.js` for data persistence.
+
 ### 2025-09-12 (Update 10)
 
 *   **Simulated MySQL Database for Cadastro Page:**
