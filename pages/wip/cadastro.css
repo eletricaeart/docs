@@ -6,9 +6,12 @@ body {
 }
 
 .navbar {
-    background-color: #29f;
+  display: flex;
+  align-items: center;
+    background-color: #27a;
     overflow: hidden;
-    padding: 10px 20px;
+    padding: 1rem;
+  min-height: 68px;
 }
 
 .navbar a {
