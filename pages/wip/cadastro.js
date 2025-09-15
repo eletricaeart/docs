@@ -173,13 +173,21 @@ document.addEventListener('DOMContentLoaded', () => {
         serviceTotalValueInput.value = (quantity * unitPrice).toFixed(2);
     };
 
+    // Helper function to truncate text
+    const truncateText = (text, maxLength) => {
+        if (text.length <= maxLength) {
+            return text;
+        }
+        return text.substring(0, maxLength - 1) + '...';
+    };
+
     // Render services table
     const renderServices = () => {
         servicesTableBody.innerHTML = ''; // Clear existing rows
         currentServices.forEach((service, index) => {
             const row = servicesTableBody.insertRow();
-            row.insertCell(0).textContent = service.name;
-            row.insertCell(1).textContent = service.description;
+            row.insertCell(0).textContent = truncateText(service.name, 15);
+            row.insertCell(1).textContent = truncateText(service.description, 20);
             row.insertCell(2).textContent = service.quantity;
             row.insertCell(3).textContent = parseFloat(service.unitPrice).toFixed(2);
             row.insertCell(4).textContent = parseFloat(service.totalValue).toFixed(2);

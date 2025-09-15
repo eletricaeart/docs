@@ -195,12 +195,17 @@ table td button.delete-btn:hover {
   padding: 1rem .5rem;
   gap: 5px;
   align-items: center;
+  background: #29f;
+  color: #fff;
+  text-transform: capitalize;
 }
 .title-container > input {
   height: auto;
   border: transparent;
   margin: 0;
   background-color: transparent;
+  color: #fff;
+  text-transform: capitalize;
 }
 
 .scope-section .editor-container {
