@@ -1,15 +1,25 @@
 // pages/wip/cadastro-rte.js
-function initRichTextEditor(sectionElement, titleModal, titleInput, saveTitleBtn, cancelTitleBtn, mainSectionNumber, sectionNumber) {
+function initRichTextEditor(sectionElement) {
     const editorElement = sectionElement.querySelector('.editor');
     const toolbarElement = sectionElement.querySelector('.toolbar');
-    const addTitleButton = toolbarElement.querySelector('button[data-command="addTitle"]');
-    const sectionDisplayTitle = sectionElement.querySelector('.section-display-title'); // Get the p tag
+    const titleInputElement = sectionElement.querySelector('.section-title-input');
 
     // Generic command execution
     const execCmd = (command, value = null) => {
         document.execCommand(command, false, value);
         editorElement.focus();
     };
+
+    // Event listener for the title input
+    if (titleInputElement) {
+        titleInputElement.addEventListener('input', () => {
+            const titleText = titleInputElement.value.trim();
+            sectionElement.setAttribute('label', titleText);
+            // Dispatch a custom event to notify the main script that a title has changed
+            const titleChangeEvent = new Event('titlechange', { bubbles: true });
+            titleInputElement.dispatchEvent(titleChangeEvent);
+        });
+    }
 
     // Event listener for toolbar buttons
     toolbarElement.addEventListener('click', (e) => {
@@ -18,10 +28,7 @@ function initRichTextEditor(sectionElement, titleModal, titleInput, saveTitleBtn
 
         const command = target.dataset.command;
 
-        if (command === 'addTitle') {
-            // Handled by the specific logic below, but we stop it from going to execCmd
-            return;
-        } else if (command === 'createLink') {
+        if (command === 'createLink') {
             const url = prompt('Enter the link URL:');
             if (url) {
                 execCmd(command, url);
@@ -36,6 +43,15 @@ function initRichTextEditor(sectionElement, titleModal, titleInput, saveTitleBtn
             if (imageUpload) {
                 imageUpload.click();
             }
+        } else if (command === 'addText') {
+            // Toggle off any active list
+            if (document.queryCommandState('insertOrderedList')) {
+                execCmd('insertOrderedList');
+            } else if (document.queryCommandState('insertUnorderedList')) {
+                execCmd('insertUnorderedList');
+            }
+            // Ensure the current block is a paragraph
+            execCmd('formatBlock', 'p');
         } else {
             execCmd(command);
         }
@@ -70,61 +86,6 @@ function initRichTextEditor(sectionElement, titleModal, titleInput, saveTitleBtn
                 reader.readAsDataURL(file);
                 globalImageUpload.value = null;
             }
-        });
-    }
-
-    // Add Title Button Logic
-    if (addTitleButton) {
-        addTitleButton.addEventListener('click', () => {
-            // Check if a label already exists for this section
-            if (sectionElement.hasAttribute('label') && sectionElement.getAttribute('label').trim() !== '') {
-                alert('Já existe um título para esta seção.');
-                return;
-            }
-            titleModal.style.display = 'block';
-            titleInput.value = ''; // Clear previous input
-            titleInput.focus();
-
-            // A specific handler for when THIS modal's save button is clicked
-            const specificSaveHandler = () => {
-                const titleText = titleInput.value.trim();
-                if (titleText) {
-                    // Set the label attribute on the section element
-                    sectionElement.setAttribute('label', titleText);
-
-                    // Display the title in the p tag with X.Y format
-                    if (sectionDisplayTitle) {
-                        sectionDisplayTitle.textContent = `${mainSectionNumber}.${sectionNumber} ${titleText}`;
-                    }
-
-                    // Disable the button after the title is added
-                    addTitleButton.disabled = true;
-                }
-                titleModal.style.display = 'none';
-                // Clean up this specific listener
-                saveTitleBtn.removeEventListener('click', specificSaveHandler);
-            };
-
-            // A specific handler for when THIS modal's cancel button is clicked
-            const specificCancelHandler = () => {
-                titleModal.style.display = 'none';
-                // Clean up the listeners
-                saveTitleBtn.removeEventListener('click', specificSaveHandler);
-                cancelTitleBtn.removeEventListener('click', specificCancelHandler);
-            };
-
-            // Remove any previous listeners to avoid multiple triggers
-            // (This is a simple way to handle it, could be more robust)
-            saveTitleBtn.replaceWith(saveTitleBtn.cloneNode(true));
-            cancelTitleBtn.replaceWith(cancelTitleBtn.cloneNode(true));
-            
-            // Re-select the buttons after cloning
-            const newSaveTitleBtn = document.getElementById('saveTitleBtn');
-            const newCancelTitleBtn = document.getElementById('cancelTitleBtn');
-
-            // Add the new, specific event listeners
-            newSaveTitleBtn.addEventListener('click', specificSaveHandler);
-            newCancelTitleBtn.addEventListener('click', specificCancelHandler);
         });
     }
 

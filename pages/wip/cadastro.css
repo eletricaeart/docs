@@ -190,16 +190,23 @@ table td button.delete-btn:hover {
     background-color: #c82333;
 }
 
+.title-container {
+  display: flex;
+  padding: 1rem .5rem;
+  gap: 5px;
+  align-items: center;
+}
+.title-container > input {
+  height: auto;
+  border: transparent;
+  margin: 0;
+  background-color: transparent;
+}
+
 .scope-section .editor-container {
     border: 1px solid #ccc;
     border-radius: 5px;
     margin-bottom: 20px;
-}
-
-p.section-display-title {
-  font-size: 1rem;
-  font-weight: 600;
-  padding: .5rem 1rem;
 }
 
 .scope-section .toolbar {

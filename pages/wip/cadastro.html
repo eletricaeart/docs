@@ -61,14 +61,17 @@
 
         <template id="editor-section-template">
           <section class="editor-section">
-            <p class="section-display-title"></p>
+            <div class="title-container">
+              <p class="section-display-title"></p>
+              <input type="text" class="section-title-input" placeholder="Adicionar título">
+            </div>
             <div class="toolbar">
-              <button data-command="addTitle">Título</button>
               <button data-command="bold"><b>B</b></button>
               <button data-command="italic"><i>I</i></button>
               <button data-command="underline"><u>U</u></button>
               <button data-command="insertOrderedList">OL</button>
               <button data-command="insertUnorderedList">UL</button>
+              <button data-command="addText">Texto</button>
               <button data-command="justifyLeft">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-text-left" viewBox="0 0 16 16">
                   <path fill-rule="evenodd" d="M2 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"></path>
@@ -166,15 +169,7 @@
       <button id="saveAllDataBtn">Salvar Todos os Dados</button>
     </div>
 
-    <!-- Title Modal -->
-    <div id="titleModal" class="modal">
-      <div class="modal-content">
-        <h3>Inserir Título</h3>
-        <input type="text" id="titleInput" placeholder="Digite o título" />
-        <button id="saveTitleBtn">Salvar</button>
-        <button id="cancelTitleBtn">Cancelar</button>
-      </div>
-    </div>
+    
 
     <script src="../../assets/scripts/db.js"></script>
     <script src="cadastro.js"></script>

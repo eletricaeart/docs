@@ -8,11 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const scopeEditorsContainer = document.getElementById('scopeEditorsContainer');
     const addNewSectionBtn = document.getElementById('addNewSectionBtn');
 
-    const titleModal = document.getElementById('titleModal');
-    const titleInput = document.getElementById('titleInput');
-    const saveTitleBtn = document.getElementById('saveTitleBtn');
-    const cancelTitleBtn = document.getElementById('cancelTitleBtn');
-
     const serviceNameInput = document.getElementById('serviceName');
     const serviceDescriptionInput = document.getElementById('serviceDescription');
     const serviceQuantityInput = document.getElementById('serviceQuantity');
@@ -35,6 +30,27 @@ document.addEventListener('DOMContentLoaded', () => {
     // Ensure the simulatedDB is loaded
     const db = window.simulatedDB;
 
+    // Function to update all title prefixes based on their content
+    const updateTitlePrefixes = () => {
+        const sections = scopeEditorsContainer.querySelectorAll('.editor-section');
+        let titledSectionCounter = 1;
+        sections.forEach(section => {
+            const title = section.getAttribute('label') || '';
+            const prefixElement = section.querySelector('.section-display-title');
+            if (prefixElement) {
+                if (title) {
+                    prefixElement.textContent = `${mainSectionNumber}.${titledSectionCounter}`;
+                    titledSectionCounter++;
+                } else {
+                    prefixElement.textContent = '';
+                }
+            }
+        });
+    };
+
+    // Listen for title changes to update numbering
+    scopeEditorsContainer.addEventListener('titlechange', updateTitlePrefixes);
+
     // Helper function to format date to YYYY-MM-DD
     const formatDate = (date) => {
         const year = date.getFullYear();
@@ -44,27 +60,17 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // Function to initialize a single rich text editor section
-    const initializeEditorSection = (sectionElement, sectionNumber) => {
-        initRichTextEditor(sectionElement, titleModal, titleInput, saveTitleBtn, cancelTitleBtn, mainSectionNumber, sectionNumber);
+    const initializeEditorSection = (sectionElement) => {
+        initRichTextEditor(sectionElement);
     };
 
     // Function to add a new editor section from the template
     const addNewEditorSection = () => {
-        editorSectionCounter++;
         const templateContent = editorTemplate.content.cloneNode(true);
         const newSection = templateContent.querySelector('.editor-section');
-        
-        // Set a unique data-attribute for the new section
-        newSection.setAttribute('data-editor-id', `editor${editorSectionCounter}`);
-        
-        // Update the 'Add Title' button to have a unique ID if needed, though command is better
-        const addTitleBtn = newSection.querySelector('button[data-command="addTitle"]');
-        if (addTitleBtn) {
-            // The command 'addTitle' is now used in the RTE script, so unique ID isn't strictly necessary
-        }
-
         scopeEditorsContainer.appendChild(templateContent);
-        initializeEditorSection(newSection, editorSectionCounter);
+        initializeEditorSection(newSection);
+        updateTitlePrefixes(); // Update prefixes when a new section is added
         return newSection;
     };
 
@@ -102,11 +108,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const dueDate = dueDateInput.value;
         const warrantyValidity = warrantyValidityInput.value;
 
-        // Get content from all editor sections
+        // Get content from all editor sections and format titles
+        let titledSectionCounter = 1;
         const scopeOfServices = Array.from(scopeEditorsContainer.querySelectorAll('.editor-section')).map(section => {
-            const title = section.getAttribute('label') || ''; // Get title from label attribute
-            const content = section.querySelector('.editor').innerHTML; // Get content from editor div
-            return { title: title, content: content };
+            const title = section.getAttribute('label') || '';
+            const content = section.querySelector('.editor').innerHTML;
+            let fullTitle = '';
+            if (title) {
+                fullTitle = `${mainSectionNumber}.${titledSectionCounter} ${title}`;
+                titledSectionCounter++;
+            }
+            return { title: fullTitle, content: content };
         });
 
         if (!clientName || currentServices.length === 0 || !issueDate || !dueDate || !warrantyValidity || scopeOfServices.every(s => s.content.trim() === '' && s.title.trim() === '')) {
