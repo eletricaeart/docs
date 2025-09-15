@@ -1,131 +1,212 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cadastro de Cliente e Serviços (WIP)</title>
-    <link rel="stylesheet" href="../../assets/globals.css">
-    <link rel="stylesheet" href="cadastro.css">
-</head>
-<body>
+    <link rel="stylesheet" href="../../assets/globals.css" />
+    <link rel="stylesheet" href="cadastro.css" />
+  </head>
+  <body>
     <nav class="navbar">
-        <a href="../../index.html">Home</a>
+      <a href="../../index.html">Home</a>
     </nav>
 
     <h1>Cadastro de Cliente e Serviços (WIP)</h1>
 
     <div class="container">
-        <div class="client-section">
-            <h2>Dados do Cliente</h2>
-            <label for="clientName">Nome do Cliente:</label>
-            <input type="text" id="clientName" placeholder="Nome Completo">
+      <div class="client-section">
+        <h2>Dados do Cliente</h2>
+        <label for="clientName">Nome do Cliente:</label>
+        <input
+          type="text"
+          id="clientName"
+          placeholder="Nome Completo"
+          autofocus
+        />
 
-            <label for="clientAddress">Endereço do Cliente:</label>
-            <input type="text" id="clientAddress" placeholder="Endereço Completo">
+        <label for="clientAddress">Endereço do Cliente:</label>
+        <input type="text" id="clientAddress" placeholder="Endereço Completo" />
 
+      </div>
+
+      <div class="budget_descs client-section">
+        <h2>Detalhes do Orçamento</h2>
+        
+        <grid-1-2>
+          <input-field>
             <label for="issueDate">Data de Emissão:</label>
-            <input type="date" id="issueDate">
+            <input type="date" id="issueDate" />
+          </input-field>
 
+          <input-field>
             <label for="dueDate">Data de Vencimento:</label>
-            <input type="date" id="dueDate">
+            <input type="date" id="dueDate" />
+          </input-field>
+        </grid-1-2>
 
+        <grid-1-2>
+          <input-field>
             <label for="warrantyValidity">Validade da Garantia:</label>
-            <input type="number" id="warrantyValidity"> <!-- Changed to type="number" -->
-        </div>
+            <inputy>
+              <input type="number" id="warrantyValidity" id="i_warranty"/>
+              <text>meses</text>
+            </inputy>
+          </input-field>
+        </grid-1-2>
+      </div>
 
-        <div class="scope-section">
-            <h2>Escopo dos Serviços</h2>
-            <div id="scopeEditorsContainer">
-                <section class="editor-section" data-editor-id="editor1">
-                    <p class="section-display-title"></p> <!-- Added blank p tag -->
-                    <div class="toolbar">
-                        <button id="addTitleBtn_editor1">Add Title</button>
-                        <button data-command="bold"><b>B</b></button>
-                        <button data-command="italic"><i>I</i></button>
-                        <button data-command="underline"><u>U</u></button>
-                        <button data-command="insertOrderedList">OL</button>
-                        <button data-command="insertUnorderedList">UL</button>
-                        <button data-command="justifyLeft"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-text-left" viewBox="0 0 16 16">
-  <path fill-rule="evenodd" d="M2 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
-</svg></button>
-                    <button data-command="justifyCenter"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-text-center" viewBox="0 0 16 16">
-  <path fill-rule="evenodd" d="M4 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
-</svg></button>
-                    <button data-command="justifyRight"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-text-right" viewBox="0 0 16 16">
-  <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-4-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm4-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-4-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
-</svg></button>
-                    <button data-command="createLink">Link</button>
-                    <label for="foreColor">Color</label>
-                    <input type="color" data-command="foreColor" id="foreColor">
-                    <label for="backColor">BG Color</label>
-                    <input type="color" data-command="backColor" id="backColor">
-                    <button data-command="insertImageFromUrl">Image URL</button>
-                    <button data-command="uploadImage">Upload Image</button>
-                    <input type="file" id="imageUpload" accept="image/*" style="display: none;">
-                </div>
-                <div class="editor" contenteditable="true"></div>
-            </section>
-        </div>
-            <button id="addNewSectionBtn">Adicionar Nova Seção</button>
-        </div>
-
-        <div class="service-section">
-            <h2>Serviços</h2>
-            <div class="service-form">
-                <input type="hidden" id="serviceIndex">
-                <label for="serviceName">Nome do Serviço:</label>
-                <input type="text" id="serviceName" placeholder="Ex: Instalação Elétrica">
-
-                <label for="serviceDescription">Descrição:</label>
-                <textarea id="serviceDescription" placeholder="Detalhes do serviço"></textarea>
-
-                <label for="serviceQuantity">Quantidade:</label>
-                <input type="number" id="serviceQuantity" value="1" min="1">
-
-                <label for="serviceUnitPrice">Valor Unitário:</label>
-                <input type="number" id="serviceUnitPrice" value="0.00" min="0" step="0.01">
-
-                <label for="serviceTotalValue">Valor Total:</label>
-                <input type="number" id="serviceTotalValue" value="0.00" readonly>
-
-                <button id="addServiceBtn">Adicionar Serviço</button>
-                <button id="updateServiceBtn" style="display:none;">Atualizar Serviço</button>
-                <button id="cancelEditBtn" style="display:none;">Cancelar Edição</button>
+      <div class="scope-section">
+        <h2>Escopo dos Serviços</h2>
+        <div id="scopeEditorsContainer">
+          <section class="editor-section" data-editor-id="editor1">
+            <div class="toolbar">
+              <button id="addTitleBtn_editor1">Título</button>
+              <button data-command="bold"><b>B</b></button>
+              <button data-command="italic"><i>I</i></button>
+              <button data-command="underline"><u>U</u></button>
+              <button data-command="insertOrderedList">OL</button>
+              <button data-command="insertUnorderedList">UL</button>
+              <button data-command="justifyLeft">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-text-left"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M2 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"
+                  />
+                </svg>
+              </button>
+              <button data-command="justifyCenter">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-text-center"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M4 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"
+                  />
+                </svg>
+              </button>
+              <button data-command="justifyRight">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-text-right"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M6 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-4-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm4-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-4-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"
+                  />
+                </svg>
+              </button>
+              <button data-command="createLink">Link</button>
+              <label for="foreColor">Cor</label>
+              <input type="color" data-command="foreColor" id="foreColor" />
+              <label for="backColor">Marcador</label>
+              <input type="color" data-command="backColor" id="backColor" />
+              <button data-command="insertImageFromUrl">Imagem URL</button>
+              <button data-command="uploadImage">Imagem Upload</button>
+              <input
+                type="file"
+                id="imageUpload"
+                accept="image/*"
+                style="display: none"
+              />
             </div>
+            <h3 class="section-display-title"></h3>
+            <div class="editor" contenteditable="true"></div>
+          </section>
+        </div>
+        <button id="addNewSectionBtn">Adicionar Nova Seção</button>
+      </div>
 
-            <h3>Serviços Adicionados</h3>
-            <table id="servicesTable">
-                <thead>
-                    <tr>
-                        <th>Nome</th>
-                        <th>Descrição</th>
-                        <th>Qtd</th>
-                        <th>Unitário</th>
-                        <th>Total</th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Services will be listed here -->
-                </tbody>
-            </table>
+      <div class="service-section">
+        <h2>Serviços</h2>
+        <div class="service-form">
+          <input type="hidden" id="serviceIndex" />
+          <label for="serviceName">Nome do Serviço:</label>
+          <input
+            type="text"
+            id="serviceName"
+            placeholder="Ex: Instalação Elétrica"
+          />
+
+          <label for="serviceDescription">Descrição:</label>
+          <textarea
+            id="serviceDescription"
+            placeholder="Detalhes do serviço"
+          ></textarea>
+
+          <label for="serviceQuantity">Quantidade:</label>
+          <input type="number" id="serviceQuantity" value="1" min="1" />
+
+          <label for="serviceUnitPrice">Valor Unitário:</label>
+          <input
+            type="number"
+            id="serviceUnitPrice"
+            value="0.00"
+            min="0"
+            step="0.01"
+          />
+
+          <label for="serviceTotalValue">Valor Total:</label>
+          <input type="number" id="serviceTotalValue" value="0.00" readonly />
+
+          <button id="addServiceBtn">Adicionar Serviço</button>
+          <button id="updateServiceBtn" style="display: none">
+            Atualizar Serviço
+          </button>
+          <button id="cancelEditBtn" style="display: none">
+            Cancelar Edição
+          </button>
         </div>
 
-        <button id="saveAllDataBtn">Salvar Todos os Dados</button>
+        <h3>Serviços Adicionados</h3>
+        <table id="servicesTable">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Descrição</th>
+              <th>Qtd</th>
+              <th>Unitário</th>
+              <th>Total</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Services will be listed here -->
+          </tbody>
+        </table>
+      </div>
+
+      <button id="saveAllDataBtn">Salvar Todos os Dados</button>
     </div>
 
     <!-- Title Modal -->
     <div id="titleModal" class="modal">
-        <div class="modal-content">
-            <h3>Inserir Título</h3>
-            <input type="text" id="titleInput" placeholder="Digite o título">
-            <button id="saveTitleBtn">Salvar</button>
-            <button id="cancelTitleBtn">Cancelar</button>
-        </div>
+      <div class="modal-content">
+        <h3>Inserir Título</h3>
+        <input type="text" id="titleInput" placeholder="Digite o título" />
+        <button id="saveTitleBtn">Salvar</button>
+        <button id="cancelTitleBtn">Cancelar</button>
+      </div>
     </div>
 
     <script src="../../assets/scripts/db.js"></script>
     <script src="cadastro.js"></script>
     <script src="cadastro-rte.js"></script>
-</body>
+  </body>
 </html>
