@@ -87,8 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Set warranty/validity to default value
         warrantyValidityInput.value = 6; // Default to 6 months
 
-        // Add the first editor section automatically
-        addNewEditorSection();
+        // The call to clearClientForm() already adds the first section
     };
 
     // Add new section button logic

@@ -196,6 +196,12 @@ table td button.delete-btn:hover {
     margin-bottom: 20px;
 }
 
+p.section-display-title {
+  font-size: 1rem;
+  font-weight: 600;
+  padding: .5rem 1rem;
+}
+
 .scope-section .toolbar {
   display: flex;
   flex-wrap: wrap;
