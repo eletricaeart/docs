@@ -46,6 +46,32 @@ function initRichTextEditor(sectionElement) {
         });
     }
 
+    // Function to update the toolbar button states based on the current selection
+    const updateToolbar = () => {
+        const buttons = toolbarElement.querySelectorAll('button[data-command]');
+        buttons.forEach(button => {
+            const command = button.dataset.command;
+            // Commands that don't have a state
+            const nonStateCommands = ['insertImageFromUrl', 'uploadImage', 'createLink', 'addText'];
+            if (nonStateCommands.includes(command)) {
+                return; // Skip these buttons
+            }
+
+            // Check the state of the command
+            try {
+                if (document.queryCommandState(command)) {
+                    button.classList.add('clicked');
+                } else {
+                    button.classList.remove('clicked');
+                }
+            } catch (e) {
+                // Some commands might throw an error if checked in the wrong context
+                // console.error(`Error checking state for command: ${command}`, e);
+                button.classList.remove('clicked');
+            }
+        });
+    };
+
     // Event listener for toolbar buttons
     toolbarElement.addEventListener('click', (e) => {
         const target = e.target.closest('button');
@@ -53,21 +79,7 @@ function initRichTextEditor(sectionElement) {
 
         const command = target.dataset.command;
 
-        const excludedCommands = ['insertImageFromUrl', 'uploadImage', 'createLink', 'addText'];
-        const alignmentCommands = ['justifyLeft', 'justifyCenter', 'justifyRight'];
-
-        if (!excludedCommands.includes(command)) {
-            if (alignmentCommands.includes(command)) {
-                // Remove clicked class from other alignment buttons
-                toolbarElement.querySelectorAll('button').forEach(button => {
-                    if (alignmentCommands.includes(button.dataset.command) && button !== target) {
-                        button.classList.remove('clicked');
-                    }
-                });
-            }
-            target.classList.toggle('clicked');
-        }
-
+        // Execute the command
         if (command === 'createLink') {
             const url = prompt('Enter the link URL:');
             if (url) {
@@ -84,18 +96,29 @@ function initRichTextEditor(sectionElement) {
                 imageUpload.click();
             }
         } else if (command === 'addText') {
-            // Toggle off any active list
             if (document.queryCommandState('insertOrderedList')) {
                 execCmd('insertOrderedList');
             } else if (document.queryCommandState('insertUnorderedList')) {
                 execCmd('insertUnorderedList');
             }
-            // Ensure the current block is a paragraph
             execCmd('formatBlock', 'p');
         } else {
             execCmd(command);
         }
+
+        // Update the toolbar state after executing the command
+        updateToolbar();
     });
+
+    // Add event listeners to update the toolbar whenever the selection changes
+    document.addEventListener('selectionchange', () => {
+        // Check if the selection is inside the current editor before updating
+        const selection = window.getSelection();
+        if (selection.rangeCount > 0 && editorElement.contains(selection.getRangeAt(0).commonAncestorContainer)) {
+            updateToolbar();
+        }
+    });
+    editorElement.addEventListener('focus', updateToolbar);
 
     // Event listener for select (headings) - REMOVED from HTML, but keeping logic for other selects
     toolbarElement.addEventListener('change', (e) => {
