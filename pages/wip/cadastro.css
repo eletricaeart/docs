@@ -219,9 +219,9 @@ table td button.delete-btn:hover {
   border: transparent !important;
 }
 
-#foreColor, #backColor {
-  background-color: transparent;
-  border: transparent;
+[data-command="foreColor"], [data-command="backColor"] {
+  background-color: transparent !important;
+  border: transparent !important;
 }
 .scope-section .editor {
     min-height: 150px; /* Slightly smaller than main editor */

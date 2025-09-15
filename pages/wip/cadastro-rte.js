@@ -2,7 +2,7 @@
 function initRichTextEditor(sectionElement, titleModal, titleInput, saveTitleBtn, cancelTitleBtn, mainSectionNumber, sectionNumber) {
     const editorElement = sectionElement.querySelector('.editor');
     const toolbarElement = sectionElement.querySelector('.toolbar');
-    const addTitleButton = toolbarElement.querySelector('#addTitleBtn');
+    const addTitleButton = toolbarElement.querySelector('button[data-command="addTitle"]');
     const sectionDisplayTitle = sectionElement.querySelector('.section-display-title'); // Get the p tag
 
     // Generic command execution
@@ -18,7 +18,10 @@ function initRichTextEditor(sectionElement, titleModal, titleInput, saveTitleBtn
 
         const command = target.dataset.command;
 
-        if (command === 'createLink') {
+        if (command === 'addTitle') {
+            // Handled by the specific logic below, but we stop it from going to execCmd
+            return;
+        } else if (command === 'createLink') {
             const url = prompt('Enter the link URL:');
             if (url) {
                 execCmd(command, url);
@@ -33,8 +36,7 @@ function initRichTextEditor(sectionElement, titleModal, titleInput, saveTitleBtn
             if (imageUpload) {
                 imageUpload.click();
             }
-        }
-        else {
+        } else {
             execCmd(command);
         }
     });
@@ -82,30 +84,49 @@ function initRichTextEditor(sectionElement, titleModal, titleInput, saveTitleBtn
             titleModal.style.display = 'block';
             titleInput.value = ''; // Clear previous input
             titleInput.focus();
+
+            // A specific handler for when THIS modal's save button is clicked
+            const specificSaveHandler = () => {
+                const titleText = titleInput.value.trim();
+                if (titleText) {
+                    // Set the label attribute on the section element
+                    sectionElement.setAttribute('label', titleText);
+
+                    // Display the title in the p tag with X.Y format
+                    if (sectionDisplayTitle) {
+                        sectionDisplayTitle.textContent = `${mainSectionNumber}.${sectionNumber} ${titleText}`;
+                    }
+
+                    // Disable the button after the title is added
+                    addTitleButton.disabled = true;
+                }
+                titleModal.style.display = 'none';
+                // Clean up this specific listener
+                saveTitleBtn.removeEventListener('click', specificSaveHandler);
+            };
+
+            // A specific handler for when THIS modal's cancel button is clicked
+            const specificCancelHandler = () => {
+                titleModal.style.display = 'none';
+                // Clean up the listeners
+                saveTitleBtn.removeEventListener('click', specificSaveHandler);
+                cancelTitleBtn.removeEventListener('click', specificCancelHandler);
+            };
+
+            // Remove any previous listeners to avoid multiple triggers
+            // (This is a simple way to handle it, could be more robust)
+            saveTitleBtn.replaceWith(saveTitleBtn.cloneNode(true));
+            cancelTitleBtn.replaceWith(cancelTitleBtn.cloneNode(true));
+            
+            // Re-select the buttons after cloning
+            const newSaveTitleBtn = document.getElementById('saveTitleBtn');
+            const newCancelTitleBtn = document.getElementById('cancelTitleBtn');
+
+            // Add the new, specific event listeners
+            newSaveTitleBtn.addEventListener('click', specificSaveHandler);
+            newCancelTitleBtn.addEventListener('click', specificCancelHandler);
         });
     }
-
-    saveTitleBtn.addEventListener('click', () => {
-        const titleText = titleInput.value.trim();
-        if (titleText) {
-            // Set the label attribute on the section element for clb2.js
-            sectionElement.setAttribute('label', titleText);
-
-            // Display the title in the p tag with X.Y format
-            if (sectionDisplayTitle) {
-                sectionDisplayTitle.textContent = `${mainSectionNumber}.${sectionNumber} ${titleText}`;
-            }
-
-            if (addTitleButton) {
-                addTitleButton.disabled = true; // Disable button after title is added
-            }
-        }
-        titleModal.style.display = 'none';
-    });
-
-    cancelTitleBtn.addEventListener('click', () => {
-        titleModal.style.display = 'none';
-    });
 
     // Initial focus
     editorElement.focus();

@@ -26,8 +26,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const servicesTableBody = document.querySelector('#servicesTable tbody');
     const saveAllDataBtn = document.getElementById('saveAllDataBtn');
 
+    const editorTemplate = document.getElementById('editor-section-template');
+
     let currentServices = []; // Services for the current budget being created/edited
-    let editorSectionCounter = 1; // To generate unique IDs for editor sections
+    let editorSectionCounter = 0; // Start at 0, will be incremented before first use
     const mainSectionNumber = 1; // 'X' in X.Y format for scope of services
 
     // Ensure the simulatedDB is loaded
@@ -43,8 +45,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Function to initialize a single rich text editor section
     const initializeEditorSection = (sectionElement, sectionNumber) => {
-        // Pass the sectionElement directly, and initRichTextEditor will find its children
         initRichTextEditor(sectionElement, titleModal, titleInput, saveTitleBtn, cancelTitleBtn, mainSectionNumber, sectionNumber);
+    };
+
+    // Function to add a new editor section from the template
+    const addNewEditorSection = () => {
+        editorSectionCounter++;
+        const templateContent = editorTemplate.content.cloneNode(true);
+        const newSection = templateContent.querySelector('.editor-section');
+        
+        // Set a unique data-attribute for the new section
+        newSection.setAttribute('data-editor-id', `editor${editorSectionCounter}`);
+        
+        // Update the 'Add Title' button to have a unique ID if needed, though command is better
+        const addTitleBtn = newSection.querySelector('button[data-command="addTitle"]');
+        if (addTitleBtn) {
+            // The command 'addTitle' is now used in the RTE script, so unique ID isn't strictly necessary
+        }
+
+        scopeEditorsContainer.appendChild(templateContent);
+        initializeEditorSection(newSection, editorSectionCounter);
+        return newSection;
     };
 
     // Load data from localStorage on page load
@@ -63,62 +84,15 @@ document.addEventListener('DOMContentLoaded', () => {
         dueDate.setDate(today.getDate() + 30);
         dueDateInput.value = formatDate(dueDate);
 
-        // Set warranty/validity to default text
+        // Set warranty/validity to default value
         warrantyValidityInput.value = 6; // Default to 6 months
 
-        // Initialize the first editor section
-        const initialEditorSection = scopeEditorsContainer.querySelector('.editor-section');
-        if (initialEditorSection) {
-            initializeEditorSection(initialEditorSection, 1); // Pass section number 1
-            // Clear initial content
-            initialEditorSection.querySelector('.editor').innerHTML = '';
-            // Re-enable addTitleBtn if it was disabled from a previous session
-            const addTitleBtn = initialEditorSection.querySelector('#addTitleBtn');
-            if (addTitleBtn) addTitleBtn.disabled = false;
-        }
+        // Add the first editor section automatically
+        addNewEditorSection();
     };
 
     // Add new section button logic
-    addNewSectionBtn.addEventListener('click', () => {
-        editorSectionCounter++; // Increment counter for unique ID
-        const newSectionId = `editor${editorSectionCounter}`;
-
-        const newSection = document.createElement('section');
-        newSection.classList.add('editor-section');
-        newSection.setAttribute('data-editor-id', newSectionId); // Set unique ID
-
-        newSection.innerHTML = `
-            <p class="section-display-title"></p> <!-- Added blank p tag -->
-            <div class="toolbar">
-                <button id="addTitleBtn_${newSectionId}">Add Title</button>
-                <button data-command="bold"><b>B</b></button>
-                <button data-command="italic"><i>I</i></button>
-                <button data-command="underline"><u>U</u></button>
-                <button data-command="insertOrderedList">OL</button>
-                <button data-command="insertUnorderedList">UL</button>
-                <button data-command="justifyLeft"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-text-left" viewBox="0 0 16 16">
-  <path fill-rule="evenodd" d="M2 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
-</svg></button>
-                <button data-command="justifyCenter"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-text-center" viewBox="0 0 16 16">
-  <path fill-rule="evenodd" d="M4 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
-</svg></button>
-                <button data-command="justifyRight"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-text-right" viewBox="0 0 16 16">
-  <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-4-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm4-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-4-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
-</svg></button>
-                <button data-command="createLink">Link</button>
-                <label for="foreColor">Color</label>
-                <input type="color" data-command="foreColor" id="foreColor">
-                <label for="backColor">BG Color</label>
-                <input type="color" data-command="backColor" id="backColor">
-                <button data-command="insertImageFromUrl">Image URL</button>
-                <button data-command="uploadImage">Upload Image</button>
-                <input type="file" id="imageUpload" accept="image/*" style="display: none;">
-            </div>
-            <div class="editor" contenteditable="true"></div>
-        `;
-        scopeEditorsContainer.appendChild(newSection);
-        initializeEditorSection(newSection, editorSectionCounter);
-    });
+    addNewSectionBtn.addEventListener('click', addNewEditorSection);
 
 
     // Save data to simulated database
@@ -234,39 +208,10 @@ document.addEventListener('DOMContentLoaded', () => {
         issueDateInput.value = '';
         dueDateInput.value = '';
         warrantyValidityInput.value = 6; // Reset to default 6
-        // Clear all editor sections and re-initialize the first one
-        scopeEditorsContainer.innerHTML = `
-            <section class="editor-section" data-editor-id="editor1">
-                <p class="section-display-title"></p> <!-- Added blank p tag -->
-                <div class="toolbar">
-                    <button id="addTitleBtn_editor1">Add Title</button>
-                    <button data-command="bold"><b>B</b></button>
-                    <button data-command="italic"><i>I</i></button>
-                    <button data-command="underline"><u>U</u></button>
-                    <button data-command="insertOrderedList">OL</button>
-                    <button data-command="insertUnorderedList">UL</button>
-                    <button data-command="justifyLeft"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-text-left" viewBox="0 0 16 16">
-  <path fill-rule="evenodd" d="M2 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
-</svg></button>
-                    <button data-command="justifyCenter"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-text-center" viewBox="0 0 16 16">
-  <path fill-rule="evenodd" d="M4 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
-</svg></button>
-                    <button data-command="justifyRight"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-text-right" viewBox="0 0 16 16">
-  <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-4-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm4-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-4-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
-</svg></button>
-                    <button data-command="createLink">Link</button>
-                    <label for="foreColor">Color</label>
-                    <input type="color" data-command="foreColor" id="foreColor">
-                    <label for="backColor">BG Color</label>
-                    <input type="color" data-command="backColor" id="backColor">
-                    <button data-command="insertImageFromUrl">Image URL</button>
-                    <button data-command="uploadImage">Upload Image</button>
-                    <input type="file" id="imageUpload" accept="image/*" style="display: none;">
-                </div>
-                <div class="editor" contenteditable="true"></div>
-            </section>
-        `;
-        initializeEditorSection(scopeEditorsContainer.querySelector('.editor-section'), 1); // Pass section number 1
+        // Clear all editor sections and add a fresh one
+        scopeEditorsContainer.innerHTML = '';
+        editorSectionCounter = 0; // Reset counter
+        addNewEditorSection();
     };
 
     // Add service
