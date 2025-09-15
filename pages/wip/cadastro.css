@@ -297,3 +297,7 @@ table td button.delete-btn:hover {
     overflow: hidden; /* To contain floats */
 }
 
+.toolbar button.clicked {
+    background-color: #4CAF50 !important;
+    color: white;
+}

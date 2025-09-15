@@ -53,6 +53,21 @@ function initRichTextEditor(sectionElement) {
 
         const command = target.dataset.command;
 
+        const excludedCommands = ['insertImageFromUrl', 'uploadImage', 'createLink', 'addText'];
+        const alignmentCommands = ['justifyLeft', 'justifyCenter', 'justifyRight'];
+
+        if (!excludedCommands.includes(command)) {
+            if (alignmentCommands.includes(command)) {
+                // Remove clicked class from other alignment buttons
+                toolbarElement.querySelectorAll('button').forEach(button => {
+                    if (alignmentCommands.includes(button.dataset.command) && button !== target) {
+                        button.classList.remove('clicked');
+                    }
+                });
+            }
+            target.classList.toggle('clicked');
+        }
+
         if (command === 'createLink') {
             const url = prompt('Enter the link URL:');
             if (url) {
