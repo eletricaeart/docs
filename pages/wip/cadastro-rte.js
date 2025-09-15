@@ -10,6 +10,31 @@ function initRichTextEditor(sectionElement) {
         editorElement.focus();
     };
 
+    // Helper function to insert a styled image
+    const insertStyledImage = (url) => {
+        const selection = window.getSelection();
+        if (!selection.rangeCount) return;
+
+        const img = document.createElement('img');
+        img.src = url;
+        img.style.maxWidth = '90%';
+        img.style.margin = '0 auto';
+        img.style.display = 'block';
+
+        const range = selection.getRangeAt(0);
+        range.deleteContents();
+        range.insertNode(img);
+
+        // Move cursor after the image
+        const newRange = document.createRange();
+        newRange.setStartAfter(img);
+        newRange.collapse(true);
+        selection.removeAllRanges();
+        selection.addRange(newRange);
+
+        editorElement.focus();
+    };
+
     // Event listener for the title input
     if (titleInputElement) {
         titleInputElement.addEventListener('input', () => {
@@ -36,7 +61,7 @@ function initRichTextEditor(sectionElement) {
         } else if (command === 'insertImageFromUrl') {
             const url = prompt('Enter image URL:');
             if (url) {
-                execCmd('insertImage', url);
+                insertStyledImage(url);
             }
         } else if (command === 'uploadImage') {
             const imageUpload = document.getElementById('imageUpload');
@@ -81,7 +106,7 @@ function initRichTextEditor(sectionElement) {
             if (file) {
                 const reader = new FileReader();
                 reader.onload = (e) => {
-                    execCmd('insertImage', e.target.result);
+                    insertStyledImage(e.target.result);
                 };
                 reader.readAsDataURL(file);
                 globalImageUpload.value = null;
