@@ -18,6 +18,14 @@ body {
     text-align: center;
 }
 
+.budget_descs {
+  background: #29f;
+  padding: 1.5rem;
+}
+.budget_descs label {
+  color: #fff;
+}
+
 .container {
     max-width: 900px;
     margin: 20px auto;
