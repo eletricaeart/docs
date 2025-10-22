@@ -111,9 +111,13 @@
     </footer>
       
     <script>
-    HTMLElement.prototype.attribute = function( attribute, value ) {
-      this.setAttribute( attribute, value );
+    HTMLElement.prototype.html = function( html ) {
+      this.innerHTML = html;
     };
+    HTMLElement.prototype.text = function( text ) {
+      this.innerText = text;
+    };
+    // HTMLElement.prototype.text = function(  );
     HTMLElement.prototype.setAttributes = function( attributes ) {
       attributes.forEach( item => {
         this.setAttribute( item[0], item[1] );
@@ -152,4 +156,4 @@
     </script>
   </body>
 </html>
-    <!-- <page-break></page-break><after></after> -->
+<!-- <page-break></page-break><after></after> -->
