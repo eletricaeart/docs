@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
-    <title>Elétrica & Art-Orçamento_-2025</title>
+    <title></title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -111,6 +111,15 @@
     </footer>
       
     <script>
+    HTMLElement.prototype.attribute = function( attribute, value ) {
+      this.setAttribute( attribute, value );
+    };
+    HTMLElement.prototype.setAttributes = function( attributes ) {
+      attributes.forEach( item => {
+        this.setAttribute( item[0], item[1] );
+      } );
+    };
+
     addEventListener( "load", () => {
       const data = {
         title: "Elétrica & Art-Orçamento",
@@ -118,21 +127,27 @@
           name: "Nome",
           address: "Endereço",
         },
-        doc: {
+        docTitle: {
           subtitle: "",
           emissao: "10/20/2025",
-          validade: "15 dias",
-          title: "",
+          validade: "",
+          text: "",
         },
       };
 
-      document.title = `${ data.title }_${ data.cliente.name }-${ data.doc.emissao.replace( /\//g, "-" ) }`;
+      document.title = `${ data.title }_${ data.cliente.name }-${ data.docTitle.emissao.replace( /\//g, "-" ) }`;
 
-      docTitle.setAttribute( "emissao", data.doc.emissao );
-      docTitle.setAttribute( "validade", data.doc.validade );
+      docTitle.innerText = data.docTitle.text || "SERVIÇOS DE PINTURA E ELÉTRICA";
+      docTitle.setAttributes( [
+        [ "subtitle", `${ data.docTitle.subtitle || "PROPOSTA DE ORÇAMENTO" }` ],
+        [ "emissao", `${ data.docTitle.emissao }` ],
+        [ "validade", `${ data.docTitle.validade || "15 dias" }` ],
+      ] );
 
-      cliente.setAttribute( "nome", data.cliente.name );
-      cliente.setAttribute( "endereço", data.cliente.address );
+      cliente.setAttributes( [
+        [ "nome", `${ data.cliente.name }` ],
+        [ "endereço", `${ data.cliente.address }` ],
+      ] );
     } );
     </script>
   </body>
