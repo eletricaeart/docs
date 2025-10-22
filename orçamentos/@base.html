@@ -140,7 +140,7 @@
       docTitle.innerText = data.docTitle.text || "SERVIÇOS DE PINTURA E ELÉTRICA";
       docTitle.setAttributes( [
         [ "subtitle", `${ data.docTitle.subtitle || "PROPOSTA DE ORÇAMENTO" }` ],
-        [ "emissao", `${ data.docTitle.emissao }` ],
+        [ "emissao", `${ data.docTitle.emissao || new Date().toLocaleDateString( "pt-br" ) }` ],
         [ "validade", `${ data.docTitle.validade || "15 dias" }` ],
       ] );
 
