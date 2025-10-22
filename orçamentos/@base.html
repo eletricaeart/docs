@@ -111,6 +111,14 @@
     </footer>
       
     <script>
+    const $ = (selector, all = false, root = document) => {
+      const scope = root.shadowRoot || root;
+      return all 
+        ? scope.querySelectorAll(selector) 
+        : scope.querySelector(selector);
+    };
+    const $$ = (selector, root = document) => $(selector, true, root);
+
     HTMLElement.prototype.html = function( html ) {
       this.innerHTML = html;
     };
