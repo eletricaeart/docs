@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
-    <title>Elétrica & Art-Orçamento_Rafael-09-09-2025</title>
+    <title>Elétrica & Art-Orçamento_-2025</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,7 +33,7 @@
       <view id="invoice_html">
         <ea-card section="dual"></ea-card>
 
-        <doc-title 
+        <doc-title id="docTitle"
           subtitle="PROPOSTA DE ORÇAMENTO"
           emissao="00/00/2025"
           validade="15 dias"
@@ -41,7 +41,7 @@
           SERVIÇOS DE PINTURA E ELÉTRICA
         </doc-title>
      
-        <cliente
+        <cliente id="cliente"
           nome=""
           endereço=""
         >
@@ -49,28 +49,29 @@
 
         <article label="1. Escopo dos Serviços">
           <section label="Serviços de pintura e elétrica, contemplando">
-            <tagb>
-              <p><strong>Observação</strong></p>
+            <tagc>
+              <h4>Observação</h4>
               <p>Este orçamento contempla exclusivamente a mão de obra. Todos os materiais de pintura e elétrica deverão ser fornecidos pelo cliente.</p>
-            </tagb>
+            </tagc>
           </section>     
-          <page-break></page-break><after></after>
-
         </article>
 
         <article label="2. Materiais">
-          <p>Fornecidos pelo cliente: tintas, massa corrida, lixas, pincéis, rolos, materiais de elétrica (ventiladores, plafons, luminária, cabos, conexões, suportes, etc.).</p> 
-          <p>Fornecidos pela equipe Elétrica&Art: ferramentas e equipamentos necessários para execução dos serviços.</p>
+          <section label="Fornecidos pelo cliente:">
+            <p>Tintas, massa corrida, lixas, pincéis, rolos, materiais de elétrica (ventiladores, plafons, luminária, cabos, conexões, suportes, etc.).</p>
+          </section>
+          <section label="Fornecidos pela equipe Elétrica&Art:">
+            <p>Ferramentas e equipamentos necessários para execução dos serviços.</p>
+          </section> 
         </article>
 
         <article label="3. Investimento">
           <section>
             <p>Valor total da mão de obra: <strong>R$ 1.750,00 (um mil setecentos e cinquenta reais)</strong></p>
-            <p>
-              <strong>Forma de Pagamento:</strong><br><br>
-              50% de entrada na assinatura da proposta. <br>
-              50% na entrega e conclusão dos serviços.
-            </p>
+          </section>
+          <section label="Forma de Pagamento:">
+            <p>50% de entrada na assinatura da proposta.</p>
+            <p>50% na entrega e conclusão dos serviços.</p>
           </section>
         </article>
     
@@ -81,7 +82,6 @@
         <article label="5. Garantia">
           <p>Garantia de 3 meses sobre os serviços prestados, válida contra falhas de execução, desde que não haja mau uso, alterações posteriores ou interferências externas.</p>
         </article>
-        <page-break></page-break><after></after>
 
         <article label="6. Observações Finais" class="avoid">
           <p>Esta proposta contempla exclusivamente os serviços descritos acima.</p>
@@ -94,7 +94,7 @@
           </tagb>
         </article>
 
-        <article label="7. Assinatura e Aprovação">
+        <article label="Assinatura e Aprovação">
         </article>
             
         <signatures signer cliente ></signatures>
@@ -110,6 +110,31 @@
       </content>
     </footer>
       
+    <script>
+    addEventListener( "load", () => {
+      const data = {
+        title: "Elétrica & Art-Orçamento",
+        cliente: {
+          name: "Nome",
+          address: "Endereço",
+        },
+        doc: {
+          subtitle: "",
+          emissao: "10/20/2025",
+          validade: "15 dias",
+          title: "",
+        },
+      };
+
+      document.title = `${ data.title }_${ data.cliente.name }-${ data.doc.emissao.replace( /\//g, "-" ) }`;
+
+      docTitle.setAttribute( "emissao", data.doc.emissao );
+      docTitle.setAttribute( "validade", data.doc.validade );
+
+      cliente.setAttribute( "nome", data.cliente.name );
+      cliente.setAttribute( "endereço", data.cliente.address );
+    } );
+    </script>
   </body>
 </html>
-
+    <!-- <page-break></page-break><after></after> -->
