@@ -164,7 +164,7 @@ let
 ;
 
 function EACard( props ) {
-   $( "ea-card", 1 ).forEach( tag => {
+   $$( "ea-card" ).forEach( tag => {
       return(
          tag.outerHTML = eaCardTemplate
       );
