@@ -4,10 +4,14 @@
 // --- [ Dom ] ---
 const dom = new Proxy(document, {
   get(target, prop, receiver) {
-    // Se quiser interceptar algo específico, pode fazer aqui
     return Reflect.get(target, prop, receiver);
   },
   set(target, prop, value, receiver) {
+    // Se for título, usa a API nativa
+    if (prop === "title") {
+      document.title = value;
+      return true;
+    }
     return Reflect.set(target, prop, value, receiver);
   }
 });
