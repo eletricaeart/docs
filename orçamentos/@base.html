@@ -112,12 +112,7 @@
     </footer>
       
     <script>
-    HTMLElement.prototype.setAttributes = function( attributes ) {
-      attributes.forEach( item => {
-        this.setAttribute( item[0], item[1] );
-      } );
-    };
-
+    
     addEventListener( "load", () => {
       const data = {
         title: "Elétrica & Art-Orçamento",
@@ -127,7 +122,7 @@
         },
         docTitle: {
           subtitle: "",
-          emissao: "10/20/2025",
+          emissao: "",
           validade: "",
           text: "",
         },
@@ -135,7 +130,8 @@
 
       document.title = `${ data.title }_${ data.cliente.name }-${ data.docTitle.emissao.replace( /\//g, "-" ) }`;
 
-      docTitle.innerText = data.docTitle.text || "SERVIÇOS DE PINTURA E ELÉTRICA";
+      // docTitle.innerText = data.docTitle.text || "SERVIÇOS DE PINTURA E ELÉTRICA";
+      docTitle.text( `${ data.docTitle.text || "SERVIÇOS DE PINTURA E ELÉTRICA" }` );
       docTitle.setAttributes( [
         [ "subtitle", `${ data.docTitle.subtitle || "PROPOSTA DE ORÇAMENTO" }` ],
         [ "emissao", `${ data.docTitle.emissao || new Date().toLocaleDateString( "pt-br" ) }` ],

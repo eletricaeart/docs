@@ -17,6 +17,13 @@ function setTransition(el, prop = 'all', duration = 300, easing = 'ease') {
   el.style.transition = `${prop} ${duration}ms ${easing}`;
 }
 
+// --- [ HTMLElement.prototype ] ---
+HTMLElement.prototype.setAttributes = function( attributes ) {
+  attributes.forEach( item => {
+    this.setAttribute( item[0], item[1] );
+  } );
+};
+
 // --- Métodos para Element ---
 Object.assign(Element.prototype, {
   // Seletores internos
