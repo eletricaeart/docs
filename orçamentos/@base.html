@@ -128,7 +128,7 @@
         },
       };
 
-      document.title = `${ data.title }_${ data.cliente.name }-${ data.docTitle.emissao.replace( /\//g, "-" ) }`;
+      dom.title = `${ data.title }_${ data.cliente.name }-${ data.docTitle.emissao.replace( /\//g, "-" ) }`;
 
       docTitle.text( `${ data.docTitle.text || "SERVIÇOS DE PINTURA E ELÉTRICA" }` );
       docTitle.setAttributes( [
