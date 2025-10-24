@@ -43,13 +43,13 @@ Object.assign(Element.prototype, {
 
   // Estilos
   css(property, value) {
-    if (typeof property === 'object') {
+    if(typeof property === 'object') {
       for (const [prop, val] of Object.entries(property)) {
         this.style[prop] = val;
       }
       return this;
     }
-    if (value !== undefined) {
+    if(value !== undefined) {
       this.style[property] = value;
       return this;
     }
@@ -58,38 +58,38 @@ Object.assign(Element.prototype, {
 
   // Atributos
   attr(name, value) {
-    if (value === undefined) return this.getAttribute(name);
+    if(value === undefined) return this.getAttribute(name);
     this.setAttribute(name, value);
     return this;
   },
 
   // Conteúdo
   html(content) {
-    if (content === undefined) return this.innerHTML;
+    if(content === undefined) return this.innerHTML;
     this.innerHTML = content;
     return this;
   },
   text(content) {
-    if (content === undefined) return this.textContent;
+    if(content === undefined) return this.textContent;
     this.textContent = content;
     return this;
   },
   append(content) {
-    if (content instanceof Element) {
+    if(content instanceof Element) {
       this.appendChild(content);
-    } else if (typeof content === 'string') {
+    } else if(typeof content === 'string') {
       this.insertAdjacentHTML('beforeend', content);
-    } else if (content instanceof NodeList || Array.isArray(content)) {
+    } else if(content instanceof NodeList || Array.isArray(content)) {
       content.forEach(el => this.append(el));
     }
     return this;
   },
   prepend(content) {
-    if (content instanceof Element) {
+    if(content instanceof Element) {
       this.insertBefore(content, this.firstChild);
-    } else if (typeof content === 'string') {
+    } else if(typeof content === 'string') {
       this.insertAdjacentHTML('afterbegin', content);
-    } else if (content instanceof NodeList || Array.isArray(content)) {
+    } else if(content instanceof NodeList || Array.isArray(content)) {
       [...content].reverse().forEach(el => this.prepend(el));
     }
     return this;
