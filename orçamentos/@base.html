@@ -130,7 +130,6 @@
 
       document.title = `${ data.title }_${ data.cliente.name }-${ data.docTitle.emissao.replace( /\//g, "-" ) }`;
 
-      // docTitle.innerText = data.docTitle.text || "SERVIÇOS DE PINTURA E ELÉTRICA";
       docTitle.text( `${ data.docTitle.text || "SERVIÇOS DE PINTURA E ELÉTRICA" }` );
       docTitle.setAttributes( [
         [ "subtitle", `${ data.docTitle.subtitle || "PROPOSTA DE ORÇAMENTO" }` ],

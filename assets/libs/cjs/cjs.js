@@ -1,6 +1,20 @@
 
 // dom.js — Mini biblioteca DOM moderna com suporte a Shadow DOM e animações
 
+// --- [ Dom ] ---
+const dom = new Proxy(document, {
+  get(target, prop, receiver) {
+    // Se quiser interceptar algo específico, pode fazer aqui
+    return Reflect.get(target, prop, receiver);
+  },
+  set(target, prop, value, receiver) {
+    return Reflect.set(target, prop, value, receiver);
+  }
+});
+
+// --- [ domClone ] --- 
+const domClone = document.cloneNode(true);
+
 // --- Função global $ ---
 const $ = (selector, all = false, root = document) => {
   const scope = root.shadowRoot || root;
