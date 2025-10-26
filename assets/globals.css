@@ -2138,6 +2138,13 @@ t1 {
    page-break-inside: avoid !important;
    margin: 4px 0 4px 0;  /* to keep the page break from cutting too close to the text in the div */
 }
+.pgb-bfr-always {
+  page-break-before: always;
+  margin: 8px 0;
+}
+.pgb-bfr-auto {
+  page-break-before: auto;
+}
 break {
    display: block;
 }

@@ -9,6 +9,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/theme/globals.css">
     <style>
+      html, body {
+        background: #f5f5f5;
+      }
+
+      view#invoice_html {
+        width: calc( 100% - 0rem );
+        padding: 1rem;
+        background: #f5f5f5;
+      }
+      home-page > view, 
+      article {
+        background: #f5f5f5;
+      }
+
+      @media print {
+        html, body {
+          background: #f5f5f5;
+        }
+        view#invoice_html {
+        }
+      }
+
+      article {
+        page-break-before: auto;
+        margin: 8px 0;
+      }
+
       table {
         width: 100%;
         border-collapse: collapse;
@@ -66,7 +93,7 @@
           </section> 
         </article>
 
-        <article label="3. Investimento">
+        <article label="3. Investimento" class="">
           <section>
             <p>Valor total da mão de obra: <strong>R$ 1.750,00 (um mil setecentos e cinquenta reais)</strong></p>
           </section>
@@ -89,16 +116,16 @@
           <p>Qualquer modificação no escopo deverá ser previamente acordada e poderá implicar em ajustes de valores e prazos.</p>
         </article>
     
-        <article class="avoid">
+        <article class="">
           <tagb>
             <mk>Agradecemos a oportunidade de apresentar esta proposta e estamos à disposição para quaisquer esclarecimentos adicionais.</mk>
           </tagb>
         </article>
 
         <article label="Assinatura e Aprovação">
+          <signatures signer cliente ></signatures>
         </article>
             
-        <signatures signer cliente ></signatures>
 
       </view>
     </home-page>

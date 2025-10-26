@@ -315,6 +315,27 @@ window.addEventListener( "load", ev => {
             </t>` || null
       ;
       cliente.innerHTML = `
+        <ui>
+          <header>
+            <ui>
+              <t style="font-weight: 700; text-transform: uppercase;">
+                Cliente
+              </t>
+            </ui>
+          </header>
+          <content>
+            <card>
+              <ui>
+                ${ nome && nome }
+                ${ endereço && endereço }
+                ${ children && children }
+              </ui>
+            </card>
+          </content>
+        </ui>
+      `;
+/* // --- old style ---
+      cliente.innerHTML = `
          <ui>
             <header>
                <ui>
@@ -332,6 +353,7 @@ window.addEventListener( "load", ev => {
             </content>
          </ui>
       `;
+      */
    } );
 
 

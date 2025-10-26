@@ -23,7 +23,8 @@ window.addEventListener( "load", () => {
          console.log( $( "#invoice_html" ) );
          console.log( window );
          var data = {
-            margin: [ 10, 10, 10, 0 ],
+            // margin: [ 10, 10, 10, 0 ],
+            margin: [  0,  0,  0, 0 ],
             filename: `${ document.title }.pdf`,
             // image: { type: "jpg", quality: 101 },
             image: { type: "jpeg", quality: .90 },

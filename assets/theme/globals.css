@@ -2147,6 +2147,21 @@ after {
    height: 40px;
    background: #0000;
 }
+.pgb-bfr-always {
+  page-break-before: always;
+  margin: 8px 0;
+}
+.pgb-bfr-auto {
+  page-break-before: auto;
+}
+break {
+   display: block;
+}
+after {
+   display: block;
+   height: 40px;
+   background: #0000;
+}
 
 
 /*  */
@@ -2179,7 +2194,7 @@ card {
 
 article {
    padding: 0;
-   padding: 1em;
+   padding: 1em 0;
    overflow: hidden;
 } article > ui {
    display: flex;
@@ -2250,17 +2265,24 @@ cliente {
    flex-direction: column;
    background: #fff;
    width: 100%;
+  border-radius: 1rem;
+  overflow: clip;
 }
 cliente > ui > header {
    display: flex;
    flex-direction: column;
    width: 100%;
    text-align: center;
-   color: var( --sv-sodalita );
-   padding: 0 2em;
+   /* color: var( --sv-sodalita ); */
+   color: var( --sv-azul-bebe );
+   /* padding: 0 2em; */
+  padding: .5em;
+  background: var( --sv-sombra-azul );
+  border-radius: 1rem 1rem 0 0;
 } cliente > ui > header > ui {
    padding: .5em;
    width: 100%;
+  height: 46px;
    display: flex;
    flex-direction: column;
    margin: 0 auto;
@@ -2269,9 +2291,14 @@ cliente > ui > header {
    justify-content: center;
    border-top: #0505 2px dotted;
    border-bottom: #0505 2px dotted;
-}
-cliente t {
-   color: #555;
+  border-radius: 12px;
+  flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1em;
+  background: var( --sv-sodalita );
 }
 
 card > ui {
