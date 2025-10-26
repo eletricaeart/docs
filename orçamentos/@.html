@@ -36,6 +36,13 @@
         margin: 8px 0;
       }
 
+      #pageFooter {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 0;
+      }
+
       table {
         width: 100%;
         border-collapse: collapse;
@@ -125,8 +132,10 @@
         <article label="Assinatura e Aprovação">
           <signatures signer cliente ></signatures>
         </article>
-            
 
+        <footer id="pageFooter">
+          
+        </footer>
       </view>
     </home-page>
 
@@ -168,6 +177,8 @@
         [ "nome", `${ data.cliente.name }` ],
         [ "endereço", `${ data.cliente.address }` ],
       ] );
+
+      pageFooter.html( `Elétrica & Art &copy; ${ new Date().getFullYear() } - Todos os direitos reservados` );
     } );
     </script>
   </body>

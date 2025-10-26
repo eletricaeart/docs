@@ -2221,6 +2221,7 @@ article > ui > header {
    display: flex;
    width: 100%;
    height: 46px;
+   height: 26px;
    border-radius: 12px;
    flex-direction: column;
    text-align: center;
@@ -2283,6 +2284,7 @@ cliente > ui > header {
    padding: .5em;
    width: 100%;
   height: 46px;
+  height: 26px;
    display: flex;
    flex-direction: column;
    margin: 0 auto;
