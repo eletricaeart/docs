@@ -1,4 +1,5 @@
 
+
 /**
  * == [ clb ] 
  * == == == == == == == == == */
@@ -2138,6 +2139,14 @@ t1 {
    page-break-inside: avoid !important;
    margin: 4px 0 4px 0;  /* to keep the page break from cutting too close to the text in the div */
 }
+break {
+   display: block;
+}
+after {
+   display: block;
+   height: 40px;
+   background: #0000;
+}
 .pgb-bfr-always {
   page-break-before: always;
   margin: 8px 0;
@@ -2185,7 +2194,7 @@ card {
 
 article {
    padding: 0;
-   padding: 1em;
+   padding: 1em 0;
    overflow: hidden;
 } article > ui {
    display: flex;
@@ -2212,6 +2221,7 @@ article > ui > header {
    display: flex;
    width: 100%;
    height: 46px;
+   height: 26px;
    border-radius: 12px;
    flex-direction: column;
    text-align: center;
@@ -2256,17 +2266,25 @@ cliente {
    flex-direction: column;
    background: #fff;
    width: 100%;
+  border-radius: 1rem;
+  overflow: clip;
 }
 cliente > ui > header {
    display: flex;
    flex-direction: column;
    width: 100%;
    text-align: center;
-   color: var( --sv-sodalita );
-   padding: 0 2em;
+   /* color: var( --sv-sodalita ); */
+   color: var( --sv-azul-bebe );
+   /* padding: 0 2em; */
+  padding: .5em;
+  background: var( --sv-sombra-azul );
+  border-radius: 1rem 1rem 0 0;
 } cliente > ui > header > ui {
    padding: .5em;
    width: 100%;
+  height: 46px;
+  height: 26px;
    display: flex;
    flex-direction: column;
    margin: 0 auto;
@@ -2275,9 +2293,14 @@ cliente > ui > header {
    justify-content: center;
    border-top: #0505 2px dotted;
    border-bottom: #0505 2px dotted;
-}
-cliente t {
-   color: #555;
+  border-radius: 12px;
+  flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1em;
+  background: var( --sv-sodalita );
 }
 
 card > ui {
@@ -2396,4 +2419,75 @@ page-footer {
    padding-top: 2.5em;
    padding-bottom: 2.5em;
    margin-bottom: 0;
+}
+
+p, t, txt, li {
+   font-family: "inter", "Roboto", sans-serif;
+   font-weight: normal;
+}
+
+h1, h2, h3, h4, h5, h6,
+p, t, txt, tt, st {
+   overflow-wrap: break-word;
+}
+
+t { 
+   display: block; 
+   font-size: 1em;
+}
+
+st, st6 {
+   color: var( --st, #777 );
+}
+
+ct1, ct2, ct3, ct4, ct5, ct6 {
+   text-align: center;
+}
+
+p { margin: 1em 0; }
+
+
+h1 {
+   font-size: 2em; margin: 0.67em 0; 
+}
+
+h2 {
+   font-size: 1.5em; margin: 0.83em 0;
+}
+
+h3 {
+   font-size: 1.4em; margin: 1em 0;
+}
+
+h4 {
+   font-size: 1.25em; margin: 1.33em 0;
+}
+
+h5 {
+   font-size: 1.15em; margin: 1.67em 0;
+}
+
+h6 {
+   font-size: 1em; margin: 2.33em 0;
+}
+
+t1, t2, t3, t4, t5, t6, 
+tt, 
+st, st6,  
+ct1, ct2, ct3, ct4, ct5, ct6 { margin: 0; }
+
+tt, t1, ct1 { font-size: 2em; }
+t2, ct2 { font-size: 1.5em; }
+st, t3, ct3 { font-size: 1.4em; }
+t4, ct4 { font-size: 1.25em; }
+t5, ct5 { font-size: 1.15em; }
+t6, ct6, st6 { font-size: 1em; }
+
+ul, ol {
+   margin: 1em 0;
+   /* padding-left: 2.2em; */
+   padding-left: 0;
+}
+ul > li, ol > li {
+   margin-left: 2.2em;
 }

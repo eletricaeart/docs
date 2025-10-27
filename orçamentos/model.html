@@ -2,186 +2,185 @@
 
 <!DOCTYPE html>
 <html lang="pt-br">
-   <head>
-      <title>Elétrica & Art</title>
-   
-      <!-- <link rel="icon" href="src/pix/logo.svg" type="svg+xml"> -->
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <!-- == [ StyleSheets ] 
-      == == == == == == == == == -->
-      <link rel="stylesheet" href="../assets/globals.css">
-      <!-- == [ libs ] 
-      == == == == == == == == == -->
-      <script src="../assets/libs/html2pdf/0.9.2.js" src-remote="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
-      <script clb src="../assets/scripts/clb.js" defer></script>
-      <!-- == [ Scripts ] 
-      == == == == == == == == == -->
-      <script EACard src="../assets/widgets/ui/EACard.js" defer></script>
-      <script DownloadPDF src="../assets//scripts/DownloadPDF.js" defer></script>
-   </head>
-   <body>
-      <home-page>
-         <view id="invoice_html">
-            <ea-card section="dual"></ea-card>
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/theme/globals.css">
+    <style>
+      html, body {
+        background: #f5f5f5;
+      }
 
-            <doc-title subtitle="PROPOSTA DE ORÇAMENTO">
-               SERVIÇO DE PINTURA RESIDENCIAL
-            </doc-title>
-            
-            <cliente
-               nome="Nilsely"
-               endereço="Avenida Wilson de Oliveira, n°2100, Bairro Melvi, Praia Grande, SP"
-            >
-            </cliente>
+      view#invoice_html {
+        width: calc( 100% - 0rem );
+        padding: 1rem;
+        background: #f5f5f5;
+      }
+      home-page > view, 
+      article {
+        background: #f5f5f5;
+      }
 
-            <article label="1. Escopo dos Serviços">
-               <section label="1.1. Preparação para Pintura">
-                  <p>
-                     Limpeza e preparação das superfícies das paredes e tetos para garantir a aderência da tinta. 
-                  </p>
-                  <p>
-                     Inclui raspagem das partes soltas no teto e, se necessário, nas paredes da sala, além de lixamento leve e remoção de poeira.
-                  </p>
-               </section>
-                  
-               <section label="1.2. Aplicação de Selador Acrílico">
-                  <p>
-                     Aplicação de selador acrílico diretamente sobre o reboco no hall de escadaria e demais áreas preparadas, para garantir a uniformidade e durabilidade da pintura.
-                  </p>
-               </section>
-                  
-               <section label="1.3. Pintura Completa do Andar Inferior">
-                  <p>
-                     Aplicação de duas demãos de tinta acrílica de alta qualidade em
-                  </p>
-                  <ul>
-                     <li>Hall de escadaria</li>
-                     <li>Sala</li>
-                     <li>Quarto</li>
-                  </ul>
-                  <p>
-                     A pintura será realizada diretamente sobre as superfícies preparadas com o selador acrílico, assegurando um acabamento uniforme.
-                  </p>
-               </section>
-               
-            </article>
+      @media print {
+        html, body {
+          background: #f5f5f5;
+        }
+        view#invoice_html {
+        }
+      }
 
-            <page-break></page-break>
-            <after></after>
+      article {
+        page-break-before: auto;
+        margin: 8px 0;
+      }
 
-            <article label="2. Materiais a serem Utilizados">
-               <ul>
-                  <li>
-                     <mk>Selador acrílico para preparação do reboco;</mk>
-                  </li>
-                  <li>
-                     <mk>Tinta acrílica na cor e acabamento escolhidos em conjunto com a cliente;</mk>
-                  </li>
-                  <li>
-                     <mk>Lixas e materiais de preparação necessários;</mk>
-                  </li>
-                  <li>
-                     <mk>Fitas e lonas de proteção para cobrir e proteger piso e móveis.</mk>
-                  </li>
-               </ul>
-               <tag class="avoid"><strong>Nota: </strong> 
-                  Os materiais necessários para a pintura não estão incluídos no valor da mão de obra e serão adquiridos separadamente, com uma cotação detalhada em loja de materiais de construção de preferência da cliente.
-               </tag>
-            </article>
+      #pageFooter {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 0;
+      }
 
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+      }
 
-            <article label="3. Cronograma de Execução">
-               <ul>
-                  <li>
-                     <p>Aplicação do Selador Acrílico: 1 dia útil;</p>
-                  </li>
-                  <li>
-                     <p>Pintura Completa das Áreas: 4 dias úteis;</p>
-                  </li>
-               </ul>
-               <tagc>Total estimado de execução: <strong>5 dias corridos.</strong></tagc>
-            </article>
+      th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
 
-            <article label="4. Investimento">
-               <section label="4.1. Mão de Obra">
-                  <p>
-                     Para a execução completa dos serviços de pintura conforme descrito: <strong>R$ 1.000,00</strong>
-                  </p>
-               </section>
-               <section label="4.2. Materiais">
-                  <p>
-                     A aquisição dos materiais será por conta da cliente, conforme especificado anteriormente.
-                  </p>
-               </section>
-            </article>
+      th { background-color: #f2f2f2; }
+    </style>
+    <script src="../assets/libs/html2pdf/0.9.2.js" src-remote="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+    <script clb src="../assets/libs/cjs/cjs.js" ></script>
+    <script clb src="../assets/scripts/clb2.js" defer></script>
+    <script EACard src="../assets/widgets/ui/EACard.js" defer></script>
+    <script DownloadPDF src="../assets//scripts/DownloadPDF.js" defer></script>
+  </head>
+  <body>
+    <home-page>
+      <view id="invoice_html">
+        <ea-card section="dual"></ea-card>
 
-            <page-break></page-break>
-            <after></after>
-            
-            <article label="5. Garantia">
-               <p>
-                  Garantia de 3 meses para os serviços realizados, exceto em casos de danos externos, mau uso ou infiltrações que possam comprometer o acabamento.
-               </p>
-            </article>
+        <doc-title id="docTitle"
+          subtitle="PROPOSTA DE ORÇAMENTO"
+          emissao="00/00/2025"
+          validade="15 dias"
+        >
+          SERVIÇOS DE PINTURA E ELÉTRICA
+        </doc-title>
+     
+        <cliente id="cliente"
+          nome=""
+          endereço=""
+        >
+        </cliente>
 
-            <article label="6. Condições de Pagamento">
-                  <p>
-                     Entrada de 50% no momento da assinatura do contrato;
-                  </p>
-                  <p>
-                     Saldo de 50% ao término da execução e entrega do serviço.
-                  </p>
-               </content>
-            </article>
-            
-            <article label="7. Observações Gerais" class="avoid">
-                  <p>
-                     O orçamento poderá sofrer ajustes caso sejam identificadas necessidades adicionais durante a execução do serviço.
-                  </p>
-                  <p>
-                     Horários de trabalho serão combinados para garantir o mínimo de transtorno para os moradores e adequação às regras locais.
-                  </p>
-               </content>
-            </article>
+        <article label="1. Escopo dos Serviços">
+          <section label="Serviços de pintura e elétrica, contemplando">
+            <tagc>
+              <h4>Observação</h4>
+              <p>Este orçamento contempla exclusivamente a mão de obra. Todos os materiais de pintura e elétrica deverão ser fornecidos pelo cliente.</p>
+            </tagc>
+          </section>     
+        </article>
 
-            
-            <article class="avoid">
-               <tagb>
-                  <mk>
-                     Agradecemos a oportunidade de apresentar esta proposta e estamos à disposição para quaisquer esclarecimentos adicionais.
-                  </mk>
-               </tagb>
-            </article>
+        <article label="2. Materiais">
+          <section label="Fornecidos pelo cliente:">
+            <p>Tintas, massa corrida, lixas, pincéis, rolos, materiais de elétrica (ventiladores, plafons, luminária, cabos, conexões, suportes, etc.).</p>
+          </section>
+          <section label="Fornecidos pela equipe Elétrica&Art:">
+            <p>Ferramentas e equipamentos necessários para execução dos serviços.</p>
+          </section> 
+        </article>
 
-            <article label="8. ASSINATURA E APROVAÇÃO">
-            </article>
+        <article label="3. Investimento" class="">
+          <section>
+            <p>Valor total da mão de obra: <strong>R$ 1.750,00 (um mil setecentos e cinquenta reais)</strong></p>
+          </section>
+          <section label="Forma de Pagamento:">
+            <p>50% de entrada na assinatura da proposta.</p>
+            <p>50% na entrega e conclusão dos serviços.</p>
+          </section>
+        </article>
+    
+        <article label="4. Prazo de Execução">
+          <p>Prazo estimado para execução: <strong>até 3 dias úteis</strong>, (Sujeito a ajustes conforme o andamento da obra e disponibilidade de materiais).</p>
+        </article>
 
+        <article label="5. Garantia">
+          <p>Garantia de 3 meses sobre os serviços prestados, válida contra falhas de execução, desde que não haja mau uso, alterações posteriores ou interferências externas.</p>
+        </article>
 
-            
-            <signatures
-               signer
-               cliente
-            >
-            </signatures>
-         </view>
+        <article label="6. Observações Finais" class="avoid">
+          <p>Esta proposta contempla exclusivamente os serviços descritos acima.</p>
+          <p>Qualquer modificação no escopo deverá ser previamente acordada e poderá implicar em ajustes de valores e prazos.</p>
+        </article>
+    
+        <article class="">
+          <tagb>
+            <mk>Agradecemos a oportunidade de apresentar esta proposta e estamos à disposição para quaisquer esclarecimentos adicionais.</mk>
+          </tagb>
+        </article>
 
-      </home-page>
+        <article label="Assinatura e Aprovação">
+          <signatures signer cliente ></signatures>
+        </article>
 
-      <footer>
-         <content>
-            <label>
-               <input type="button" id="btn_createPDF" value="Baixar em pdf"> 
-            </label>
-         </content>
-      </footer>
+        <footer id="pageFooter">
+          
+        </footer>
+      </view>
+    </home-page>
+
+    <footer>
+      <content>
+        <label>
+          <input type="button" id="btn_createPDF" value="Baixar em pdf"> 
+        </label>
+      </content>
+    </footer>
       
-   </body>
+    <script>
+    
+    addEventListener( "load", () => {
+      const data = {
+        title: "Elétrica & Art-Orçamento",
+        cliente: {
+          name: "Nome",
+          address: "Endereço",
+        },
+        docTitle: {
+          subtitle: "",
+          emissao: "",
+          validade: "",
+          text: "",
+        },
+      };
+
+      dom.title = `${ data.title }_${ data.cliente.name }-${ data.docTitle.emissao.replace( /\//g, "-" ) }`;
+
+      docTitle.text( `${ data.docTitle.text || "SERVIÇOS DE PINTURA E ELÉTRICA" }` );
+      docTitle.setAttributes( [
+        [ "subtitle", `${ data.docTitle.subtitle || "PROPOSTA DE ORÇAMENTO" }` ],
+        [ "emissao", `${ data.docTitle.emissao || new Date().toLocaleDateString( "pt-br" ) }` ],
+        [ "validade", `${ data.docTitle.validade || "15 dias" }` ],
+      ] );
+
+      cliente.setAttributes( [
+        [ "nome", `${ data.cliente.name }` ],
+        [ "endereço", `${ data.cliente.address }` ],
+      ] );
+
+      pageFooter.html( `Elétrica & Art &copy; ${ new Date().getFullYear() } - Todos os direitos reservados` );
+    } );
+    </script>
+  </body>
 </html>
-
-
-<!-- 
-https://lensgo.ai/login
-https://ssstik.io
- -->
+<!-- <page-break></page-break><after></after> -->
