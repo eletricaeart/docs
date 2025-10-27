@@ -62,9 +62,8 @@ html {
    min-height: 100vh;
    line-height: 1.15;
    -webkit-text-size-adjust: 100%;
-   background: #1b1d22;
-
    background-color: #1b1d22;
+  background: #f5f5f5;
    background-image: 
       linear-gradient(
          0deg, 
@@ -82,10 +81,15 @@ html {
 }
 
 body {
-   display: flex;
-   flex-direction: column;
-   justify-content: space-between;
-   flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  margin: 0;
+  min-height: 100dvh !important;
+  max-height: 100dvh !important;
+  font-size: 0.8em;
+  background: #f5f5f5;
 }
 
 /* == [ defaults ] 
@@ -333,11 +337,6 @@ form > footer,
 form > content > footer {
    display: flex;
    flex-direction: column;
-}
-
-body {
-   min-height: 100vh;
-   margin: 0;
 }
 
 main, [main] {
@@ -725,17 +724,8 @@ a {
    text-decoration: transparent;
 }
 
-body {
-   background: var( --bg );
-}
-
 /* == [ app-fix ]
 == == == == == == == == == */
-body {
-   min-height: 100dvh !important;
-   max-height: 100dvh !important;
-}
-
 homepage, home-page {
    overflow: scroll !important;
    height: calc( 100dvh - 66px ) !important;
@@ -1809,9 +1799,6 @@ signature sig-name {
 /**
  * == [  ] 
  * == == == == == == == == == */
- body {
-   font-size: 0.8em;
-}
 form {
    gap: 0 !important;
 }
@@ -2271,10 +2258,6 @@ ul > li, ol > li {
    margin-left: 2.2em;
 }
 
-
-html, body {
-  background: #f5f5f5;
-}
 
 view#invoice_html {
   width: calc( 100% - 0rem );
