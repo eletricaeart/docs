@@ -434,22 +434,38 @@ window.addEventListener( "load", ev => {
 
             </content>
          </signature>
-         <!-- <content>
-            <p style="text-align: center;">TESTEMUNHAS</p>
-         </content>
-         <row>
-            <signature section>
-               <content>
-                  <sig-name>CPF</sig-name>
-               </content>
-            </signature>
-            <signature section>
-               <content>
-                  <sig-name>CPF</sig-name>
-               </content>
-            </signature>
-         </row> -->
       `;
    } );
 
 } );
+
+
+/**
+ * arg 
+ * */ 
+$$( "arg" ).forEach( ( arg, i ) => {
+  let children = arg.innerHTML;
+  if( arg.getAttribute( "label" ) ) {
+    arg.innerHTML = `
+      <ui>
+        <header>
+          <h5>
+            ${ arg.getAttribute( "label" ) }
+          </h5>
+        </header>
+        <content>
+          ${ children }
+        </content>
+      </ui>
+    `;
+  } else {
+    arg.innerHTML = `
+      <ui>
+        <content>
+          ${ children }
+        </content>
+      </ui>
+    `;
+  }
+} );
+

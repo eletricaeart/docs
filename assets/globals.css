@@ -2127,11 +2127,10 @@ t1 {
    .page-break  { display: block; page-break-before: always; }
 } */
    
-.page-break, break, page-break  { 
+.page-break, break { 
    /* page-break-before: always;  */
-   page-break-after: always;
    /* page-break-inside: avoid; */
-
+   page-break-after: always;
    display: block;
    clear: both;
 }
@@ -2146,6 +2145,14 @@ after {
    display: block;
    height: 40px;
    background: #0000;
+}
+
+page-break {
+  page-break-after: always;
+  display: block;
+  clear: both;
+  height: 40px;
+  background: #0000;
 }
 .pgb-bfr-always {
   page-break-before: always;
@@ -2491,3 +2498,53 @@ ul, ol {
 ul > li, ol > li {
    margin-left: 2.2em;
 }
+
+
+html, body {
+  background: #f5f5f5;
+}
+
+view#invoice_html {
+  width: calc( 100% - 0rem );
+  padding: 1rem;
+  background: #f5f5f5;
+}
+home-page > view, 
+article {
+  background: #f5f5f5;
+}
+
+@media print {
+  html, body {
+    background: #f5f5f5;
+  }
+  view#invoice_html {
+  }
+}
+
+article {
+  page-break-before: auto;
+  margin: 8px 0;
+}
+
+#pageFooter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th { background-color: #f2f2f2; }
+
