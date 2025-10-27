@@ -448,12 +448,10 @@ $$( "arg" ).forEach( ( arg, i ) => {
   if( arg.getAttribute( "label" ) ) {
     arg.innerHTML = `
       <ui>
-        <header>
-          <h5>
-            ${ arg.getAttribute( "label" ) }
-          </h5>
-        </header>
         <content>
+          <header>
+            ${ arg.getAttribute( "label" ) }
+          </header>
           ${ children }
         </content>
       </ui>

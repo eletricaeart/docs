@@ -2518,8 +2518,6 @@ article {
   html, body {
     background: #f5f5f5;
   }
-  view#invoice_html {
-  }
 }
 
 article {
@@ -2548,3 +2546,36 @@ th, td {
 
 th { background-color: #f2f2f2; }
 
+arg {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+arg > ui {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  width: calc( 100% - 2rem );
+  flex: 1;
+  border-radius: .5rem;
+  overflow: clip;
+  padding: 0 0 0 6px;
+  background: orange;
+}
+arg > ui > content > header {
+  padding: .8rem 0;
+  font-weight: 600;
+  font-size: 1.1rem;
+  background: #6780;
+}
+arg > ui content {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  flex: 1;
+  background: #e5e5e5;
+  padding: 1rem 0 1rem 1rem;
+}
