@@ -70,83 +70,82 @@ window.addEventListener( "load", ev => {
     `;
   } );
 
-   $$( "[link]" ).forEach( link => {
-      link.addEventListener( "click", () => {
-         window.open( link.getAttribute( "link" ), "_blank" );
-      } );
-   } );
+  $$( "[link]" ).forEach( link => {
+    link.addEventListener( "click", () => {
+      window.open( link.getAttribute( "link" ), "_blank" );
+    } );
+  } );
    
-   /* == [ bg ] 
-   == == == == == == == == == */
-   $$( "[bg]" ).forEach( p => {
-      p.style.background = p.getAttribute( "bg" );
-   } );
+  /* == [ bg ] 
+  == == == == == == == == == */
+  $$( "[bg]" ).forEach( p => {
+    p.style.background = p.getAttribute( "bg" );
+  } );
    
-   /* == [ color ] 
-   == == == == == == == == == */
-   $$( "[color]" ).forEach( p => {
-      p.style.color = p.getAttribute( "color" );
-   } );
+  /* == [ color ] 
+  == == == == == == == == == */
+  $$( "[color]" ).forEach( p => {
+    p.style.color = p.getAttribute( "color" );
+  } );
    
-   /* == [ margin ] 
-   == == == == == == == == == */
-   $$( "[m]" ).forEach( p => {
-      p.style.margin = p.getAttribute( "m" );
-   } );
+  /* == [ margin ] 
+  == == == == == == == == == */
+  $$( "[m]" ).forEach( p => {
+    p.style.margin = p.getAttribute( "m" );
+  } );
    
-   /* == [ padding ] 
-   == == == == == == == == == */
-   $$( "[pd]" ).forEach( p => {
-      p.style.padding = p.getAttribute( "pd" );
-   } );
+  /* == [ padding ] 
+  == == == == == == == == == */
+  $$( "[pd]" ).forEach( p => {
+    p.style.padding = p.getAttribute( "pd" );
+  } );
    
-   /* == [ gap ] 
-   == == == == == == == == == */
-   $$( "[gap]" ).forEach( g => {
-      g.style.gap = g.getAttribute( "gap" );
-   } );
+  /* == [ gap ] 
+  == == == == == == == == == */
+  $$( "[gap]" ).forEach( g => {
+    g.style.gap = g.getAttribute( "gap" );
+  } );
    
-   /* == [ aspect ratio ] 
-   == == == == == == == == == */
-   $$( "[ratio]" ).forEach( ratio => {
-      ratio.style.aspectRatio = ratio.getAttribute( "ratio" );
-   } );
+  /* == [ aspect ratio ] 
+  == == == == == == == == == */
+  $$( "[ratio]" ).forEach( ratio => {
+    ratio.style.aspectRatio = ratio.getAttribute( "ratio" );
+  } );
 
-   if( $$( "body" ) instanceof NodeList ) {
-      _(
-         "NodeList"
-      );
-   }
+  if( $$( "body" ) instanceof NodeList ) {
+    _(
+      "body instanceOf NodeList"
+    );
+  }
 
 
 
-   /**
-    * doc-title 
-    * */
-   $$( "doc-title" ).forEach( ( title, i ) => {
-      let 
-      // <t style='font-weight: 700; color: #00559c'>
-      // <t style='font-weight: 700; color: var( --sv-beija-flor )'>
-         data = title.getAttribute( "subtitle" ) ? `
-            <t style='font-weight: 700; color: var( --sv-azul-bebe )'>
-               ${ title.getAttribute( "subtitle" ) }
-            </t>
-         ` : null
-      ;
+  /**
+   * doc-title 
+   * */
+  $$( "doc-title" ).forEach( ( title, i ) => {
+    let data = title.getAttribute( "subtitle" ) ? `
+      <t style='font-weight: 700; color: var( --sv-azul-bebe )'>
+        ${ title.getAttribute( "subtitle" ) }
+      </t>
+    ` : null;
 
-      return( title.innerHTML = `
-         ${ data && data }
-         <t style='font-weight: 700; color: #003b6b\'>
-            ${ title.innerHTML }
-         </t>
-         <t id="doc_id" style="background: #fff; width: 100%; padding: .2em;     margin: .2em 0 0; display: flex
-; align-items: center; justify-content: end; gap: 1em; font-size: .8em;">
-            <b>Data de Emissão: </b>
-            <t>${ title.getAttribute( "emissao" ) }</t>
-            <t style="font-weight: 700; padding: 0 .5em;"> | </t>
-            <b>Validade da Proposta: </b>
-            <t>${title.getAttribute( "validade" ) }</t>
-         </t>
+    return( title.innerHTML = `
+      ${ data && data }
+        <t style='font-weight: 700; color: #003b6b\'>
+          ${ title.innerHTML }
+        </t>
+        <t 
+          id="doc_id" 
+          style="background: #fff; width: 100%; padding: .2em;     margin: .2em 0 0; display: flex
+; align-items: center; justify-content: end; gap: 1em; font-size: .8em;"
+        >
+          <b>Data de Emissão: </b>
+          <t>${ title.getAttribute( "emissao" ) }</t>
+          <t style="font-weight: 700; padding: 0 .5em;"> | </t>
+          <b>Validade da Proposta: </b>
+          <t>${title.getAttribute( "validade" ) }</t>
+        </t>
       ` );
       
    } );
