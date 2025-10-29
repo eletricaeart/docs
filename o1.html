@@ -1,0 +1,185 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/globals.css">
+    <script src="./assets/html2pdf-0.9.2.js" src-remote="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+    <script cjs src="./assets/cjs.js" ></script>
+    <script widgets src="./assets/widgets.js" defer></script>
+    <script EACard src="./assets/EACard.js" defer></script>
+    <script DownloadPDF src="./assets/DownloadPDF.js" defer></script>
+  </head>
+  <body>
+    <home-page>
+      <view id="invoice_html">
+        <ea-card section="dual"></ea-card>
+
+        <doc-title id="docTitle"
+          subtitle="PROPOSTA DE ORÇAMENTO"
+          emissao="00/00/2025"
+          validade="15 dias"
+        >
+          SERVIÇOS DE PINTURA E ELÉTRICA
+        </doc-title>
+     
+        <cliente id="cliente"
+          nome=""
+          endereço=""
+        >
+        </cliente>
+
+        <article label="1. Escopo dos Serviços">
+          <section label="">
+            <p>Serviços de substituição completa da fiação elétrica do apartamento, abrangendo todos os circuitos de iluminação, tomadas, chuveiro e ar-condicionado, com reinstalação dos componentes elétricos e montagem do novo quadro de força.</p>
+            <p>O objetivo é garantir segurança, eficiência e conformidade técnica da instalação elétrica, adequando-a aos padrões atuais da NBR 5410 (Instalações Elétricas de Baixa Tensão) e proporcionando um funcionamento estável e seguro de toda a rede.</p>
+          </section>     
+        </article>
+        <article label="2. PROCESSO DE EXECUÇÃO – ETAPAS DETALHADAS">
+          <section label="1. Remoção da Instalação Existente">
+            <ul>
+              <li>Retirada completa de todos os cabos antigos e componentes do quadro de força.</li>
+              <li>Desmontagem de tomadas, interruptores e luminárias, preservando os pontos existentes.</li>
+            </ul>
+          </section>
+          <section label="2. Lançamento do Novo Cabeamento">
+            <ul>
+              <li>Substituição integral da fiação elétrica de todos os circuitos: iluminação, tomadas, chuveiro e ar-condicionado.</li>
+              <li>Utilização de condutores com bitolas adequadas a cada circuito, conforme cálculo de demanda e segurança.</li>
+              <li>Passagem dos novos cabos por eletrodutos existentes ou novos, conforme necessidade técnica.</li>
+            </ul>
+          </section>
+          <brk></brk>
+          <section label="3. Reinstalação dos Componentes Elétricos">
+            <ul>
+              <li>Reinstalação de tomadas, interruptores e luminárias existentes, garantindo conexões seguras e acabamento limpo.</li>
+              <li>Verificação de polaridade, continuidade e isolamento dos circuitos.</li>
+            </ul>
+          </section>
+          <section label="4. Montagem do Quadro de Força">
+            <ul>
+              <li>Substituição de todos os componentes internos (disjuntores, barramentos e conexões).</li>
+              <li>Reorganização e identificação dos circuitos, com balanceamento entre fases e distribuição adequada da carga.</li>
+              <li>Teste de funcionamento geral do quadro e dos pontos de consumo.</li>
+            </ul>
+          </section>
+          <section label="5. Finalização e Entrega Técnica">
+            <ul>
+              <li>Revisão completa da instalação.</li>
+              <li>Limpeza do ambiente de trabalho.</li>
+              <li>Apresentação ao cliente dos circuitos identificados e funcionamento geral.</li>
+            </ul>
+          </section>
+        </article>
+
+        <article label="3. Investimento" class="">
+          <section>
+            <h5>Incluso:</h5>
+            <ul>
+              <li>Execução completa dos serviços descritos.</li>
+              <li>Substituição integral da fiação e montagem do novo quadro de força.</li>
+              <li>Balanceamento dos circuitos e reinstalação de componentes existentes.</li>
+              <li>Limpeza e organização do ambiente após a conclusão do serviço.</li>
+            </ul>
+            <hr>
+            <h5>Não Incluso:</h5>
+            <ul>
+              <li>Materiais elétricos (cabos, disjuntores, tomadas, interruptores, conduítes e demais itens).</li>
+              <li>Pintura ou retoques em paredes após cortes e reinstalações.</li>
+              <li>Instalações ou modificações que não constem no escopo descrito.</li>
+            </ul>
+          </section>
+          <section>
+            <p>Valor total da mão de obra: <strong>R$ 2.500,00 (dois mil e quinhentos reais)</strong></p>
+          </section>
+        </article>
+        <brk></brk>
+        <article label="4. CONDIÇÕES DE PAGAMENTO">
+          <section>
+            <p>50% de entrada na assinatura da proposta.</p>
+            <p>50% na entrega dos serviços concluídos.</p>
+            <br>
+            <tagc>Parcelamento via cartão de crédito disponível, com acréscimo dos juros da operadora.</tagc>
+          </section>
+        </article>
+    
+        <article label="5. Prazo de Execução">
+          <p>Prazo estimado: <strong>até 5 dias úteis</strong>, podendo variar conforme o andamento da substituição da fiação e eventuais ajustes estruturais necessários.</p>
+        </article>
+
+        <article label="6. Garantia">
+          <p>Garantia de 3 meses sobre os serviços prestados, válida contra falhas de execução e mau contato, desde que não ocorram sobrecargas, mau uso, intervenções de terceiros ou alterações não autorizadas após a entrega.</p>
+        </article>
+
+        <article label="7. Observações Finais" class="avoid">
+          <p>Esta proposta contempla exclusivamente os serviços descritos acima.</p>
+          <p>Qualquer alteração no escopo, acréscimo de pontos ou substituição de materiais deverá ser previamente acordada entre as partes, podendo implicar ajustes no valor e no prazo.</p>
+          <p>Durante toda a execução, serão seguidos os padrões técnicos e de qualidade da Elétrica&Art, assegurando organização, limpeza e um resultado profissional e duradouro.</p>
+        </article>
+        <brk></brk>
+        <article class="">
+          <tagc>
+            <h5>Compromisso Elétrica&Art</h5>
+            <p>Unir técnica, segurança e qualidade em cada detalhe, garantindo uma instalação elétrica segura, eficiente e de alto padrão.</p>
+          </tagc>
+        </article>
+
+        <article label="Assinatura e Aprovação">
+          <signatures signer cliente ></signatures>
+        </article>
+
+        <footer id="pageFooter"></footer>
+
+      </view>
+    </home-page>
+
+    <footer>
+      <content>
+        <label>
+          <input type="button" id="btn_createPDF" value="Baixar em pdf"> 
+        </label>
+      </content>
+    </footer>
+      
+    <script>
+
+addEventListener( "load", () => {
+      const data = {
+        title: "Elétrica & Art-Orçamento",
+        cliente: {
+          name: "Fernanda",
+          address: "Rua Marechal Hermes, nº 207",
+        },
+        docTitle: {
+          subtitle: "",
+          emissao: "",
+          validade: "",
+          text: "SERVIÇOS ELÉTRICOS PROFISSIONAIS",
+        },
+      };
+
+      dom.title = `${ data.title }_${ data.cliente.name }-${ data.docTitle.emissao.replace( /\//g, "-" ) }`;
+
+      docTitle.text( `${ data.docTitle.text || "SERVIÇOS DE PINTURA E ELÉTRICA" }` );
+      docTitle.setAttributes( [
+        [ "subtitle", `${ data.docTitle.subtitle || "PROPOSTA DE ORÇAMENTO" }` ],
+        [ "emissao", `${ data.docTitle.emissao || new Date().toLocaleDateString( "pt-br" ) }` ],
+        [ "validade", `${ data.docTitle.validade || "15 dias" }` ],
+      ] );
+
+      cliente.setAttributes( [
+        [ "nome", `${ data.cliente.name || "Nome não fornecido" }` ],
+        [ "endereço", `${ data.cliente.address || "Endereço não fornecido" }` ],
+      ] );
+
+      pageFooter.html( `Elétrica & Art &copy; ${ new Date().getFullYear() } - Todos os direitos reservados` );
+    } );
+
+    </script>
+  </body>
+</html>
+<!-- <page-break></page-break> -->

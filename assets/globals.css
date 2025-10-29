@@ -1914,6 +1914,10 @@ t1 {
    padding-top: 8px;
    padding-bottom: 8px;
 }
+
+brk {
+  page-break-after: always;
+}
 .page-break, break { 
    /* page-break-before: always;  */
    /* page-break-inside: avoid; */
