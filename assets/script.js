@@ -1,18 +1,18 @@
 
 addEventListener( "load", () => {
-      const data = {
-        title: "Elétrica & Art-Orçamento",
-        cliente: {
-          name: "",
-          address: "",
-        },
-        docTitle: {
-          subtitle: "",
-          emissao: "",
-          validade: "",
-          text: "",
-        },
-      };
+      // const data = {
+      //   title: "Elétrica & Art-Orçamento",
+      //   cliente: {
+      //     name: "",
+      //     address: "",
+      //   },
+      //   docTitle: {
+      //     subtitle: "",
+      //     emissao: "",
+      //     validade: "",
+      //     text: "",
+      //   },
+      // };
 
       dom.title = `${ data.title }_${ data.cliente.name }-${ data.docTitle.emissao.replace( /\//g, "-" ) }`;
 
