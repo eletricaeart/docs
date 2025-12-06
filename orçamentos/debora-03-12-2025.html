@@ -1,0 +1,122 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/globals.css">
+    <script src="../assets/globals.js" defer></script>
+    <script src="../assets/html2pdf-0.9.2.js" src-remote="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+    <script cjs src="../assets/cjs.js" ></script>
+    <script widgets src="../assets/widgets.js" defer></script>
+    <script EACard src="../assets/EACard.js" defer></script>
+    <script DownloadPDF src="../assets/DownloadPDF.js" defer></script>
+  </head>
+  <body>
+    <home-page>
+      <view id="invoice_html">
+        <ea-card section="dual"></ea-card>
+
+        <doc-title id="docTitle"
+          subtitle="PROPOSTA DE ORÇAMENTO"
+          emissao="00/00/2025"
+          validade="15 dias"
+        >
+          SERVIÇOS DE PINTURA E ELÉTRICA
+        </doc-title>
+     
+        <cliente id="cliente"
+          nome=""
+          endereço=""
+        >
+        </cliente>
+
+        <article label="1. Escopo dos Serviços">
+          <section label="Serviços de pintura e elétrica, contemplando">
+            <arg label="titulo">
+              texto
+            </arg>
+            <tagc>
+              <h4>Observação</h4>
+              <p>Este orçamento contempla exclusivamente a mão de obra. Todos os materiais de pintura e elétrica deverão ser fornecidos pelo cliente.</p>
+            </tagc>
+          </section>     
+        </article>
+
+        <article label="2. Materiais">
+          <section label="Fornecidos pelo cliente:">
+            <p>Tintas, massa corrida, lixas, pincéis, rolos, materiais de elétrica (ventiladores, plafons, luminária, cabos, conexões, suportes, etc.).</p>
+          </section>
+          <section label="Fornecidos pela equipe Elétrica&Art:">
+            <p>Ferramentas e equipamentos necessários para execução dos serviços.</p>
+          </section> 
+        </article>
+
+        <article label="3. Investimento" class="">
+          <section>
+            <p>Valor total da mão de obra: <strong>R$ 1.750,00 (um mil setecentos e cinquenta reais)</strong></p>
+          </section>
+          <section label="Forma de Pagamento:">
+            <p>50% de entrada na assinatura da proposta.</p>
+            <p>50% na entrega e conclusão dos serviços.</p>
+          </section>
+        </article>
+    
+        <article label="4. Prazo de Execução">
+          <p>Prazo estimado para execução: <strong>até 3 dias úteis</strong>, (Sujeito a ajustes conforme o andamento da obra e disponibilidade de materiais).</p>
+        </article>
+
+        <article label="5. Garantia">
+          <p>Garantia de 3 meses sobre os serviços prestados, válida contra falhas de execução, desde que não haja mau uso, alterações posteriores ou interferências externas.</p>
+        </article>
+
+        <article label="6. Observações Finais" class="avoid">
+          <p>Esta proposta contempla exclusivamente os serviços descritos acima.</p>
+          <p>Qualquer modificação no escopo deverá ser previamente acordada e poderá implicar em ajustes de valores e prazos.</p>
+        </article>
+        <article class="">
+          <t6>Compromisso Elétrica&Art:</t6>
+          <p>Unir técnica, estética, precisão e responsabilidade para entregar um resultado impecável, durável e superior.</p>
+          <tagb>
+            <mk>Agradecemos a oportunidade de apresentar esta proposta e estamos à disposição para quaisquer esclarecimentos adicionais.</mk>
+          </tagb>
+        </article>
+
+        <article label="Assinatura e Aprovação">
+          <signatures signer cliente ></signatures>
+        </article>
+
+        <footer id="pageFooter"></footer>
+
+      </view>
+    </home-page>
+
+    <footer>
+      <content>
+        <label>
+          <input type="button" id="btn_createPDF" value="Baixar em pdf"> 
+        </label>
+      </content>
+    </footer>
+      
+    <script>
+      const data = {
+        title: "Elétrica & Art-Orçamento",
+        cliente: {
+          name: "Débora",
+          address: "Edifício Costa do Sol – Bairro Mirim – Praia Grande/SP",
+        },
+        docTitle: {
+          subtitle: "",
+          emissao: "",
+          validade: "",
+          text: "SERVIÇOS DE PINTURA E PREPARAÇÃO DE SUPERFÍCIES",
+        },
+      };
+    </script>
+  </body>
+</html>
+<!-- <brk></brk> -->
