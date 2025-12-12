@@ -1,9 +1,9 @@
 
-PROPOSTA DE ORÇAMENTO – SERVIÇOS DE ACABAMENTO FINO EM FORRO DE DRYWALL
+PROPOSTA DE ORÇAMENTO – 
 
 Cliente: Luciana
-Endereço da Obra: Rua Professor Torres Homem, nº 204
-Data de Emissão: 12/12/2025
+Endereço da Obra: 
+Data de Emissão: 
 Validade da Proposta: 15 dias
 
 
@@ -11,81 +11,77 @@ Validade da Proposta: 15 dias
 
 1. ESCOPO DO SERVIÇO
 
-Serviço de preparação completa e acabamento refinado de pintura no forro de gesso drywall localizado na área comum da garagem do prédio.
-
-O trabalho contempla:
-
-Aplicação de massa corrida para regularização e correção das imperfeições do forro.
-
-Lixamento técnico com máquina para nivelamento inicial.
-
-Lixamento manual detalhado com auxílio de lâmpada de inspeção para acabamento fino.
-
-Pintura final com acabamento uniforme e profissional nas áreas preparadas.
 
 
-Objetivo final: entregar um acabamento liso, uniforme, sem marcas, com aparência refinada e durabilidade, valorizando a estética da área comum do prédio.
 
 
----
 
-2. PROCESSO DE EXECUÇÃO – DETALHADO E TÉCNICO
 
-1. Preparação inicial do ambiente
 
-Inspeção do forro para identificação de falhas, fissuras, imperfeições e irregularidades.
 
-Proteção criteriosa de pisos, paredes, veículos ou quaisquer itens próximos à área de trabalho, evitando respingos e garantindo segurança durante todo o processo.
 
-Organização do espaço para permitir fluxo de trabalho sem riscos e sem interferência na rotina dos moradores.
+
+
+
+
 
 
 
 ---
 
-2. Aplicação de massa corrida no forro de drywall
 
-Correção das imperfeições, fissuras, emendas e eventuais marcas presentes no forro.
 
-Aplicação de massa corrida em demão uniforme nas áreas que necessitarem nivelamento.
 
-Garantia de superfície adequada para o lixamento e pintura final, assegurando melhor aderência e qualidade estética.
+
+
 
 
 
 ---
 
-3. Lixamento técnico e acabamento fino
-
-Realizado em duas etapas fundamentais:
-
-1. Lixamento com máquina profissional
-
-Nivelamento inicial da superfície, garantindo padronização e remoção das irregularidades mais evidentes.
-
-
-
-2. Lixamento manual detalhado com lâmpada de inspeção
-
-Identificação de microdefeitos não visíveis sob luz comum.
-
-Correção fina para assegurar um acabamento perfeito sob qualquer iluminação do ambiente.
 
 
 
 
-Essa etapa é decisiva para garantir que a pintura final fique totalmente lisa, sem riscos, ondulações ou marcas.
+
+
+
+
 
 
 ---
 
-4. Pintura final – Acabamento uniforme
 
-Aplicação das demãos necessárias de tinta (fornecida pelo cliente), respeitando o tempo de secagem entre cada etapa.
 
-Pintura cuidadosamente executada para garantir cobertura total, sem manchas, sem marcas de rolo e com acabamento profissional.
 
-Inspeção visual final com luz rasante para confirmar a perfeição do resultado.
+
+1. 
+
+
+
+
+
+2. 
+
+
+
+
+
+
+
+
+
+
+
+---
+
+
+
+
+
+
+
+
 
 
 
@@ -95,24 +91,24 @@ Inspeção visual final com luz rasante para confirmar a perfeição do resultad
 
 Fornecidos pelo cliente:
 
-Massa corrida
 
-Lixas e insumos consumíveis
 
-Tintas
 
-Plásticos, mantas, fitas e itens de proteção
+
+
+
+
 
 
 Fornecidos pela equipe Elétrica&Art:
 
-Lixadeira profissional
 
-Lâmpada de inspeção
 
-Espátulas, desempenadeiras, rolos e trinchas de padrão profissional
 
-EPIs e ferramentas técnicas de aplicação
+
+
+
+
 
 
 
@@ -129,14 +125,14 @@ R$ 500,00
 
 ---
 
-5. CONDIÇÕES DE PAGAMENTO
-
-50% de entrada no aceite da proposta.
-
-50% na conclusão do serviço.
 
 
-(Opcional: parcelamento via cartão, com acréscimo dos juros da operadora.)
+
+
+
+
+
+
 
 
 ---
@@ -147,28 +143,28 @@ Prazo estimado:
 
 2 dias
 
-O prazo pode variar em função do tempo de secagem entre as etapas, sempre priorizando a qualidade final do acabamento.
+
 
 
 ---
 
 7. GARANTIA
 
-Garantia de 3 meses exclusivamente sobre falhas técnicas de execução.
-Não cobre infiltração, umidade externa, impactos, mau uso ou intervenções posteriores.
+
+
 
 
 ---
 
 8. OBSERVAÇÕES FINAIS
 
-A proposta contempla exclusivamente os serviços listados acima.
 
-Qualquer alteração solicitada poderá gerar ajustes no valor e no prazo.
 
-A execução será realizada com zelo, organização, limpeza e total respeito ao ambiente do condomínio.
 
-O objetivo é entregar um acabamento fino, impecável e duradouro, elevando o aspecto visual da área comum.
+
+
+
+
 
 
 
@@ -176,7 +172,7 @@ O objetivo é entregar um acabamento fino, impecável e duradouro, elevando o as
 
 Compromisso Elétrica&Art
 
-Precisão técnica, acabamento superior e entrega profissional, garantindo um resultado que traga satisfação, estética refinada e valorização do espaço.
+
 
 
 ---
