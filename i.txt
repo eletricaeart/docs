@@ -1,14 +1,84 @@
 
 PROPOSTA DE ORÇAMENTO – 
 
-Cliente: 
-Endereço da Obra: 
-Data de Emissão: 
+Cliente: Sidney
+Endereço da Obra: A definir
+Data de Emissão: 14/12/2025
 Validade da Proposta: 15 dias
 
 
 ---
 
+1. ESCOPO DO SERVIÇO
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Objetivo final: 
+
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
+
+
+
+
+
+
+
+
+
+
+
+---
+
+
+
+
+
+
+
+
 
 
 
@@ -52,18 +122,6 @@ Validade da Proposta: 15 dias
 
 
 
----
-
-
-
-
-
-
-
-
-
-
-
 
 
 ---
@@ -80,14 +138,25 @@ Validade da Proposta: 15 dias
 
 ---
 
+3. MATERIAIS
+
+Fornecidos pelo cliente:
+
+
+Fornecidos pela equipe Elétrica&Art:
 
 
 
 
+---
 
+4. INVESTIMENTO
 
+Valor total da mão de obra:
 
+R$ 1.500,00
 
+(um mil e quinhentos reais)
 
 
 ---
@@ -100,27 +169,13 @@ Validade da Proposta: 15 dias
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ---
 
+6. PRAZO DE EXECUÇÃO
 
+Prazo estimado para conclusão:
 
-
-
----
+Até 4 dias
 
 
 
@@ -129,19 +184,21 @@ Validade da Proposta: 15 dias
 
 7. GARANTIA
 
-Garantia de 3 meses sobre os serviços executados.
-Não cobre infiltrações, umidade externa, movimentação estrutural ou intervenções posteriores no forro.
+
+
 
 
 ---
 
 8. OBSERVAÇÕES FINAIS
 
-Esta proposta contempla exclusivamente os serviços descritos acima.
 
-Qualquer alteração de escopo poderá gerar ajustes no valor e no prazo.
 
-Garantimos acabamento limpo, profissional e com alto padrão de qualidade, entregando um resultado durável, refinado e esteticamente impecável.
+
+
+
+
+
 
 
 
@@ -149,7 +206,7 @@ Garantimos acabamento limpo, profissional e com alto padrão de qualidade, entre
 
 Compromisso Elétrica&Art
 
-Atuamos com técnica, responsabilidade e detalhismo para entregar um resultado visualmente perfeito e duradouro, com total respeito ao imóvel e ao cliente.
+
 
 
 ---
@@ -160,3 +217,4 @@ CNPJ: 32.858.892/0001-52
 Rua José Alves Maciel, nº 40 – Bairro Aviação – Praia Grande/SP
 Telefone: (13) 99768-5853
 E-mail: eletrica.art.ltda@gmail.com
+
