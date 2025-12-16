@@ -8,6 +8,24 @@ The project is a web-based system for creating and managing budgets for "Elétri
 
 ## Development Log
 
+### 2025-12-16 (Initial)
+
+*   **New Budget Generator Page:**
+    *   Based on an analysis of a raw data file (`i.txt`), a base template (`orçamentos/@.html`), and a final example (`orçamentos/sidney-14-12-2025.html`), a new budget generator page was created.
+    *   Created `gerador_orcamento.html`: A page with a comprehensive form for users to input all necessary budget information, including dynamic sections for scope, execution process, and materials.
+    *   Created `gerador_orcamento.css`: Stylesheet to ensure the form is user-friendly and well-organized.
+    *   Created `gerador_orcamento.js`: A script that handles form interactivity (adding/removing dynamic fields), collects all user data, and generates a complete HTML file based on the project's template structure. It then provides a download link for the generated file.
+    *   Verified that `index.html` includes a "Gerador de Orçamento" link in the navigation bar, making the new tool accessible.
+
+### 2025-12-15 (Initial)
+
+*   **New Budget Generator Page:**
+    *   Based on an analysis of a raw data file (`i.txt`), a base template (`orçamentos/@.html`), and a final example (`orçamentos/sidney-14-12-2025.html`), a new budget generator page was created.
+    *   Created `gerador_orcamento.html`: A page with a comprehensive form for users to input all necessary budget information, including dynamic sections for scope, execution process, and materials.
+    *   Created `gerador_orcamento.css`: Stylesheet to ensure the form is user-friendly and well-organized.
+    *   Created `gerador_orcamento.js`: A script that handles form interactivity (adding/removing dynamic fields), collects all user data, and generates a complete HTML file based on the project's template structure. It then provides a download link for the generated file.
+    *   Updated `index.html` to include a "Gerador de Orçamento" link in the navigation bar, making the new tool accessible.
+
 ### 2025-09-12 (Update 19)
 
 *   **Updated Warranty Input:**
