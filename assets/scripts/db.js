@@ -84,6 +84,30 @@ const db = {
 
     getAllUsers: () => users,
     getAllBudgets: () => budgets,
+    getBudgetById: (budgetId) => budgets.find(budget => budget.id === budgetId),
+
+    updateBudget: (updatedBudget) => {
+        const index = budgets.findIndex(budget => budget.id === updatedBudget.id);
+        if (index !== -1) {
+            budgets[index] = updatedBudget;
+            console.log('Budget updated:', updatedBudget);
+            _saveToLocalStorage();
+            return true;
+        }
+        return false;
+    },
+
+    deleteServicesByBudgetId: (budgetId) => {
+        const initialLength = services.length;
+        services = services.filter(service => service.budgetId !== budgetId);
+        if (services.length < initialLength) {
+            console.log(`Deleted services for budgetId: ${budgetId}`);
+            _saveToLocalStorage();
+            return true;
+        }
+        return false;
+    },
+
     getAllServices: () => services,
 
     clearAllData: () => {

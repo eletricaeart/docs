@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const issueDateInput = document.getElementById('issueDate');
     const dueDateInput = document.getElementById('dueDate');
     const warrantyValidityInput = document.getElementById('warrantyValidity');
+    const editableDocTitle = document.getElementById('editableDocTitle');
 
     const scopeEditorsContainer = document.getElementById('scopeEditorsContainer');
     const addNewSectionBtn = document.getElementById('addNewSectionBtn');
@@ -27,8 +28,14 @@ document.addEventListener('DOMContentLoaded', () => {
     let editorSectionCounter = 0; // Start at 0, will be incremented before first use
     const mainSectionNumber = 1; // 'X' in X.Y format for scope of services
 
-    // Ensure the simulatedDB is loaded
+    // Expose db globally for easy access in cadastro.js
     const db = window.simulatedDB;
+
+    // Utility function to get URL parameters
+    const getParamFromUrl = (param) => {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+    };
 
     // Function to update all title prefixes based on their content
     const updateTitlePrefixes = () => {
@@ -93,11 +100,62 @@ document.addEventListener('DOMContentLoaded', () => {
         // Set warranty/validity to default value
         warrantyValidityInput.value = 6; // Default to 6 months
 
+        editableDocTitle.textContent = "SERVIÇOS DE PINTURA E ELÉTRICA";
+
         // The call to clearClientForm() already adds the first section
     };
 
     // Add new section button logic
     addNewSectionBtn.addEventListener('click', addNewEditorSection);
+
+
+    // Function to load an existing budget for editing
+    const loadBudgetForEditing = (budgetId) => {
+        const budget = db.getBudgetById(budgetId);
+
+        if (!budget) {
+            alert('Orçamento não encontrado!');
+            loadData(); // Load default form for new budget
+            return;
+        }
+
+        // Populate client details
+        const user = db.getAllUsers().find(u => u.id === budget.userId);
+        if (user) {
+            clientNameInput.value = user.name;
+            clientAddressInput.value = user.address;
+        }
+
+        // Populate budget details
+        issueDateInput.value = budget.issueDate;
+        dueDateInput.value = budget.dueDate;
+        warrantyValidityInput.value = budget.warrantyValidity;
+        editableDocTitle.textContent = budget.docTitle || "SERVIÇOS DE PINTURA E ELÉTRICA"; // Populate the editable title
+
+        // Clear existing editor sections
+        scopeEditorsContainer.innerHTML = '';
+        editorSectionCounter = 0;
+
+        // Populate scope of services
+        if (budget.scopeOfServices && budget.scopeOfServices.length > 0) {
+            budget.scopeOfServices.forEach(scope => {
+                const newSection = addNewEditorSection(); // This function already calls initializeEditorSection and updates prefixes
+                // The title from db might include the prefix "1.1 Title". We only want the Title part for the label.
+                const cleanTitle = scope.title.replace(/^\d\.\d\s*/, '').trim();
+                newSection.setAttribute('label', cleanTitle);
+                newSection.querySelector('.section-title-input').value = cleanTitle; // Set input value if user wants to edit
+                newSection.querySelector('.editor').innerHTML = scope.content;
+            });
+            updateTitlePrefixes(); // Ensure correct numbering after loading
+        } else {
+            // If no scope of services, add a default empty section
+            addNewEditorSection();
+        }
+
+        // Populate services
+        currentServices = db.getAllServices().filter(service => service.budgetId === budgetId);
+        renderServices();
+    };
 
 
     // Save data to simulated database
@@ -107,6 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const issueDate = issueDateInput.value;
         const dueDate = dueDateInput.value;
         const warrantyValidity = warrantyValidityInput.value;
+        const docTitle = editableDocTitle.textContent.trim();
 
         // Get content from all editor sections and format titles
         let titledSectionCounter = 1;
@@ -121,7 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return { title: fullTitle, content: content };
         });
 
-        if (!clientName || currentServices.length === 0 || !issueDate || !dueDate || !warrantyValidity || scopeOfServices.every(s => s.content.trim() === '' && s.title.trim() === '')) {
+        if (!clientName || !docTitle || currentServices.length === 0 || !issueDate || !dueDate || !warrantyValidity || scopeOfServices.every(s => s.content.trim() === '' && s.title.trim() === '')) {
             alert('Por favor, preencha todos os dados do cliente, as datas, o escopo dos serviços e adicione pelo menos um serviço.');
             return;
         }
@@ -132,21 +191,42 @@ document.addEventListener('DOMContentLoaded', () => {
             address: clientAddress
         });
 
-        // 2. Save Budget
-        const budgetTotalValue = currentServices.reduce((sum, service) => sum + parseFloat(service.totalValue), 0);
-        const budgetId = db.saveBudget({
-            userId: userId,
-            issueDate: issueDate,
-            dueDate: dueDate,
-            warrantyValidity: warrantyValidity,
-            scopeOfServices: scopeOfServices, // Save as an array of objects
-            totalValue: budgetTotalValue.toFixed(2)
-        });
+        let budgetIdToUse;
+        if (editingBudgetId) { // Check if we are updating an existing budget
+            budgetIdToUse = editingBudgetId;
+            const budgetTotalValue = currentServices.reduce((sum, service) => sum + parseFloat(service.totalValue), 0);
+            const updatedBudget = {
+                id: budgetIdToUse,
+                userId: userId,
+                issueDate: issueDate,
+                dueDate: dueDate,
+                warrantyValidity: warrantyValidity,
+                docTitle: docTitle,
+                scopeOfServices: scopeOfServices,
+                totalValue: budgetTotalValue.toFixed(2)
+            };
+            db.updateBudget(updatedBudget); // Update the budget in db.js
+            db.deleteServicesByBudgetId(budgetIdToUse); // Remove old services
 
-        // 3. Save Services linked to Budget
+            alert('Orçamento atualizado com sucesso no banco de dados simulado e no armazenamento local!');
+        } else { // Creating a new budget
+            const budgetTotalValue = currentServices.reduce((sum, service) => sum + parseFloat(service.totalValue), 0);
+            budgetIdToUse = db.saveBudget({
+                userId: userId,
+                issueDate: issueDate,
+                dueDate: dueDate,
+                warrantyValidity: warrantyValidity,
+                docTitle: docTitle,
+                scopeOfServices: scopeOfServices,
+                totalValue: budgetTotalValue.toFixed(2)
+            });
+            alert('Orçamento salvo com sucesso no banco de dados simulado e no armazenamento local!');
+        }
+
+        // 3. Save Services linked to Budget (both for new and updated budgets)
         currentServices.forEach(service => {
             db.saveService({
-                budgetId: budgetId,
+                budgetId: budgetIdToUse,
                 name: service.name,
                 description: service.description,
                 quantity: service.quantity,
@@ -155,7 +235,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        alert('Orçamento salvo com sucesso no banco de dados simulado e no armazenamento local!');
         loadData(); // Clear form for new entry
 
         // For debugging: log all data in the simulated DB
@@ -164,6 +243,11 @@ document.addEventListener('DOMContentLoaded', () => {
             budgets: db.getAllBudgets(),
             services: db.getAllServices()
         });
+
+        // Redirect to gerenciador-orcamentos.html if editing
+        if (editingBudgetId) {
+             window.location.href = 'gerenciador-orcamentos.html';
+        }
     };
 
     // Calculate total value for a service
@@ -299,5 +383,11 @@ document.addEventListener('DOMContentLoaded', () => {
     saveAllDataBtn.addEventListener('click', saveDataToDB);
 
     // Initial load
-    loadData();
+    const editingBudgetId = getParamFromUrl('budgetId');
+    if (editingBudgetId) {
+        loadBudgetForEditing(editingBudgetId);
+        saveAllDataBtn.textContent = 'Atualizar Orçamento'; // Change button text
+    } else {
+        loadData(); // Load default data for a new budget
+    }
 });

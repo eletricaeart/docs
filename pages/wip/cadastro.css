@@ -44,6 +44,21 @@ h1, h2, h3 {
     margin-bottom: 20px;
 }
 
+.document-title {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5em; /* Approximate h2 size */
+    font-weight: bold; /* Approximate h2 weight */
+    outline: none; /* Remove focus outline */
+    cursor: text; /* Indicate it's editable */
+    padding: 5px; /* Little padding for better editing experience */
+}
+
+.document-title:focus {
+    background-color: #f0f0f0; /* Light background on focus */
+}
+
 input-field {
   display: flex;
   flex-flow: column;

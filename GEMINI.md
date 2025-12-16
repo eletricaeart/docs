@@ -8,6 +8,23 @@ The project is a web-based system for creating and managing budgets for "Elétri
 
 ## Development Log
 
+### 2025-12-16 (Update 1)
+
+*   **Editable Document Title and Budget Editing Functionality:**
+    *   **`pages/wip/cadastro.html`**: The `<h2>Escopo dos Serviços</h2>` title was replaced with an editable `div` (`id="editableDocTitle"`, `contenteditable="true"`, `class="document-title"`) pre-filled with "SERVIÇOS DE PINTURA E ELÉTRICA".
+    *   **`pages/wip/cadastro.js`**:
+        *   Added a constant `editableDocTitle` for the new div.
+        *   Modified `loadData` to set the default content for `editableDocTitle`.
+        *   Implemented `getParamFromUrl` utility to extract `budgetId` from the URL.
+        *   Modified the `DOMContentLoaded` event to check for a `budgetId` in the URL. If found, it calls `loadBudgetForEditing()` to load existing budget data; otherwise, it calls `loadData()` for a new budget.
+        *   Added `loadBudgetForEditing(budgetId)` function to fetch and populate all form fields (client info, dates, warranty, `editableDocTitle`, scope of services, and services) from an existing budget.
+        *   Refactored `saveDataToDB` to handle both new budget creation and updating existing budgets. If `editingBudgetId` is present, it uses `db.updateBudget()`; otherwise, it uses `db.saveBudget()`. Services are managed accordingly (deleted and re-saved for updates).
+    *   **`assets/scripts/db.js`**:
+        *   Added `getBudgetById(budgetId)` to retrieve a specific budget from the `budgets` array.
+        *   Added `updateBudget(updatedBudget)` to find and replace an existing budget.
+        *   Added `deleteServicesByBudgetId(budgetId)` to remove all services associated with a given budget ID.
+    *   **`pages/wip/cadastro.css`**: Added styles for the `.document-title` class to ensure the `contenteditable` div visually resembles a heading without typical input field styling.
+
 ### 2025-12-16 (Initial)
 
 *   **New Budget Generator Page:**
