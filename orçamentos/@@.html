@@ -1,0 +1,146 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/globals.css">
+    <script src="../assets/globals.js" defer></script>
+    <script src="../assets/html2pdf-0.9.2.js" src-remote="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+    <script cjs src="../assets/cjs.js" ></script>
+    <script widgets src="../assets/widgets.js" defer></script>
+    <script EACard src="../assets/EACard.js" defer></script>
+    <script DownloadPDF src="../assets/DownloadPDF.js" defer></script>
+  </head>
+  <body>
+    <home-page>
+      <view id="invoice_html">
+        <ea-card section="dual"></ea-card>
+
+        <doc-title id="docTitle"
+          subtitle="PROPOSTA DE ORÇAMENTO"
+          emissao="00/00/2025"
+          validade="15 dias"
+        >
+          SERVIÇOS DE PINTURA E ELÉTRICA
+        </doc-title>
+     
+        <cliente id="cliente"
+          nome=""
+          endereço=""
+        >
+        </cliente>
+
+        <article label="1. Escopo dos Serviços">
+          <section label="Execução integrada de serviços de pintura e instalações elétricas em apartamento residencial, contemplando preparo técnico completo das superfícies, acabamento fino de pintura e modernização total da infraestrutura elétrica, visando segurança, funcionalidade e valorização estética do imóvel.">
+            <p>O serviço foi planejado para proporcionar um ambiente visualmente sofisticado, tecnicamente confiável e pronto para uso, unindo acabamento refinado e instalações elétricas organizadas, balanceadas e seguras.</p>
+          </section>     
+        </article>
+        <article label="2. SERVIÇOS DE PINTURA – PREPARAÇÃO E ACABAMENTO FINO">
+          <section label="2.1 Preparação das superfícies (paredes e tetos)">
+            <ul>
+              <li><strong>Sala: </strong> paredes e tetos</li>
+              <li><strong>Cozinha: </strong> forro de gesso drywall</li>
+              <li><strong>Hall de circulação: </strong> paredes</li>
+              <li><strong>Dormitório: </strong> paredes e teto</li>
+              <li><strong>Suíte: </strong> paredes e teto</li>
+
+            </ul>
+          </section>
+          <section label="2.2 Repintura de tetos (sem massa corrida)">
+            <p>Repintura dos seguintes ambientes, com preparo leve e acabamento uniforme:</p>
+            <ul>
+              <li>Teto do banheiro da suíte</li>
+              <li>Teto do banheiro social</li>
+              <li>Teto da sacada (varanda gourmet)</li>
+
+            </ul>
+          </section>
+          <section label="2.3 Lixamento técnico e acabamento fino">
+            <p>Processo executado em duas etapas fundamentais:</p>
+            <ol>
+              <li>Lixamento com máquina profissional
+                <ul>
+                  <li>Nivelamento geral das superfícies tratadas.</li>
+                  <li>Remoção de marcas e excesso de material.</li>
+                  <li></li>
+                </ul>
+              </li>
+            </ol>
+          </section>
+        </article>
+
+        <article label="2. Materiais">
+          <section label="Fornecidos pelo cliente:">
+          </section>
+          <section label="Fornecidos pela equipe Elétrica&Art:">
+          </section> 
+        </article>
+
+        <article label="3. Investimento" class="">
+          <section>
+            <p>Valor total da mão de obra: <strong>R$ 1.750,00 (um mil setecentos e cinquenta reais)</strong></p>
+          </section>
+          <section label="Forma de Pagamento:">
+            <p>50% de entrada na assinatura da proposta.</p>
+            <p>50% na entrega e conclusão dos serviços.</p>
+          </section>
+        </article>
+    
+        <article label="4. Prazo de Execução">
+          <p>Prazo estimado para execução: <strong>até 3 dias úteis</strong>, (Sujeito a ajustes conforme o andamento da obra e disponibilidade de materiais).</p>
+        </article>
+
+        <article label="5. Garantia">
+        </article>
+
+        <article label="6. Observações Finais" class="avoid">
+        </article>
+        <article class="">
+          <t6>Compromisso Elétrica&Art:</t6>
+          <p>Unir técnica, estética, precisão e responsabilidade para entregar um resultado impecável, durável e superior.</p>
+          <tagb>
+            <p>
+              Agradecemos a oportunidade de apresentar esta proposta e estamos à disposição para quaisquer esclarecimentos adicionais.
+            </p>
+          </tagb>
+        </article>
+
+        <article label="Assinatura e Aprovação">
+          <signatures signer cliente ></signatures>
+        </article>
+
+        <footer id="pageFooter"></footer>
+
+      </view>
+    </home-page>
+
+    <footer>
+      <content>
+        <label>
+          <input type="button" id="btn_createPDF" value="Baixar em pdf"> 
+        </label>
+      </content>
+    </footer>
+      
+    <script>
+      const data = {
+        title: "Elétrica & Art-Orçamento",
+        cliente: {
+          name: "",
+          address: "",
+        },
+        docTitle: {
+          subtitle: "",
+          emissao: "",
+          validade: "",
+          text: "SERVIÇOS DE PINTURA E INSTALAÇÃO ELÉTRICA RESIDENCIAL",
+        },
+      };
+    </script>
+  </body>
+</html>
+<!-- <brk></brk> -->
