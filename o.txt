@@ -1,176 +1,135 @@
 
-PROPOSTA DE ORÇAMENTO – 
+PROPOSTA DE ORÇAMENTO – SERVIÇOS ELÉTRICOS (CONDOMÍNIO)
 
-Cliente: Luciana
-Endereço da Obra: 
-Data de Emissão: 
+Cliente: Iva
+Endereço: Avenida Castelo Branco, nº 6809 – Ocian
+Cidade: Praia Grande – SP
+Data de Emissão: 14/12/2025
 Validade da Proposta: 15 dias
 
 
 ---
 
-1. ESCOPO DO SERVIÇO
+1. OBJETIVO DA PROPOSTA
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Esta proposta tem como objetivo apresentar soluções técnicas para correção, modernização e adequação da instalação elétrica da área de lazer do prédio, visando restabelecer o pleno funcionamento das luminárias e circuitos elétricos, bem como eliminar riscos decorrentes de fiação antiga e componentes obsoletos, garantindo segurança, confiabilidade e conformidade técnica às instalações.
 
 
 ---
 
+2. ESCOPO DOS SERVIÇOS
+
+OPÇÃO 1 – REPARO E ADEQUAÇÃO DA INSTALAÇÃO EXISTENTE
+
+Execução de serviços corretivos na instalação elétrica atual da área de lazer do prédio, contemplando:
+
+Diagnóstico técnico das falhas elétricas que comprometem o funcionamento das luminárias e circuitos da área de lazer;
+
+Reparo na fiação existente, com substituição parcial do cabeamento rígido antigo por cabos flexíveis, adequados às normas técnicas atuais;
+
+Correção de conexões inadequadas, pontos com mau contato e sobrecargas;
+
+Sanar falhas elétricas que causam instabilidade, desligamentos ou funcionamento irregular dos circuitos;
+
+Avaliação do quadro de força existente, com possibilidade de substituição de componentes antigos (disjuntores, barramentos ou conexões) que apresentem risco ao funcionamento seguro da instalação.
+
+
+> Importante: A substituição de componentes do quadro será realizada somente se constatada necessidade técnica durante a execução.
 
 
 
-
-
-
-
-
----
-
-
-
-
-
-
-
-
-
-
-
----
-
-
-
-
-
-1. 
-
-
-
-
-
-2. 
-
-
-
-
-
-
-
-
-
+Valor da mão de obra – Opção 1:
+R$ 600,00 (seiscentos reais)
 
 
 ---
 
+OPÇÃO 2 – SUBSTITUIÇÃO TOTAL DO CIRCUITO ELÉTRICO DA ÁREA DE LAZER
+
+Execução completa de modernização da instalação elétrica da área de lazer, contemplando:
+
+Desativação do circuito elétrico existente;
+
+Substituição total do cabeamento de alimentação, desde o centro de medição até o quadro de força da área de lazer;
+
+Instalação de novo cabeamento elétrico dimensionado corretamente para as cargas existentes;
+
+Substituição completa do quadro de força, incluindo disjuntores e componentes adequados às normas vigentes;
+
+Organização, identificação e balanceamento dos circuitos;
+
+Testes finais de funcionamento, segurança e estabilidade elétrica.
 
 
+Esta opção é indicada para casos em que a instalação existente apresenta obsolescência avançada, riscos recorrentes ou necessidade de adequação definitiva, proporcionando maior durabilidade e segurança ao condomínio.
 
-
-
-
-
-
+Valor da mão de obra – Opção 2:
+R$ 2.500,00 (dois mil e quinhentos reais)
 
 
 ---
 
 3. MATERIAIS
 
-Fornecidos pelo cliente:
+Materiais elétricos (cabos, disjuntores, quadro de força e componentes): fornecidos pelo contratante;
+
+Ferramentas, equipamentos técnicos, instrumentos de medição e EPIs: fornecidos pela equipe Elétrica&Art.
 
 
-
-
-
-
-
-
-
-
-Fornecidos pela equipe Elétrica&Art:
-
-
-
-
-
-
-
+> Os valores apresentados referem-se exclusivamente à mão de obra especializada.
 
 
 
 
 ---
 
-4. INVESTIMENTO
+4. PRAZO DE EXECUÇÃO
 
-Valor total da mão de obra:
+Opção 1 – Reparo elétrico: execução e conclusão no mesmo dia;
 
-R$ 500,00
-
-(quinhentos reais)
-
-
----
-
-
-
-
-
-
-
-
+Opção 2 – Substituição total do circuito: execução e conclusão no mesmo dia, mediante disponibilidade prévia dos materiais.
 
 
 
 ---
 
-6. PRAZO DE EXECUÇÃO
+5. CONDIÇÕES DE PAGAMENTO
 
-Prazo estimado:
-
-2 dias
+Pagamento integral à vista, a ser efetuado no dia da execução do serviço.
 
 
+
+---
+
+6. NOTA FISCAL
+
+Será emitida Nota Fiscal de Prestação de Serviços, conforme exigência legal, por se tratar de serviço executado em condomínio.
 
 
 ---
 
 7. GARANTIA
 
-
-
+Garantia de 3 meses sobre a mão de obra executada, válida para falhas de execução.
+Não cobre danos decorrentes de infiltrações, umidade, sobrecargas externas, mau uso ou intervenções de terceiros.
 
 
 ---
 
 8. OBSERVAÇÕES FINAIS
 
+Esta proposta contempla exclusivamente os serviços descritos;
 
+Qualquer alteração de escopo deverá ser previamente acordada;
 
-
-
-
-
-
+Todos os serviços serão executados seguindo critérios técnicos, normas de segurança e boas práticas de instalações elétricas.
 
 
 
 ---
 
-Compromisso Elétrica&Art
+> Compromisso Elétrica&Art
+Executar serviços elétricos com responsabilidade técnica, segurança e transparência, garantindo ao condomínio uma instalação funcional, segura e confiável, reduzindo riscos e prevenindo falhas futuras.
 
 
 
@@ -178,8 +137,8 @@ Compromisso Elétrica&Art
 ---
 
 Responsável Técnico: Rafael Sammarco
-Elétrica&Art
+Empresa: Elétrica&Art
 CNPJ: 32.858.892/0001-52
-Rua José Alves Maciel, nº 40 – Bairro Aviação – Praia Grande/SP
+Endereço: Rua José Alves Maciel, nº 40 – Bairro Aviação – Praia Grande/SP
 Telefone: (13) 99768-5853
 E-mail: eletrica.art.ltda@gmail.com
