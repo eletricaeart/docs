@@ -1,140 +1,82 @@
-
-PROPOSTA DE ORÇAMENTO – 
-
-Cliente: Iva
-Endereço: 
-Cidade: 
-Data de Emissão: 14/12/2025
+PROPOSTA DE ORÇAMENTO – SERVIÇOS DE ELÉTRICA, PINTURA E DEMOLIÇÃO (RESIDENCIAL)
+Cliente: Giulianna
+Endereço: Rua Januário dos Santos, nº 176 – Apto 52
+Bairro: Aparecida
+Cidade: Santos – SP
+Data de Emissão: 05/01/2026
 Validade da Proposta: 15 dias
-
-
----
-
 1. OBJETIVO DA PROPOSTA
-
-
-
-
----
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
----
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
----
-
+Esta proposta tem como objetivo apresentar a execução de serviços técnicos especializados nas áreas de elétrica, pintura e demolição, visando a adequação funcional, modernização estética e valorização do imóvel, garantindo segurança, acabamento refinado e perfeita integração entre iluminação, mobiliário e arquitetura do apartamento.
+2. ESCOPO DOS SERVIÇOS
+2.1 DEMOLIÇÃO
+Demolição e remoção de mobiliários existentes:
+Sala
+Quarto social
+Suíte
+Valor da mão de obra – Demolição:
+R$ 400,00 (quatrocentos reais)
+2.2 SERVIÇOS ELÉTRICOS
+Execução de serviços elétricos com foco em redistribuição de pontos, iluminação decorativa e adequação para novos mobiliários planejados.
+Serviços contemplados:
+Reposicionamento de spots existentes na sala;
+Instalação de novos spots nos pontos reposicionados;
+Reposicionamento do circuito do pendente da bancada entre sala e cozinha;
+Adequação elétrica para instalação de mobiliário com perfil de LED;
+Instalação de plafon de sobrepor na cozinha;
+Corte técnico na parede da TV da sala para passagem de conduíte e infraestrutura elétrica para perfil de LED;
+Instalação de perfil de LED no mobiliário da sala;
+Instalação de plafon na suíte;
+Cabeamento e instalação de arandelas na cabeceira da cama da suíte;
+Instalação de plafon no quarto social;
+Cabeamento e instalação de fita LED no rodateto do quarto social;
+Cabeamento e instalação de torre de tomadas na cozinha.
+OPÇÕES DE EXECUÇÃO – SERVIÇOS ELÉTRICOS
+OPÇÃO 1 – EXECUÇÃO COMPLETA COM INFRAESTRUTURA PARA PERFIL DE LED NA SALA
+Inclui:
+Corte na parede da TV para passagem de conduíte;
+Infraestrutura elétrica dedicada;
+Instalação do perfil de LED no mobiliário da sala.
+Valor da mão de obra – Opção 1:
+R$ 1.700,00 (um mil e setecentos reais)
+OPÇÃO 2 – EXECUÇÃO SEM CORTE NA PAREDE DA TV E SEM PERFIL DE LED NO MOBILIÁRIO DA SALA
+Nesta opção não serão executados:
+Corte na parede da TV;
+Infraestrutura elétrica para perfil de LED;
+Instalação de perfil de LED no mobiliário da sala.
+Todos os demais serviços elétricos permanecem contemplados.
+Valor da mão de obra – Opção 2:
+R$ 1.300,00 (um mil e trezentos reais)
+A escolha da opção ideal permite adequar o investimento conforme a solução estética desejada, mantendo sempre a qualidade técnica da execução.
+2.3 SERVIÇOS DE PINTURA
+Preparo das paredes nas áreas danificadas pela demolição dos mobiliários;
+Correções e reparos necessários para acabamento fino;
+Repintura do teto da cozinha;
+Repintura do teto e paredes da sala;
+Repintura do teto e paredes do corredor;
+Repintura do teto da suíte;
+Repintura do teto e paredes do quarto social;
+Repintura de 5 portas.
+Valor da mão de obra – Pintura:
+R$ 4.250,00 (quatro mil duzentos e cinquenta reais)
 3. MATERIAIS
-
-
-: fornecidos pelo contratante;
-
-
-: fornecidos pela equipe Elétrica&Art.
-
-
-> 
-
-
-
-
----
-
+Todos os materiais (tintas, cabos, luminárias, perfis de LED, tomadas, etc.) serão fornecidos pelo contratante;
+Ferramentas, equipamentos técnicos, instrumentos de medição e EPIs serão fornecidos pela equipe Elétrica&Art.
+Os valores apresentados referem-se exclusivamente à mão de obra especializada.
 4. PRAZO DE EXECUÇÃO
-
-
-
-
----
-
-
-
-
-
-
-
----
-
-
-
-
-
-
----
-
-7. GARANTIA
-
-
-
-
-
----
-
-8. OBSERVAÇÕES FINAIS
-
-
-
-
-
-
-
-
-
----
-
-> Compromisso Elétrica&Art
-
-
-
-
-
----
-
+Prazo estimado para conclusão dos serviços: até 15 dias corridos, a partir da liberação do imóvel e confirmação do início dos trabalhos.
+5. CONDIÇÕES DE PAGAMENTO
+50% de entrada na assinatura/aprovação da proposta;
+50% na entrega e conclusão dos serviços.
+6. GARANTIA
+Garantia de 3 meses sobre a mão de obra executada, válida para falhas de execução;
+Não cobre danos decorrentes de infiltrações, umidade, mau uso, alterações posteriores ou intervenções de terceiros.
+7. OBSERVAÇÕES FINAIS
+Esta proposta contempla exclusivamente os serviços descritos;
+Qualquer alteração de escopo deverá ser previamente acordada;
+Todos os serviços serão executados seguindo critérios técnicos, normas de segurança e boas práticas profissionais;
+O investimento proposto reflete qualidade de execução, organização, acabamento e responsabilidade técnica.
+Compromisso Elétrica&Art
+Executar cada etapa com precisão técnica, cuidado estético e total transparência, assegurando um resultado final funcional, elegante e durável, agregando conforto, valorização e segurança ao imóvel.
 Responsável Técnico: Rafael Sammarco
 Empresa: Elétrica&Art
 CNPJ: 32.858.892/0001-52
