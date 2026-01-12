@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <title></title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../assets/globals.css" />
+    <script src="../assets/globals.js" defer></script>
+    <script
+      src="../assets/html2pdf-0.9.2.js"
+      src-remote="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"
+    ></script>
+    <script cjs src="../assets/cjs.js"></script>
+    <script widgets src="../assets/widgets.js" defer></script>
+    <script EACard src="../assets/EACard.js" defer></script>
+    <script DownloadPDF src="../assets/DownloadPDF.js" defer></script>
+  </head>
+  <body>
+    <home-page>
+      <view id="invoice_html">
+        <ea-card section="dual"></ea-card>
+
+        <doc-title
+          id="docTitle"
+          subtitle="PROPOSTA DE ORÇAMENTO"
+          emissao="00/00/2025"
+          validade="15 dias"
+        >
+          SERVIÇOS DE PINTURA E ELÉTRICA
+        </doc-title>
+
+        <cliente id="cliente" nome="" endereço=""> </cliente>
+
+        <article label="1. OBJETIVO DA PROPOSTA">
+          <section
+            label="Esta proposta tem como objetivo apresentar a execução de serviços técnicos especializados de preparo e pintura residencial, contemplando o interior completo do imóvel, com foco em nivelamento de superfícies, correção de imperfeições e acabamento fino de alto padrão."
+          >
+            <p>
+              A metodologia aplicada visa entregar uniformidade visual,
+              durabilidade e valorização imediata do imóvel, utilizando
+              processos profissionais que reduzem significativamente a
+              necessidade de manutenções ou retrabalhos futuros.
+            </p>
+          </section>
+        </article>
+
+        <article label="2. ESCOPO DOS SERVIÇOS">
+          <section
+            label="2.1 SERVIÇOS DE PREPARAÇÃO DE SUPERFÍCIES (INTERIOR COMPLETO)"
+          >
+            <p>Execução criteriosa dos serviços de preparo, contemplando:</p>
+            <ul>
+              <li>Aplicação de massa corrida nas paredes e teto da sala;</li>
+              <li>
+                Aplicação de massa corrida nas paredes e teto do quarto social;
+              </li>
+              <li>Aplicação de massa corrida nas paredes e teto da suíte 2;</li>
+              <li>Aplicação de massa corrida no teto da cozinha;</li>
+              <li>Aplicação de massa nos tetos dos dois banheiros;</li>
+              <li>Lixamento mecanizado para regularização das superfícies;</li>
+              <brk></brk>
+              <li>
+                Lixamento manual detalhado, executado com auxílio de iluminação
+                direcionada (lâmpada técnica), assegurando acabamento fino,
+                eliminação de marcas e perfeita leitura visual sob qualquer tipo
+                de iluminação.
+              </li>
+            </ul>
+            <tagc
+              >Este processo garante superfícies perfeitamente preparadas,
+              prontas para receber a pintura final com resultado estético
+              superior.</tagc
+            >
+          </section>
+          <section label="2.2 SERVIÇOS DE PINTURA">
+            <ul>
+              <li>
+                Aplicação de pintura em todas as áreas previamente preparadas
+                (paredes e tetos);
+              </li>
+              <li>
+                Pintura de 7 portas, com acabamento uniforme e alinhado ao
+                padrão geral do imóvel.
+              </li>
+            </ul>
+          </section>
+        </article>
+
+        <article label="3. OPÇÕES DE EXECUÇÃO E INVESTIMENTO">
+          <section
+            label="Com o objetivo de oferecer flexibilidade de investimento, mantendo sempre o mesmo padrão técnico de execução, seguem as opções disponíveis:"
+          >
+            <p>OPÇÃO 1 – PREPARO COMPLETO (SEM PINTURA FINAL)</p>
+            <p><strong>Inclui: </strong></p>
+            <ul>
+              <li>Todos os serviços de preparo descritos no item 2.1;</li>
+              <li>
+                Entrega de todas as superfícies totalmente prontas para receber
+                a etapa de pintura.
+              </li>
+            </ul>
+            <p>
+              Valor da mão de obra – Opção 1:
+              <strong>R$ 6.000,00 (seis mil reais)</strong>
+            </p>
+            <tagc>
+              Opção indicada para quem deseja garantir a base perfeita do
+              acabamento, preservando liberdade para a pintura em momento
+              posterior.
+            </tagc>
+            <br>
+            <hr />
+
+            <p>OPÇÃO 2 – PREPARO COMPLETO + PINTURA DE TODAS AS ÁREAS</p>
+            <p><strong>Inclui:</strong></p>
+            <ul>
+              <li>Todos os serviços de preparo descritos no item 2.1;</li>
+              <li>
+                Aplicação de pintura em todas as áreas internas preparadas.
+              </li>
+            </ul>
+            <p>
+              Valor da mão de obra – Opção 2:
+              <strong>R$ 8.000,00 (oito mil reais)</strong>
+            </p>
+            <tagc>
+              Esta opção entrega o imóvel visualmente finalizado, com padrão
+              estético uniforme e acabamento completo.
+            </tagc>
+            <br>
+            <hr>
+            <p>
+            OPÇÃO 3 – PREPARO COMPLETO + PINTURA DE TODAS AS ÁREAS + PINTURA DAS PORTAS</p>
+            <p><strong>Inclui:</strong></p>
+            <ul>
+              <li>Todos os serviços de preparo descritos no item 2.1;</li>
+              <li>Aplicação de pintura em todas as áreas internas;</li>
+              <li>Pintura de 7 portas.</li>
+              <p>
+Valor da mão de obra – Opção 3:
+                <strong>R$ 9.000,00 (nove mil reais)</strong>
+              </p>
+              <tagc>
+Opção mais completa, indicada para quem busca entrega final pronta, com acabamento refinado em todos os detalhes do imóvel.
+              </tagc>
+          </section>
+        </article>
+
+        <article label="4. MATERIAIS">
+          <section label="">
+            <p>
+              Materiais de pintura (massa corrida, tintas, seladores e insumos): <strong>fornecidos pela contratante;</strong>
+            </p>
+            <p>
+              Ferramentas, equipamentos técnicos, máquinas de lixamento, iluminação auxiliar e EPIs: <strong>fornecidos pela equipe Elétrica&Art.</strong>
+            </p>
+            <p>
+Os valores apresentados referem-se exclusivamente à mão de obra especializada.
+            </p>
+          </section>
+        </article>
+
+        <article label="5. PRAZO DE EXECUÇÃO">
+          <section label="">
+            <p>Prazo estimado para execução e conclusão dos serviços: até 15 dias, a partir da liberação do imóvel e início dos trabalhos.</p>
+          </section>
+        </article>
+        <article label="6. CONDIÇÕES DE PAGAMENTO">
+          <section>
+            <ul>
+              <li>50% de entrada na aprovação da proposta;</li>
+              <li>50% na conclusão e entrega dos serviços.</li>
+            </ul>
+          </section>
+        </article>
+        <article label='7. GARANTIA'>
+          <section>
+            <p>Garantia de 3 meses sobre a mão de obra executada, válida para falhas de execução.</p>
+            <p>Não cobre danos decorrentes de infiltrações, umidade, mau uso, impactos, alterações posteriores ou intervenções de terceiros.</p>
+          </section>
+        </article>
+
+        <article label="8. Observações Finais" class="avoid">
+          <section>
+            <p>            Esta proposta contempla exclusivamente os serviços descritos;</p>
+            <p>Qualquer alteração de escopo deverá ser previamente acordada;</p>
+            <p>Todos os serviços serão executados seguindo critérios técnicos, normas de segurança e boas práticas profissionais;</p>
+            <p>O investimento reflete qualidade de execução, organização, método e acabamento de alto padrão.</p>
+
+          </section>
+        </article>
+        <article class="">
+
+          <t6>Compromisso Elétrica&Art:</t6>
+          <p>
+            Unir técnica, estética, precisão e responsabilidade para entregar um
+            resultado impecável, durável e superior.
+          </p>
+          <tagb>
+            <p>
+              Executar cada etapa com precisão técnica, cuidado estético e total transparência, entregando um resultado final que se destaca pela qualidade visual, durabilidade e valorização do imóvel, proporcionando tranquilidade e satisfação à cliente.
+            </p>
+          </tagb>
+        </article>
+
+        <article label="Assinatura e Aprovação">
+          <signatures signer cliente></signatures>
+        </article>
+
+        <footer id="pageFooter"></footer>
+      </view>
+    </home-page>
+
+    <footer>
+      <content>
+        <label>
+          <input type="button" id="btn_createPDF" value="Baixar em pdf" />
+        </label>
+      </content>
+    </footer>
+
+    <script>
+      const data = {
+        title: 'Elétrica & Art-Orçamento',
+        cliente: {
+          name: 'Vânia',
+          address: 'Rua Jurubaíba nº 127, Vila Caiçara - Praia Grande – SP',
+        },
+        docTitle: {
+          subtitle: '',
+          emissao: '10/01/2026',
+          validade: '',
+          text: 'SERVIÇOS DE PINTURA (RESIDENCIAL)',
+        },
+      };
+    </script>
+  </body>
+</html>
+<!-- <brk></brk> -->

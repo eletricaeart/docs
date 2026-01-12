@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <title></title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../assets/globals.css" />
+    <script src="../assets/globals.js" defer></script>
+    <script
+      src="../assets/html2pdf-0.9.2.js"
+      src-remote="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"
+    ></script>
+    <script cjs src="../assets/cjs.js"></script>
+    <script widgets src="../assets/widgets.js" defer></script>
+    <script EACard src="../assets/EACard.js" defer></script>
+    <script DownloadPDF src="../assets/DownloadPDF.js" defer></script>
+  </head>
+  <body>
+    <home-page>
+      <view id="invoice_html">
+        <ea-card section="dual"></ea-card>
+
+        <doc-title
+          id="docTitle"
+          subtitle="PROPOSTA DE ORÇAMENTO"
+          emissao="00/00/2025"
+          validade="15 dias"
+        >
+          SERVIÇOS DE PINTURA E ELÉTRICA
+        </doc-title>
+
+        <cliente id="cliente" nome="" endereço=""></cliente>
+
+        <article label="1. OBJETIVO DA PROPOSTA">
+          <section label="Esta proposta tem como objetivo apresentar soluções técnicas para adequação, redistribuição e modernização das instalações elétricas, bem como serviços de demolição controlada e pintura, visando atender às novas configurações de mobiliário, iluminação decorativa e acabamento final do apartamento.">
+            <p>O conjunto dos serviços propostos busca garantir segurança, funcionalidade, estética refinada e valorização do imóvel, com execução criteriosa, acabamento de alto padrão e integração harmônica entre elétrica, arquitetura e pintura.</p>
+          </section>
+        </article>
+
+        <article label="2. ESCOPO DOS SERVIÇOS">
+          <section label="2.1 DEMOLIÇÃO DE MOBILIÁRIOS">
+            <p>
+Execução de demolição técnica e controlada dos mobiliários existentes, contemplando:
+            </p>
+            <u>
+              <li>              Sala;</li>
+              <li>Quarto social;</li>
+              <li>Suíte.</li>
+              <p>
+Valor da mão de obra – Demolição de mobiliários:
+                <strong>R$ 400,00 (quatrocentos reais)</strong>
+              </p>
+          </section>
+          <section label="2.2 DEMOLIÇÃO DE REVESTIMENTO + PREPARO E PINTURA DE PAREDE (8 m²)">
+            <p>Execução completa de demolição, regularização e acabamento final de parede revestida, contemplando:</p>
+            <ul>
+              <li>Demolição controlada de aproximadamente 8 m² de revestimento existente em parede;</li>
+              <li>Recolhimento, ensacamento e organização do entulho gerado;</li>
+              <li>Regularização e nivelamento da parede com argamassa, corrigindo desníveis e imperfeições estruturais;</li>
+              <li>Aplicação de fundo preparador e selador acrílico, assegurando aderência adequada dos revestimentos posteriores;</li>
+              <li>Aplicação de massa corrida, com correções necessárias para acabamento fino;</li>
+              <li>Lixamento mecanizado e lixamento manual detalhado, com auxílio de iluminação técnica, garantindo leitura perfeita da superfície;</li>
+              <li>Pintura final da parede, com acabamento uniforme, elegante e compatível com o padrão estético do restante do ambiente.</li>
+
+            </ul>
+            <p>Este serviço entrega a parede totalmente recuperada, nivelada e finalizada, eliminando marcas da demolição e garantindo integração visual com o conjunto do imóvel.</p>
+            <p>
+              Valor da mão de obra – Demolição, preparo e pintura de parede (7 m²):
+              <strong>R$ 799,00 (oitocentos reais)</strong>
+
+            </p>
+          </section>
+          <section label="2.3 SERVIÇOS ELÉTRICOS">
+            <p>Execução de serviços elétricos para adequação de pontos, redistribuição de circuitos e instalação de iluminação decorativa, contemplando:</p>
+            <ul>
+              <li>Reposicionamento de spots existentes na sala;</li>
+              <li>Instalação de novos spots nos pontos reposicionados;</li>
+              <li>Reposicionamento do circuito do pendente da bancada entre sala e cozinha;</li>
+              <li>Infraestrutura elétrica para mobiliário com perfil de LED;</li>
+              <li>Instalação de plafon de sobrepor na cozinha;</li>
+              <li>Corte técnico na parede da TV da sala para passagem de conduíte e infraestrutura elétrica;</li>
+              <li>Instalação de perfil de LED no mobiliário da sala;</li>
+              <li>Instalação de plafon na suíte;</li>
+              <li>Cabeamento e instalação de arandelas na cabeceira da cama da suíte;</li>
+              <li>Instalação de plafon no quarto social;</li>
+              <li>Cabeamento e instalação de fita LED no rodateto do quarto social;</li>
+              <li>Cabeamento e instalação de torre de tomadas na cozinha;</li>
+              <li>Testes finais de funcionamento e verificação de segurança dos circuitos.</li>
+
+            </ul>
+          </section>
+        </article>
+
+        <article label="OPÇÕES DE EXECUÇÃO – SERVIÇOS ELÉTRICOS">
+          <section label="OPÇÃO 1 – EXECUÇÃO COMPLETA COM INFRAESTRUTURA E PERFIL DE LED NA SALA">
+            <p>Inclui:</p>
+            <ul>
+              <li>Corte na parede da TV para passagem de conduíte;</li>
+              <li>Infraestrutura elétrica dedicada;</li>
+              <li>Instalação do perfil de LED no mobiliário da sala.</li>
+            </ul>
+            <p>
+Valor da mão de obra – Opção 1:
+              <strong>R$ 1.700,00 (um mil e setecentos reais)</strong>
+            </p>
+          </section>
+          <section label="OPÇÃO 2 – EXECUÇÃO SEM CORTE NA PAREDE DA TV E SEM PERFIL DE LED NO MOBILIÁRIO DA SALA">
+            <p>Nesta opção não serão executados:</p>
+            <ul>
+              <li>Corte na parede da TV;</li>
+              <li>Infraestrutura elétrica para perfil de LED;</li>
+              <li>Instalação de perfil de LED no mobiliário da sala.</li>
+              <li>Os demais serviços elétricos descritos permanecem integralmente contemplados.</li>
+              <p>
+Valor da mão de obra – Opção 2:
+                <strong>R$ 1.300,00 (um mil e trezentos reais)</strong>
+              </p>
+          </section>
+        </article>
+
+        <article label="">
+          <section label="2.4 SERVIÇOS DE PINTURA (DEMAIS AMBIENTES)">
+            <p>Execução de serviços de preparo e pintura, contemplando:</p>
+            <ul>
+              <li>Preparo das paredes danificadas em decorrência da demolição dos mobiliários;</li>
+              <li>Correções e reparos necessários para acabamento fino;</li>
+              <li>Repintura do teto da cozinha;</li>
+              <li>Repintura do teto e paredes da sala;</li>
+              <li>Repintura do teto e paredes do corredor;</li>
+              <li>Repintura do teto da suíte;</li>
+              <li>Repintura do teto e paredes do quarto social;</li>
+              <li>Repintura de 5 portas.</li>
+            </ul>
+            <p>
+Valor da mão de obra – Pintura:
+              <strong>R$ 4.250,00 (quatro mil duzentos e cinquenta reais)</strong>
+            </p>
+          </section>
+        </article>
+
+        <article label="">
+          <section label="">
+            <p></p>
+          </section>
+        </article>
+
+        <article label="6. Observações Finais" class="avoid">
+          <section label="">
+            <p></p>
+          </section>
+        </article>
+        <article class="">
+          <t6>Compromisso Elétrica&Art:</t6>
+          <p>
+            Unir técnica, estética, precisão e responsabilidade para entregar um
+            resultado impecável, durável e superior.
+          </p>
+          <tagb>
+            <p>
+              Agradecemos a oportunidade de apresentar esta proposta e estamos à
+              disposição para quaisquer esclarecimentos adicionais.
+            </p>
+          </tagb>
+        </article>
+
+        <article label="Assinatura e Aprovação">
+          <signatures signer cliente></signatures>
+        </article>
+
+        <footer id="pageFooter"></footer>
+      </view>
+    </home-page>
+
+    <footer>
+      <content>
+        <label>
+          <input type="button" id="btn_createPDF" value="Baixar em pdf" />
+        </label>
+      </content>
+    </footer>
+
+    <script>
+      const data = {
+        title: "Elétrica & Art-Orçamento",
+        cliente: {
+          name: "Giulianna",
+          address:
+            "Rua Januário dos Santos nº 176 – Apto 52, Aparecida - Santos – SP",
+        },
+        docTitle: {
+          subtitle: "",
+          emissao: "05/01/2026",
+          validade: "",
+          text: "SERVIÇOS DE ELÉTRICA, PINTURA E DEMOLIÇÃO (RESIDENCIAL)",
+        },
+      };
+    </script>
+  </body>
+</html>
+<!-- <brk></brk> -->
