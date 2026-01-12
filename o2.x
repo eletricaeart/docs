@@ -18,10 +18,7 @@ Validade da Proposta: 15 dias
 
 
 
-3. MATERIAIS
-Materiais elétricos, tintas, perfis de LED, luminárias e demais insumos: fornecidos pela contratante;
-Ferramentas, equipamentos técnicos, instrumentos de medição e EPIs: fornecidos pela Elétrica&Art.
-Os valores apresentados referem-se exclusivamente à mão de obra especializada.
+
 4. PRAZO DE EXECUÇÃO
 Prazo estimado para execução e conclusão dos serviços: até 15 dias, a partir da liberação do imóvel e início dos trabalhos.
 5. CONDIÇÕES DE PAGAMENTO
