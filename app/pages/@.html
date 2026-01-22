@@ -1,0 +1,146 @@
+
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <title>Carregando Orçamento...</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../assets/globals.css" />
+    
+    <script src="../assets/html2pdf-0.9.2.js"></script>
+    <script cjs src="../assets/cjs.js"></script>
+
+    <script src="../assets/globals.js" defer></script>
+    <script widgets src="../assets/widgets.js" defer></script>
+    <script EACard src="../assets/EACard.js" defer></script>
+    <script DownloadPDF src="../assets/DownloadPDF.js" defer></script>
+  </head>
+  <body>
+    <home-page>
+      <view id="invoice_html">
+        <ea-card section="dual"></ea-card>
+
+        <doc-title id="docTitle"></doc-title>
+
+        <cliente id="cliente"></cliente>
+
+        <div id="dynamic_content"></div>
+
+        <article class="avoid">
+          <t6>Compromisso Elétrica&Art:</t6>
+          <p>
+            Unir técnica, estética, precisão e responsabilidade para entregar um
+            resultado impecável, durável e superior.
+          </p>
+          <tagb>
+            <p>
+              Agradecemos a oportunidade de apresentar esta proposta e estamos à
+              disposição para quaisquer esclarecimentos adicionais.
+            </p>
+          </tagb>
+        </article>
+
+        <article label="Assinatura e Aprovação">
+          <signatures signer cliente></signatures>
+        </article>
+
+        <footer id="pageFooter"></footer>
+      </view>
+    </home-page>
+
+    <footer>
+      <content>
+        <label>
+          <input type="button" id="btn_createPDF" value="Baixar em pdf" />
+        </label>
+      </content>
+    </footer>
+
+    <script>
+      /**
+       * Mapeamento dos dados para o globals.js
+       * Em um cenário real, você pode usar fetch('dados.json')
+       */
+      const data = {
+        title: "Elétrica & Art-Orçamento",
+        cliente: {
+          name: "João Silva",
+          address: "Rua das Flores, 123, Jardim América, São Paulo - SP"
+        },
+        docTitle: {
+          subtitle: "PROPOSTA DE ORÇAMENTO TÉCNICO",
+          emissao: new Date().toLocaleDateString('pt-br'),
+          validade: "10 dias",
+          text: "INSTALAÇÃO ELÉTRICA E ILUMINAÇÃO"
+        },
+        // Lista de serviços para renderização dinâmica
+        servicos: [
+          {
+            titulo: "1. Escopo de Instalações Elétricas",
+            itens: [
+              {
+                subtitulo: "Quarto Principal",
+                detalhes: [
+                  "Instalação de 04 tomadas duplas 20A",
+                  "Troca de fiação para ar-condicionado 12.000 BTUs",
+                  "Instalação de fita LED em sanca de gesso"
+                ]
+              },
+              {
+                subtitulo: "Cozinha e Área de Serviço",
+                detalhes: [
+                  "Revisão de quadro de distribuição",
+                  "Identificação de circuitos e troca de disjuntores (NEMA para DIN)"
+                ]
+              }
+            ]
+          },
+          {
+            titulo: "2. Materiais e Prazos",
+            itens: [
+              {
+                subtitulo: "Observações Técnicas",
+                detalhes: [
+                  "Materiais por conta do contratante",
+                  "Prazo de execução: 05 dias úteis",
+                  "Garantia de 1 ano sobre a mão de obra"
+                ]
+              }
+            ]
+          }
+        ]
+      };
+
+      // Função para injetar os serviços no HTML antes dos widgets carregarem
+      (function render() {
+        const container = document.getElementById('dynamic_content');
+        
+        data.servicos.forEach(servico => {
+          // Cria o artigo (Seção Principal)
+          const article = document.createElement('article');
+          article.setAttribute('label', servico.titulo);
+
+          servico.itens.forEach(item => {
+            // Cria o componente <arg> (Sub-item)
+            const arg = document.createElement('arg');
+            arg.setAttribute('label', item.subtitulo);
+            
+            const ul = document.createElement('ul');
+            item.detalhes.forEach(detalhe => {
+              const li = document.createElement('li');
+              li.textContent = detalhe;
+              ul.appendChild(li);
+            });
+
+            arg.appendChild(ul);
+            article.appendChild(arg);
+          });
+
+          container.appendChild(article);
+        });
+      })();
+    </script>
+  </body>
+</html>
+
