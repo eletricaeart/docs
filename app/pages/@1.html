@@ -19,7 +19,9 @@
     <home-page>
       <view id="invoice_html">
         <ea-card section="dual"></ea-card>
+
         <doc-title id="docTitle"></doc-title>
+
         <cliente id="cliente"></cliente>
 
         <div id="dynamic_content"></div>
@@ -55,58 +57,53 @@
     </footer>
 
     <script>
-      // Configuração dos dados com suporte a múltiplos tipos de conteúdo
+      /**
+       * Mapeamento dos dados para o globals.js
+       * Em um cenário real, você pode usar fetch('dados.json')
+       */
       const data = {
         title: "Elétrica & Art-Orçamento",
         cliente: {
           name: "João Silva",
-          address: "Rua das Flores, 123, SP",
+          address: "Rua das Flores, 123, Jardim América, São Paulo - SP",
         },
         docTitle: {
-          subtitle: "PROPOSTA DE ORÇAMENTO",
+          subtitle: "PROPOSTA DE ORÇAMENTO TÉCNICO",
           emissao: new Date().toLocaleDateString("pt-br"),
-          validade: "15 dias",
-          text: "SERVIÇOS DE ELÉTRICA E MANUTENÇÃO",
+          validade: "10 dias",
+          text: "INSTALAÇÃO ELÉTRICA E ILUMINAÇÃO",
         },
+        // Lista de serviços para renderização dinâmica
         servicos: [
           {
-            titulo: "Escopo Principal",
+            titulo: "1. Escopo de Instalações Elétricas",
             itens: [
               {
-                subtitulo: "Quarto e Suíte",
+                subtitulo: "Quarto Principal",
                 detalhes: [
-                  {
-                    tipo: "p",
-                    conteudo:
-                      "Instalação de novos pontos de iluminação conforme projeto.",
-                  },
-                  {
-                    tipo: "ul",
-                    conteudo: [
-                      "Tomadas 20A",
-                      "Interruptores paralelos",
-                      "Fita LED",
-                    ],
-                  },
+                  "Instalação de 04 tomadas duplas 20A",
+                  "Troca de fiação para ar-condicionado 12.000 BTUs",
+                  "Instalação de fita LED em sanca de gesso",
+                ],
+              },
+              {
+                subtitulo: "Cozinha e Área de Serviço",
+                detalhes: [
+                  "Revisão de quadro de distribuição",
+                  "Identificação de circuitos e troca de disjuntores (NEMA para DIN)",
                 ],
               },
             ],
           },
           {
-            titulo: "Observações e Garantias",
+            titulo: "2. Materiais e Prazos",
             itens: [
               {
-                subtitulo: "", // Sem subtítulo (apenas section label="")
+                subtitulo: "Observações Técnicas",
                 detalhes: [
-                  { tipo: "t6", conteudo: "Garantia técnica de 12 meses." },
-                  {
-                    tipo: "tagc",
-                    conteudo: "Atenção: Materiais não inclusos nesta proposta.",
-                  },
-                  {
-                    tipo: "p",
-                    conteudo: "O prazo de execução é de 5 dias úteis.",
-                  },
+                  "Materiais por conta do contratante",
+                  "Prazo de execução: 05 dias úteis",
+                  "Garantia de 1 ano sobre a mão de obra",
                 ],
               },
             ],
@@ -114,38 +111,29 @@
         ],
       };
 
+      // Função para injetar os serviços no HTML antes dos widgets carregarem
       (function render() {
         const container = document.getElementById("dynamic_content");
 
-        data.servicos.forEach((servico, index) => {
+        data.servicos.forEach((servico) => {
+          // Cria o artigo (Seção Principal)
           const article = document.createElement("article");
-          // 3.4 Numeração automática: "1. Titulo"
-          article.setAttribute("label", `${index + 1}. ${servico.titulo}`);
+          article.setAttribute("label", servico.titulo);
 
           servico.itens.forEach((item) => {
-            const section = document.createElement("section");
-            // 3.2 Label da section recebe o subtítulo
-            section.setAttribute("label", item.subtitulo || "");
+            // Cria o componente <arg> (Sub-item)
+            const arg = document.createElement("arg");
+            arg.setAttribute("label", item.subtitulo);
 
-            // 3.3 Renderização dinâmica baseada no tipo
-            item.detalhes.forEach((det) => {
-              let el;
-              if (det.tipo === "ul" || det.tipo === "ol") {
-                el = document.createElement(det.tipo);
-                det.conteudo.forEach((txt) => {
-                  const li = document.createElement("li");
-                  li.textContent = txt;
-                  el.appendChild(li);
-                });
-              } else {
-                // Suporta p, t6, tagc, etc.
-                el = document.createElement(det.tipo);
-                el.textContent = det.conteudo;
-              }
-              section.appendChild(el);
+            const ul = document.createElement("ul");
+            item.detalhes.forEach((detalhe) => {
+              const li = document.createElement("li");
+              li.textContent = detalhe;
+              ul.appendChild(li);
             });
 
-            article.appendChild(section);
+            arg.appendChild(ul);
+            article.appendChild(arg);
           });
 
           container.appendChild(article);
